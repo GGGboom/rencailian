@@ -1,28 +1,41 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <div id="app">
+        <Header v-if="!this.$store.state.isLogin"></Header>
+        <router-view/>
+        <Backtop v-if="!this.$store.state.isLogin"></Backtop>
+        <Footer v-if="!this.$store.state.isLogin"></Footer>
+    </div>
+
 </template>
-
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+    // @ is an alias to /src
+    import Header from '@/components/Header.vue';
+    import Footer from '@/components/Footer.vue';
+    import Backtop from '@/components/Backtop.vue';
+    export default {
+        name: 'App',
+        components: {
+            Header,
+            Footer,
+            Backtop
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+        },
+        data(){
+            return{
+                isAtLogin:false
+            }
+        },
+        created() {
+
+        },
+        mounted() {
+
+        },
+        watch:{
+
+        }
+    }
 </script>
-
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+    @import "assets/css/app.css";
 </style>

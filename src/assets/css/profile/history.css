@@ -1,0 +1,38 @@
+.delivery-list .job-padding{
+    padding: 5px 10px;
+}
+.delivery-list .job-head{
+    min-height: 60px!important;
+}
+.delivery-list .job-info{
+    background: #f8f9fc;
+}
+.job-info .job-info-item{
+    margin: 10px 5px;
+}
+.delivery-list li{
+    margin-bottom: 20px;
+}
+.job-head  .job-avatar{
+    width: 40px;
+    border-radius: 50%;
+}
+.delivery-list .el-card__body{
+    padding: 0;
+}
+.job-head  .head-primary{
+    margin-left: 60px;
+    box-sizing: border-box;
+    position: relative;
+}
+.avatar-container{
+    width: 100px;
+    position: absolute;
+}
+.job-head .primary-position{
+    font-size: 12px;
+    margin-right: 10px;
+}
+.job-head .primary{
+
+}

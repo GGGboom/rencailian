@@ -170,5 +170,5 @@
 </script>
 
 <style scoped>
-@import "../../assets/css/profile/collect.css";
+@import "../../../assets/css/profile/collect.css";
 </style>

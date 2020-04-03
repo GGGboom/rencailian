@@ -5,6 +5,7 @@
                 :pager-count="11"
                 layout="prev, pager, next"
                 @current-change="currentChange"
+                :style="object"
                 :total="1000">
         </el-pagination>
     </div>
@@ -12,10 +13,13 @@
 
 <script>
     export default {
-        name: "Pagination",
+        name: "Pager",
         data(){
             return{
-
+                object:{
+                    width:'800px',
+                    'margin-bottom':'10px'
+                }
             }
         },
         methods:{

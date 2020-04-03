@@ -1,115 +1,123 @@
 <template>
-    <div class="main">
-        <div class="login-card">
-            <h1>登录</h1>
-            <div class="login-form">
-                <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" class="form-table">
-                    <el-form-item prop="account">
-                        <el-input class="form-item" v-model="ruleForm.account" autocomplete="off"
-                                  placeholder="请输入账号"></el-input>
-                    </el-form-item>
-                    <el-form-item prop="pass">
-                        <el-input class="form-item" type="password" v-model="ruleForm.pass" autocomplete="off"
-                                  placeholder="请输入密码"></el-input>
-                    </el-form-item>
-                    <div class="agree">
-                        <label>
-                            <input type="checkbox" v-model="ruleForm.checked">
-                            <span>记住我</span>
-                        </label>
+    <div class="class-main">
+        <div class="m-header-box">
+            <div class="m-header-content">
+                <div class="u-ercode">
+                    <span class="u-font-desc">扫码下载App</span>
+                    <div class="ercode-img-wrapper j-ercode-img-wrapper"> <i class="i-arrow"></i>
+                        <p class="u-font-desc1">手机扫描二维码即可下载最新版本</p>
+                        <img class="u-ercode-img" src="../assets/img/QRcode.png">
                     </div>
-                    <el-form-item>
-                        <el-button class="btn" type="primary" @click="submitForm('ruleForm')">登录</el-button>
+                </div>
+            </div>
+        </div>
+        <div class="m-form-wrapper">
+            <div class="tab-navs ui-tab-navs zixuanguHide wxmsgHide j-tab-navs-tips">
+                <div class="navs-slider">
+                    <a href="javascript:void(0)" :class="{'login-tab':true, active:isLogin}" @click="changeToLog">登录</a>
+                    <a href="javascript:void(0)" :class="{'reg-tab':true, active:isReg}" @click="changeToReg">注册</a>
+                </div>
+
+            </div>
+            <div class="formWrapper" >
+                <el-form :model="loginForm" status-icon :rules="rules" ref="loginForm" class="demo-loginForm">
+                    <el-form-item prop="cellphone">
+                        <el-input
+                                  prefix-icon="el-icon-cellphone"
+                                  v-model="loginForm.cellphone"
+                                  autocomplete="off"></el-input>
+                    </el-form-item>
+                    <el-form-item prop="password" v-if="!isReg">
+                        <el-input type="password"
+                                  prefix-icon="el-icon-lock"
+                                  v-model="loginForm.password"
+                                  autocomplete="off"></el-input>
+                    </el-form-item>
+                    <el-form-item prop="verify" v-if="isReg">
+                        <el-input type="password"
+                                  v-model="loginForm.verify"
+                                  autocomplete="off">
+                            <el-button slot="append">发送验证码</el-button>
+                        </el-input>
+                    </el-form-item>
+                    <el-form-item class="forget-item" v-if="!isReg">
+                        <el-button type="text" class="forget">忘记密码?</el-button>
+                    </el-form-item>
+                    <el-form-item v-if="!isReg">
+                        <el-button type="primary" class="login" @click="submitForm('loginForm')">登录</el-button>
+                    </el-form-item>
+                    <el-form-item v-if="isReg">
+                        <el-button type="primary" class="login" @click="submitForm('loginForm')">注册</el-button>
                     </el-form-item>
                 </el-form>
             </div>
-
         </div>
-
     </div>
-
-
 </template>
 <script>
+    import {login} from '@/api/user';
     export default {
         data() {
-            var checkAge = (rule, value, callback) => {
-                if (!value) {
-                    return callback(new Error('年龄不能为空'));
-                }
-                setTimeout(() => {
-                    if (!Number.isInteger(value)) {
-                        callback(new Error('请输入数字值'));
-                    } else {
-                        if (value < 18) {
-                            callback(new Error('必须年满18岁'));
-                        } else {
-                            callback();
-                        }
-                    }
-                }, 1000);
-            };
-            var validatePass = (rule, value, callback) => {
-                if (value === '') {
-                    callback(new Error('请输入密码'));
-                } else {
-                    if (this.ruleForm.checkPass !== '') {
-                        this.$refs.ruleForm.validateField('checkPass');
-                    }
-                    callback();
-                }
-            };
-            var validateAccount = (rule, value, callback) => {
-                if (value === '') {
-                    callback(new Error('请输入账号'));
-                } else {
-                    if (this.ruleForm.checkPass !== '') {
-                        this.$refs.ruleForm.validateField('checkPass');
-                    }
-                    callback();
-                }
-            };
             return {
-                ruleForm: {
-                    account: '',
-                    pass: '',
-                    age: '',
-                    checked: true
+                //登录标签页
+                isLogin:true,
+                //注册标签页
+                isReg:false,
+                loginForm: {
+                    cellphone: '',
+                    password: '',
+                    verify:2,
+                    type:2
                 },
                 rules: {
-                    pass: [
-                        {validator: validatePass, trigger: 'blur'}
+                    cellphone: [
+                        { required: true, message: '请输入手机号码', trigger: 'blur' }
                     ],
-                    age: [
-                        {validator: checkAge, trigger: 'blur'}
+                    password: [
+                        { required: true, message: '请输入密码', trigger: 'blur'  }
                     ],
-                    account: [
-                        {validator: validateAccount, trigger: 'blur'}
-                    ],
-                    checked:[
-                        {validator: validateAccount, trigger: 'blur'}
+                    verify:[
+                        { required: true, message: '请输入验证码', trigger: 'blur'  }
                     ]
                 }
             };
         },
         methods: {
             submitForm(formName) {
-                this.$refs[formName].validate((valid) => {
+                this.$refs[formName].validate(async (valid) => {
                     if (valid) {
-                        alert('submit!');
+                        let res = await login(JSON.stringify(this.loginForm));
+                        if(res.code===0){
+                            this.$message.success("登录成功");
+                            this.$store.state.isLogin = false;
+                            this.$store.state.user=res.user;
+                            this.$router.push("/");
+                            console.log(this.$store.state.user);
+                        }
                     } else {
                         console.log('error submit!!');
                         return false;
                     }
                 });
             },
-            rememberMe() {
-                if (this.ruleForm.checked) {
-                    localStorage.setItem('account', this.ruleForm.account);
-                } else {
-                    localStorage.removeItem('account');
-                }
+            resetForm(formName) {
+                this.$refs[formName].resetFields();
+            },
+            changeToLog () {
+                this.isLogin = true;
+                this.isReg = false;
+            },
+            changeToReg(){
+                this.isLogin = false;
+                this.isReg = true;
             }
+        },
+        created() {
+            this.$store.state.isLogin = true;
+            console.log("ture");
         }
     }
 </script>
+<style>
+    @import "../assets/css/login.css";
+</style>

@@ -3,7 +3,7 @@
         <div :style="styleObj">
             <el-tabs v-model="activeName" type="card" @tab-click="handleClick">
                 <el-tab-pane label="全部" name="first">
-                    <ul class="list">
+                    <ul class="list" v-if="this.$store.state.user.identityType===1">
                         <li v-for="item in contractRecords" :key="item.receiveUserId" @click="goToDetail(item)">
                             <el-card shadow="hover">
                                 <div class="contract-head job-padding">
@@ -40,6 +40,26 @@
                                         <span class="contract-info-item">
                                         潘双全
                                         </span>
+                                    </div>
+                                </div>
+                            </el-card>
+                        </li>
+                    </ul>
+                    <ul class="list" v-else>
+                        <li v-for="item in contractRecords" :key="item.receiveUserId" @click="goToDetail(item)">
+                            <el-card shadow="hover">
+                                <div class="contract-container">
+                                    <div class="contract-img">
+                                        <img :src="item.receiveUserHeaderImage" alt>
+                                    </div>
+                                    <div class="c-right">
+                                        <p>张恒华</p>
+                                        <p>录取岗位：{{item.receiveUserPosition}}</p>
+                                    </div>
+                                    <div class="tags">
+                                        <el-tag effect="dark">
+                                            {{ item.contractStatus }}
+                                        </el-tag>
                                     </div>
                                 </div>
                             </el-card>

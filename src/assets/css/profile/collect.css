@@ -1,0 +1,41 @@
+.list-box{
+
+}
+.list-box .list-item{
+    border-bottom: 1px solid #e1e4e8!important;
+    padding-top: 24px!important;
+    padding-bottom: 24px!important;
+    display: flex!important;
+    color: #2c3e50 !important;
+}
+.list-box .list-item a{
+    color: #2c3e50 !important;
+}
+.wb-break-all {
+    word-break: break-all!important;
+}
+.f6 {
+    font-size: 12px!important;
+}
+.mt-2 {
+    margin-top: 8px!important;
+}
+.text-gray {
+    color: #586069!important;
+}
+.mr-3 {
+    margin-right: 16px!important;
+}
+.ml-0, .mx-0 {
+    margin-left: 0!important;
+}
+.list-box .salary{
+    color: #fc703e;
+    font-size: 12px;
+    margin-left: 20px;
+}
+.list-box .col-4 .el-button{
+    padding: 5px 10px;
+    float: right;
+    margin-left: 10px;
+}

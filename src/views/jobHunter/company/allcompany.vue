@@ -779,7 +779,7 @@
             return {
                 fit: "fill",
                 company: 'first',
-                url: require("../../assets/img/alibaba.jpg")
+                url: require("../../../assets/img/alibaba.jpg")
             }
 
         },
@@ -795,5 +795,5 @@
 </script>
 
 <style scoped>
-    @import "../../assets/css/company/allcompany.css";
+    @import "../../../assets/css/company/allcompany.css";
 </style>

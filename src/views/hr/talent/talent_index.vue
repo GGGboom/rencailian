@@ -80,7 +80,7 @@
                     </div>
                 </div>
                 <div class="talent-list">
-                    <ul>
+                    <ul class="talent-ul">
                         <li>
                             <div class="talent-primary">
                                 <div class="talent-img">
@@ -207,19 +207,19 @@
                             </div>
                         </li>
                     </ul>
-                    <Pager></Pager>
                 </div>
+                <app-Pager></app-Pager>
             </div>
         </div>
     </div>
 </template>
 
 <script>
-    import {Pager} from "@/components/Pager.vue";
+    import Pager from "@/components/Pager";
     export default {
-        name: "index",
+        name: "talent_index",
         components:{
-            Pager
+            'app-Pager':Pager
         },
         data(){
             return{

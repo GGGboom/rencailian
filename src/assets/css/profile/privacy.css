@@ -1,0 +1,28 @@
+.Subhead {
+    display: flex;
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid #e1e4e8;
+    flex-flow: row wrap;
+}
+.Subhead--spacious {
+    margin-top: 40px;
+}
+.Subhead-heading {
+    font-size: 24px;
+    font-weight: 400;
+    flex: 1 1 auto;
+}
+.btn_select{
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+.privacy .el-form-item__label{
+    font-size: 16px;
+    color: #2c3e50;
+}
+.pro-detail{
+    margin-top: -20px;
+    font-size: 13px;
+}

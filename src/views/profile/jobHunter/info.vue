@@ -99,7 +99,7 @@
                 rules: {
 
                 },
-                imageUrl:require("../../assets/img/msg_avatar.png")
+                imageUrl:require("../../../assets/img/msg_avatar.png")
             }
         },
         methods:{
@@ -131,5 +131,5 @@
 </script>
 
 <style scoped>
-    @import "../../assets/css/profile/info.css";
+    @import "../../../assets/css/profile/info.css";
 </style>

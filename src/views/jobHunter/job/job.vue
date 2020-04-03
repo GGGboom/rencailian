@@ -103,12 +103,12 @@
                     </div>
                     <div class="promotion-img">
                         <router-link to="">
-                            <img src="../../assets/img/pro-1.png">
+                            <img src="../../../assets/img/pro-1.png">
                         </router-link>
                     </div>
                     <div class="promotion-img">
                         <router-link to="">
-                            <img src="../../assets/img/pro-1.png">
+                            <img src="../../../assets/img/pro-1.png">
                         </router-link>
                     </div>
                 </div>
@@ -468,5 +468,5 @@
 </script>
 
 <style scoped>
-    @import "../../assets/css/occupation/job.css";
+    @import "../../../assets/css/occupation/job.css";
 </style>

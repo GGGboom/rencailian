@@ -1,2 +1,2 @@
-import {get,post} from '../utils/request';
-export const login = data => get('/passport/')
+import {post} from '../utils/request';
+export const login = (data) => post('/users/login',data);

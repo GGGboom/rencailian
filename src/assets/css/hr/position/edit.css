@@ -1,0 +1,40 @@
+.head{
+    font-size: 16px;
+
+}
+.pad-left{
+    position: absolute;
+    left: 200px;
+}
+.item-container{
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    position: relative;
+}
+.item-label{
+    font-size: 16px;
+}
+.py{
+    padding: 25px 0;
+}
+.pad-left .el-input{
+    width: auto;
+}
+.textarea{
+    padding: 10px 0;
+}
+.flex-row-2{
+    flex: 2;
+}
+.textarea .el-textarea{
+    width: 720px;
+}
+.form-btn{
+    padding: 10px 0;
+    display: flex;
+    justify-content: flex-end;
+}
+.form-btn .el-button{
+    padding: 10px 30px;
+}

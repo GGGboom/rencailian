@@ -116,5 +116,5 @@
 </script>
 
 <style scoped>
-@import "../../assets/css/profile/privacy.css";
+@import "../../../assets/css/profile/privacy.css";
 </style>

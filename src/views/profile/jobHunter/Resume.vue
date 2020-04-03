@@ -97,12 +97,12 @@
             return {
                 update_time:"2020/3/2 18:20",
                 username:"张恒华",
-                avatar:require("../../assets/img/aliyun.jpg")
+                avatar:require("../../../assets/img/aliyun.jpg")
             }
         }
     }
 </script>
 
 <style scoped>
-    @import "../../assets/css/profile/resume.css";
+    @import "../../../assets/css/profile/resume.css";
 </style>

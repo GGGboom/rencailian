@@ -1,0 +1,23 @@
+.py-4 {
+    padding-top: 24px!important;
+    padding-bottom: 24px!important;
+}
+.d-flex {
+    display: flex!important;
+}
+.d-inline-block {
+    display: inline-block!important;
+}
+.span-hover:hover{
+    cursor: pointer;
+    color: #586069;
+}
+.font-color{
+    color: #b3b3b3;
+}
+.space-btw{
+    justify-content: space-between;
+}
+.li-hover:hover{
+    cursor: pointer;
+}

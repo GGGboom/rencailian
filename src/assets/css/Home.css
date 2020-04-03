@@ -1,0 +1,241 @@
+.wrap{
+    background: #f6f6f8!important;
+}
+
+.wrap .banner{
+    height: 200px;
+    background-image: url("../img/banner.jpg");
+    position: relative;
+}
+
+.wrap .banner .banner-mask{
+    width: 100%;
+    height: 100%;
+    background: rgba(1, 1, 1, 0.5);
+    opacity: 0;
+    filter: alpha(opacity=0);
+    transition: opacity .3s ease-in-out;
+}
+.wrap .banner .banner-mask:hover{
+    opacity: 1;
+    filter: alpha(opacity=0);
+    transition: opacity .3s ease-in-out;
+}
+.wrap .banner .banner-title{
+    width: 100%;
+    position: absolute;
+    top: 100px;
+    margin: 0 auto;
+}
+.wrap .search-panel{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.wrap .search-panel .inner{
+    width: 1184px;
+    max-width: 1184px;
+}
+.wrap .search-panel .inner .search-box{
+    width: 934px;
+    margin: 0 auto;
+}
+.search-panel .inner .search-box .search-form{
+    height: 52.4px;
+    position: relative;
+}
+.search-panel .search-form-con{
+    width: 794px;
+    box-shadow: 0 0 6px 0 rgba(0,0,0,.13);
+    background: #fff;
+}
+.search-form-con {
+    float: left;
+    width: 794px;
+}
+.search-panel .position-type{
+    width: 99px;
+    float: left;
+    padding: 15px;
+    border-color: #fff;
+    border-left: 1px solid #fff;
+}
+.search-panel .position-type:hover{
+    cursor: pointer;
+}
+.search-panel .el-dropdown-menu{
+    margin-top: 20px;
+}
+.search-form .ipt-wrap{
+    float: left;
+    width: 500px;
+    background: #fff;
+    border-left: none;
+    border-right: none;
+}
+.ipt-wrap .ipt-search{
+    width: 622px;
+    font-size: 16px;
+    padding: 16px 21px;
+    border: none;
+    outline: none;
+}
+.search-panel .el-button{
+    float: left;
+    height: 52.4px;
+    width: calc(100% - 796px);
+    background: rgb(83, 202, 195);
+    border-color: rgb(83, 202, 195);
+    border-radius: 0px!important;
+}
+.inner {
+    width: 1184px;
+    margin: 0 auto;
+}
+.home-inner {
+    max-width: 1184px;
+}
+.home-box .job-tab-box {
+    width: 100%;
+    overflow: hidden;
+}
+.home-box .common-tab-box {
+    clear: both;
+    margin-top: 30px;
+    overflow: hidden;
+}
+/*去掉element样式*/
+.home-box .el-tabs__active-bar{
+    background-color: transparent!important;
+}
+.home-box .el-tabs__nav-wrap::after{
+    background-color: transparent!important;
+}
+/*去掉element样式*/
+
+.job-tab-box ul {
+    overflow: hidden;
+    font-weight: 400;
+    width: 110%;
+}
+.home-box .el-card{
+    border-radius: 0;
+    height: 130px;
+}
+.home-box .common-tab{
+    margin-bottom: 15px;
+}
+.common-tab-box .el-card__body{
+    padding: 0;
+    color: #61687c;
+}
+.common-tab-box .el-card__body p{
+    padding: 15px 20px;
+    font-size: 15px;
+    color: #61687c;
+    text-align: left;
+    position: relative;
+}
+p .salary{
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    color: #fc6c38;
+}
+.common-tab-box .common-tag{
+    display: flex;
+    margin-left: 20px;
+}
+.common-tab-box .split{
+    width: 90%;
+    margin: 0 auto;
+}
+.split .el-divider--horizontal{
+    margin: 15px 0 2px 0;
+}
+.common-tab-box .common-bot{
+    display: flex;
+    margin-left: 15px;
+    align-items: center;
+}
+.common-tab-box .common-bot .company{
+    margin-left: 10px;
+}
+.common-tab-box .el-row{
+    margin-bottom: 15px;
+}
+.more-box{
+    width: 384px;
+    margin: 0 auto;
+}
+.more-box .el-button{
+    border-radius: 0;
+    height: 34px;
+    width: inherit;
+    margin-top: -10px;
+    margin-bottom: 20px;
+    background: #f6f6f8;
+}
+.more-box .el-button:hover{
+    background: #409EFF;
+
+}
+.more-box .el-button a{
+    color:#409EFF;
+}
+.more-box .el-button:hover a{
+    color: #fff;
+}
+.company-bot .company{
+    margin-top: 10px;
+    margin-left: 4px!important;
+}
+.common-tab-box .company-bot{
+    display: flex;
+    margin-left: 15px;
+    align-items: center;
+    justify-content: space-between;
+}
+.company-bot .recruit-nbr{
+    margin-top: 10px;
+    margin-right: 20px!important;
+    color: #fc6c38;
+}
+p .Authentication{
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    color: #12FC8F;
+}
+.company-tab-box .company-img{
+    display: flex;
+    align-content: center;
+}
+.company-tab-box .company-right{
+    flex: 2;
+    margin-left: -17px;
+}
+.company-tab-box .company-right .Authentication{
+    float: right;
+}
+.common-tab-box.company-tab-box  .el-card{
+    border-radius: 0;
+    height: 170px;
+}
+.company-img .el-image{
+    margin: 10px;
+}
+.company-tab .split{
+    margin-top: -10px;
+}
+.company-right p span:nth-child(2){
+    display: block;
+    margin-top: 15px;
+}
+.company-right .credit{
+    margin-left: 10px;
+    font-size: 13px;
+    color: #ffc33d;
+}

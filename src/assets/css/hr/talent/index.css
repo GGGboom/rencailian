@@ -1,0 +1,120 @@
+#filter-box {
+    background: #fff;
+    position: relative;
+    z-index: 999;
+    box-shadow: 0 3px 6px rgba(6,0,1,.05);
+    margin-top: -10px;
+}
+.show-condition-district {
+    border-bottom: 1px #eef0f5 solid;
+    border-bottom: 1px #eef0f5 solid;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    position: relative;
+}
+.condition-box .el-link.el-link--default span{
+    display: inline-block;
+    background: #fff;
+    padding: 0 11px;
+    border: 1px #fff solid;
+    margin: 0;
+    height: 36px;
+    line-height: 36px;
+    font-size: 12px;
+}
+.hotcity{
+    font-size: 12px;
+}
+.allcity{
+    position: absolute;
+    right: 0;
+    top: 2px;
+    padding-right: 0;
+    font-size: 12px;
+}
+.filter-select-box .dropdown-wrap {
+    width: 160px;
+    position: relative;
+    display: flex;
+}
+.filter-select-box{
+    height: 40px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+}
+.el-dropdown-link {
+    cursor: pointer;
+}
+.el-dropdown {
+    font-size: 12px;
+}
+.talent-box{
+    margin-top: 30px;
+}
+.talent-list{
+    background: 0 0;
+    margin-right: 300px;
+}
+.sider {
+    float: right;
+    width: 284px;
+}
+.talent-list .talent-ul li {
+    height: 110px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    background: #fff;
+}
+.talent-list .talent-primary {
+    height: 110px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+    display: flex;
+}
+.talent-primary {
+    height: 48px;
+    color: #4a4160;
+    padding: 20px 0 19px;
+    margin: 0 30px;
+    border-bottom: 1px #f2f2f5 solid;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.talent-primary .talent-img img{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+.talent-primary .talent-img{
+    display: flex;
+    align-items: center;
+}
+.talent-primary .talent-info{
+    margin-left: 10px;
+}
+.talent-info .info-name{
+    font-size: 16px;
+    font-weight: 545;
+}
+.talent-info .info-tag{
+    margin-left: 10px;
+}
+.talent-info div{
+    padding: 3px 0;
+}
+.talent-info .info-tag .el-tag{
+    padding: 0 5px!important;
+}
+.talent-info .info-credit{
+    margin-left: 10px;
+}
+.expectation{
+    color: #c1c1c1;
+}

@@ -1,0 +1,34 @@
+.resume-m >>> .el-card__body{
+    padding: 10px!important;
+}
+.resume-container{
+    display: flex;
+    position: relative;
+    align-items: center;
+}
+.resume-container .resume-img{
+
+}
+.resume-container .resume-img img{
+    width: 66px;
+    height: 66px;
+    border-radius: 50%;
+}
+.resume-container .resume-info{
+    margin-left: 10px;
+}
+.resume-container .resume-info p{
+    font-size: 12px;
+    padding: 2px 0;
+}
+.resume-name{
+    font-weight: bold;
+    font-size: 15px!important;
+}
+.resume-span{
+    margin-left: 10px;
+}
+.resume-tag{
+    position: absolute;
+    right: 0;
+}

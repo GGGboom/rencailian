@@ -1,0 +1,27 @@
+.footer-warp {
+    flex: 0 0 auto;
+    -webkit-flex: 0 0 auto;
+    padding-top: 20px;
+    height: 200px;
+    box-sizing: border-box;
+    text-align: center;
+    min-width: 1280px;
+    width: 100%;
+    left: 0;
+    background: #444547;
+    font-size: 12px;
+    display: block;
+    bottom: 0;
+    overflow: hidden;
+    /*margin-top: 20px;*/
+}
+.footer-warp p, a {
+    color: #777;
+}
+a:hover {
+    text-decoration: underline
+}
+.logo {
+    height: 42px;
+    width: 42px;
+}

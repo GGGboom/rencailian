@@ -31,8 +31,54 @@
 .card-container{
     margin: 20px 10px;
 }
-
-.row{
+.detail-container{
+    width: 1280px;
+    padding: 15px;
+    margin: 0 auto;
+}
+.details{
 
 }
+.header{
+    padding: 15px;
+    width: 1000px;
+    margin: 0 auto;
+    display: flex;
+}
+.details .filter{
+    width:100%;
+    border: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    background-color: white;
+}
+.details .filter .filter-left{
+}
+.details .filter .filter-right{
 
+}
+.detail-hot{
+    width:100%;
+    border: 1px solid #ddd;
+    padding: 15px;
+    background-color: white;
+}
+.content-left{
+    width: 940px;
+    float: left;
+}
+.content-right{
+    float: right;
+    width: 240px;
+    margin-top: 63px;
+
+}
+.details .details-list{
+    margin-top: 10px;
+    width: 972px;
+}
+.box-card {
+    height: 150px;
+    margin-bottom: 10px;
+}

@@ -1,0 +1,307 @@
+#filter-box {
+    background: #fff;
+    position: relative;
+    z-index: 999;
+    box-shadow: 0 3px 6px rgba(6,0,1,.05);
+}
+.search-box{
+    padding-top: 20px;
+    width: 884px;
+    position: relative;
+    font-size: 13px;
+}
+.search-form {
+    position: relative;
+    zoom: 1;
+    z-index: 1000;
+}
+.search-form .el-select .el-input {
+    width: 130px;
+}
+.search-form .input-with-select .el-input-group__prepend {
+    background-color: #fff;
+}
+.search-form .el-input-group__append .el-select{
+    margin-right: 10px;
+}
+/*#C0C4CC*/
+.search-form .border{
+    border-right:1px solid #C0C4CC;
+}
+.search-form .el-input-group__append, .el-input-group__prepend{
+    border-radius: 0;
+    background-color: #55cbc4;
+    color: #55cbc4;
+}
+.search-form .el-icon-search{
+    color: white;
+}
+.search-form .el-input-group__append{
+    width: 60px;
+}
+.condition-box {
+    background: #fff;
+    margin-top: 10px;
+    font-size: 12px;
+}
+.show-condition-district{
+    border-bottom: 1px #eef0f5 solid;
+    border-bottom: 1px #eef0f5 solid;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.condition-box .el-link.el-link--default span{
+    display: inline-block;
+    background: #fff;
+    padding: 0 11px;
+    border: 1px #fff solid;
+    margin: 0;
+    height: 36px;
+    line-height: 36px;
+    font-size: 12px;
+}
+.hotcity{
+    font-size: 12px;
+}
+.allcity{
+    position: absolute;
+    right: 0;
+    top: 2px;
+    padding-right: 0;
+    font-size: 12px;
+}
+.filter-select-box .dropdown-wrap {
+    width: 160px;
+    position: relative;
+    display: flex;
+}
+.filter-select-box{
+    height: 40px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+}
+.el-dropdown-link {
+    cursor: pointer;
+}
+.el-dropdown {
+    font-size: 12px;
+}
+.job-box{
+    margin-top: 30px;
+}
+.search-job-list-wrap .job-list {
+    background: 0 0;
+    margin-right: 300px;
+}
+.job-list li {
+    height: 130px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    background: #fff;
+}
+.job-list .job-primary {
+    height: 130px;
+    box-sizing: border-box;
+    padding: 0;
+}
+.job-list{
+    background: 0 0;
+    margin-right: 300px;
+}
+.job-primary .info-primary {
+    width: auto;
+    height: 70px;
+    padding-top: 20px;
+    float: none;
+}
+.job-list li .primary-wrapper {
+    float: left;
+    width: 440px;
+}
+.job-list li .primary-wrapper .job-title {
+    font-size: 0;
+}
+.job-list li .primary-wrapper .job-title .job-name {
+    font-size: 16px;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+}
+.job-list li .primary-wrapper .job-title {
+    font-size: 16px;
+    color: #00c2b3;
+    font-weight: 400;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+}
+.job-primary .info-primary {
+    width: auto;
+    height: 70px;
+    padding-top: 20px;
+    float: none;
+}
+.job-primary {
+    height: 48px;
+    color: #4a4160;
+    padding: 20px 0 19px;
+    margin: 0 30px;
+    border-bottom: 1px #f2f2f5 solid;
+    position: relative;
+}
+.primary-wrapper .job-title .job-name {
+    font-size: 16px;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+.job-list li .primary-wrapper .job-title .job-area-wrapper {
+    margin-right: 10px;
+}
+.job-list li .primary-wrapper .job-title .job-area-wrapper::before {
+    content: '[';
+}
+.job-list li .primary-wrapper .job-title .job-area-wrapper::after {
+    content: ']';
+}
+.job-list li .primary-wrapper .job-title .job-pub-time {
+    font-size: 13px;
+    color: #8d92a1;
+    vertical-align: -2px;
+}
+.job-primary .info-company {
+    width: 350px;
+    float: right;
+}
+.job-primary .info-company .company-text {
+    width: auto;
+    float: left;
+}
+.job-primary .info-company .company-text .name {
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 3px;
+    display: flex;
+}
+.job-list li .primary-wrapper .job-limit {
+    height: 26px;
+    overflow: hidden;
+}
+.job-list li .primary-wrapper span.red {
+    height: 26px;
+    display: inline-block;
+    line-height: 26px;
+    position: relative;
+    vertical-align: middle;
+}
+.red {
+    color: #fc703e!important;
+}
+.job-list li .primary-wrapper{
+    vertical-align: top;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.job-list li .primary-wrapper .job-limit .red {
+    float: left;
+    margin-right: 12px;
+}
+.job-list li .primary-wrapper .job-limit .red+p {
+    float: left;
+    font-size: 14px;
+    margin-right: 13px;
+    margin-top: 0;
+    max-width: 169px;
+    color: #61687c;
+}
+.job-list li .job-primary .info-append {
+    height: 40px;
+    line-height: 40px;
+    margin: 0 -30px;
+    padding: 0 30px;
+    display: flex;
+    justify-content: space-between;
+}
+.job-list li .job-primary .info-append span{
+    margin-right: 10px;
+    margin-top: 9px;
+    border-radius: 0;
+    background: #fff;
+}
+.job-list li .divider{
+    margin: 0;
+}
+.job-list li .job-primary .info-append .info-desc {
+    font-size: 13px;
+    float: left;
+    width: 350px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #61687c;
+}
+.sider {
+    float: right;
+    width: 284px;
+}
+.sider-item {
+    margin-bottom: 16px;
+    padding: 20px 30px;
+    background-color: #fff;
+}
+.sider-item .btn {
+    display: block;
+    height: 34px;
+    line-height: 34px;
+    border: none;
+    font-size: 14px;
+    letter-spacing: 0;
+}
+.btn {
+    display: inline-block;
+    min-width: 112px;
+    box-sizing: content-box;
+    height: 36px;
+    line-height: 36px;
+    border: 1px #5dd5c8 solid;
+    font-size: 16px;
+    color: #fff;
+    letter-spacing: 1px;
+    background: #5dd5c8;
+    text-align: center;
+    cursor: pointer;
+}
+.sider-list h3{
+    height: 45px;
+    line-height: 45px;
+    font-size: 15px;
+    color: #54cbc4;
+    padding-left: 30px;
+    font-weight: 400;
+    border-bottom: solid 2px #f2f2f5;
+    display: flex;
+}
+.sider-list {
+    background: #fff;
+    margin-bottom: 16px;
+}
+.promotion-img {
+    margin-bottom: 16px!important;
+}
+.sider .promotion-img img {
+    width: 100%;
+}
+.citys .el-button--text{
+    margin: 0 20px;
+}

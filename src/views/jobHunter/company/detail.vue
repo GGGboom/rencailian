@@ -75,7 +75,7 @@
                         </div>
                         <div class="products">
                             <div class="product-img">
-                                <img src="../../assets/img/aliyun.jpg">
+                                <img src="../../../assets/img/aliyun.jpg">
                             </div>
                             <div class="product-info">
                                 <span>阿里云</span>
@@ -109,7 +109,7 @@
                         <div>
                             <el-carousel :interval="4000" type="card" height="200px">
                                 <el-carousel-item v-for="item in 6" :key="item">
-                                    <h3 class="medium"><img src="../../assets/img/aliyun.jpg" alt
+                                    <h3 class="medium"><img src="../../../assets/img/aliyun.jpg" alt
                                                             style="width: inherit;height: inherit"></h3>
                                 </el-carousel-item>
                             </el-carousel>
@@ -127,7 +127,7 @@
         name: "detail",
         data() {
             return {
-                url: require("../../assets/img/alibaba.jpg"),
+                url: require("../../../assets/img/alibaba.jpg"),
                 activeIndex: "1"
             }
         },
@@ -146,5 +146,5 @@
 </script>
 
 <style scoped>
-    @import "../../assets/css/company/detail.css";
+    @import "../../../assets/css/company/detail.css";
 </style>

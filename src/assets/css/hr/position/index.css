@@ -1,0 +1,95 @@
+.application-main{
+    background: #fff;
+    padding-bottom: 15px;
+    min-height: 500px;
+}
+
+.container-xl {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+.px-3 {
+    padding-right: 16px!important;
+}
+.mt-4 {
+    margin-top: 24px!important;
+}
+.h-card{
+    width: 272px;
+    margin-right: 40px;
+}
+.clearfix{
+
+}
+
+.application-main .avatar-before-user-status{
+    border: 1px solid #e1e4e8;
+    border-bottom: 0;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.avatar{
+    display: inline-block;
+    overflow: hidden;
+    line-height: 1;
+    vertical-align: middle;
+    border-radius: 3px;
+}
+.height-full {
+    height: 100%!important;
+}
+.width-full {
+    width: 100%!important;
+}
+.application-main .col-3{
+    width: 272px;
+}
+.col-8{
+    width: 936px;
+}
+.position-relative{
+    position: relative!important;
+}
+.py-3{
+    padding-top: 10px!important;
+    padding-bottom: 10px!important;
+}
+.border-gray-dark {
+    border-color: #d1d5da!important;
+}
+.border-bottom {
+    border-bottom: 1px solid #e1e4e8!important;
+}
+.float-md-left{
+    float: left!important;
+}
+.d-md-flex {
+    display: flex;
+    justify-content: flex-end;
+}
+.d-block {
+    display: block!important;
+}
+.form-item{
+    margin-right: 8px!important;
+}
+.company-position-list{
+
+}
+.ft-weight{
+    font-size: 16px;
+    font-weight: bold;
+}
+.pd{
+    padding: 4px 0;
+}
+.company-name{
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 24px;
+    color: #666;
+    padding: 16px 0;
+}
