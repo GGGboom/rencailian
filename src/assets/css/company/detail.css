@@ -1,0 +1,28 @@
+.company-main .company-banner{
+
+}
+.company-banner{
+    background-color: #444c5f;
+    background-position: center 0;
+    background-repeat: no-repeat;
+    -webkit-background-size: auto 100%;
+    background-size: auto 100%;
+    color: #fff;
+    padding: 29px 0;
+}
+.company-banner .company-inner{
+    position: relative;
+}
+.company-inner{
+    width: 1184px;
+    max-width: 1184px;
+}
+.company-inner .prf{
+
+}
+.company-inner .prf-relevant{
+
+}
+.company-switch{
+
+}
