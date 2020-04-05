@@ -207,8 +207,9 @@
                             </div>
                         </li>
                     </ul>
+                    <app-Pager></app-Pager>
                 </div>
-                <app-Pager></app-Pager>
+
             </div>
         </div>
     </div>

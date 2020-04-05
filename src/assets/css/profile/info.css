@@ -120,3 +120,7 @@
 .avatar-upload .avatar_mask:hover .el-icon-edit{
     display: block;
 }
+.border-bottom{
+    border-bottom: 1px solid #e1e4e8;
+    padding-bottom: 20px;
+}

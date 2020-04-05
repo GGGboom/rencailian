@@ -6,15 +6,13 @@
 
 <script>
     export default {
-        name: "company",
-        data() {
-            return {
-
-            };
+        name: "job_index",
+        beforeCreate() {
+            this.$emit('setHeader','job');
         }
     }
 </script>
 
 <style scoped>
-    @import "../../assets/css/company/company.css";
+
 </style>

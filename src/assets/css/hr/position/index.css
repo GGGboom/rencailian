@@ -1,7 +1,7 @@
 .application-main{
     background: #fff;
     padding-bottom: 15px;
-    min-height: 500px;
+    min-height: 800px;
 }
 
 .container-xl {
@@ -12,7 +12,7 @@
     padding-right: 16px!important;
 }
 .mt-4 {
-    margin-top: 24px!important;
+    padding-top: 24px!important;
 }
 .h-card{
     width: 272px;

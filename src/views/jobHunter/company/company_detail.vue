@@ -124,7 +124,7 @@
 <script>
 
     export default {
-        name: "detail",
+        name: "company_detail",
         data() {
             return {
                 url: require("../../../assets/img/alibaba.jpg"),
@@ -146,5 +146,5 @@
 </script>
 
 <style scoped>
-    @import "../../../assets/css/company/detail.css";
+    @import "../../../assets/css/jobHunter/company/detail.css";
 </style>

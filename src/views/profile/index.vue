@@ -26,7 +26,6 @@
             </div>
         </div>
     </div>
-
 </template>
 
 <script>
@@ -58,25 +57,30 @@
                         index:4
                     },
                     {
-                        subName:'切换身份',
-                        link:"/profile/switch",
-                        index:5
-                    },
-                    {
                         subName:'投递记录',
                         link:"/profile/history",
-                        index:6
+                        index:5
                     },
                     {
                         subName:'面试安排',
                         link:"/profile/interview",
-                        index:7
+                        index:6
                     },
                     {
                         subName:'智能签约',
                         link:"/profile/contract",
+                        index:7
+                    },
+                    {
+                        subName:'我的钱包',
+                        link:"/profile/wallet",
                         index:8
                     },
+                    {
+                        subName:'简历附件',
+                        link:"/profile/attachment",
+                        index:9
+                    }
                 ],
                 // 招聘者导航栏菜单
                 hr:[
@@ -93,32 +97,32 @@
                     {
                         subName:'我的账号',
                         link:"/profile/account",
-                        index:4
-                    },
-                    {
-                        subName:'切换身份',
-                        link:"/profile/switch",
-                        index:5
+                        index:3
                     },
                     {
                         subName:'投递记录',
                         link:"/profile/history",
-                        index:6
+                        index:4
                     },
                     {
                         subName:'面试安排',
                         link:"/profile/interview",
-                        index:7
+                        index:5
                     },
                     {
                         subName:'智能签约',
                         link:"/profile/contract",
-                        index:8
+                        index:6
                     },
                     {
                         subName:'简历管理',
                         link:"/profile/resumeManage",
-                        index:9
+                        index:7
+                    },
+                    {
+                        subName:'我的钱包',
+                        link:"/profile/wallet",
+                        index:8
                     }
                 ],
                 index:1
@@ -131,9 +135,10 @@
             }
         },
         mounted(){
+
         },
         created() {
-            console.log(this.$store.state.user.identityType);
+
         }
     }
 </script>

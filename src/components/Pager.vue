@@ -1,11 +1,10 @@
 <template>
-    <div>
+    <div class="layout-center">
         <el-pagination
                 :page-size="20"
                 :pager-count="11"
                 layout="prev, pager, next"
                 @current-change="currentChange"
-                :style="object"
                 :total="1000">
         </el-pagination>
     </div>
@@ -16,10 +15,7 @@
         name: "Pager",
         data(){
             return{
-                object:{
-                    width:'800px',
-                    'margin-bottom':'10px'
-                }
+
             }
         },
         methods:{
@@ -31,5 +27,15 @@
 </script>
 
 <style scoped>
-
+.layout-center{
+    display: flex;
+    justify-content: center;
+    background: #fff;
+}
+.el-pagination {
+    white-space: nowrap;
+    padding: 2px 5px;
+    color: #303133;
+    font-weight: 700;
+}
 </style>

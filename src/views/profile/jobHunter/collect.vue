@@ -1,6 +1,6 @@
 <template>
     <div>
-        <el-tabs v-model="activeName" @tab-click="handleClick">
+        <el-tabs v-model="activeName" @tab-click="handleClick" type="card">
             <el-tab-pane label="收藏职位" name="first">
                 <ul class="list-box">
                     <li v-for="positionItem in positions" :key="positionItem.positionId" class="list-item">

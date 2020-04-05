@@ -1,0 +1,228 @@
+.company-search{
+    position: relative;
+}
+.company-search .filter-condition{
+    min-width: 1184px;
+    margin: 0 auto;
+    padding: 30px 0;
+    background-color: #fff;
+    line-height: 25px;
+}
+.company-search .filter-row{
+    margin: 0 auto 13px;
+    width: 1184px;
+}
+.company-search .filter-row .title{
+    float: left;
+    width: 70px;
+    color: #414a60;
+    font-size: 14px;
+    font-weight: 500;
+    color: #414a60;
+}
+.company-search .filter-row .content {
+    display: block;
+    overflow: hidden;
+    margin-left: 70px;
+    font-size: 13px;
+}
+.company-search .filter-row a{
+    display: inline-block;
+    margin-right: 6px;
+    padding: 0 8px;
+    color: #61687c;
+    font-size: 13px;
+}
+/*#00c2b3*/
+.company-search .filter-row a:hover{
+    color: #00c2b3;
+}
+.company-search .filter-row:last-of-type {
+    margin-bottom: 0;
+}
+.common-tab-box .page{
+    background-color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    margin-bottom: 20px;
+}
+.company-search .top-filter-bar {
+    display: block;
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    width: 100%;
+    height: 0;
+    background-color: #fff;
+    font-size: 12px;
+    box-shadow: 0 3px 6px rgba(6,0,1,.05);
+    overflow: hidden;
+    -webkit-transition: all linear .2s;
+    transition: all linear .2s;
+}
+.company-search .filter-bar-item {
+    line-height: 44px;
+    float: right;
+    height: 100%;
+    margin-left: 20px;
+    color: #61687c;
+}
+.company-search .el-dropdown-link {
+    cursor: pointer;
+    color: #61687c;
+}
+.company-search .top-filter-bar.show {
+    height: 44px;
+    overflow: visible;
+}
+.company-search .expect {
+    width: 1184px;
+    margin: 27px auto;
+    padding: 0;
+    font-size: 14px;
+    line-height: 26px;
+}
+.company-search .expect-dropdown-wrap {
+    display: inline-block;
+    position: relative;
+    margin-left: 15px;
+    cursor: pointer;
+}
+/*#00c2b3*/
+.filter-box .el-divider{
+    background: #00c2b3;
+    width: 0.5px;
+    padding-top: 3px;
+}
+.filter-font{
+    display: inline-block;
+    vertical-align: middle;
+    color: #00c2b3;
+    background: 0 0;
+}
+.border-right{
+    border-right: 1px solid #00c2b3;
+    padding-right: 10px;
+    line-height: 15px;
+}
+.pd-lf{
+    padding-left: 10px;
+}
+.company-search .expect .company-count {
+    float: right;
+    color: #61687c;
+    padding-top: 2px;
+}
+.company-search .expect .company-count span {
+    padding: 0 4px;
+    color: #00c2b3;
+}
+.company-search .company-list {
+    width: 1184px;
+    margin: 0 auto;
+    overflow: hidden;
+    min-height: 200px;
+}
+.company-search .company-list ul {
+    height: auto;
+    overflow: hidden;
+    width: 110%;
+}
+.company-tab-box ul li {
+    height: 140px;
+    width: 284px;
+    float: left;
+    margin: 0 16px 16px 0;
+    background: #fff;
+}
+.company-tab-box ul li:hover{
+    box-shadow: 0 3px 6px rgba(6,0,1,.09);
+}
+.home-site .company-tab-box li .sub-li {
+    display: block;
+    height: 140px;
+    width: 284px;
+}
+.company-search .company-list .sub-li {
+    height: 140px;
+    width: 284px;
+    background-color: #fff;
+}
+.company-tab-box li .company-info img {
+    height: 55px;
+    width: 55px;
+    float: left;
+    border-radius: 10px;
+    border: solid 1px #f2f5fa;
+}
+.home-site .company-tab-box li .company-info {
+    height: 77px;
+    margin: 0 20px;
+    padding-top: 20px;
+    border-bottom: dashed 1px #ededed;
+}
+.home-site .company-tab-box li a {
+    color: #414a60;
+    display: block;
+}
+.home-site .company-tab-box li .conpany-text {
+    margin-left: 65px;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.company-tab-box li .conpany-text h4 {
+    height: 25px;
+    line-height: 25px;
+    font-size: 16px;
+    font-weight: 400;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.company-tab-box li .conpany-text p {
+    height: 15px;
+    line-height: 15px;
+    font-size: 12px;
+    font-weight: 400;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-bottom: 2px;
+}
+.company-credit{
+    font-size: 12px;
+    color: #d7a137;
+    padding-left: 5px;
+}
+.company-tab-box ul li:hover .company-info .conpany-text h4{
+    color: #00c2b3;
+    cursor: pointer;
+}
+.home-site .company-tab-box li .about-info p {
+    width: 240px;
+    margin: 0 auto;
+    display: flex;
+}
+.company-search .sub-li .about-info p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: auto;
+    margin: 0 20px;
+}
+.home-site .company-tab-box li .about-info {
+    color: #8d92a1;
+    height: 42px;
+    line-height: 42px;
+    font-size: 12px;
+}
+.home-site .company-tab-box li .about-info:hover{
+    background: #f1f1f1;
+}
+.mrg-bt{
+    margin-bottom: 10px;
+}
+.cur{
+    color: #00c2b3!important;
+}

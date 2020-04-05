@@ -9,25 +9,35 @@ const routes = [
     {
         path: '/',
         name: 'home',
-        component: Home
+        component: Home,
+        meta: {title: '首页', requireAuth: true},
     },
     /*登录*/
     {
         path: '/login',
         name: 'login',
-        component: () => import(/* webpackChunkName: "about" */ '../views/Login.vue')
+        component: () => import(/* webpackChunkName: "about" */ '../views/Login.vue'),
+        meta: {title: '登录注册', requireAuth: true},
     },
     /*公司*/
     {
         path: '/company',
-        name: 'company',
-        component: () => import(/* webpackChunkName: "about" */ '../views/jobHunter/company/allcompany.vue'),
+        name: 'company_index',
+        component: () => import(/* webpackChunkName: "about" */ '../views/jobHunter/company/company_index.vue'),
+        meta: {title: '公司', requireAuth: true},
         children: [
+            //所有公司页面
+            {
+                path: 'all',
+                name: 'allcompany',
+                component: () => import( '../views/jobHunter/company/allcompany.vue'),
+                meta: {title: '所有公司', requireAuth: true}
+            },
             //公司详情页面
             {
                 path: 'detail',
-                name: 'detail',
-                component: () => import( '../views/jobHunter/company/detail.vue'),
+                name: 'company_detail',
+                component: () => import( '../views/jobHunter/company/company_detail.vue'),
                 meta: {title: '公司详情', requireAuth: true}
             }
         ]
@@ -35,8 +45,25 @@ const routes = [
     /*职位*/
     {
         path: '/job',
-        name: 'index',
-        component: () => import(/* webpackChunkName: "about" */ '../views/jobHunter/job/job.vue')
+        name: 'job_index',
+        component: () => import(/* webpackChunkName: "about" */ '../views/jobHunter/job/job_index.vue'),
+        meta: {title: '职位', requireAuth: true},
+        children: [
+            //职位
+            {
+                path: 'all',
+                name: 'job_all',
+                component: () => import( '../views/jobHunter/job/job_all.vue'),
+                meta: {title: '职位', requireAuth: true}
+            },
+            //职位
+            {
+                path: 'detail',
+                name: 'job_detail',
+                component: () => import( '../views/jobHunter/job/job_detail.vue'),
+                meta: {title: '职位详情', requireAuth: true}
+            },
+        ]
     },
     /*个人中心*/
     {
@@ -92,12 +119,12 @@ const routes = [
                 component: () => import( '../views/profile/common/account.vue'),
                 meta: {title: '我的账号', requireAuth: true}
             },
-            //切换身份
+            //我的简历附件
             {
-                path: 'switch',
-                name: 'switch',
-                component: () => import( '../views/profile/common/switch.vue'),
-                meta: {title: '切换身份', requireAuth: true}
+                path: 'attachment',
+                name: 'attachment',
+                component: () => import( '../views/profile/jobHunter/attachment.vue'),
+                meta: {title: '简历附件', requireAuth: true}
             },
             /* ----------------------分割线公司部分------------------------*/
 
@@ -123,6 +150,14 @@ const routes = [
                 meta: {title: '简历管理', requireAuth: true}
             },
 
+
+            /* ----------------------公共部分------------------------*/
+            {
+                path: 'wallet',
+                name: 'wallet',
+                component: () => import( '../views/profile/common/wallet.vue'),
+                meta: {title: '个人信息', requireAuth: true}
+            },
         ]
     },
     //个人简历
@@ -130,7 +165,7 @@ const routes = [
         path: '/resume',
         name: 'resume',
         component: () => import( '../views/profile/jobHunter/Resume.vue'),
-        meta: {title: '个人简历', requireAuth: true}
+        meta: {title: '个人简历', requireAuth: true},
     },
     //消息
     {
@@ -149,7 +184,7 @@ const routes = [
             {
                 path: 'detail',
                 name: 'detail',
-                component: () => import( '../views/jobHunter/company/detail.vue'),
+                component: () => import( '../views/jobHunter/company/company_detail.vue'),
                 meta: {title: '公司详情', requireAuth: true}
             },
             //所有公司页面

@@ -66,3 +66,49 @@
 .el-dropdown-menu{
     border-radius: 0!important;
 }
+.Header-item .el__button{
+    font-size: 17px;
+}
+.switch-panel{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.other{
+    width: 100px;
+    height: 100px;
+}
+.switch-panel .switch-item{
+    cursor: pointer;
+    position: relative;
+}
+.switch-panel .switch-item p{
+    font-family: Helvetica, 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', Arial, sans-serif;
+}
+.switch-panel .switch-item .type{
+    opacity: 1;
+    transition: 0.1s;
+    font-size: 14px;
+    color: #414a60;
+    font-weight: 600;
+    width: 100%;
+    text-align: center;
+}
+.switch-panel .switch-item svg{
+    width: 100px;
+    height: 100px;
+}
+.svg-medium svg{
+    width: 80px!important;
+    height: 80px!important;
+}
+.svg-medium{
+    cursor: auto!important;
+}
+.ban{
+    cursor: not-allowed!important;
+}
+.myidentity{
+    margin-top: -20px;
+    margin-bottom: 20px;
+}

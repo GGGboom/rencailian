@@ -1,5 +1,5 @@
 .container{
-    width: 980px;
+    width: 1184px;
     margin-right: auto;
     margin-left: auto;
     font-size: 14px;
@@ -81,4 +81,83 @@
     font-size: 24px;
     font-weight: 400;
     flex: 1 1 auto;
+}
+.wallet-container{
+    box-sizing: border-box;
+}
+.flex-list-header {
+    line-height: 42px;
+    border: 1px solid #ddd;
+    background: #409eff;
+    color: #fff;
+}
+.flex-list-header .flex-row {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+.first {
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    padding: 0 20px;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+}
+.flex-list-header .flex-cell {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 128px;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+.flex-list-item {
+    border: 1px solid #ddd;
+    margin-top: 21px;
+}
+.flex-list-item .content {
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+}
+.flex-list-item .content .flex-cell {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-right: 1px solid #eee;
+}
+.flex-list-item .content .state {
+    text-align: center;
+    color: #42c02e;
+}
+.flex-cell {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 128px;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+.flex-row {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+.flex-list-item .content .hash {
+    color: #ffb200;
+    text-align: left;
+    word-break: break-word;
 }

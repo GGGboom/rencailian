@@ -1,11 +1,10 @@
 <template>
     <div id="app">
-        <Header v-if="!this.$store.state.isLogin"></Header>
-        <router-view/>
-        <Backtop v-if="!this.$store.state.isLogin"></Backtop>
-        <Footer v-if="!this.$store.state.isLogin"></Footer>
+        <Header :page="name" v-if="this.$store.state.pageState"></Header>
+        <router-view @setHeader="setHeader"/>
+        <Backtop v-if="this.$store.state.pageState"></Backtop>
+        <Footer v-if="this.$store.state.pageState"></Footer>
     </div>
-
 </template>
 <script>
     // @ is an alias to /src
@@ -18,11 +17,15 @@
             Header,
             Footer,
             Backtop
-
         },
         data(){
             return{
-                isAtLogin:false
+                name:""
+            }
+        },
+        methods:{
+            setHeader(name){
+                this.name = name;
             }
         },
         created() {

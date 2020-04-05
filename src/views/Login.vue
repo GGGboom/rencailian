@@ -23,7 +23,7 @@
                 <el-form :model="loginForm" status-icon :rules="rules" ref="loginForm" class="demo-loginForm">
                     <el-form-item prop="cellphone">
                         <el-input
-                                  prefix-icon="el-icon-cellphone"
+                                  prefix-icon="el-icon-phone"
                                   v-model="loginForm.cellphone"
                                   autocomplete="off"></el-input>
                     </el-form-item>
@@ -34,7 +34,7 @@
                                   autocomplete="off"></el-input>
                     </el-form-item>
                     <el-form-item prop="verify" v-if="isReg">
-                        <el-input type="password"
+                        <el-input type="text"
                                   v-model="loginForm.verify"
                                   autocomplete="off">
                             <el-button slot="append">发送验证码</el-button>
@@ -66,7 +66,7 @@
                 loginForm: {
                     cellphone: '',
                     password: '',
-                    verify:2,
+                    verify:null,
                     type:2
                 },
                 rules: {
@@ -86,22 +86,23 @@
             submitForm(formName) {
                 this.$refs[formName].validate(async (valid) => {
                     if (valid) {
+                        this.loginForm.verify = 2;
                         let res = await login(JSON.stringify(this.loginForm));
                         if(res.code===0){
                             this.$message.success("登录成功");
-                            this.$store.state.isLogin = false;
-                            this.$store.state.user=res.user;
+                            //将header、footer和backtotop设置为可见
+                            this.$store.commit('changePageState',true);
+                            //将页头设置为登录状态
+                            this.$store.commit('login',true);
+                            res.user.token = res.token;
+                            localStorage.setItem('user', JSON.stringify(res.user));
                             this.$router.push("/");
-                            console.log(this.$store.state.user);
                         }
                     } else {
                         console.log('error submit!!');
                         return false;
                     }
                 });
-            },
-            resetForm(formName) {
-                this.$refs[formName].resetFields();
             },
             changeToLog () {
                 this.isLogin = true;
@@ -113,8 +114,7 @@
             }
         },
         created() {
-            this.$store.state.isLogin = true;
-            console.log("ture");
+            this.$store.commit('changePageState',false);
         }
     }
 </script>
