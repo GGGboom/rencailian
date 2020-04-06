@@ -9,6 +9,7 @@ body {
 #app {
     background-color: #f6f6f8;
     min-width: 1280px;
+    font-size: 14px;
 }
 #container {
     width: 100%;

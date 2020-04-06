@@ -94,6 +94,8 @@
                             this.$store.commit('changePageState',true);
                             //将页头设置为登录状态
                             this.$store.commit('login',true);
+                            //设置用户类型
+                            this.$store.commit('saveUserType',res.user.identityType);
                             res.user.token = res.token;
                             localStorage.setItem('user', JSON.stringify(res.user));
                             this.$router.push("/");

@@ -690,14 +690,17 @@
 
             </div>
         </div>
+        <Backtop></Backtop>
     </div>
 </template>
 
 <script>
-
+    import Backtop from '../components/Backtop';
     export default {
         name: 'Home',
-        components: {},
+        components: {
+            Backtop
+        },
         data() {
             return {
                 imgUrl: "../assets/img/aliyun.jpg",
@@ -723,6 +726,9 @@
             handleClick(tab, event) {
                 console.log(tab, event);
             }
+        },
+        beforeCreate() {
+            this.$emit('setHeader','home');
         }
     }
 </script>

@@ -36,58 +36,75 @@
                 </ul>
             </el-tab-pane>
             <el-tab-pane label="收藏公司" name="second">
+                <ul class="list-box">
+                    <li v-for="item in companys" :key="item.companyId" class="list-item">
+                        <div class="col-8">
+                            <div class="d-inline-block mb-1">
+                                <h3 class="wb-break-all">
+                                    <router-link to="">
+                                        {{item.companyName}}
 
+                                    </router-link>
+                                    <el-tag type="success" size="mini">信</el-tag>
+                                    <span class="company-credit">100</span>
+                                </h3>
+                            </div>
+                            <div class="f6 text-gray mt-2">
+                                <span class="ml-0 mr-3">
+
+                                </span>
+                                <span class="ml-0 mr-3">
+
+                                </span>
+                            </div>
+                            <div class="f6 text-gray mt-2">
+                                <span class="ml-0 mr-3">
+                                </span>
+                                <span class="ml-0 mr-3">
+                                </span>
+                                <span class="ml-0 mr-3">
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <el-button size="mini">取消收藏</el-button>
+                            <el-button size="mini">立即沟通</el-button>
+                        </div>
+                    </li>
+                </ul>
             </el-tab-pane>
         </el-tabs>
     </div>
 </template>
 
 <script>
+    import {getFavourite} from "../../../api/user";
+    import {getStore} from "../../../utils/localStorageUtil";
+
     export default {
         name: "collect",
         data() {
             return {
                 activeName: 'first',
-                companys:[
-                    {
-                        "companyId": 1,
-                        "logoImagePath": null,
-                        "simpleName": "大黄",
-                        "verifiedStatus": 0,
-                        "financingRound": 1,
-                        "companySize": 1,
-                        "industryType": 1,
-                        "description": null,
-                        "address": null,
-                        "officialWebsite": null,
-                        "createTime": 1534239317000,
-                        "createUserId": 5,
-                        "updateTime": null,
-                        "updateUserId": null,
-                        "isDeleted": false,
-                        "companyName": "阿里影业公司",
-                        "verifiedFailReason": "公司在工商局不存在"
-                    },
-                    {
-                        "companyId": 2,
-                        "logoImagePath": null,
-                        "simpleName": "大黄",
-                        "verifiedStatus": 0,
-                        "financingRound": 1,
-                        "companySize": 1,
-                        "industryType": 1,
-                        "description": null,
-                        "address": null,
-                        "officialWebsite": null,
-                        "createTime": 1534239317000,
-                        "createUserId": 5,
-                        "updateTime": null,
-                        "updateUserId": null,
-                        "isDeleted": false,
-                        "companyName": "腾讯影业公司",
-                        "verifiedFailReason": "公司在工商局不存在"
-                    }
-                ],
+                companys:[{
+                    "companyId": 1235,
+                    "logoImagePath": null,
+                    "simpleName": "大黄",
+                    "verifiedStatus": 0,
+                    "financingRound": 1,
+                    "companySize": 1,
+                    "industryType": 1,
+                    "description": null,
+                    "address": null,
+                    "officialWebsite": null,
+                    "createTime": 1534239317000,
+                    "createUserId": 5,
+                    "updateTime": null,
+                    "updateUserId": null,
+                    "isDeleted": false,
+                    "companyName": "阿里影业公司",
+                    "verifiedFailReason": "公司在工商局不存在"
+                }],
                 positions:[
                     {
                         "companyId": 1,
@@ -164,7 +181,32 @@
         methods: {
             handleClick(tab, event) {
                 console.log(tab, event);
+            },
+            //获取收藏公司列表
+            getCompany(){
+                getFavourite({authorization:getStore("user").token},1).then((res)=>{
+                    if(res.code===0){
+                        console.log(res);
+                        this.companys = JSON.parse(JSON.stringify(res.companys));
+                    }
+                }).catch(err=>{
+                    console.log(err);
+                });
+            },
+            //获取收藏职位列表
+            getPosition(){
+                getFavourite({authorization:getStore("user").token},2).then((res)=>{
+                    if(res.code===0){
+                        console.log(res);
+                    }
+                }).catch(err=>{
+                    console.log(err);
+                });
             }
+        },
+        created() {
+            this.getCompany();
+            this.getPosition();
         }
     }
 </script>

@@ -6,6 +6,7 @@ const store  = new Vuex.Store({
     state:{
         loginState:false,
         pageState:true,//在登录注册页面中不需要页头和页脚,该数据用于控制页头和页脚
+        identityType:1,//用户类型 1是招聘者，2是应聘者
         //用户基本信息
         user:{
             "companyId": null,
@@ -15,7 +16,6 @@ const store  = new Vuex.Store({
             "position": null,
             "verifiedStatus": null,
             "account": null,
-            //用户类型 1是应聘者，2是招聘者
             "identityType": 2,
             "receivingMailbox": null,
             "cellphone": null,
@@ -23,11 +23,8 @@ const store  = new Vuex.Store({
             "loginEmail": null,
             "licenceCompanyName": null,
             "bstWallets": [
-                {
-                    "id": 914328292933632,
-                    "name": "18321260396"
-                }
-            ]
+            ],
+            detail:{}
         }
     },
     getters:{
@@ -38,6 +35,10 @@ const store  = new Vuex.Store({
         //保存登录状态
         login:(state ,payload)=> {
             state.loginState = payload;
+        },
+        //保存用户类型
+        saveUserType:(state,payload)=>{
+           state.  identityType = payload;
         },
         exit:state => {
             localStorage.removeItem('user');

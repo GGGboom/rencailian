@@ -6,22 +6,19 @@
                     <h3 class="menu-heading">
                         个人设置
                     </h3>
-                    <div v-if="this.$store.state.user.identityType==1">
-                        <router-link v-for="subitem in jobHunter" :to="subitem.link" :key="subitem.index" :class="subitem.index==index?'active':''" @click.native="setHeadAndAct(subitem)" class="js-selected-navigation-item menu-item">
+                    <div v-if="this.$store.state.identityType===2">
+                        <router-link v-for="subitem in jobHunter" :to="subitem.link" :key="subitem.index" :class="$route.path===subitem.link?'active':''" class="js-selected-navigation-item menu-item">
                             {{subitem.subName}}
                         </router-link>
                     </div>
-                    <div v-if="this.$store.state.user.identityType==2">
-                        <router-link v-for="subitem in hr" :to="subitem.link" :key="subitem.index" :class="subitem.index==index?'active':''" @click.native="setHeadAndAct(subitem)" class="js-selected-navigation-item menu-item">
+                    <div v-if="this.$store.state.identityType===1">
+                        <router-link v-for="subitem in hr" :to="subitem.link" :key="subitem.index" :class="$route.path===subitem.link?'active':''"  class="js-selected-navigation-item menu-item">
                             {{subitem.subName}}
                         </router-link>
                     </div>
                 </div>
             </div>
             <div class="col-9 float-left">
-                <div class="Subhead mt-0 mb-0">
-                    <h2 class="Subhead-heading">{{subHead}}</h2>
-                </div>
                 <router-view></router-view>
             </div>
         </div>
@@ -29,11 +26,21 @@
 </template>
 
 <script>
+
     export default {
         name: "Profile",
+
+        methods: {
+
+        },
+        mounted(){
+
+        },
+        created() {
+
+        },
         data() {
             return{
-                subHead:"我的信息",
                 // 应聘者导航栏菜单
                 jobHunter:[
                     {
@@ -100,45 +107,27 @@
                         index:3
                     },
                     {
-                        subName:'投递记录',
-                        link:"/profile/history",
-                        index:4
-                    },
-                    {
                         subName:'面试安排',
                         link:"/profile/interview",
-                        index:5
+                        index:4
                     },
                     {
                         subName:'智能签约',
                         link:"/profile/contract",
-                        index:6
+                        index:5
                     },
                     {
                         subName:'简历管理',
                         link:"/profile/resumeManage",
-                        index:7
+                        index:6
                     },
                     {
                         subName:'我的钱包',
                         link:"/profile/wallet",
-                        index:8
+                        index:7
                     }
-                ],
-                index:1
+                ]
             }
-        },
-        methods: {
-            setHeadAndAct(item){
-                this.subHead = item.subName;
-                this.index = item.index;
-            }
-        },
-        mounted(){
-
-        },
-        created() {
-
         }
     }
 </script>

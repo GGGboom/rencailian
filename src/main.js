@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import './plugins/element.js'
-import router from './router'
+import router from './router/router'
 import store from './store'
 import 'vue-awesome/icons'
 //使用vue-awesome
@@ -23,10 +23,11 @@ Vue.prototype.$post = $post;
 router.beforeEach((to, from, next) => {
   //每刷新一次页面，重新请求数据
   let user = JSON.parse(localStorage.getItem("user"));
-  console.log(user);
   if(user){
-      //设置vuex登录状态为已登录
+      //保存登录状态和用户类型
       store.state.loginState=true;
+      store.state.identityType = user.identityType;
+      store.user = user;
       next();
   }else{
     store.state.loginState=false;
@@ -36,6 +37,11 @@ router.beforeEach((to, from, next) => {
     document.title = to.meta.title
   }
   next();
+});
+
+// 消除因为在页面中间跳转路由而导致的页面不置顶
+router.afterEach(() => {
+  window.scroll(0, 0);
 });
 
 

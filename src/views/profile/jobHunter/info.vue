@@ -19,8 +19,8 @@
                         </dt>
                         <dd>
                             <el-radio-group v-model="ruleForm.gender">
-                                <el-radio label="男"></el-radio>
-                                <el-radio label="女"></el-radio>
+                                <el-radio label="1">男</el-radio>
+                                <el-radio label="2">女</el-radio>
                             </el-radio-group>
                         </dd>
                     </dl>
@@ -41,7 +41,7 @@
                             <label for="user_city">所在城市</label>
                         </dt>
                         <dd>
-                            <VDistpicker @selected="proviceAddress" province="广东省" city="广州市" area="海珠区"></VDistpicker>
+                            <VDistpicker @selected="proviceAddress" :placeholders="placeholders"></VDistpicker>
                         </dd>
                     </dl>
                     <dl class="form-group border-bottom">
@@ -89,42 +89,16 @@
 </template>
 
 <script>
-    import {strToDate} from '../../../utils/dateUtil';
+
     import VDistpicker from 'v-distpicker';
+    import {getInfo,saveInfo} from "../../../api/user";
     import {getStore,setStore} from "../../../utils/localStorageUtil";
+    import {strToDate,dateToString} from "../../../utils/dateUtil";
 
     export default {
         name: "info",
         components: {
             VDistpicker
-        },
-        data() {
-            return {
-                statusList:[
-                    {
-                        txt:"在职-暂不考虑",
-                        id:1
-                    },{
-                        txt:"在职-考虑机会",
-                        id:2
-                    },{
-                        txt:"在职-月内到岗",
-                        id:3
-                    },{
-                        txt:"离职-随时到岗",
-                        id:4
-                    },
-                ],
-                user: null,
-                ruleForm: {
-                    name: "",
-                    gender: "男",
-                    birthday: null,
-                    workCity: "",
-                    huntingStatus: null
-                },
-                imageUrl: require("../../../assets/img/msg_avatar.png")
-            }
         },
         methods: {
             selectGet(vId){
@@ -134,26 +108,7 @@
                 this.ruleForm.huntingStatus = obj.id;
                 console.log(`${this.ruleForm.huntingStatus}+${obj.id}`)
             },
-            //获取求职状态
-            getStatus(n) {
-                switch (n) {
-                    case 1: {
-                        return "在职-暂不考虑";
-                    }
-                    case 2: {
-                        return "在职-考虑机会";
-                    }
-                    case 3: {
-                        return "在职-月内到岗";
-                    }
-                    case 4: {
-                        return "离职-随时到岗";
-                    }
-                    default: {
-                        return null;
-                    }
-                }
-            },
+            //城市选择器
             proviceAddress(data) {
                 console.log(data)
             },
@@ -173,21 +128,28 @@
             },
             //保存修改
             async saveInfomation() {
+                let user = getStore("user");
                 let formdata = new FormData();
-                this.user.birthday = '1997-01-01';
                 formdata.append("name",this.ruleForm.name);
-                formdata.append("birthday",'1997-01-01');
+                formdata.append("birthday",dateToString(this.ruleForm.birthday));
                 formdata.append("huntingStatus",this.ruleForm.huntingStatus);
-                this.user.huntingStatus = this.ruleForm.huntingStatus;
-                formdata.append("workCity",this.ruleForm.workCity);
-                formdata.append("gender",this.ruleForm.gender=="男"?1:2);
-                this.$post(`/jobhunter/userCenter?authorization=${JSON.parse(localStorage.getItem("user")).token}`, formdata)
+                formdata.append("workCity",1);
+                formdata.append("gender",this.ruleForm.gender);
+                saveInfo(formdata,JSON.parse(localStorage.getItem("user")).token)
                     .then(res => {
                         if (res.code === 0) {
+                            user.gender = this.ruleForm.gender;
+                            user.huntingStatus = this.ruleForm.huntingStatus;
+                            user.name = this.ruleForm.name;
+                            user.birthday = dateToString(this.ruleForm.birthday);
                             this.$message.success("修改成功");
                             //修改成功则修改localstorage
-                            setStore("user",this.user);
-                            this.$router.go(0);
+                            setStore("user",user);
+                            setTimeout(()=>{
+                                this.$router.go(0);
+                            },1000);
+                        }else{
+                            this.$message.warning(res.message);
                         }
                     })
                     .catch(err => {
@@ -196,15 +158,53 @@
             }
         },
         created() {
-            this.user = getStore("user");
-            this.ruleForm.name = this.user.name;
-            this.ruleForm.birthday = new Date(strToDate(this.user.headerImagePath));
-            this.ruleForm.huntingStatus = this.getStatus(this.user.huntingStatus);
-            this.ruleForm.workCity = 1;
-            this.ruleForm.userId = this.user.userId;
+            //获取基本信息
+            getInfo({authorization:getStore("user").token}).then(res=>{
+                if(res.code===0){
+                    this.ruleForm.name = res.user.name;
+                    this.ruleForm.gender = res.user.detail.gender.toString();
+                    this.ruleForm.birthday = strToDate(res.user.detail.birthday);
+                    this.ruleForm.workCity = res.user.detail.workCity;
+                    this.ruleForm.huntingStatus = res.user.detail.huntingStatus;
+                }
+            }).catch(err=>{
+                console.log(err);
+            });
         },
         mounted() {
 
+        },
+        data() {
+            return {
+                statusList:[
+                    {
+                        txt:"在职-暂不考虑",
+                        id:1
+                    },{
+                        txt:"在职-考虑机会",
+                        id:2
+                    },{
+                        txt:"在职-月内到岗",
+                        id:3
+                    },{
+                        txt:"离职-随时到岗",
+                        id:4
+                    },
+                ],
+                ruleForm: {
+                    name: "",
+                    gender: 1,
+                    birthday: null,
+                    workCity: null,
+                    huntingStatus: null
+                },
+                imageUrl: require("../../../assets/img/msg_avatar.png"),
+                placeholders: {
+                    province: '上海市',
+                    city: '上海城区',
+                    area: '松江区',
+                }
+            }
         }
     }
 </script>

@@ -29,12 +29,20 @@ service.interceptors.response.use(
     }
 );
 
-export function get(url, params) {
+export function get(url, params,data) {
+    if(data){
+        url = `${url}${data}`;
+        service({url, method: 'get',params});
+    }
     return service({url, method: 'get', params})
 }
 
-export function post(url, data) {
-    return service({url, method: 'post', data})
+export function post(url, data,token) {
+    if(token) {
+        url = `${url}?authorization=${token}`;
+        return service({url, method: 'post', data});
+    }
+    return service({url, method: 'post', data});
 }
 
 //用于post请求中url带参数
@@ -42,5 +50,6 @@ export const $post =  (url, data = {}) => {
     // data.group_id=group_id;
     return  service.post(url,data)
 }
+
 
 export default service

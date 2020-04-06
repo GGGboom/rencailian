@@ -93,9 +93,9 @@
 .el-dropdown {
     font-size: 12px;
 }
-/*.job-box{*/
-    /*margin-top: 30px;*/
-/*}*/
+.filter-mrg{
+    margin-bottom: 10px;
+}
 .search-job-list-wrap .job-list {
     background: 0 0;
     margin-right: 300px;

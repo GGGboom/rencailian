@@ -1,7 +1,8 @@
 <template>
     <div>
+        <!--筛选框-->
         <div id="filter-box">
-            <div class="inner">
+            <div class="inner filter-mrg">
                 <div class="condition-box">
                     <div class="show-condition-district">
                         <span class="hotcity">热门城市:</span>
@@ -77,6 +78,7 @@
                 </div>
             </div>
         </div>
+        <!--筛选框-->
         <div class="inner">
             <div class="job-box">
                 <div class="sider">

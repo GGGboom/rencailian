@@ -64,6 +64,11 @@
         },
         components:{
             'App-Attach':Attach
+        },
+        methods:{
+            handleClose(){
+
+            }
         }
     }
 </script>

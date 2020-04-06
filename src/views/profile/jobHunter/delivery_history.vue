@@ -58,6 +58,7 @@
 </template>
 
 <script>
+
     export default {
         name: "delivery_history",
         data() {
@@ -99,6 +100,9 @@
             handleClick(tab, event) {
                 console.log(tab, event);
             }
+        },
+        created() {
+
         }
     }
 </script>

@@ -1,15 +1,11 @@
 .Header{
     z-index: 32;
-    padding: 16px;
+    padding: 10px;
     font-size: 14px;
     line-height: 1.5;
     color: hsla(0,0%,100%,.7);
     background-color: #24292e;
     position: relative;
-}
-.Header-item{
-    margin-right: 16px;
-    align-self: stretch;
 }
 .Header, .Header-item{
     display: flex;
@@ -39,9 +35,6 @@
 }
 .nav .nav-item{
     margin-right: 16px;
-}
-.Header .first{
-    margin-left: 200px;
 }
 .Header .left{
     display: flex;
@@ -111,4 +104,18 @@
 .myidentity{
     margin-top: -20px;
     margin-bottom: 20px;
+}
+.Header .df{
+    display: flex;
+    justify-content: space-between;
+}
+
+.Header .mg-right{
+    margin-right: 16px;
+}
+.Header .mg-right-10{
+    margin-right: 10px;
+}
+.Header .clear-margin-right{
+    margin-left: -10px;
 }
