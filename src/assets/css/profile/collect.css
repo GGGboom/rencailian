@@ -40,3 +40,25 @@
     float: right;
     margin-left: 10px;
 }
+.mb-1 .company-credit{
+    font-size: 12px;
+    color: #d7a137;
+    padding-left: 5px;
+}
+.wb-break-all .company-name{
+    padding-right: 5px;
+}
+.d-md-flex{
+    display: flex;
+}
+.collect-img img{
+    width: 82px;
+    border: 1px solid #e1e4e8!important;
+    border-radius: 5px;
+}
+.list-item .collect-img{
+    margin-right: 10px;
+}
+.vertical-center{
+    align-self: center;
+}

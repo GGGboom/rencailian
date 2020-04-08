@@ -1,6 +1,7 @@
 <template>
     <div>
         <el-tabs v-model="activeName" @tab-click="handleClick" type="card">
+            <!--收藏职位-->
             <el-tab-pane label="收藏职位" name="first">
                 <ul class="list-box">
                     <li v-for="positionItem in positions" :key="positionItem.positionId" class="list-item">
@@ -35,44 +36,52 @@
                     </li>
                 </ul>
             </el-tab-pane>
+            <!--收藏职位-->
+
+            <!--收藏公司-->
             <el-tab-pane label="收藏公司" name="second">
                 <ul class="list-box">
                     <li v-for="item in companys" :key="item.companyId" class="list-item">
-                        <div class="col-8">
-                            <div class="d-inline-block mb-1">
-                                <h3 class="wb-break-all">
-                                    <router-link to="">
-                                        {{item.companyName}}
-
-                                    </router-link>
-                                    <el-tag type="success" size="mini">信</el-tag>
-                                    <span class="company-credit">100</span>
-                                </h3>
+                        <div class="col-8 d-md-flex">
+                            <div class="collect-img">
+                                <img :src="item.logoImagePath" alt>
                             </div>
-                            <div class="f6 text-gray mt-2">
+                            <div>
+                                <div class="d-inline-block mb-1">
+                                    <h3 class="wb-break-all">
+                                        <router-link to="" class="company-name">
+                                            {{item.companyName}}
+                                        </router-link>
+                                        <el-tag type="success" size="mini">信</el-tag>
+                                        <span class="company-credit">100</span>
+                                    </h3>
+                                </div>
+                                <div class="f6 text-gray mt-2">
                                 <span class="ml-0 mr-3">
-
+                                    {{item.address}}
                                 </span>
-                                <span class="ml-0 mr-3">
-
-                                </span>
+                                </div>
+                                <div class="f6 text-gray mt-2">
+                                    <div>
+                                        <span>{{item.companySize}}</span>
+                                        <el-divider direction="vertical"></el-divider>
+                                        <span>{{item.financingRound}}</span>
+                                        <el-divider direction="vertical"></el-divider>
+                                        <span>{{item.financingRound}}</span>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="f6 text-gray mt-2">
-                                <span class="ml-0 mr-3">
-                                </span>
-                                <span class="ml-0 mr-3">
-                                </span>
-                                <span class="ml-0 mr-3">
-                                </span>
-                            </div>
+
                         </div>
-                        <div class="col-4">
+                        <div class="col-4  d-md-flex vertical-center">
+                            <el-button size="mini">查看全部在招职位</el-button>
                             <el-button size="mini">取消收藏</el-button>
-                            <el-button size="mini">立即沟通</el-button>
                         </div>
                     </li>
                 </ul>
             </el-tab-pane>
+            <!--收藏公司-->
+
         </el-tabs>
     </div>
 </template>
@@ -80,31 +89,14 @@
 <script>
     import {getFavourite} from "../../../api/user";
     import {getStore} from "../../../utils/localStorageUtil";
+    import {getCompanySize,getFinancingRound,getVerifiedStatus} from "../../../utils/commonUtil";
 
     export default {
         name: "collect",
         data() {
             return {
                 activeName: 'first',
-                companys:[{
-                    "companyId": 1235,
-                    "logoImagePath": null,
-                    "simpleName": "大黄",
-                    "verifiedStatus": 0,
-                    "financingRound": 1,
-                    "companySize": 1,
-                    "industryType": 1,
-                    "description": null,
-                    "address": null,
-                    "officialWebsite": null,
-                    "createTime": 1534239317000,
-                    "createUserId": 5,
-                    "updateTime": null,
-                    "updateUserId": null,
-                    "isDeleted": false,
-                    "companyName": "阿里影业公司",
-                    "verifiedFailReason": "公司在工商局不存在"
-                }],
+                companys:[],
                 positions:[
                     {
                         "companyId": 1,
@@ -188,6 +180,12 @@
                     if(res.code===0){
                         console.log(res);
                         this.companys = JSON.parse(JSON.stringify(res.companys));
+                        this.companys.forEach(item=>{
+                            item.verifiedStatus = getVerifiedStatus(item.verifiedStatus);
+                            item.financingRound = getFinancingRound(item.financingRound);
+                            item.companySize = getCompanySize(item.companySize);
+                            item.logoImagePath = require(item.logoImagePath);
+                        })
                     }
                 }).catch(err=>{
                     console.log(err);
@@ -204,7 +202,7 @@
                 });
             }
         },
-        created() {
+        mounted() {
             this.getCompany();
             this.getPosition();
         }

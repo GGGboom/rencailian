@@ -74,6 +74,16 @@
     align-self: center;
     font-size: 16px;
 }
+.arbitration-list .arbitration-content{
+    padding-bottom: 20px;
+}
+.arbitration-list .arbitration-content p{
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-self: center;
+    font-size: 16px;
+}
 .contract-list .contract-content{
     padding: 20px 0;
     display: block;
@@ -121,4 +131,9 @@
     position: absolute;
     right: 10px;
     top: 17px;
+}
+.arbitration-list .tip{
+    margin-top: 10px;
+    color: black;
+    font-size: 13px!important;
 }

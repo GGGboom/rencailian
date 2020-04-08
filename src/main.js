@@ -18,6 +18,8 @@ Vue.component('VueEmoji', VueEmoji);
 Vue.config.productionTip = false;
 
 import {$post} from './utils/request';
+import {getStore} from "./utils/localStorageUtil";
+Vue.prototype.$getStore = getStore;
 Vue.prototype.$post = $post;
 
 router.beforeEach((to, from, next) => {

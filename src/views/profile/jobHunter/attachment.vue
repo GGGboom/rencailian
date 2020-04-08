@@ -1,8 +1,8 @@
 <template>
     <div class="attach-container">
-        <div class="wallet-msg">
+        <div class="warning-container">
             <img src="../../../assets/img/i.png" alt>
-            <span class="wallet-warning">最多可上传三个简历附件</span>
+            <span class="warning">最多可上传三个简历附件</span>
         </div>
         <div class="flex-list-header">
             <div class="flex-row">
@@ -83,18 +83,5 @@
 
     border-radius: 0;
 }
-.attach-container .wallet-msg{
-    padding-bottom: 5px;
-    display: flex;
-    align-items: center;
-}
-.attach-container .wallet-msg img{
-    width: 15px;
-    height: 15px;
-}
-.attach-container .wallet-msg .wallet-warning{
-    padding-left: 5px;
-    font-size: 12px;
-    color: #969696;
-}
+
 </style>

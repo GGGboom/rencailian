@@ -55,3 +55,59 @@ body ::-webkit-scrollbar-track-piece {
 .upload-demo{
     width: 100%;
 }
+.active {
+    background: #f3f5f8!important;
+    font-weight: 600;
+    color: #24292e!important;
+    cursor: default;
+}
+.d-flex{
+    display: flex;
+}
+.d-flex-sbt{
+    justify-content: space-between;
+}
+.d-flex-jte{
+    justify-content: flex-end;
+}
+
+/*警告消息*/
+.warning-container{
+    padding-bottom: 5px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+.warning-container img{
+    width: 15px;
+    height: 15px;
+}
+.warning-container .warning{
+    padding-left: 5px;
+    font-size: 12px;
+    color: #969696;
+}
+/*警告消息*/
+
+
+/*空消息盒子*/
+.empty-box{
+    display: flex;
+    justify-content: center;
+    min-height: 290px;
+    align-items: center;
+}
+.empty-box .message{
+    display: flex;
+    align-items: center;
+}
+.empty-box .message .message-txt{
+    margin-left: 5px;
+}
+.empty-box .message .mark{
+    width: 25px;
+}
+/*空消息盒子*/

@@ -58,6 +58,8 @@
 </template>
 
 <script>
+    import {getDeliveryHistory} from "../../../api/user";
+    import {getStore} from "../../../utils/localStorageUtil";
 
     export default {
         name: "delivery_history",
@@ -99,10 +101,17 @@
         methods: {
             handleClick(tab, event) {
                 console.log(tab, event);
-            }
+            },
+            getDeliveryHistory
         },
         created() {
-
+            this.getDeliveryHistory({authorization:getStore("user").token})
+                .then(res=>{
+                    console.log(res);
+                })
+                .catch(err=>{
+                    console.log(err);
+                })
         }
     }
 </script>

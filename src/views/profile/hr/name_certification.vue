@@ -39,7 +39,7 @@
                 </div>
             </div>
         </div>
-        <div v-else class="no-verify" >
+        <div v-else class="no-verify empty-box" >
             <div class="message">
                 <img class="mark" src="../../../assets/img/i.png" alt>
                 <span class="message-txt">
@@ -89,85 +89,5 @@
 </script>
 
 <style scoped>
-    .no-verify{
-        display: flex;
-        justify-content: center;
-        min-height: 290px;
-        align-items: center;
-    }
-    .no-verify .message{
-        display: flex;
-        align-items: center;
-    }
-    .no-verify .message .message-txt{
-        margin-left: 5px;
-    }
-    .no-verify .message .mark{
-        width: 25px;
-    }
-    .name-cet {
-        min-height: 270px;
-    }
-
-    .name-cet .name-item {
-        padding: 15px 0;
-        display: flex;
-        justify-content: space-between;
-    }
-
-    .name-cet .name-item .n-left {
-        flex: 1;
-    }
-
-    .name-cet .name-item .n-right {
-
-    }
-
-    .i-padding {
-        color: #586069 !important;
-        padding-left: 5px;
-        font-size: 13px;
-    }
-
-    .name-cet {
-
-    }
-
-    .name-cet .name-item {
-        border-bottom: 1px solid #e1e4e8;
-        padding: 20px 0;
-        display: flex;
-        justify-content: space-between;
-        align-self: center;
-        font-size: 16px;
-    }
-
-    .name-cet .contract-content {
-        padding: 20px 0;
-        display: block;
-        font-size: 16px;
-        border-bottom: 1px solid #e1e4e8;
-    }
-
-    .name-cet .contract-content .ct-content {
-        padding: 10px 0;
-    }
-
-    .name-cet .contract-btn {
-        display: flex;
-        justify-content: flex-end;
-        padding: 20px 0;
-    }
-
-    .contract-btn .btn-box {
-        display: flex;
-        justify-content: space-between;
-    }
-
-    .item-right {
-        color: #cfcfcf;
-    }
-    .mg-top{
-        margin-top: 20px;
-    }
+    @import "../../../assets/css/profile/name_certification.css";
 </style>

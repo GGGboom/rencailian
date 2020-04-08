@@ -45,6 +45,14 @@ export function post(url, data,token) {
     return service({url, method: 'post', data});
 }
 
+export function deletefn(url, params,token) {
+    if(token) {
+        url = `${url}?authorization=${token}`;
+        return service({url, method: 'delete', params});
+    }
+    return service({url, method: 'delete', params});
+}
+
 //用于post请求中url带参数
 export const $post =  (url, data = {}) => {
     // data.group_id=group_id;

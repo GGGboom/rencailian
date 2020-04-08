@@ -3,70 +3,125 @@
         <div :style="styleObj">
             <el-tabs v-model="activeName" type="card" @tab-click="handleClick">
                 <el-tab-pane label="全部" name="first">
-                    <ul class="list" v-if="this.$store.state.user.identityType===1">
-                        <li v-for="item in contractRecords" :key="item.receiveUserId" @click="goToDetail(item)">
-                            <el-card shadow="hover">
-                                <div class="contract-head job-padding">
-                                    <div class="head-primary">
-                                        <p class="primary">
+                    <!--如果为应聘者-->
+                    <div v-if="this.$store.state.identityType===2">
+                        <ul class="list" >
+                            <li v-for="item in jobHunter_contract" :key="item.receiveUserId" @click="goToDetail(item)">
+                                <el-card shadow="hover">
+                                    <div class="contract-head job-padding">
+                                        <div class="head-primary">
+                                            <p class="primary">
                                             <span class="primary-name">
-                                                {{item.company}}
+                                                {{item.companyName}}
                                             </span>
-                                        </p>
-                                        <p>
+                                            </p>
+                                            <p>
                                             <span class="primary-position">
                                                 录取岗位：
                                             </span>
-                                            <span class="primary-position">
-                                                {{item.receiveUserPosition}}
+                                                <span class="primary-position">
+                                                {{item.positionName}}
                                             </span>
-                                        </p>
-                                    </div>
+                                            </p>
+                                        </div>
 
-                                </div>
-                                <div class="contractStatus">
-                                    <el-tag effect="dark">
-                                        {{item.contractStatus}}
-                                    </el-tag>
-                                </div>
-                                <div class="divider">
-                                    <el-divider></el-divider>
-                                </div>
-                                <div class="contract-info job-padding">
-                                    <div class="avatar-container">
-                                        <img class="avatar-contract" :src="item.receiveUserHeaderImage">
                                     </div>
-                                    <div class="contract-detail" style="padding: 10px 0;">
-                                        <span class="contract-info-item">
-                                        潘双全
-                                        </span>
-                                    </div>
-                                </div>
-                            </el-card>
-                        </li>
-                    </ul>
-                    <ul class="list" v-else>
-                        <li v-for="item in contractRecords" :key="item.receiveUserId" @click="goToDetail(item)">
-                            <el-card shadow="hover">
-                                <div class="contract-container">
-                                    <div class="contract-img">
-                                        <img :src="item.receiveUserHeaderImage" alt>
-                                    </div>
-                                    <div class="c-right">
-                                        <p>张恒华</p>
-                                        <p>录取岗位：{{item.receiveUserPosition}}</p>
-                                    </div>
-                                    <div class="tags">
-                                        <el-tag effect="dark">
-                                            {{ item.contractStatus }}
+                                    <div class="contractStatus">
+                                        <el-tag :class="{'el-tag--warning':item.buttonType===1,'el-tag--info':item.buttonType===2,'el-tag--info':item.buttonType===3,'el-tag--danger':item.buttonType===4}">
+                                            {{item.contractStatus}}
                                         </el-tag>
                                     </div>
-                                </div>
-                            </el-card>
-                        </li>
-                    </ul>
+                                    <div class="divider">
+                                        <el-divider></el-divider>
+                                    </div>
+                                    <div class="contract-info job-padding">
+                                        <div class="avatar-container">
+                                            <img class="avatar-contract" src="../../../assets/img/msg_avatar.png">
+                                        </div>
+                                        <div class="contract-detail" style="padding: 10px 0;">
+                                        <span class="contract-info-item">
+                                        {{item.hrName}}
+                                        </span>
+                                        </div>
+                                    </div>
+                                </el-card>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--如果为应聘者-->
+
+                    <!--如果为招聘者-->
+                    <div v-else>
+                        <ul class="list">
+                            <li v-for="item in contractRecords" :key="item.receiveUserId" @click="goToDetail(item)">
+                                <el-card shadow="hover">
+                                    <div class="contract-container">
+                                        <div class="contract-img">
+                                            <img :src="item.receiveUserHeaderImage" alt>
+                                        </div>
+                                        <div class="c-right">
+                                            <p>张恒华</p>
+                                            <p>录取岗位：{{item.receiveUserPosition}}</p>
+                                        </div>
+                                        <div class="tags">
+                                            <el-tag effect="dark">
+                                                {{item.contractStatus}}
+                                            </el-tag>
+                                        </div>
+                                    </div>
+                                </el-card>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--如果为招聘者-->
+
                 </el-tab-pane>
-                <el-tab-pane label="待签约" name="second">配置管理</el-tab-pane>
+                <el-tab-pane label="待签约" name="second">
+                    <div v-if="this.$store.state.identityType===2">
+                        <ul class="list" >
+                            <li v-for="item in jobHunter_contract"  :key="item.receiveUserId" @click="goToDetail(item)">
+                                <el-card v-if="item.contractStatus===1" shadow="hover">
+                                    <div class="contract-head job-padding">
+                                        <div class="head-primary">
+                                            <p class="primary">
+                                            <span class="primary-name">
+                                                {{item.companyName}}
+                                            </span>
+                                            </p>
+                                            <p>
+                                            <span class="primary-position">
+                                                录取岗位：
+                                            </span>
+                                                <span class="primary-position">
+                                                {{item.positionName}}
+                                            </span>
+                                            </p>
+                                        </div>
+
+                                    </div>
+                                    <div class="contractStatus">
+                                        <el-tag :class="{'el-tag--warning':item.buttonType===1,'el-tag--info':item.buttonType===2,'el-tag--info':item.buttonType===3,'el-tag--danger':item.buttonType===4}">
+                                            {{item.contractStatus}}
+                                        </el-tag>
+                                    </div>
+                                    <div class="divider">
+                                        <el-divider></el-divider>
+                                    </div>
+                                    <div class="contract-info job-padding">
+                                        <div class="avatar-container">
+                                            <img class="avatar-contract" src="../../../assets/img/msg_avatar.png">
+                                        </div>
+                                        <div class="contract-detail" style="padding: 10px 0;">
+                                        <span class="contract-info-item">
+                                        {{item.hrName}}
+                                        </span>
+                                        </div>
+                                    </div>
+                                </el-card>
+                            </li>
+                        </ul>
+                    </div>
+                </el-tab-pane>
                 <el-tab-pane label="已签约" name="third">角色管理</el-tab-pane>
                 <el-tab-pane label="已仲裁" name="fourth">定时任务补偿</el-tab-pane>
                 <el-tab-pane label="已失效" name="fifth">定时任务补偿</el-tab-pane>
@@ -149,6 +204,9 @@
 </template>
 
 <script>
+    import {getContract} from "../../../api/user";
+    import {getStore} from "../../../utils/localStorageUtil";
+
     export default {
         name: "contract",
         data(){
@@ -192,6 +250,8 @@
                         receiveUserPosition:"软件工程师"
                     }
                 ],
+                jobHunter_contract:[],          //应聘者智能合约
+                hr_contract:[],                 //招聘者智能合约
                 styleObj:{
                     'display':'block'
                 },
@@ -212,7 +272,39 @@
                 console.log(item);
                 this.styleObj.display = 'none';
                 this.styleObj2.display = 'block';
+            },
+            get(){
+                getContract({loginId:getStore("user").userId,authorization:getStore("user").token},2)
+                    .then(res=>{
+                        this.jobHunter_contract = res.contracts;
+                        console.log(res);
+                        this.jobHunter_contract.forEach(item=>{
+                            if(item.contractStatus===1){
+                                item.contractStatus = '待签约';
+                                item.buttonType = 1;
+                                item.buttonColorType = 'yellow';//#FFCC00
+                            }else if(item.contractStatus===2 || item.contractStatus===5){
+                                item.contractStatus = '已签约';
+                                item.buttonType = 2;
+                                item.buttonColorType = 'green';//#00CC00
+                            }else if(item.contractStatus>=7 && item.contractStatus<=15){
+                                item.contractStatus = '已仲裁';
+                                item.buttonType = 3;
+                                item.buttonColorType = 'blue';//#0099FF
+                            }else if(item.contractStatus===3 || item.contractStatus===4 || item.contractStatus===6){
+                                item.contractStatus = '已失效';
+                                item.buttonType = 4;
+                                item.buttonColorType = 'gray';//#A1A1A1
+                            }
+                        })
+                    })
+                    .catch(err=>{
+                        console.log(err);
+                    })
             }
+        },
+        mounted() {
+            this.get();
         }
     }
 </script>

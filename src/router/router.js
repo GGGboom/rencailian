@@ -89,7 +89,7 @@ const routes = [
                 path: 'history',
                 name: 'delivery_history',
                 component: () => import( '../views/profile/jobHunter/delivery_history.vue'),
-                meta: {title: '简历附件', requireAuth: true}
+                meta: {title: '投递记录', requireAuth: true}
             },
             //面试安排
             {
@@ -105,11 +105,18 @@ const routes = [
                 component: () => import( '../views/profile/jobHunter/privacy.vue'),
                 meta: {title: '隐私设置', requireAuth: true}
             },
-            //智能签约
+            //智能合约
             {
                 path: 'contract',
-                name: 'contract',
-                component: () => import( '../views/profile/common/contract.vue'),
+                name: 'contract_jobhunter',
+                component: () => import( '../views/profile/jobHunter/contract_jobhunter.vue'),
+                meta: {title: '智能签约', requireAuth: true}
+            },
+            //智能合约
+            {
+                path: 'contractDetail',
+                name: 'contractDetail_jobhunter',
+                component: () => import( '../views/profile/jobHunter/contractDetail_jobhunter.vue'),
                 meta: {title: '智能签约', requireAuth: true}
             },
             //我的账号
