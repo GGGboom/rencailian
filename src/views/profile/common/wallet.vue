@@ -28,7 +28,7 @@
                     {{item.address}}
                 </div>
                 <div class="flex-cell first hash">
-                    <el-button type="text" @click="deleteWallet(item.id)">
+                    <el-button type="text" @click="deleteWalletById(item.id)">
                         删除
                     </el-button>
                 </div>
@@ -42,13 +42,12 @@
                 </div>
             </div>
         </div>
-
         <div class="d-flex d-flex-jte mrg-top">
             <el-button type="primary" @click="walletDialog=true">导入钱包</el-button>
         </div>
         <el-dialog
                 :visible.sync="walletDialog"
-                width="30%">
+                width="400px">
             <div class="import-panel">
                 <h4 class="title">
                     <a :class="{'wallet-active':index===1}" @click="index=1">助记词</a>
@@ -89,7 +88,8 @@
 </template>
 
 <script>
-    import {getWalletDetail,addWallet} from "../../../api/user";
+    import {getWalletDetail,addWallet,deleteWallet} from "../../../api/user";
+    import {CommonUtils} from "../../../utils/commonUtil";
 
     export default {
         name: "wallet",
@@ -138,14 +138,13 @@
                             "password": this.walletForm.seedPassword,
                             "name": this.walletForm.name,
                         };
-                        addWallet(data,this.$getStore("user").token)
+                        addWallet(data,CommonUtils.getStore("token"))
                             .then(res=>{
                                 if(res.code===0){
                                     this.$message.success("添加成功");
                                     this.walletDialog = false;
-                                    setTimeout(()=>{
-                                        this.$router.go(0);
-                                    },100)
+                                    let result = CommonUtils.updateLocalUser(2);
+                                    console.log(`result:${result}`);
                                 }
                             })
                             .catch(err=>{
@@ -164,7 +163,7 @@
                             "privateKey": this.privateForm.privateKey,
                             "name": this.privateForm.name,
                         };
-                        addWallet(data,this.$getStore("user").token)
+                        addWallet(data,CommonUtils.getStore("token"))
                             .then(res=>{
                                 if(res.code===0){
                                     this.$message.success("添加成功");
@@ -184,28 +183,45 @@
                 });
             },
             async getWalletDetail() {
-                let list = this.$getStore("user").bstWallets;
-                list.forEach(async item => {
-                    await getWalletDetail({authorization: this.$getStore("user").token}, item.id)
+                let list = JSON.parse(localStorage.getItem("user")).bstWallets;
+                list.forEach(item => {
+                    console.log(item);
+                    getWalletDetail({authorization: CommonUtils.getStore("token")}, item.id)
                         .then(res => {
                             this.walletList.push(res.result);
-                            console.log(this.walletList);
+                            console.log(res);
                         })
                         .catch(err => {
                             console.log(err);
                         })
                 })
             },
-            deleteWallet() {
+            deleteWalletById(id) {                    //删除钱包
                 this.$confirm('确定删除？', '温馨提示', {
                     confirmButtonText: '确定',
                     cancelButtonText: '取消',
                     type: 'warning'
                 }).then(() => {
-                    this.$message({
-                        type: 'success',
-                        message: '删除成功!'
-                    });
+                    deleteWallet(null,CommonUtils.getStore("token"),id)
+                        .then(res=>{
+                            if(res.code===0){
+                                this.$message({
+                                    type: 'success',
+                                    message: '删除成功'
+                                });
+                                let result = CommonUtils.updateLocalUser(2);
+                                console.log(`result:${result}`);
+                                this.walletDialog = false;
+                            }else{
+                                this.$message({
+                                    type: 'info',
+                                    message: res.message
+                                });
+                            }
+                        })
+                        .catch(err=>{
+                            console.log(err);
+                        })
                 }).catch(() => {
                     this.$message({
                         type: 'info',
@@ -216,15 +232,15 @@
         }
         ,
         mounted() {
-            this.getWalletDetail();
-            this.loading = false;
+
         },
         async created() {
-
+            await this.getWalletDetail();
+            this.loading = false;
         },
         watch: {
             walletList() {
-                console.log("change")
+
             }
         }
     }

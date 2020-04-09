@@ -172,11 +172,8 @@
 </template>
 
 <script>
-    import {getContractDetail} from "../../../api/user";
-    import {getStore} from "../../../utils/localStorageUtil";
-    import {getFormatDateTime} from "../../../utils/commonUtil";
-    import {applyArbitration} from "../../../api/user";
-
+    import {getContractDetail,applyArbitration} from "../../../api/user";
+    import {CommonUtils} from "../../../utils/commonUtil";
     export default {
         name: "contractDetail_jobhunter",
         data() {
@@ -207,13 +204,13 @@
                 data.append('contractId',this.contractId);
                 data.append('compensateMoney',this.compensateMoney);
                 data.append('description',this.description);
-                console.log(this.fileList)
+                console.log(this.fileList);
                 this.fileList.forEach(item=>{
                     data.append('image', item.raw);
                     data.append('fileName',item.name);
                     console.log(item.name);
                 });
-                applyArbitration(data,getStore("user").token)
+                applyArbitration(data,CommonUtils.getStore("token"))
                     .then((res)=>{
                         console.log(res);
                     })
@@ -228,7 +225,7 @@
                 this.$router.push("/profile/contract");
             },
             get() {
-                getContractDetail({authorization: getStore("user").token}, this.contractId)
+                getContractDetail({authorization: CommonUtils.getStore("token")}, this.contractId)
                     .then(res => {
                         this.detailContract = res.contract;
                         console.log(this.detailContract);
@@ -238,7 +235,7 @@
                     })
             },
             getContactDate(obj) {
-                return getFormatDateTime(obj, 'yyyy-MM-dd HH:mm:ss').substr(0, 10);
+                return CommonUtils.getFormatDateTime(obj, 'yyyy-MM-dd HH:mm:ss').substr(0, 10);
             }
         },
         created() {

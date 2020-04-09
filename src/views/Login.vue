@@ -98,6 +98,7 @@
                             this.$store.commit('saveUserType',res.user.identityType);
                             res.user.token = res.token;
                             localStorage.setItem('user', JSON.stringify(res.user));
+                            localStorage.setItem('token',JSON.stringify(res.token));
                             this.$router.push("/");
                         }
                     } else {

@@ -64,7 +64,7 @@
                 <div class="Header-item n-avatar">
                     <el-dropdown trigger="click">
                         <span class="el-dropdown-link">
-                                <el-avatar src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
+                                <el-avatar :src="logoUrl"
                                            size="small"></el-avatar>
                             <i class="el-icon-arrow-down el-icon--right"></i>
                         </span>
@@ -137,6 +137,8 @@
 </template>
 <script>
     import Attachment from './Attachment';
+    import {CommonUtils} from "../utils/commonUtil";
+
     export default {
         name: "Navigation",
         props: {
@@ -147,7 +149,7 @@
         },
         data() {
             return {
-                logoUrl: require("../assets/img/logo.png"),
+                logoUrl: CommonUtils.staticPathPrefix+CommonUtils.getStore("user").headerImagePath,
                 user: null,
                 searchContent: "",
                 dialogVisible:false,

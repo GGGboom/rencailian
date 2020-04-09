@@ -1,3 +1,6 @@
+import {getInfo} from "../api/user";
+
+
 //获取公司规模
 export function getCompanySize(n){
     switch (n) {
@@ -76,27 +79,104 @@ export function getFinancingRound(n) {
     }
 }
 
-/**
- * @description Get the date format by format
- * format eg. yyyy-MM-dd HH:mm:ss  yyyy-MM-dd  HH:mm:ss   yyyy/MM/dd HH:mm
- * must have yyyy or MM or dd or HH or mm or ss
- */
-export function getFormatDateTime( mill,format) {
-    if(!mill || mill == null || typeof(mill)=='undefined'){
-        return ''
+
+
+export const CommonUtils = {
+    domainNamePrefix :'http://49.234.230.195:58080/',  //prefix of api address
+    // domainNamePrefix :'http://localhost:8080/talent_war_exploded/',  //prefix of api address
+    socketDomainNamePrefix : '49.234.230.195:58080',
+    staticPathPrefix : 'https://baastalent.oss-cn-hangzhou.aliyuncs.com/',
+    defaultHeaderImgPath : '../../static/img/icon/ali.png',
+    defaultLogoImgPath : '../../static/img/icon/logo.png',
+    //socketDomainNamePrefix : '127.0.0.1:8080/SSM',
+    //staticPathPrefix : 'http://127.0.0.1:8080/SSM/image/',
+    //domainNamePrefix : 'http://127.0.0.1:8080/SSM/',
+    //loginUrl:'/talent/TalentFront/view/shared_page/login_password.html',//本地前端链接
+    payUrl : 'http://49.234.230.195:58080/ali/toPay?amount=',
+    loginUrl:'/TalentFront/view/shared_page/login_password.html',           //服务器前端链接
+
+    /**
+     *
+     * @param identityType
+     * @description 更新localstorage的数据
+     * @returns {number}  0为更新成功，1为更新失败
+     */
+    updateLocalUser(identityType){
+        let localUser = JSON.parse(localStorage.getItem("user"));
+        if (localUser===undefined ){     //未登录
+            alert("请先登录");
+            return 0;
+        }
+        if(identityType===2){                       //如果为应聘者
+            getInfo({authorization:this.$getStore("token")}).then(res=>{
+                if(res.code===0){
+                    console.log(res);
+                    localStorage.setItem('user', JSON.stringify(res.user));
+                    return 0;
+                }else{
+                    console.log("请求数据失败");
+                    return 1;
+                }
+            }).catch(err=>{
+                console.log(err);
+                return 1;
+            });
+        }
+    },
+
+
+    /**
+     * @param keyword
+     * @description  设置localStorage
+     * @returns {any}
+     */
+     setStore:(keyword,content)=>{
+        if(!keyword) return;
+        localStorage.setItem(keyword,JSON.stringify(content));
+    },
+
+    /**
+     * @param keyword
+     * @description  获取localStorage
+     * @returns {any}
+     */
+     getStore:(keyword)=>{
+        if(!keyword) return;
+        return JSON.parse(localStorage.getItem(keyword));
+    },
+
+
+    /**
+     * @param keyword
+     * @description  删除localStorage
+     */
+    removeStore:(keyword)=>{
+        if(!keyword) return;
+        localStorage.removeItem(keyword);
+    },
+
+    /**
+     * @description Get the date format by format
+     * format eg. yyyy-MM-dd HH:mm:ss  yyyy-MM-dd  HH:mm:ss   yyyy/MM/dd HH:mm
+     * must have yyyy or MM or dd or HH or mm or ss
+     */
+    getFormatDateTime:( mill,format)=> {
+        if(!mill || mill == null || typeof(mill)=='undefined'){
+            return ''
+        }
+        var dateTime = new Date(mill);
+        var year = dateTime.getFullYear();
+        var month = dateTime.getMonth()+1;
+        month = month<10?'0'+month:month;
+        var day = dateTime.getDate();
+        day = day<10?'0'+day:day;
+        var hour = dateTime.getHours();
+        hour = hour<10?'0'+hour:hour;
+        var minute = dateTime.getMinutes();
+        minute = minute<10?'0'+minute:minute;
+        var second = dateTime.getSeconds();
+        second = second<10?'0'+second:second;
+        //yyyy-MM-dd HH:mm:ss
+        return format.replace("yyyy",year).replace("MM",month).replace("dd",day).replace("HH",hour).replace("mm",minute).replace("ss",second);
     }
-    var dateTime = new Date(mill);
-    var year = dateTime.getFullYear();
-    var month = dateTime.getMonth()+1;
-    month = month<10?'0'+month:month;
-    var day = dateTime.getDate();
-    day = day<10?'0'+day:day;
-    var hour = dateTime.getHours();
-    hour = hour<10?'0'+hour:hour;
-    var minute = dateTime.getMinutes();
-    minute = minute<10?'0'+minute:minute;
-    var second = dateTime.getSeconds();
-    second = second<10?'0'+second:second;
-    //yyyy-MM-dd HH:mm:ss
-    return format.replace("yyyy",year).replace("MM",month).replace("dd",day).replace("HH",hour).replace("mm",minute).replace("ss",second);
-}
+};

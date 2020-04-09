@@ -290,7 +290,7 @@
 
 <script>
     import {getContract} from "../../../api/user";
-    import {getStore} from "../../../utils/localStorageUtil";
+    import {CommonUtils} from "../../../utils/commonUtil";
 
     export default {
         name: "contract_jobhunter",
@@ -319,10 +319,10 @@
         methods:{
             goToDetail(id){
                 console.log(id);
-                this.$router.push({name:'contractDetail_jobhunter',query:{id:id}});
+                this.$router.push({name:'contract_detail',query:{id:id}});
             },
             get(){
-                getContract({loginId:getStore("user").userId,authorization:getStore("user").token},2)
+                getContract({loginId:CommonUtils.getStore("user").userId,authorization:CommonUtils.getStore("token")},2)
                     .then(res=>{
                         this.contract = res.contracts;
                         this.contract.forEach(item=>{

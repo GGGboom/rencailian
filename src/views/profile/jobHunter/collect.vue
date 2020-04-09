@@ -88,7 +88,7 @@
 
 <script>
     import {getFavourite} from "../../../api/user";
-    import {getStore} from "../../../utils/localStorageUtil";
+    import {CommonUtils} from "../../../utils/commonUtil";
     import {getCompanySize,getFinancingRound,getVerifiedStatus} from "../../../utils/commonUtil";
 
     export default {
@@ -176,7 +176,7 @@
             },
             //获取收藏公司列表
             getCompany(){
-                getFavourite({authorization:getStore("user").token},1).then((res)=>{
+                getFavourite({authorization:CommonUtils.getStore("token")},1).then((res)=>{
                     if(res.code===0){
                         console.log(res);
                         this.companys = JSON.parse(JSON.stringify(res.companys));
@@ -184,7 +184,6 @@
                             item.verifiedStatus = getVerifiedStatus(item.verifiedStatus);
                             item.financingRound = getFinancingRound(item.financingRound);
                             item.companySize = getCompanySize(item.companySize);
-                            item.logoImagePath = require(item.logoImagePath);
                         })
                     }
                 }).catch(err=>{
@@ -193,7 +192,7 @@
             },
             //获取收藏职位列表
             getPosition(){
-                getFavourite({authorization:getStore("user").token},2).then((res)=>{
+                getFavourite({authorization:CommonUtils.getStore("token")},2).then((res)=>{
                     if(res.code===0){
                         console.log(res);
                     }

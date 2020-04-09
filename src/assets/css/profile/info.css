@@ -107,6 +107,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 1px solid #e1e4e8!important;
 }
 .avatar-upload .avatar_mask .el-icon-edit{
     font-size: 30px;

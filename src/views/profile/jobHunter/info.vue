@@ -92,8 +92,8 @@
 
     import VDistpicker from 'v-distpicker';
     import {getInfo,saveInfo} from "../../../api/user";
-    import {getStore,setStore} from "../../../utils/localStorageUtil";
     import {strToDate,dateToString} from "../../../utils/dateUtil";
+    import {CommonUtils} from "../../../utils/commonUtil";
 
     export default {
         name: "info",
@@ -128,14 +128,14 @@
             },
             //保存修改
             async saveInfomation() {
-                let user = getStore("user");
+                let user = CommonUtils.getStore("user");
                 let formdata = new FormData();
                 formdata.append("name",this.ruleForm.name);
                 formdata.append("birthday",dateToString(this.ruleForm.birthday));
                 formdata.append("huntingStatus",this.ruleForm.huntingStatus);
                 formdata.append("workCity",1);
                 formdata.append("gender",this.ruleForm.gender);
-                saveInfo(formdata,JSON.parse(localStorage.getItem("user")).token)
+                saveInfo(formdata,JSON.parse(localStorage.getItem("token")))
                     .then(res => {
                         if (res.code === 0) {
                             user.gender = this.ruleForm.gender;
@@ -144,7 +144,7 @@
                             user.birthday = dateToString(this.ruleForm.birthday);
                             this.$message.success("修改成功");
                             //修改成功则修改localstorage
-                            setStore("user",user);
+                            CommonUtils.setStore("user",user);
                             setTimeout(()=>{
                                 this.$router.go(0);
                             },1000);
@@ -159,7 +159,7 @@
         },
         created() {
             //获取基本信息
-            getInfo({authorization:getStore("user").token}).then(res=>{
+            getInfo({authorization:CommonUtils.getStore("token")}).then(res=>{
                 if(res.code===0){
                     this.ruleForm.name = res.user.name;
                     this.ruleForm.gender = res.user.detail.gender.toString();
@@ -170,6 +170,11 @@
             }).catch(err=>{
                 console.log(err);
             });
+
+            let user = CommonUtils.getStore("user");                      //获取头像
+            if(typeof user!== "undefined" || user!==undefined){
+                this.imageUrl = CommonUtils.staticPathPrefix + user.headerImagePath;
+            }
         },
         mounted() {
 

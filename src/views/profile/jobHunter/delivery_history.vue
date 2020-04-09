@@ -59,7 +59,7 @@
 
 <script>
     import {getDeliveryHistory} from "../../../api/user";
-    import {getStore} from "../../../utils/localStorageUtil";
+    import {CommonUtils} from "../../../utils/commonUtil";
 
     export default {
         name: "delivery_history",
@@ -105,7 +105,7 @@
             getDeliveryHistory
         },
         created() {
-            this.getDeliveryHistory({authorization:getStore("user").token})
+            this.getDeliveryHistory({authorization:CommonUtils.getStore("token")})
                 .then(res=>{
                     console.log(res);
                 })

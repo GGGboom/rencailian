@@ -1,4 +1,4 @@
-import {post,get} from '../utils/request';
+import {post, get, deletefn} from '../utils/request';
 export const login = (data) => post('/users/login',data);
 export const saveInfo = (data,token)=> post("/jobhunter/userCenter",data,token);
 export const getInfo = (params)=> get("/jobhunter/userCenter",params);
@@ -9,5 +9,5 @@ export const getContractDetail = (params,data)=>get("/contract/single/",params,d
 export const applyArbitration = (data,token)=> post("/contract/arbitration",data,token);
 export const getWalletDetail = (params,data)=>get("/users/bst/info/",params,data);
 export const addWallet = (data,token)=>post("/jobhunter/bst/import",data,token);
-// export const deleteWalletDetail = ()
+export const deleteWallet = (params,token,id)=>deletefn("/users/bst/",params,token,id);
 // export const getDeliver = (params)=>get("/jobhunter/delivery",params,token);

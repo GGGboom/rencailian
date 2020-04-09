@@ -109,14 +109,14 @@ const routes = [
             {
                 path: 'contract',
                 name: 'contract_jobhunter',
-                component: () => import( '../views/profile/jobHunter/contract_jobhunter.vue'),
+                component: () => import( '../views/profile/jobHunter/contract.vue'),
                 meta: {title: '智能签约', requireAuth: true}
             },
             //智能合约
             {
                 path: 'contractDetail',
-                name: 'contractDetail_jobhunter',
-                component: () => import( '../views/profile/jobHunter/contractDetail_jobhunter.vue'),
+                name: 'contract_detail',
+                component: () => import( '../views/profile/jobHunter/contract_detail.vue'),
                 meta: {title: '智能签约', requireAuth: true}
             },
             //我的账号
