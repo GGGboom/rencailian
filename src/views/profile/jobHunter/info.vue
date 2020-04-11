@@ -181,21 +181,7 @@
         },
         data() {
             return {
-                statusList:[
-                    {
-                        txt:"在职-暂不考虑",
-                        id:1
-                    },{
-                        txt:"在职-考虑机会",
-                        id:2
-                    },{
-                        txt:"在职-月内到岗",
-                        id:3
-                    },{
-                        txt:"离职-随时到岗",
-                        id:4
-                    },
-                ],
+                statusList:CommonUtils.huntingStatus,
                 ruleForm: {
                     name: "",
                     gender: 1,

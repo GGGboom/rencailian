@@ -53,13 +53,13 @@
 .resume-content-box .label span{
     margin-right: 10px;
 }
+
 .label-item i{
     margin-right: 10px;
 }
 .resume-content-box .avatar{
     width: 70px;
     height: 70px;
-    margin-top: 5px;
     flex: none;
     position: relative;
 }
@@ -130,4 +130,78 @@
 .resume-settings .privacy-set{
     padding-top: 0;
     padding-bottom: 0;
+}
+.resume-box .item-form {
+    padding: 20px 30px;
+    margin: 0 -30px;
+    background-color: #f8f9fb;
+}
+.resume-box .item-form h3.title {
+    color: #24272e;
+    font-size: 16px;
+    font-weight: 500;
+}
+.resume-box .item-form .ui-form {
+    width: 100%;
+}
+.resume-box .item-form .form-item {
+    display: inline-block;
+    width: 50%;
+    vertical-align: top;
+}
+.form-item:after, .form-item:before {
+    content: "";
+    display: table;
+}
+.form-item:after {
+    clear: both;
+    visibility: hidden;
+    font-size: 0;
+    height: 0;
+}
+.ui-form .item-label {
+    text-align: left;
+    vertical-align: middle;
+    color: #495060;
+    line-height: 1;
+    padding: 10px 12px 10px 0;
+    box-sizing: border-box;
+}
+.form-item .item-content {
+    position: relative;
+    line-height: 32px;
+}
+.form-item .item-content .el-input .el-input__inner{
+    border-radius: 0;
+    height: 38px;
+    width: 350px;
+}
+.form-item .item-content .el-input{
+    width: 350px;
+}
+.form-item .item-content .el-input .el-input__inner:focus{
+    border-color: #5dd5c8;
+}
+.form-item {
+    margin-bottom: 24px;
+    vertical-align: top;
+    zoom: 1;
+}
+.item-form .d-flex .el-button {
+    border-radius: 0;
+    width: 90px;
+    padding: 10px 20px;
+}
+.resume-container .stretch{
+    padding-bottom: 40px;
+}
+.clear-title{
+    border-left: none!important;
+    padding-left: 0!important;
+}
+.item-content .el-textarea .el-textarea__inner:focus{
+    border-color: #5dd5c8;
+}
+.purpose-detail{
+    min-width: 400px;
 }
