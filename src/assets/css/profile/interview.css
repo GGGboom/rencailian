@@ -1,0 +1,24 @@
+.info{
+    padding: 15px 0;
+}
+.calendar .time-item{
+    padding-top: 10px;
+}
+.time-item .time-img img{
+    width: 40px;
+    border-radius: 50%;
+}
+.time-item .time-hr{
+    display: flex;
+    align-items: center;
+    margin-left: 5px;
+}
+.calendar .time-hr span{
+    padding: 0 3px;
+}
+.calendar .interview-address{
+    font-size: 13px;
+    font-weight: 500;
+    margin-left: 5px;
+    color: #7d7d7d;
+}

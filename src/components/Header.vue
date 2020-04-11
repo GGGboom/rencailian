@@ -4,21 +4,26 @@
             <div class="left">
                 <div class="Header-item first mg-right">
                     <router-link to="/">
-                        <el-avatar :src="logoUrl" size="small"></el-avatar>
+                        <el-avatar src="../assets/img/msg_avatar.png" size="small"></el-avatar>
                     </router-link>
                 </div>
                 <div class="Header-item stretch">
                     <nav class="nav">
-                        <router-link class="nav-item " to="/">首页</router-link>
-                        <router-link v-if="this.$store.state.identityType===2" class="nav-item" to="/job/all">职位
+                        <router-link class="nav-item " to="/">
+                            首页
                         </router-link>
-                        <router-link v-if="this.$store.state.identityType===2" class="nav-item" to="/company/all">公司
+                        <router-link v-if="this.$store.state.identityType===2" class="nav-item" to="/job/all">
+                            职位
                         </router-link>
-                        <router-link v-if="this.$store.state.identityType===1" class="nav-item" to="/talent">人才
+                        <router-link v-if="this.$store.state.identityType===2" class="nav-item" to="/company/all">
+                            公司
                         </router-link>
-                        <router-link v-if="this.$store.state.identityType===1" class="nav-item" to="/position/all">职位
+                        <router-link v-if="this.$store.state.identityType===1" class="nav-item" to="/talent">
+                            人才
                         </router-link>
-                        <router-link class="nav-item" to="/">资讯</router-link>
+                        <router-link v-if="this.$store.state.identityType===1" class="nav-item" to="/position/all">
+                            职位
+                        </router-link>
                     </nav>
                 </div>
                 <!--搜索框-->
@@ -96,10 +101,8 @@
                     :visible.sync="dialogVisible"
                     append-to-body
                     width="400px">
-                <Attachment></Attachment>
+                <Attachment @CloseDialog="CloseDialog"></Attachment>
                 <span slot="footer" class="dialog-footer">
-            <el-button @click="dialogVisible = false">取 消</el-button>
-            <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
             </span>
             </el-dialog>
             <!--上传附件对话框-->
@@ -149,7 +152,7 @@
         },
         data() {
             return {
-                logoUrl: CommonUtils.staticPathPrefix+CommonUtils.getStore("user").headerImagePath,
+                logoUrl: "",
                 user: null,
                 searchContent: "",
                 dialogVisible:false,
@@ -183,23 +186,35 @@
                     }
                 }
                 console.log(page)
+            },
+            CloseDialog(){                  //关闭上传简历对话框
+                this.dialogVisible = false;
+            },
+            init(){
+                this.user = localStorage.getItem("user");
+                if(this.user){
+                    this.logoUrl = CommonUtils.staticPathPrefix+CommonUtils.getStore("user").headerImagePath;
+                    console.log(this.$store.state.identityType);
+                    switch (this.$store.state.identityType) {//1为招聘者,2是应聘者
+                        case 1:{                             //招聘者
+                            this.idtype = false;
+                            this.radio = "2";
+                            break;
+                        }
+                        case 2:{                            //应聘者
+                            this.idtype = true;
+                            this.radio = "1";
+                            break;
+                        }
+                    }
+                }else{
+                    this.logoUrl = "../assets/img/msg_avatar.png";
+                }
+
             }
         },
         created() {
-            this.user = localStorage.getItem("user");
-            console.log(this.$store.state.identityType);
-            switch (this.$store.state.identityType) {//1为招聘者,2是应聘者
-                case 1:{                             //招聘者
-                    this.idtype = false;
-                    this.radio = "2";
-                    break;
-                }
-                case 2:{                            //应聘者
-                    this.idtype = true;
-                    this.radio = "1";
-                    break;
-                }
-            }
+            this.init();
         },
         mounted() {
 

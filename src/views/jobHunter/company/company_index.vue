@@ -11,7 +11,8 @@
             return {
 
             };
-        },beforeCreate() {
+        },
+        beforeCreate() {
             this.$emit('setHeader','company');
         }
     }

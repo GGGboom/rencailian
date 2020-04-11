@@ -37,6 +37,13 @@ export function get(url, params,data) {
     return service({url, method: 'get', params})
 }
 
+/**
+ *
+ * @param url
+ * @param data
+ * @param token
+ * @returns {AxiosPromise}
+ */
 export function post(url, data,token) {
     if(token) {
         url = `${url}?authorization=${token}`;
@@ -45,6 +52,14 @@ export function post(url, data,token) {
     return service({url, method: 'post', data});
 }
 
+/**
+ *
+ * @param url
+ * @param params
+ * @param token
+ * @param id
+ * @returns {AxiosPromise}
+ */
 export function deletefn(url, params,token,id) {
     if(id){
         url = url+id;
@@ -56,5 +71,18 @@ export function deletefn(url, params,token,id) {
     return service({url, method: 'delete', params});
 }
 
+export function put(url,data,token) {
+    if(token) {
+        url = `${url}?authorization=${token}`;
+        return service({url, method: 'put', data});
+    }
+    return service({url, method: 'put', data});
+}
+
+
+export const $post =  (url, data = {}) => {
+    // data.group_id=group_id;
+    return  service.post(url,data)
+}
 
 export default service

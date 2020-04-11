@@ -2,7 +2,6 @@
     <div id="app">
         <Header :page="name" v-if="this.$store.state.pageState"></Header>
         <router-view @setHeader="setHeader"/>
-
         <Footer v-if="this.$store.state.pageState"></Footer>
     </div>
 </template>

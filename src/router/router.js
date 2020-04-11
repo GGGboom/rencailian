@@ -95,7 +95,7 @@ const routes = [
             {
                 path: 'interview',
                 name: 'Interview',
-                component: () => import( '../views/profile/common/interview.vue'),
+                component: () => import( '../views/profile/jobHunter/interview.vue'),
                 meta: {title: '面试安排', requireAuth: true}
             },
             //隐私设置

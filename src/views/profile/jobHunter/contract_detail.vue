@@ -119,7 +119,7 @@
 
         <!--是否仲裁-->
         <el-dialog
-                title="提示"
+                title="申请仲裁"
                 :visible.sync="arbitrationDialog"
                 width="600px">
 

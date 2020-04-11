@@ -116,7 +116,7 @@
                         <img :src="url" alt>
                         <div class="conpany-text">
                             <h4>
-                                阿里云
+                                公司名
                                 <el-tag type="success" size="mini">信</el-tag>
                                 <span class="company-credit">100</span>
                             </h4>
@@ -136,11 +136,11 @@
                     </div>
                 </li>
                 <li>
-                    <a class="company-info">
+                    <router-link to="/company/detail" class="company-info">
                         <img :src="url" alt>
                         <div class="conpany-text">
                             <h4>
-                                阿里云
+                                公司名
                                 <el-tag type="success" size="mini">信</el-tag>
                                 <span class="company-credit">100</span>
                             </h4>
@@ -151,7 +151,7 @@
                                 无数据<el-divider direction="vertical"></el-divider>无数据<el-divider direction="vertical"></el-divider>无数据
                             </p>
                         </div>
-                    </a>
+                    </router-link>
                     <div class="about-info">
                         <p>
                             <span>全部在招职业</span>
@@ -160,11 +160,11 @@
                     </div>
                 </li>
                 <li>
-                    <a class="company-info">
+                    <router-link to="/company/detail" class="company-info">
                         <img :src="url" alt>
                         <div class="conpany-text">
                             <h4>
-                                阿里云
+                                公司名
                                 <el-tag type="success" size="mini">信</el-tag>
                                 <span class="company-credit">100</span>
                             </h4>
@@ -175,7 +175,7 @@
                                 无数据<el-divider direction="vertical"></el-divider>无数据<el-divider direction="vertical"></el-divider>无数据
                             </p>
                         </div>
-                    </a>
+                    </router-link>
                     <div class="about-info">
                         <p>
                             <span>全部在招职业</span>
@@ -184,11 +184,11 @@
                     </div>
                 </li>
                 <li>
-                    <a class="company-info">
+                    <router-link to="/company/detail" class="company-info">
                         <img :src="url" alt>
                         <div class="conpany-text">
                             <h4>
-                                阿里云
+                                公司名
                                 <el-tag type="success" size="mini">信</el-tag>
                                 <span class="company-credit">100</span>
                             </h4>
@@ -199,7 +199,7 @@
                                 无数据<el-divider direction="vertical"></el-divider>无数据<el-divider direction="vertical"></el-divider>无数据
                             </p>
                         </div>
-                    </a>
+                    </router-link>
                     <div class="about-info">
                         <p>
                             <span>全部在招职业</span>
@@ -208,11 +208,11 @@
                     </div>
                 </li>
                 <li>
-                    <a class="company-info">
+                    <router-link to="/company/detail" class="company-info">
                         <img :src="url" alt>
                         <div class="conpany-text">
                             <h4>
-                                阿里云
+                                公司名
                                 <el-tag type="success" size="mini">信</el-tag>
                                 <span class="company-credit">100</span>
                             </h4>
@@ -223,7 +223,7 @@
                                 无数据<el-divider direction="vertical"></el-divider>无数据<el-divider direction="vertical"></el-divider>无数据
                             </p>
                         </div>
-                    </a>
+                    </router-link>
                     <div class="about-info">
                         <p>
                             <span>全部在招职业</span>
@@ -232,11 +232,11 @@
                     </div>
                 </li>
                 <li>
-                    <a class="company-info">
+                    <router-link to="/company/detail" class="company-info">
                         <img :src="url" alt>
                         <div class="conpany-text">
                             <h4>
-                                阿里云
+                                公司名
                                 <el-tag type="success" size="mini">信</el-tag>
                                 <span class="company-credit">100</span>
                             </h4>
@@ -247,7 +247,7 @@
                                 无数据<el-divider direction="vertical"></el-divider>无数据<el-divider direction="vertical"></el-divider>无数据
                             </p>
                         </div>
-                    </a>
+                    </router-link>
                     <div class="about-info">
                         <p>
                             <span>全部在招职业</span>
@@ -256,11 +256,11 @@
                     </div>
                 </li>
                 <li>
-                    <a class="company-info">
+                    <router-link to="/company/detail" class="company-info">
                         <img :src="url" alt>
                         <div class="conpany-text">
                             <h4>
-                                阿里云
+                                公司名
                                 <el-tag type="success" size="mini">信</el-tag>
                                 <span class="company-credit">100</span>
                             </h4>
@@ -271,7 +271,7 @@
                                 无数据<el-divider direction="vertical"></el-divider>无数据<el-divider direction="vertical"></el-divider>无数据
                             </p>
                         </div>
-                    </a>
+                    </router-link>
                     <div class="about-info">
                         <p>
                             <span>全部在招职业</span>
@@ -280,11 +280,11 @@
                     </div>
                 </li>
                 <li>
-                    <a class="company-info">
+                    <router-link to="/company/detail" class="company-info">
                         <img :src="url" alt>
                         <div class="conpany-text">
                             <h4>
-                                阿里云
+                                公司名
                                 <el-tag type="success" size="mini">信</el-tag>
                                 <span class="company-credit">100</span>
                             </h4>
@@ -295,103 +295,7 @@
                                 无数据<el-divider direction="vertical"></el-divider>无数据<el-divider direction="vertical"></el-divider>无数据
                             </p>
                         </div>
-                    </a>
-                    <div class="about-info">
-                        <p>
-                            <span>全部在招职业</span>
-                            <span style="padding-left: 5px">1</span>
-                        </p>
-                    </div>
-                </li>
-                <li>
-                    <a class="company-info">
-                        <img :src="url" alt>
-                        <div class="conpany-text">
-                            <h4>
-                                阿里云
-                                <el-tag type="success" size="mini">信</el-tag>
-                                <span class="company-credit">100</span>
-                            </h4>
-                            <p>
-                                上海市浦东城区浦东
-                            </p>
-                            <p>
-                                无数据<el-divider direction="vertical"></el-divider>无数据<el-divider direction="vertical"></el-divider>无数据
-                            </p>
-                        </div>
-                    </a>
-                    <div class="about-info">
-                        <p>
-                            <span>全部在招职业</span>
-                            <span style="padding-left: 5px">1</span>
-                        </p>
-                    </div>
-                </li>
-                <li>
-                    <a class="company-info">
-                        <img :src="url" alt>
-                        <div class="conpany-text">
-                            <h4>
-                                阿里云
-                                <el-tag type="success" size="mini">信</el-tag>
-                                <span class="company-credit">100</span>
-                            </h4>
-                            <p>
-                                上海市浦东城区浦东
-                            </p>
-                            <p>
-                                无数据<el-divider direction="vertical"></el-divider>无数据<el-divider direction="vertical"></el-divider>无数据
-                            </p>
-                        </div>
-                    </a>
-                    <div class="about-info">
-                        <p>
-                            <span>全部在招职业</span>
-                            <span style="padding-left: 5px">1</span>
-                        </p>
-                    </div>
-                </li>
-                <li>
-                    <a class="company-info">
-                        <img :src="url" alt>
-                        <div class="conpany-text">
-                            <h4>
-                                阿里云
-                                <el-tag type="success" size="mini">信</el-tag>
-                                <span class="company-credit">100</span>
-                            </h4>
-                            <p>
-                                上海市浦东城区浦东
-                            </p>
-                            <p>
-                                无数据<el-divider direction="vertical"></el-divider>无数据<el-divider direction="vertical"></el-divider>无数据
-                            </p>
-                        </div>
-                    </a>
-                    <div class="about-info">
-                        <p>
-                            <span>全部在招职业</span>
-                            <span style="padding-left: 5px">1</span>
-                        </p>
-                    </div>
-                </li>
-                <li>
-                    <a class="company-info">
-                        <img :src="url" alt>
-                        <div class="conpany-text">
-                            <h4>
-                                阿里云
-                                <el-tag type="success" size="mini">信</el-tag>
-                                <span class="company-credit">100</span>
-                            </h4>
-                            <p>
-                                上海市浦东城区浦东
-                            </p>
-                            <p>
-                                无数据<el-divider direction="vertical"></el-divider>无数据<el-divider direction="vertical"></el-divider>无数据
-                            </p>
-                        </div>
-                    </a>
+                    </router-link>
                     <div class="about-info">
                         <p>
                             <span>全部在招职业</span>
@@ -410,6 +314,7 @@
 
 <script>
     import Pager from "../../../components/Pager";
+    // import {CommonUtils} from "../../../utils/commonUtil";
     import $ from 'jquery';
     $(function () {
         $(window).scroll(function () {
@@ -598,10 +503,27 @@
                         formId:6
                     },
                 ],
-                companyScaleId:1
+                companyScaleId:1,
+                companyList:[]
             }
         },
         methods: {
+            get(){
+                // let data={
+                //     industryType:[0],
+                //     positionType:[1187]
+                // }
+                // this.$post(`/companys/classify?pageSize=20&pageNum=1&authorization=${CommonUtils.getStore("token")}`,data)
+                //     .then(res=>{
+                //         if(res.code===0){
+                //             this.companyList = res.result.collection;
+                //         }
+                //         console.log(res);
+                //     })
+                //     .catch(err=>{
+                //         console.log(err);
+                //     })
+            },
             getFoucs: function () {
                 // this.styleObject.border = '1px solid #53cac3';
             },
@@ -613,11 +535,13 @@
             },
             selectFin(item){
                 this.financeId = item.id;
-            },selectScale(item){
+            },
+            selectScale(item){
                 this.companyScaleId = item.id;
             }
-        },created() {
-            console.log(this.$route.query);
+        },
+        created() {
+            this.get();
         }
     }
 </script>

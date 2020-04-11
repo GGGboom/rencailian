@@ -17,6 +17,9 @@ Vue.component('v-icon', Icon);
 Vue.component('VueEmoji', VueEmoji);
 Vue.config.productionTip = false;
 
+import {$post} from "./utils/request";
+Vue.prototype.$post = $post;
+
 router.beforeEach((to, from, next) => {
   //每刷新一次页面，重新请求数据
   let user = JSON.parse(localStorage.getItem("user"));

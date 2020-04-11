@@ -102,15 +102,17 @@ export const CommonUtils = {
      * @returns {number}  0为更新成功，1为更新失败
      */
     updateLocalUser(identityType){
-        let localUser = JSON.parse(localStorage.getItem("user"));
+        let localUser = this.getStore("user");
         if (localUser===undefined ){     //未登录
             alert("请先登录");
             return 0;
         }
         if(identityType===2){                       //如果为应聘者
-            getInfo({authorization:this.$getStore("token")}).then(res=>{
+            getInfo({authorization:this.getStore("token")}).then(res=>{
+                console.log("run")
                 if(res.code===0){
-                    console.log(res);
+                    console.log("success");
+                    console.log(res)
                     localStorage.setItem('user', JSON.stringify(res.user));
                     return 0;
                 }else{
@@ -178,5 +180,67 @@ export const CommonUtils = {
         second = second<10?'0'+second:second;
         //yyyy-MM-dd HH:mm:ss
         return format.replace("yyyy",year).replace("MM",month).replace("dd",day).replace("HH",hour).replace("mm",minute).replace("ss",second);
+    },
+
+    /**
+     * @description Get the education string by number
+     * @param index
+     * @returns {string}
+     */
+    getEducation:(index)=>{
+        switch (index) {
+            case 1:{
+                return "小学";
+            }
+            case 2:{
+                return "初中";
+            }
+            case 3:{
+                return "高中";
+            }
+            case 4:{
+                return "大专";
+            }
+            case 5:{
+                return "本科";
+            }
+            case 6:{
+                return "硕士";
+            }
+            case 7:{
+                return "博士";
+            }
+            case 8:{
+                return "博士后";
+            }
+        }
+    },
+
+    /**
+     * @description Get the serviceLength string by number
+     * @param num
+     * @returns {string}
+     */
+    getServiceLength:(num)=>{
+        switch (num) {
+            case 0:{
+                return "默认值";
+            }
+            case 1:{
+                return "1年以内";
+            }
+            case 2:{
+                return "1-3年";
+            }
+            case 3:{
+                return "3-5年";
+            }
+            case 4:{
+                return "5-10年";
+            }
+            case 5:{
+                return "10年以上";
+            }
+        }
     }
 };

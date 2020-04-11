@@ -128,6 +128,9 @@
                     }
                 ]
             }
+        },
+        beforeCreate() {
+            this.$emit("setHeader","profile");
         }
     }
 </script>

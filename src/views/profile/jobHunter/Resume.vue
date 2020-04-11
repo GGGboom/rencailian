@@ -104,5 +104,5 @@
 </script>
 
 <style scoped>
-    @import "../../../assets/css/profile/resume.css";
+    @import "../../../assets/css/profile/jobhunter/resume.css";
 </style>

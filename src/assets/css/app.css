@@ -70,7 +70,12 @@ body ::-webkit-scrollbar-track-piece {
 .d-flex-jte{
     justify-content: flex-end;
 }
-
+.d-block{
+    display: block!important;
+}
+.normal-margin-top{
+    margin-top: 10px;
+}
 /*警告消息*/
 .warning-container{
     padding-bottom: 5px;

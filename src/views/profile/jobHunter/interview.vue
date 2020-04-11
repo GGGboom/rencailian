@@ -9,29 +9,47 @@
                 v-on:changeMonth="changeDate"
         ></Calendar>
         <div class="info">
-            <span>今日面试(0)</span>
+            <span>今日面试({{interviewCount}})</span>
         </div>
+
+        <!--面试时间线-->
+        <div class="block">
+            <el-timeline>
+                <el-timeline-item v-for="item in interview" :key="item.id" :timestamp="item.interviewTime.toDateString()" placement="top">
+                    <el-card>
+                        <h4>
+                            <span>{{item.position.name}}</span>
+                            <span class="interview-address">面试地址：{{item.position.address}}</span>
+                        </h4>
+                        <div class="d-flex time-item">
+                            <div class="time-img">
+                                <img src="../../../assets/img/msg_avatar.png" alt>
+                            </div>
+                            <div class="time-hr ">
+                                <span>{{item.hrName}}</span>
+                                <span>{{item.position.simpleName}}</span>
+                                <span>{{item.hrPosition}}</span>
+                            </div>
+                        </div>
+                    </el-card>
+                </el-timeline-item>
+            </el-timeline>
+        </div>
+        <!--面试时间线-->
     </div>
 </template>
 
 <script>
+    import {getInterViewDate} from "../../../api/user";
+    import {CommonUtils} from "../../../utils/commonUtil";
     import Calendar from 'vue-calendar-component';
     export default {
         name: "Interview",
         data(){
             return{
-                // arr2: ['2018/6/23'],
-                arr2: ['2020/3/31'],
-                arr: [
-                    {
-                        date: "2020/3/26",
-                        className: "mark1"
-                    },
-                    {
-                        date: "2018/8/13",
-                        className: "mark2"
-                    }
-                ]
+                arr2: ['2020/4/11'],// arr2: ['2018/6/23'],
+                interview:[],
+                interviewCount:0
             };
         },
         components: {
@@ -46,18 +64,31 @@
             },
             clickToday(data) {
                 console.log(data); //跳到了本月
+            },
+            get(){
+                getInterViewDate({authorization:CommonUtils.getStore("token")})
+                    .then(res=>{
+                        if(res.code===0){
+                            this.interview = res.interview;
+                        }
+                        this.interview.forEach(item=>{
+                            item.interviewTime = item.interviewTime==null?new Date():item.interviewTime;
+
+                        })
+                    })
+                    .catch(err=>{
+                        console.log(err);
+                    })
             }
         },
         created() {
-
+            this.get();
         }
     }
 </script>
 
 <style scoped>
-    .info{
-        padding: 15px 0;
-    }
+    @import "../../../assets/css/profile/interview.css";
     .wh_container >>> .wh_content_all{
         background-color:#ffffff!important;
         border:1px solid #dfe0e6;

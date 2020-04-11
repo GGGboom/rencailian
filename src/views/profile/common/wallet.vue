@@ -145,6 +145,9 @@
                                     this.walletDialog = false;
                                     let result = CommonUtils.updateLocalUser(2);
                                     console.log(`result:${result}`);
+                                    setTimeout(()=>{
+                                        this.$router.go(0);
+                                    },1000);
                                 }
                             })
                             .catch(err=>{
@@ -185,18 +188,16 @@
             async getWalletDetail() {
                 let list = JSON.parse(localStorage.getItem("user")).bstWallets;
                 list.forEach(item => {
-                    console.log(item);
                     getWalletDetail({authorization: CommonUtils.getStore("token")}, item.id)
                         .then(res => {
                             this.walletList.push(res.result);
-                            console.log(res);
                         })
                         .catch(err => {
                             console.log(err);
                         })
                 })
             },
-            deleteWalletById(id) {                    //删除钱包
+            deleteWalletById(id) {                              //删除钱包
                 this.$confirm('确定删除？', '温馨提示', {
                     confirmButtonText: '确定',
                     cancelButtonText: '取消',
@@ -211,7 +212,9 @@
                                 });
                                 let result = CommonUtils.updateLocalUser(2);
                                 console.log(`result:${result}`);
-                                this.walletDialog = false;
+                                setTimeout(()=>{
+                                    this.$router.go(0);
+                                },1000);
                             }else{
                                 this.$message({
                                     type: 'info',

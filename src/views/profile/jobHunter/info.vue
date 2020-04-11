@@ -215,5 +215,5 @@
 </script>
 
 <style scoped>
-    @import "../../../assets/css/profile/info.css";
+    @import "../../../assets/css/profile/jobhunter/info.css";
 </style>
