@@ -2,6 +2,7 @@ import {post, get, deletefn,put} from '../utils/request';
 export const login = (data) => post('/users/login',data);
 export const saveInfo = (data,token)=> post("/jobhunter/userCenter",data,token);
 export const getInfo = (params)=> get("/jobhunter/userCenter",params);
+// export const checkLogin = (params)=>get("/jobhunter/userCenter",params);
 export const getFavourite = (params,data)=>get("/jobhunter/favourite/",params,data);
 export const getDeliveryHistory = (params)=>get("/jobhunter/delivery",params);
 export const getContract = (params,data)=>get("/contract/",params,data);

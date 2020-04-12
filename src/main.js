@@ -6,8 +6,6 @@ import store from './store'
 import 'vue-awesome/icons'
 //使用vue-awesome
 import Icon from 'vue-awesome/components/Icon'
-//使用vue-awesome
-
 //使用font-awesome
 import 'font-awesome/css/font-awesome.min.css';
 

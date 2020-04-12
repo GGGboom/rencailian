@@ -1,6 +1,6 @@
 //将字符串转化为时间
 export function strToDate(str) {
-    return  new Date((str).replace(/-/,"/"));
+    return new Date((str).replace(/-/,"/"));
 }
 
 //将时间转化为字符串

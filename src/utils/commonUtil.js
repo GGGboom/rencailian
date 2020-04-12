@@ -1,4 +1,5 @@
 import {getInfo} from "../api/user";
+import {BasicData} from "./basicDatas";
 
 
 //获取公司规模
@@ -166,17 +167,17 @@ export const CommonUtils = {
         if(!mill || mill == null || typeof(mill)=='undefined'){
             return ''
         }
-        var dateTime = new Date(mill);
-        var year = dateTime.getFullYear();
-        var month = dateTime.getMonth()+1;
+        let dateTime = new Date(mill);
+        let year = dateTime.getFullYear();
+        let month = dateTime.getMonth()+1;
         month = month<10?'0'+month:month;
-        var day = dateTime.getDate();
+        let day = dateTime.getDate();
         day = day<10?'0'+day:day;
-        var hour = dateTime.getHours();
+        let hour = dateTime.getHours();
         hour = hour<10?'0'+hour:hour;
-        var minute = dateTime.getMinutes();
+        let minute = dateTime.getMinutes();
         minute = minute<10?'0'+minute:minute;
-        var second = dateTime.getSeconds();
+        let second = dateTime.getSeconds();
         second = second<10?'0'+second:second;
         //yyyy-MM-dd HH:mm:ss
         return format.replace("yyyy",year).replace("MM",month).replace("dd",day).replace("HH",hour).replace("mm",minute).replace("ss",second);
@@ -499,6 +500,70 @@ export const CommonUtils = {
     ],
 
     /**
+     * @description Get the meaning of the enumeration in Chinese
+     */
+    getKeyName:function(date_code,key_value){
+        let commonBasicData = BasicData;
+        let keyName = '';
+        if(key_value!=null && commonBasicData && commonBasicData != null && typeof(commonBasicData)!="undefined"){
+            for(let i=0;i<commonBasicData.length;i++){
+                let currData = commonBasicData[i];
+                if(currData.dateCode == date_code && currData.keyValue ==key_value ){
+                    keyName = currData.keyName;
+                }
+            }
+        }
+        return keyName;
+    },
+
+    /**
+     * @description Get the digital value of the enumeration
+     */
+    getKeyValue:function(date_code,key_name){
+        let commonBasicData = BasicData;
+        let keyValue = '';
+        if(key_name!=null && commonBasicData && commonBasicData != null && typeof(commonBasicData)!="undefined"){
+            for(let i=0;i<commonBasicData.length;i++){
+                let currData = commonBasicData[i];
+                if(currData.dateCode == date_code && currData.keyName ==key_name ){
+                    keyValue = currData.keyValue;
+                    break;
+                }
+            }
+        }
+        return keyValue;
+    },
+
+
+    strToDate:(str)=>{
+        return new Date((str).replace(/-/,"/"));
+    },
+    dateToString:(date)=>{
+        try {
+            let year = date.getFullYear();
+            let month =(date.getMonth() + 1).toString();
+            let day = (date.getDate()).toString();
+            if (month.length === 1) {
+                month = "0" + month;
+            }
+            if (day.length === 1) {
+                day = "0" + day;
+            }
+            return year + "-" + month + "-" + day;
+        }catch (e) {
+            console.log(e);
+        }
+
+    },
+
+    compareStartEndTime:(startTime,endTime)=>{
+        if(startTime.getTime()>endTime.getTime()){
+            return false;
+        }
+        return true;
+    },
+
+    /**
      * @description Get the HuntingStatus string by number
      * @param num
      * @returns {string}
@@ -519,16 +584,4 @@ export const CommonUtils = {
               }
           }
     },
-
-    /**
-     * @description Get the alaryRange string by number
-     * @param num
-     * @returns {string}
-     */
-    getSalaryRange(num){
-        this.salaryRange.forEach(item=>{
-            if(item.id  === num)
-                return item.txt;
-        })
-    }
 };

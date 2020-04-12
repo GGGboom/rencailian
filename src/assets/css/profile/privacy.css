@@ -26,3 +26,9 @@
     margin-top: -20px;
     font-size: 13px;
 }
+.resume-hidden{
+    padding: 10px 0;
+}
+.resume-hidden span{
+    margin-right: 5px;
+}

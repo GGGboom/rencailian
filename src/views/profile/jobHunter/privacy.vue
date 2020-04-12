@@ -52,15 +52,20 @@
                     简历设置
                 </h2>
             </div>
-            <el-form ref="form" :model="form">
-                <el-form-item label="隐藏简历">
-                    <el-switch v-model="form.visible"></el-switch>
-                </el-form-item>
+            <div>
+                <div class="resume-hidden">
+                    <span>隐藏简历</span>
+                    <el-switch
+                            v-model="visible"
+                            active-color="#13ce66"
+                            inactive-color="#ff4949">
+                    </el-switch>
+                </div>
                 <div class="warning-container">
                     <img src="../../../assets/img/i.png" alt>
                     <span class="warning">隐藏简历后雇主将不会再浏览到您的简历</span>
                 </div>
-            </el-form>
+            </div>
 
         </div>
         <el-dialog
@@ -88,7 +93,7 @@
         name: "privacy",
         data() {
             return {
-                multipleSelection: [],
+                visible:true,
                 companys:[
                     {
                         "companyId": 1,

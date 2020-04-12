@@ -1,0 +1,6695 @@
+export const BasicData = [
+{
+    "keyName": "未认证",
+    "keyValue": 0,
+    "dateCode": "VERIFIED_STATUS",
+    "keyValueStr": null,
+    "name": "公司认证状态",
+    "id": 1
+}, {
+    "keyName": "认证通过",
+    "keyValue": 1,
+    "dateCode": "VERIFIED_STATUS",
+    "keyValueStr": null,
+    "name": "公司认证状态",
+    "id": 2
+}, {
+    "keyName": "认证中",
+    "keyValue": 2,
+    "dateCode": "VERIFIED_STATUS",
+    "keyValueStr": null,
+    "name": "公司认证状态",
+    "id": 3
+}, {
+    "keyName": "认证不通过",
+    "keyValue": 3,
+    "dateCode": "VERIFIED_STATUS",
+    "keyValueStr": null,
+    "name": "公司认证状态",
+    "id": 4
+}, {
+    "keyName": "未设置",
+    "keyValue": 0,
+    "dateCode": "IDENTIFY_TYPE",
+    "keyValueStr": null,
+    "name": "登录身份",
+    "id": 6
+}, {
+    "keyName": "招聘者",
+    "keyValue": 1,
+    "dateCode": "IDENTIFY_TYPE",
+    "keyValueStr": null,
+    "name": "登录身份",
+    "id": 7
+}, {
+    "keyName": "应聘者",
+    "keyValue": 2,
+    "dateCode": "IDENTIFY_TYPE",
+    "keyValueStr": null,
+    "name": "登录身份",
+    "id": 8
+}, {
+    "keyName": "未融资",
+    "keyValue": 1,
+    "dateCode": "FINANCING_ROUND",
+    "keyValueStr": null,
+    "name": "融资阶段",
+    "id": 10
+}, {
+    "keyName": "天使轮",
+    "keyValue": 2,
+    "dateCode": "FINANCING_ROUND",
+    "keyValueStr": null,
+    "name": "融资阶段",
+    "id": 11
+}, {
+    "keyName": "A轮",
+    "keyValue": 3,
+    "dateCode": "FINANCING_ROUND",
+    "keyValueStr": null,
+    "name": "融资阶段",
+    "id": 12
+}, {
+    "keyName": "B轮",
+    "keyValue": 4,
+    "dateCode": "FINANCING_ROUND",
+    "keyValueStr": null,
+    "name": "融资阶段",
+    "id": 13
+}, {
+    "keyName": "C轮",
+    "keyValue": 5,
+    "dateCode": "FINANCING_ROUND",
+    "keyValueStr": null,
+    "name": "融资阶段",
+    "id": 14
+}, {
+    "keyName": "D轮及以上",
+    "keyValue": 6,
+    "dateCode": "FINANCING_ROUND",
+    "keyValueStr": null,
+    "name": "融资阶段",
+    "id": 15
+}, {
+    "keyName": "已上市",
+    "keyValue": 7,
+    "dateCode": "FINANCING_ROUND",
+    "keyValueStr": null,
+    "name": "融资阶段",
+    "id": 16
+}, {
+    "keyName": "不需要融资",
+    "keyValue": 8,
+    "dateCode": "FINANCING_ROUND",
+    "keyValueStr": null,
+    "name": "融资阶段",
+    "id": 17
+}, {
+    "keyName": "未认证",
+    "keyValue": 0,
+    "dateCode": "USER_VERIFIED_STATUS",
+    "keyValueStr": null,
+    "name": "实名认证状态",
+    "id": 18
+}, {
+    "keyName": "营业执照未认证",
+    "keyValue": 1,
+    "dateCode": "USER_VERIFIED_STATUS",
+    "keyValueStr": null,
+    "name": "实名认证状态",
+    "id": 19
+}, {
+    "keyName": "营业执照认证中",
+    "keyValue": 2,
+    "dateCode": "USER_VERIFIED_STATUS",
+    "keyValueStr": null,
+    "name": "实名认证状态",
+    "id": 20
+}, {
+    "keyName": "认证通过",
+    "keyValue": 3,
+    "dateCode": "USER_VERIFIED_STATUS",
+    "keyValueStr": null,
+    "name": "实名认证状态",
+    "id": 21
+}, {
+    "keyName": "营业执照认证失败",
+    "keyValue": 4,
+    "dateCode": "USER_VERIFIED_STATUS",
+    "keyValueStr": null,
+    "name": "实名认证状态",
+    "id": 22
+}, {
+    "keyName": "公司简介图片",
+    "keyValue": 1,
+    "dateCode": "COMPANY_IMAGE_TYPE",
+    "keyValueStr": null,
+    "name": "公司图片类型",
+    "id": 24
+}, {
+    "keyName": "营业执照图片",
+    "keyValue": 2,
+    "dateCode": "COMPANY_IMAGE_TYPE",
+    "keyValueStr": null,
+    "name": "公司图片类型",
+    "id": 25
+}, {
+    "keyName": "1年以内",
+    "keyValue": 1,
+    "dateCode": "SERVICE_LENGTH",
+    "keyValueStr": null,
+    "name": "行业工作年数",
+    "id": 26
+}, {
+    "keyName": "1-3年",
+    "keyValue": 2,
+    "dateCode": "SERVICE_LENGTH",
+    "keyValueStr": null,
+    "name": "行业工作年数",
+    "id": 27
+}, {
+    "keyName": "3-5年",
+    "keyValue": 3,
+    "dateCode": "SERVICE_LENGTH",
+    "keyValueStr": null,
+    "name": "行业工作年数",
+    "id": 28
+}, {
+    "keyName": "5-10年",
+    "keyValue": 4,
+    "dateCode": "SERVICE_LENGTH",
+    "keyValueStr": null,
+    "name": "行业工作年数",
+    "id": 29
+}, {
+    "keyName": "10年以上",
+    "keyValue": 5,
+    "dateCode": "SERVICE_LENGTH",
+    "keyValueStr": null,
+    "name": "行业工作年数",
+    "id": 30
+}, {
+    "keyName": "未发布",
+    "keyValue": 0,
+    "dateCode": "PUBLISH_STATUS",
+    "keyValueStr": null,
+    "name": "职位发布状态",
+    "id": 31
+}, {
+    "keyName": "已发布",
+    "keyValue": 1,
+    "dateCode": "PUBLISH_STATUS",
+    "keyValueStr": null,
+    "name": "职位发布状态",
+    "id": 32
+}, {
+    "keyName": "已停止招聘",
+    "keyValue": 2,
+    "dateCode": "PUBLISH_STATUS",
+    "keyValueStr": null,
+    "name": "职位发布状态",
+    "id": 33
+}, {
+    "keyName": "小学",
+    "keyValue": 1,
+    "dateCode": "EDUCATION",
+    "keyValueStr": null,
+    "name": "教育水平",
+    "id": 34
+}, {
+    "keyName": "初中",
+    "keyValue": 2,
+    "dateCode": "EDUCATION",
+    "keyValueStr": null,
+    "name": "教育水平",
+    "id": 35
+}, {
+    "keyName": "高中",
+    "keyValue": 3,
+    "dateCode": "EDUCATION",
+    "keyValueStr": null,
+    "name": "教育水平",
+    "id": 36
+}, {
+    "keyName": "大专",
+    "keyValue": 4,
+    "dateCode": "EDUCATION",
+    "keyValueStr": null,
+    "name": "教育水平",
+    "id": 37
+}, {
+    "keyName": "本科",
+    "keyValue": 5,
+    "dateCode": "EDUCATION",
+    "keyValueStr": null,
+    "name": "教育水平",
+    "id": 38
+}, {
+    "keyName": "硕士",
+    "keyValue": 6,
+    "dateCode": "EDUCATION",
+    "keyValueStr": null,
+    "name": "教育水平",
+    "id": 39
+}, {
+    "keyName": "博士",
+    "keyValue": 7,
+    "dateCode": "EDUCATION",
+    "keyValueStr": null,
+    "name": "教育水平",
+    "id": 40
+}, {
+    "keyName": "博士后",
+    "keyValue": 8,
+    "dateCode": "EDUCATION",
+    "keyValueStr": null,
+    "name": "教育水平",
+    "id": 41
+}, {
+    "keyName": "我要招人",
+    "keyValue": 1,
+    "dateCode": "ROLE_DO",
+    "keyValueStr": null,
+    "name": "登陆角色操作",
+    "id": 63
+}, {
+    "keyName": "我要找工作",
+    "keyValue": 2,
+    "dateCode": "ROLE_DO",
+    "keyValueStr": null,
+    "name": "登陆角色操作",
+    "id": 64
+}, {
+    "keyName": "在职-暂不考虑",
+    "keyValue": 1,
+    "dateCode": "HUNTING_STATUS",
+    "keyValueStr": null,
+    "name": "求职状态",
+    "id": 65
+}, {
+    "keyName": "在职-考虑机会",
+    "keyValue": 2,
+    "dateCode": "HUNTING_STATUS",
+    "keyValueStr": null,
+    "name": "求职状态",
+    "id": 66
+}, {
+    "keyName": "在职-月内到岗",
+    "keyValue": 3,
+    "dateCode": "HUNTING_STATUS",
+    "keyValueStr": null,
+    "name": "求职状态",
+    "id": 67
+}, {
+    "keyName": "离职-随时到岗",
+    "keyValue": 4,
+    "dateCode": "HUNTING_STATUS",
+    "keyValueStr": null,
+    "name": "求职状态",
+    "id": 68
+}, {
+    "keyName": "男",
+    "keyValue": 1,
+    "dateCode": "GENDER",
+    "keyValueStr": null,
+    "name": "性别",
+    "id": 69
+}, {
+    "keyName": "女",
+    "keyValue": 2,
+    "dateCode": "GENDER",
+    "keyValueStr": null,
+    "name": "性别",
+    "id": 70
+}, {
+    "keyName": "上海市",
+    "keyValue": 1,
+    "dateCode": "WORK_CITY",
+    "keyValueStr": null,
+    "name": "所在城市",
+    "id": 72
+}, {
+    "keyName": "北京市",
+    "keyValue": 2,
+    "dateCode": "WORK_CITY",
+    "keyValueStr": null,
+    "name": "所在城市",
+    "id": 73
+}, {
+    "keyName": "广州市",
+    "keyValue": 3,
+    "dateCode": "WORK_CITY",
+    "keyValueStr": null,
+    "name": "所在城市",
+    "id": 74
+}, {
+    "keyName": "深圳市",
+    "keyValue": 3,
+    "dateCode": "WORK_CITY",
+    "keyValueStr": null,
+    "name": "所在城市",
+    "id": 75
+}, {
+    "keyName": "待查看",
+    "keyValue": 1,
+    "dateCode": "RESUME_RECORD_STATUS",
+    "keyValueStr": null,
+    "name": "简历投递记录状态",
+    "id": 173
+}, {
+    "keyName": "简历合格",
+    "keyValue": 2,
+    "dateCode": "RESUME_RECORD_STATUS",
+    "keyValueStr": null,
+    "name": "简历投递记录状态",
+    "id": 174
+}, {
+    "keyName": "简历不合格",
+    "keyValue": 3,
+    "dateCode": "RESUME_RECORD_STATUS",
+    "keyValueStr": null,
+    "name": "简历投递记录状态",
+    "id": 175
+}, {
+    "keyName": "邀请中",
+    "keyValue": 4,
+    "dateCode": "RESUME_RECORD_STATUS",
+    "keyValueStr": null,
+    "name": "简历投递记录状态",
+    "id": 176
+}, {
+    "keyName": "已接受邀请",
+    "keyValue": 5,
+    "dateCode": "RESUME_RECORD_STATUS",
+    "keyValueStr": null,
+    "name": "简历投递记录状态",
+    "id": 177
+}, {
+    "keyName": "已拒绝邀请",
+    "keyValue": 6,
+    "dateCode": "RESUME_RECORD_STATUS",
+    "keyValueStr": null,
+    "name": "简历投递记录状态",
+    "id": 178
+}, {
+    "keyName": "面试合格",
+    "keyValue": 7,
+    "dateCode": "RESUME_RECORD_STATUS",
+    "keyValueStr": null,
+    "name": "简历投递记录状态",
+    "id": 179
+}, {
+    "keyName": "面试不合格",
+    "keyValue": 8,
+    "dateCode": "RESUME_RECORD_STATUS",
+    "keyValueStr": null,
+    "name": "简历投递记录状态",
+    "id": 180
+}, {
+    "keyName": "0-20",
+    "keyValue": 1,
+    "dateCode": "COMPANY_SIZE",
+    "keyValueStr": null,
+    "name": "公司规模",
+    "id": 259
+}, {
+    "keyName": "20-100",
+    "keyValue": 2,
+    "dateCode": "COMPANY_SIZE",
+    "keyValueStr": null,
+    "name": "公司规模",
+    "id": 260
+}, {
+    "keyName": "100-500",
+    "keyValue": 3,
+    "dateCode": "COMPANY_SIZE",
+    "keyValueStr": null,
+    "name": "公司规模",
+    "id": 261
+}, {
+    "keyName": "500-1000",
+    "keyValue": 4,
+    "dateCode": "COMPANY_SIZE",
+    "keyValueStr": null,
+    "name": "公司规模",
+    "id": 262
+}, {
+    "keyName": "1000-10000",
+    "keyValue": 5,
+    "dateCode": "COMPANY_SIZE",
+    "keyValueStr": null,
+    "name": "公司规模",
+    "id": 263
+}, {
+    "keyName": "10000以上",
+    "keyValue": 6,
+    "dateCode": "COMPANY_SIZE",
+    "keyValueStr": null,
+    "name": "公司规模",
+    "id": 264
+}, {
+    "keyName": "甲方发起签约",
+    "keyValue": 0,
+    "dateCode": "CONTRACT_STATUS",
+    "keyValueStr": null,
+    "name": "合同状态",
+    "id": 265
+}, {
+    "keyName": "甲方签约成功",
+    "keyValue": 1,
+    "dateCode": "CONTRACT_STATUS",
+    "keyValueStr": null,
+    "name": "合同状态",
+    "id": 266
+}, {
+    "keyName": "乙方签约成功",
+    "keyValue": 2,
+    "dateCode": "CONTRACT_STATUS",
+    "keyValueStr": null,
+    "name": "合同状态",
+    "id": 267
+}, {
+    "keyName": "超过48小时未签署失效",
+    "keyValue": 3,
+    "dateCode": "CONTRACT_STATUS",
+    "keyValueStr": null,
+    "name": "合同状态",
+    "id": 268
+}, {
+    "keyName": "乙方拒签",
+    "keyValue": 4,
+    "dateCode": "CONTRACT_STATUS",
+    "keyValueStr": null,
+    "name": "合同状态",
+    "id": 269
+}, {
+    "keyName": "合同生效",
+    "keyValue": 5,
+    "dateCode": "CONTRACT_STATUS",
+    "keyValueStr": null,
+    "name": "合同状态",
+    "id": 270
+}, {
+    "keyName": "合同正常到期",
+    "keyValue": 6,
+    "dateCode": "CONTRACT_STATUS",
+    "keyValueStr": null,
+    "name": "合同状态",
+    "id": 271
+}, {
+    "keyName": "甲方触发违约条款",
+    "keyValue": 7,
+    "dateCode": "CONTRACT_STATUS",
+    "keyValueStr": null,
+    "name": "合同状态",
+    "id": 272
+}, {
+    "keyName": "乙方触发违约条款",
+    "keyValue": 8,
+    "dateCode": "CONTRACT_STATUS",
+    "keyValueStr": null,
+    "name": "合同状态",
+    "id": 273
+}, {
+    "keyName": "甲方发起仲裁",
+    "keyValue": 9,
+    "dateCode": "CONTRACT_STATUS",
+    "keyValueStr": null,
+    "name": "合同状态",
+    "id": 274
+}, {
+    "keyName": "乙方发起仲裁",
+    "keyValue": 10,
+    "dateCode": "CONTRACT_STATUS",
+    "keyValueStr": null,
+    "name": "合同状态",
+    "id": 275
+}, {
+    "keyName": "平台已受理",
+    "keyValue": 11,
+    "dateCode": "CONTRACT_STATUS",
+    "keyValueStr": null,
+    "name": "合同状态",
+    "id": 276
+}, {
+    "keyName": "甲方仲裁成功",
+    "keyValue": 12,
+    "dateCode": "CONTRACT_STATUS",
+    "keyValueStr": null,
+    "name": "合同状态",
+    "id": 277
+}, {
+    "keyName": "甲方仲裁失败",
+    "keyValue": 13,
+    "dateCode": "CONTRACT_STATUS",
+    "keyValueStr": null,
+    "name": "合同状态",
+    "id": 278
+}, {
+    "keyName": "乙方仲裁成功",
+    "keyValue": 14,
+    "dateCode": "CONTRACT_STATUS",
+    "keyValueStr": null,
+    "name": "合同状态",
+    "id": 279
+}, {
+    "keyName": "乙方仲裁失败",
+    "keyValue": 15,
+    "dateCode": "CONTRACT_STATUS",
+    "keyValueStr": null,
+    "name": "合同状态",
+    "id": 280
+}, {
+    "keyName": "2-5K",
+    "keyValue": 1,
+    "dateCode": "SALARY_RANGE",
+    "keyValueStr": null,
+    "name": "薪水范围",
+    "id": 292
+}, {
+    "keyName": "6-10K",
+    "keyValue": 2,
+    "dateCode": "SALARY_RANGE",
+    "keyValueStr": null,
+    "name": "薪水范围",
+    "id": 293
+}, {
+    "keyName": "11-15K",
+    "keyValue": 3,
+    "dateCode": "SALARY_RANGE",
+    "keyValueStr": null,
+    "name": "薪水范围",
+    "id": 294
+}, {
+    "keyName": "16-20K",
+    "keyValue": 4,
+    "dateCode": "SALARY_RANGE",
+    "keyValueStr": null,
+    "name": "薪水范围",
+    "id": 295
+}, {
+    "keyName": "21-25K",
+    "keyValue": 5,
+    "dateCode": "SALARY_RANGE",
+    "keyValueStr": null,
+    "name": "薪水范围",
+    "id": 296
+}, {
+    "keyName": "26-30K",
+    "keyValue": 6,
+    "dateCode": "SALARY_RANGE",
+    "keyValueStr": null,
+    "name": "薪水范围",
+    "id": 297
+}, {
+    "keyName": "31-35K",
+    "keyValue": 7,
+    "dateCode": "SALARY_RANGE",
+    "keyValueStr": null,
+    "name": "薪水范围",
+    "id": 298
+}, {
+    "keyName": "36-40K",
+    "keyValue": 8,
+    "dateCode": "SALARY_RANGE",
+    "keyValueStr": null,
+    "name": "薪水范围",
+    "id": 299
+}, {
+    "keyName": "41-45K",
+    "keyValue": 9,
+    "dateCode": "SALARY_RANGE",
+    "keyValueStr": null,
+    "name": "薪水范围",
+    "id": 300
+}, {
+    "keyName": "46-50K",
+    "keyValue": 10,
+    "dateCode": "SALARY_RANGE",
+    "keyValueStr": null,
+    "name": "薪水范围",
+    "id": 301
+}, {
+    "keyName": "50K以上",
+    "keyValue": 11,
+    "dateCode": "SALARY_RANGE",
+    "keyValueStr": null,
+    "name": "薪水范围",
+    "id": 302
+}, {
+    "keyName": "计算机软件",
+    "keyValue": 1,
+    "dateCode": "INDUSTRY_TYPE",
+    "keyValueStr": null,
+    "name": "行业类别",
+    "id": 303
+}, {
+    "keyName": "互联网",
+    "keyValue": 2,
+    "dateCode": "INDUSTRY_TYPE",
+    "keyValueStr": null,
+    "name": "行业类别",
+    "id": 304
+}, {
+    "keyName": "移动互联网",
+    "keyValue": 3,
+    "dateCode": "INDUSTRY_TYPE",
+    "keyValueStr": null,
+    "name": "行业类别",
+    "id": 305
+}, {
+    "keyName": "电子商务",
+    "keyValue": 4,
+    "dateCode": "INDUSTRY_TYPE",
+    "keyValueStr": null,
+    "name": "行业类别",
+    "id": 306
+}, {
+    "keyName": "医疗健康",
+    "keyValue": 5,
+    "dateCode": "INDUSTRY_TYPE",
+    "keyValueStr": null,
+    "name": "行业类别",
+    "id": 307
+}, {
+    "keyName": "教育培训",
+    "keyValue": 6,
+    "dateCode": "INDUSTRY_TYPE",
+    "keyValueStr": null,
+    "name": "行业类别",
+    "id": 308
+}, {
+    "keyName": "广告推广",
+    "keyValue": 7,
+    "dateCode": "INDUSTRY_TYPE",
+    "keyValueStr": null,
+    "name": "行业类别",
+    "id": 309
+}, {
+    "keyName": "影视传媒文化",
+    "keyValue": 8,
+    "dateCode": "INDUSTRY_TYPE",
+    "keyValueStr": null,
+    "name": "行业类别",
+    "id": 310
+}, {
+    "keyName": "游戏",
+    "keyValue": 9,
+    "dateCode": "INDUSTRY_TYPE",
+    "keyValueStr": null,
+    "name": "行业类别",
+    "id": 311
+}, {
+    "keyName": "体育运动",
+    "keyValue": 10,
+    "dateCode": "INDUSTRY_TYPE",
+    "keyValueStr": null,
+    "name": "行业类别",
+    "id": 312
+}, {
+    "keyName": "系统/IT",
+    "keyValue": 11,
+    "dateCode": "INDUSTRY_TYPE",
+    "keyValueStr": null,
+    "name": "行业类别",
+    "id": 313
+}, {
+    "keyName": "金融",
+    "keyValue": 12,
+    "dateCode": "INDUSTRY_TYPE",
+    "keyValueStr": null,
+    "name": "行业类别",
+    "id": 314
+}, {
+    "keyName": "财务/审计",
+    "keyValue": 13,
+    "dateCode": "INDUSTRY_TYPE",
+    "keyValueStr": null,
+    "name": "行业类别",
+    "id": 315
+}, {
+    "keyName": "物流仓储",
+    "keyValue": 14,
+    "dateCode": "INDUSTRY_TYPE",
+    "keyValueStr": null,
+    "name": "行业类别",
+    "id": 316
+}, {
+    "keyName": "进出口贸易",
+    "keyValue": 15,
+    "dateCode": "INDUSTRY_TYPE",
+    "keyValueStr": null,
+    "name": "行业类别",
+    "id": 317
+}, {
+    "keyName": "航空航天",
+    "keyValue": 16,
+    "dateCode": "INDUSTRY_TYPE",
+    "keyValueStr": null,
+    "name": "行业类别",
+    "id": 318
+}, {
+    "keyName": "人力资源",
+    "keyValue": 17,
+    "dateCode": "INDUSTRY_TYPE",
+    "keyValueStr": null,
+    "name": "行业类别",
+    "id": 319
+}, {
+    "keyName": "环保能源",
+    "keyValue": 18,
+    "dateCode": "INDUSTRY_TYPE",
+    "keyValueStr": null,
+    "name": "行业类别",
+    "id": 320
+}, {
+    "keyName": "法律",
+    "keyValue": 19,
+    "dateCode": "INDUSTRY_TYPE",
+    "keyValueStr": null,
+    "name": "行业类别",
+    "id": 321
+}, {
+    "keyName": "翻译",
+    "keyValue": 20,
+    "dateCode": "INDUSTRY_TYPE",
+    "keyValueStr": null,
+    "name": "行业类别",
+    "id": 322
+}, {
+    "keyName": "零售",
+    "keyValue": 21,
+    "dateCode": "INDUSTRY_TYPE",
+    "keyValueStr": null,
+    "name": "行业类别",
+    "id": 323
+}, {
+    "keyName": "农林牧渔业",
+    "keyValue": 22,
+    "dateCode": "INDUSTRY_TYPE",
+    "keyValueStr": null,
+    "name": "行业类别",
+    "id": 324
+}, {
+    "keyName": "建筑",
+    "keyValue": 23,
+    "dateCode": "INDUSTRY_TYPE",
+    "keyValueStr": null,
+    "name": "行业类别",
+    "id": 325
+}, {
+    "keyName": "旅游",
+    "keyValue": 24,
+    "dateCode": "INDUSTRY_TYPE",
+    "keyValueStr": null,
+    "name": "行业类别",
+    "id": 326
+}, {
+    "keyName": "上海市",
+    "keyValue": null,
+    "dateCode": "CITY_CODE",
+    "keyValueStr": "021",
+    "name": "城市编码",
+    "id": 327
+}, {
+    "keyName": "客服/售前/售后技术",
+    "keyValue": 1001,
+    "dateCode": "POSITION_TYPE",
+    "keyValueStr": "K",
+    "name": "职业分类",
+    "id": 1138
+}, {
+    "keyName": "客户服务总监",
+    "keyValue": 1002,
+    "dateCode": "POSITION_TYPE_1001",
+    "keyValueStr": "1002",
+    "name": "职业分类",
+    "id": 1139
+}, {
+    "keyName": "客户服务经理",
+    "keyValue": 1003,
+    "dateCode": "POSITION_TYPE_1001",
+    "keyValueStr": "1003",
+    "name": "职业分类",
+    "id": 1140
+}, {
+    "keyName": "客户服务主管",
+    "keyValue": 1004,
+    "dateCode": "POSITION_TYPE_1001",
+    "keyValueStr": "1004",
+    "name": "职业分类",
+    "id": 1141
+}, {
+    "keyName": "客户服务专员/助理",
+    "keyValue": 1005,
+    "dateCode": "POSITION_TYPE_1001",
+    "keyValueStr": "1005",
+    "name": "职业分类",
+    "id": 1142
+}, {
+    "keyName": "客户关系/投诉协调人员",
+    "keyValue": 1006,
+    "dateCode": "POSITION_TYPE_1001",
+    "keyValueStr": "1006",
+    "name": "职业分类",
+    "id": 1143
+}, {
+    "keyName": "客户咨询热线/呼叫中心人员",
+    "keyValue": 1007,
+    "dateCode": "POSITION_TYPE_1001",
+    "keyValueStr": "1007",
+    "name": "职业分类",
+    "id": 1144
+}, {
+    "keyName": "网络/在线客服",
+    "keyValue": 1008,
+    "dateCode": "POSITION_TYPE_1001",
+    "keyValueStr": "1008",
+    "name": "职业分类",
+    "id": 1145
+}, {
+    "keyName": "售前/售后技术支持管理",
+    "keyValue": 1009,
+    "dateCode": "POSITION_TYPE_1001",
+    "keyValueStr": "1009",
+    "name": "职业分类",
+    "id": 1146
+}, {
+    "keyName": "售前/售后技术支持工程师",
+    "keyValue": 1010,
+    "dateCode": "POSITION_TYPE_1001",
+    "keyValueStr": "1010",
+    "name": "职业分类",
+    "id": 1147
+}, {
+    "keyName": "其他",
+    "keyValue": 1011,
+    "dateCode": "POSITION_TYPE_1001",
+    "keyValueStr": "1011",
+    "name": "职业分类",
+    "id": 1148
+}, {
+    "keyName": "市场",
+    "keyValue": 1012,
+    "dateCode": "POSITION_TYPE",
+    "keyValueStr": "S",
+    "name": "职业分类",
+    "id": 1149
+}, {
+    "keyName": "市场总监",
+    "keyValue": 1013,
+    "dateCode": "POSITION_TYPE_1012",
+    "keyValueStr": "1013",
+    "name": "职业分类",
+    "id": 1150
+}, {
+    "keyName": "市场经理",
+    "keyValue": 1014,
+    "dateCode": "POSITION_TYPE_1012",
+    "keyValueStr": "1014",
+    "name": "职业分类",
+    "id": 1151
+}, {
+    "keyName": "市场主管",
+    "keyValue": 1015,
+    "dateCode": "POSITION_TYPE_1012",
+    "keyValueStr": "1015",
+    "name": "职业分类",
+    "id": 1152
+}, {
+    "keyName": "市场专员/助理",
+    "keyValue": 1016,
+    "dateCode": "POSITION_TYPE_1012",
+    "keyValueStr": "1016",
+    "name": "职业分类",
+    "id": 1153
+}, {
+    "keyName": "市场营销经理",
+    "keyValue": 1017,
+    "dateCode": "POSITION_TYPE_1012",
+    "keyValueStr": "1017",
+    "name": "职业分类",
+    "id": 1154
+}, {
+    "keyName": "市场营销主管",
+    "keyValue": 1018,
+    "dateCode": "POSITION_TYPE_1012",
+    "keyValueStr": "1018",
+    "name": "职业分类",
+    "id": 1155
+}, {
+    "keyName": "市场营销专员/助理",
+    "keyValue": 1019,
+    "dateCode": "POSITION_TYPE_1012",
+    "keyValueStr": "1019",
+    "name": "职业分类",
+    "id": 1156
+}, {
+    "keyName": "业务拓展经理/主管",
+    "keyValue": 1020,
+    "dateCode": "POSITION_TYPE_1012",
+    "keyValueStr": "1020",
+    "name": "职业分类",
+    "id": 1157
+}, {
+    "keyName": "业务拓展专员/助理",
+    "keyValue": 1021,
+    "dateCode": "POSITION_TYPE_1012",
+    "keyValueStr": "1021",
+    "name": "职业分类",
+    "id": 1158
+}, {
+    "keyName": "产品经理",
+    "keyValue": 1022,
+    "dateCode": "POSITION_TYPE_1012",
+    "keyValueStr": "1022",
+    "name": "职业分类",
+    "id": 1159
+}, {
+    "keyName": "产品主管",
+    "keyValue": 1023,
+    "dateCode": "POSITION_TYPE_1012",
+    "keyValueStr": "1023",
+    "name": "职业分类",
+    "id": 1160
+}, {
+    "keyName": "产品专员/助理",
+    "keyValue": 1024,
+    "dateCode": "POSITION_TYPE_1012",
+    "keyValueStr": "1024",
+    "name": "职业分类",
+    "id": 1161
+}, {
+    "keyName": "品牌经理",
+    "keyValue": 1025,
+    "dateCode": "POSITION_TYPE_1012",
+    "keyValueStr": "1025",
+    "name": "职业分类",
+    "id": 1162
+}, {
+    "keyName": "品牌主管",
+    "keyValue": 1026,
+    "dateCode": "POSITION_TYPE_1012",
+    "keyValueStr": "1026",
+    "name": "职业分类",
+    "id": 1163
+}, {
+    "keyName": "品牌专员/助理",
+    "keyValue": 1027,
+    "dateCode": "POSITION_TYPE_1012",
+    "keyValueStr": "1027",
+    "name": "职业分类",
+    "id": 1164
+}, {
+    "keyName": "市场策划/企划经理/主管",
+    "keyValue": 1028,
+    "dateCode": "POSITION_TYPE_1012",
+    "keyValueStr": "1028",
+    "name": "职业分类",
+    "id": 1165
+}, {
+    "keyName": "市场策划/企划专员/助理",
+    "keyValue": 1029,
+    "dateCode": "POSITION_TYPE_1012",
+    "keyValueStr": "1029",
+    "name": "职业分类",
+    "id": 1166
+}, {
+    "keyName": "市场文案策划",
+    "keyValue": 1030,
+    "dateCode": "POSITION_TYPE_1012",
+    "keyValueStr": "1030",
+    "name": "职业分类",
+    "id": 1167
+}, {
+    "keyName": "活动策划",
+    "keyValue": 1031,
+    "dateCode": "POSITION_TYPE_1012",
+    "keyValueStr": "1031",
+    "name": "职业分类",
+    "id": 1168
+}, {
+    "keyName": "活动执行",
+    "keyValue": 1032,
+    "dateCode": "POSITION_TYPE_1012",
+    "keyValueStr": "1032",
+    "name": "职业分类",
+    "id": 1169
+}, {
+    "keyName": "促销主管/督导",
+    "keyValue": 1033,
+    "dateCode": "POSITION_TYPE_1012",
+    "keyValueStr": "1033",
+    "name": "职业分类",
+    "id": 1170
+}, {
+    "keyName": "促销员",
+    "keyValue": 1034,
+    "dateCode": "POSITION_TYPE_1012",
+    "keyValueStr": "1034",
+    "name": "职业分类",
+    "id": 1171
+}, {
+    "keyName": "网站推广",
+    "keyValue": 1035,
+    "dateCode": "POSITION_TYPE_1012",
+    "keyValueStr": "1035",
+    "name": "职业分类",
+    "id": 1172
+}, {
+    "keyName": "SEO/SEM",
+    "keyValue": 1036,
+    "dateCode": "POSITION_TYPE_1012",
+    "keyValueStr": "1036",
+    "name": "职业分类",
+    "id": 1173
+}, {
+    "keyName": "学术推广",
+    "keyValue": 1037,
+    "dateCode": "POSITION_TYPE_1012",
+    "keyValueStr": "1037",
+    "name": "职业分类",
+    "id": 1174
+}, {
+    "keyName": "选址拓展/新店开发",
+    "keyValue": 1038,
+    "dateCode": "POSITION_TYPE_1012",
+    "keyValueStr": "1038",
+    "name": "职业分类",
+    "id": 1175
+}, {
+    "keyName": "市场调研与分析",
+    "keyValue": 1039,
+    "dateCode": "POSITION_TYPE_1012",
+    "keyValueStr": "1039",
+    "name": "职业分类",
+    "id": 1176
+}, {
+    "keyName": "其他",
+    "keyValue": 1040,
+    "dateCode": "POSITION_TYPE_1012",
+    "keyValueStr": "1040",
+    "name": "职业分类",
+    "id": 1177
+}, {
+    "keyName": "公关/媒介",
+    "keyValue": 1041,
+    "dateCode": "POSITION_TYPE",
+    "keyValueStr": "G",
+    "name": "职业分类",
+    "id": 1178
+}, {
+    "keyName": "公关总监",
+    "keyValue": 1042,
+    "dateCode": "POSITION_TYPE_1041",
+    "keyValueStr": "1042",
+    "name": "职业分类",
+    "id": 1179
+}, {
+    "keyName": "公关经理/主管",
+    "keyValue": 1043,
+    "dateCode": "POSITION_TYPE_1041",
+    "keyValueStr": "1043",
+    "name": "职业分类",
+    "id": 1180
+}, {
+    "keyName": "公关专员/助理",
+    "keyValue": 1044,
+    "dateCode": "POSITION_TYPE_1041",
+    "keyValueStr": "1044",
+    "name": "职业分类",
+    "id": 1181
+}, {
+    "keyName": "媒介经理/主管",
+    "keyValue": 1045,
+    "dateCode": "POSITION_TYPE_1041",
+    "keyValueStr": "1045",
+    "name": "职业分类",
+    "id": 1182
+}, {
+    "keyName": "媒介专员/助理",
+    "keyValue": 1046,
+    "dateCode": "POSITION_TYPE_1041",
+    "keyValueStr": "1046",
+    "name": "职业分类",
+    "id": 1183
+}, {
+    "keyName": "媒介策划/管理",
+    "keyValue": 1047,
+    "dateCode": "POSITION_TYPE_1041",
+    "keyValueStr": "1047",
+    "name": "职业分类",
+    "id": 1184
+}, {
+    "keyName": "政府事务管理",
+    "keyValue": 1048,
+    "dateCode": "POSITION_TYPE_1041",
+    "keyValueStr": "1048",
+    "name": "职业分类",
+    "id": 1185
+}, {
+    "keyName": "其他",
+    "keyValue": 1049,
+    "dateCode": "POSITION_TYPE_1041",
+    "keyValueStr": "1049",
+    "name": "职业分类",
+    "id": 1186
+}, {
+    "keyName": "广告/会展",
+    "keyValue": 1050,
+    "dateCode": "POSITION_TYPE",
+    "keyValueStr": "G",
+    "name": "职业分类",
+    "id": 1187
+}, {
+    "keyName": "广告创意/设计总监",
+    "keyValue": 1051,
+    "dateCode": "POSITION_TYPE_1050",
+    "keyValueStr": "1051",
+    "name": "职业分类",
+    "id": 1188
+}, {
+    "keyName": "广告创意/设计经理/主管",
+    "keyValue": 1052,
+    "dateCode": "POSITION_TYPE_1050",
+    "keyValueStr": "1052",
+    "name": "职业分类",
+    "id": 1189
+}, {
+    "keyName": "广告创意/设计师",
+    "keyValue": 1053,
+    "dateCode": "POSITION_TYPE_1050",
+    "keyValueStr": "1053",
+    "name": "职业分类",
+    "id": 1190
+}, {
+    "keyName": "广告文案策划",
+    "keyValue": 1054,
+    "dateCode": "POSITION_TYPE_1050",
+    "keyValueStr": "1054",
+    "name": "职业分类",
+    "id": 1191
+}, {
+    "keyName": "广告美术指导",
+    "keyValue": 1055,
+    "dateCode": "POSITION_TYPE_1050",
+    "keyValueStr": "1055",
+    "name": "职业分类",
+    "id": 1192
+}, {
+    "keyName": "广告制作执行",
+    "keyValue": 1056,
+    "dateCode": "POSITION_TYPE_1050",
+    "keyValueStr": "1056",
+    "name": "职业分类",
+    "id": 1193
+}, {
+    "keyName": "广告客户总监",
+    "keyValue": 1057,
+    "dateCode": "POSITION_TYPE_1050",
+    "keyValueStr": "1057",
+    "name": "职业分类",
+    "id": 1194
+}, {
+    "keyName": "广告客户经理",
+    "keyValue": 1058,
+    "dateCode": "POSITION_TYPE_1050",
+    "keyValueStr": "1058",
+    "name": "职业分类",
+    "id": 1195
+}, {
+    "keyName": "广告客户主管",
+    "keyValue": 1059,
+    "dateCode": "POSITION_TYPE_1050",
+    "keyValueStr": "1059",
+    "name": "职业分类",
+    "id": 1196
+}, {
+    "keyName": "广告客户代表",
+    "keyValue": 1060,
+    "dateCode": "POSITION_TYPE_1050",
+    "keyValueStr": "1060",
+    "name": "职业分类",
+    "id": 1197
+}, {
+    "keyName": "广告/会展业务拓展",
+    "keyValue": 1061,
+    "dateCode": "POSITION_TYPE_1050",
+    "keyValueStr": "1061",
+    "name": "职业分类",
+    "id": 1198
+}, {
+    "keyName": "会展策划/设计",
+    "keyValue": 1062,
+    "dateCode": "POSITION_TYPE_1050",
+    "keyValueStr": "1062",
+    "name": "职业分类",
+    "id": 1199
+}, {
+    "keyName": "会务经理/主管",
+    "keyValue": 1063,
+    "dateCode": "POSITION_TYPE_1050",
+    "keyValueStr": "1063",
+    "name": "职业分类",
+    "id": 1200
+}, {
+    "keyName": "会务专员/助理",
+    "keyValue": 1064,
+    "dateCode": "POSITION_TYPE_1050",
+    "keyValueStr": "1064",
+    "name": "职业分类",
+    "id": 1201
+}, {
+    "keyName": "广告/会展项目管理",
+    "keyValue": 1065,
+    "dateCode": "POSITION_TYPE_1050",
+    "keyValueStr": "1065",
+    "name": "职业分类",
+    "id": 1202
+}, {
+    "keyName": "其他",
+    "keyValue": 1066,
+    "dateCode": "POSITION_TYPE_1050",
+    "keyValueStr": "1066",
+    "name": "职业分类",
+    "id": 1203
+}, {
+    "keyName": "财务/审计/税务",
+    "keyValue": 1067,
+    "dateCode": "POSITION_TYPE",
+    "keyValueStr": "C",
+    "name": "职业分类",
+    "id": 1204
+}, {
+    "keyName": "首席财务官CFO",
+    "keyValue": 1068,
+    "dateCode": "POSITION_TYPE_1067",
+    "keyValueStr": "1068",
+    "name": "职业分类",
+    "id": 1205
+}, {
+    "keyName": "财务总监",
+    "keyValue": 1069,
+    "dateCode": "POSITION_TYPE_1067",
+    "keyValueStr": "1069",
+    "name": "职业分类",
+    "id": 1206
+}, {
+    "keyName": "财务经理",
+    "keyValue": 1070,
+    "dateCode": "POSITION_TYPE_1067",
+    "keyValueStr": "1070",
+    "name": "职业分类",
+    "id": 1207
+}, {
+    "keyName": "财务主管/总账主管",
+    "keyValue": 1071,
+    "dateCode": "POSITION_TYPE_1067",
+    "keyValueStr": "1071",
+    "name": "职业分类",
+    "id": 1208
+}, {
+    "keyName": "财务顾问",
+    "keyValue": 1072,
+    "dateCode": "POSITION_TYPE_1067",
+    "keyValueStr": "1072",
+    "name": "职业分类",
+    "id": 1209
+}, {
+    "keyName": "财务助理",
+    "keyValue": 1073,
+    "dateCode": "POSITION_TYPE_1067",
+    "keyValueStr": "1073",
+    "name": "职业分类",
+    "id": 1210
+}, {
+    "keyName": "财务分析经理/主管",
+    "keyValue": 1074,
+    "dateCode": "POSITION_TYPE_1067",
+    "keyValueStr": "1074",
+    "name": "职业分类",
+    "id": 1211
+}, {
+    "keyName": "财务分析员",
+    "keyValue": 1075,
+    "dateCode": "POSITION_TYPE_1067",
+    "keyValueStr": "1075",
+    "name": "职业分类",
+    "id": 1212
+}, {
+    "keyName": "会计经理/主管",
+    "keyValue": 1076,
+    "dateCode": "POSITION_TYPE_1067",
+    "keyValueStr": "1076",
+    "name": "职业分类",
+    "id": 1213
+}, {
+    "keyName": "会计/会计师",
+    "keyValue": 1077,
+    "dateCode": "POSITION_TYPE_1067",
+    "keyValueStr": "1077",
+    "name": "职业分类",
+    "id": 1214
+}, {
+    "keyName": "会计助理/文员",
+    "keyValue": 1078,
+    "dateCode": "POSITION_TYPE_1067",
+    "keyValueStr": "1078",
+    "name": "职业分类",
+    "id": 1215
+}, {
+    "keyName": "出纳员",
+    "keyValue": 1079,
+    "dateCode": "POSITION_TYPE_1067",
+    "keyValueStr": "1079",
+    "name": "职业分类",
+    "id": 1216
+}, {
+    "keyName": "审计经理/主管",
+    "keyValue": 1080,
+    "dateCode": "POSITION_TYPE_1067",
+    "keyValueStr": "1080",
+    "name": "职业分类",
+    "id": 1217
+}, {
+    "keyName": "审计专员/助理",
+    "keyValue": 1081,
+    "dateCode": "POSITION_TYPE_1067",
+    "keyValueStr": "1081",
+    "name": "职业分类",
+    "id": 1218
+}, {
+    "keyName": "税务经理/主管",
+    "keyValue": 1082,
+    "dateCode": "POSITION_TYPE_1067",
+    "keyValueStr": "1082",
+    "name": "职业分类",
+    "id": 1219
+}, {
+    "keyName": "税务专员/助理",
+    "keyValue": 1083,
+    "dateCode": "POSITION_TYPE_1067",
+    "keyValueStr": "1083",
+    "name": "职业分类",
+    "id": 1220
+}, {
+    "keyName": "成本经理/主管",
+    "keyValue": 1084,
+    "dateCode": "POSITION_TYPE_1067",
+    "keyValueStr": "1084",
+    "name": "职业分类",
+    "id": 1221
+}, {
+    "keyName": "成本会计",
+    "keyValue": 1085,
+    "dateCode": "POSITION_TYPE_1067",
+    "keyValueStr": "1085",
+    "name": "职业分类",
+    "id": 1222
+}, {
+    "keyName": "资产/资金管理",
+    "keyValue": 1086,
+    "dateCode": "POSITION_TYPE_1067",
+    "keyValueStr": "1086",
+    "name": "职业分类",
+    "id": 1223
+}, {
+    "keyName": "资金专员",
+    "keyValue": 1087,
+    "dateCode": "POSITION_TYPE_1067",
+    "keyValueStr": "1087",
+    "name": "职业分类",
+    "id": 1224
+}, {
+    "keyName": "统计员",
+    "keyValue": 1088,
+    "dateCode": "POSITION_TYPE_1067",
+    "keyValueStr": "1088",
+    "name": "职业分类",
+    "id": 1225
+}, {
+    "keyName": "其他",
+    "keyValue": 1089,
+    "dateCode": "POSITION_TYPE_1067",
+    "keyValueStr": "1089",
+    "name": "职业分类",
+    "id": 1226
+}, {
+    "keyName": "人力资源",
+    "keyValue": 1090,
+    "dateCode": "POSITION_TYPE",
+    "keyValueStr": "R",
+    "name": "职业分类",
+    "id": 1227
+}, {
+    "keyName": "人力资源总监",
+    "keyValue": 1091,
+    "dateCode": "POSITION_TYPE_1090",
+    "keyValueStr": "1091",
+    "name": "职业分类",
+    "id": 1228
+}, {
+    "keyName": "人力资源经理",
+    "keyValue": 1092,
+    "dateCode": "POSITION_TYPE_1090",
+    "keyValueStr": "1092",
+    "name": "职业分类",
+    "id": 1229
+}, {
+    "keyName": "人力资源主管",
+    "keyValue": 1093,
+    "dateCode": "POSITION_TYPE_1090",
+    "keyValueStr": "1093",
+    "name": "职业分类",
+    "id": 1230
+}, {
+    "keyName": "人力资源专员/助理",
+    "keyValue": 1094,
+    "dateCode": "POSITION_TYPE_1090",
+    "keyValueStr": "1094",
+    "name": "职业分类",
+    "id": 1231
+}, {
+    "keyName": "培训经理/主管",
+    "keyValue": 1095,
+    "dateCode": "POSITION_TYPE_1090",
+    "keyValueStr": "1095",
+    "name": "职业分类",
+    "id": 1232
+}, {
+    "keyName": "培训专员/助理",
+    "keyValue": 1096,
+    "dateCode": "POSITION_TYPE_1090",
+    "keyValueStr": "1096",
+    "name": "职业分类",
+    "id": 1233
+}, {
+    "keyName": "招聘经理/主管",
+    "keyValue": 1097,
+    "dateCode": "POSITION_TYPE_1090",
+    "keyValueStr": "1097",
+    "name": "职业分类",
+    "id": 1234
+}, {
+    "keyName": "招聘专员/助理",
+    "keyValue": 1098,
+    "dateCode": "POSITION_TYPE_1090",
+    "keyValueStr": "1098",
+    "name": "职业分类",
+    "id": 1235
+}, {
+    "keyName": "薪酬福利经理/主管",
+    "keyValue": 1099,
+    "dateCode": "POSITION_TYPE_1090",
+    "keyValueStr": "1099",
+    "name": "职业分类",
+    "id": 1236
+}, {
+    "keyName": "薪酬福利专员/助理",
+    "keyValue": 1100,
+    "dateCode": "POSITION_TYPE_1090",
+    "keyValueStr": "1100",
+    "name": "职业分类",
+    "id": 1237
+}, {
+    "keyName": "绩效考核经理/主管",
+    "keyValue": 1101,
+    "dateCode": "POSITION_TYPE_1090",
+    "keyValueStr": "1101",
+    "name": "职业分类",
+    "id": 1238
+}, {
+    "keyName": "绩效考核专员/助理",
+    "keyValue": 1102,
+    "dateCode": "POSITION_TYPE_1090",
+    "keyValueStr": "1102",
+    "name": "职业分类",
+    "id": 1239
+}, {
+    "keyName": "员工关系/企业文化/工会",
+    "keyValue": 1103,
+    "dateCode": "POSITION_TYPE_1090",
+    "keyValueStr": "1103",
+    "name": "职业分类",
+    "id": 1240
+}, {
+    "keyName": "企业培训师/讲师",
+    "keyValue": 1104,
+    "dateCode": "POSITION_TYPE_1090",
+    "keyValueStr": "1104",
+    "name": "职业分类",
+    "id": 1241
+}, {
+    "keyName": "人事信息系统（HRIS）管理",
+    "keyValue": 1105,
+    "dateCode": "POSITION_TYPE_1090",
+    "keyValueStr": "1105",
+    "name": "职业分类",
+    "id": 1242
+}, {
+    "keyName": "猎头顾问/助理",
+    "keyValue": 1106,
+    "dateCode": "POSITION_TYPE_1090",
+    "keyValueStr": "1106",
+    "name": "职业分类",
+    "id": 1243
+}, {
+    "keyName": "其他",
+    "keyValue": 1107,
+    "dateCode": "POSITION_TYPE_1090",
+    "keyValueStr": "1107",
+    "name": "职业分类",
+    "id": 1244
+}, {
+    "keyName": "行政/后勤/文秘",
+    "keyValue": 1108,
+    "dateCode": "POSITION_TYPE",
+    "keyValueStr": "X",
+    "name": "职业分类",
+    "id": 1245
+}, {
+    "keyName": "行政总监",
+    "keyValue": 1109,
+    "dateCode": "POSITION_TYPE_1108",
+    "keyValueStr": "1109",
+    "name": "职业分类",
+    "id": 1246
+}, {
+    "keyName": "行政经理/主管/办公室主任",
+    "keyValue": 1110,
+    "dateCode": "POSITION_TYPE_1108",
+    "keyValueStr": "1110",
+    "name": "职业分类",
+    "id": 1247
+}, {
+    "keyName": "行政专员/助理",
+    "keyValue": 1111,
+    "dateCode": "POSITION_TYPE_1108",
+    "keyValueStr": "1111",
+    "name": "职业分类",
+    "id": 1248
+}, {
+    "keyName": "助理/秘书/文员",
+    "keyValue": 1112,
+    "dateCode": "POSITION_TYPE_1108",
+    "keyValueStr": "1112",
+    "name": "职业分类",
+    "id": 1249
+}, {
+    "keyName": "前台/总机/接待",
+    "keyValue": 1113,
+    "dateCode": "POSITION_TYPE_1108",
+    "keyValueStr": "1113",
+    "name": "职业分类",
+    "id": 1250
+}, {
+    "keyName": "文档/资料管理",
+    "keyValue": 1114,
+    "dateCode": "POSITION_TYPE_1108",
+    "keyValueStr": "1114",
+    "name": "职业分类",
+    "id": 1251
+}, {
+    "keyName": "电脑操作/打字/录入员",
+    "keyValue": 1115,
+    "dateCode": "POSITION_TYPE_1108",
+    "keyValueStr": "1115",
+    "name": "职业分类",
+    "id": 1252
+}, {
+    "keyName": "后勤人员",
+    "keyValue": 1116,
+    "dateCode": "POSITION_TYPE_1108",
+    "keyValueStr": "1116",
+    "name": "职业分类",
+    "id": 1253
+}, {
+    "keyName": "其他",
+    "keyValue": 1117,
+    "dateCode": "POSITION_TYPE_1108",
+    "keyValueStr": "1117",
+    "name": "职业分类",
+    "id": 1254
+}, {
+    "keyName": "项目管理/项目协调",
+    "keyValue": 1118,
+    "dateCode": "POSITION_TYPE",
+    "keyValueStr": "X",
+    "name": "职业分类",
+    "id": 1255
+}, {
+    "keyName": "项目总监",
+    "keyValue": 1119,
+    "dateCode": "POSITION_TYPE_1118",
+    "keyValueStr": "1119",
+    "name": "职业分类",
+    "id": 1256
+}, {
+    "keyName": "项目经理/项目主管",
+    "keyValue": 1120,
+    "dateCode": "POSITION_TYPE_1118",
+    "keyValueStr": "1120",
+    "name": "职业分类",
+    "id": 1257
+}, {
+    "keyName": "项目专员/助理",
+    "keyValue": 1121,
+    "dateCode": "POSITION_TYPE_1118",
+    "keyValueStr": "1121",
+    "name": "职业分类",
+    "id": 1258
+}, {
+    "keyName": "广告/会展项目管理",
+    "keyValue": 1122,
+    "dateCode": "POSITION_TYPE_1118",
+    "keyValueStr": "1122",
+    "name": "职业分类",
+    "id": 1259
+}, {
+    "keyName": "IT项目总监",
+    "keyValue": 1123,
+    "dateCode": "POSITION_TYPE_1118",
+    "keyValueStr": "1123",
+    "name": "职业分类",
+    "id": 1260
+}, {
+    "keyName": "IT项目经理/主管",
+    "keyValue": 1124,
+    "dateCode": "POSITION_TYPE_1118",
+    "keyValueStr": "1124",
+    "name": "职业分类",
+    "id": 1261
+}, {
+    "keyName": "IT项目执行/协调人员",
+    "keyValue": 1125,
+    "dateCode": "POSITION_TYPE_1118",
+    "keyValueStr": "1125",
+    "name": "职业分类",
+    "id": 1262
+}, {
+    "keyName": "通信项目管理",
+    "keyValue": 1126,
+    "dateCode": "POSITION_TYPE_1118",
+    "keyValueStr": "1126",
+    "name": "职业分类",
+    "id": 1263
+}, {
+    "keyName": "房地产项目配套工程师",
+    "keyValue": 1127,
+    "dateCode": "POSITION_TYPE_1118",
+    "keyValueStr": "1127",
+    "name": "职业分类",
+    "id": 1264
+}, {
+    "keyName": "房地产项目管理",
+    "keyValue": 1128,
+    "dateCode": "POSITION_TYPE_1118",
+    "keyValueStr": "1128",
+    "name": "职业分类",
+    "id": 1265
+}, {
+    "keyName": "证券/投资项目管理",
+    "keyValue": 1129,
+    "dateCode": "POSITION_TYPE_1118",
+    "keyValueStr": "1129",
+    "name": "职业分类",
+    "id": 1266
+}, {
+    "keyName": "保险项目经理/主管",
+    "keyValue": 1130,
+    "dateCode": "POSITION_TYPE_1118",
+    "keyValueStr": "1130",
+    "name": "职业分类",
+    "id": 1267
+}, {
+    "keyName": "生产项目经理/主管",
+    "keyValue": 1131,
+    "dateCode": "POSITION_TYPE_1118",
+    "keyValueStr": "1131",
+    "name": "职业分类",
+    "id": 1268
+}, {
+    "keyName": "生产项目工程师",
+    "keyValue": 1132,
+    "dateCode": "POSITION_TYPE_1118",
+    "keyValueStr": "1132",
+    "name": "职业分类",
+    "id": 1269
+}, {
+    "keyName": "汽车工程项目管理",
+    "keyValue": 1133,
+    "dateCode": "POSITION_TYPE_1118",
+    "keyValueStr": "1133",
+    "name": "职业分类",
+    "id": 1270
+}, {
+    "keyName": "电子/电器项目管理",
+    "keyValue": 1134,
+    "dateCode": "POSITION_TYPE_1118",
+    "keyValueStr": "1134",
+    "name": "职业分类",
+    "id": 1271
+}, {
+    "keyName": "服装/纺织/皮革项目管理",
+    "keyValue": 1135,
+    "dateCode": "POSITION_TYPE_1118",
+    "keyValueStr": "1135",
+    "name": "职业分类",
+    "id": 1272
+}, {
+    "keyName": "医药项目管理",
+    "keyValue": 1136,
+    "dateCode": "POSITION_TYPE_1118",
+    "keyValueStr": "1136",
+    "name": "职业分类",
+    "id": 1273
+}, {
+    "keyName": "化工项目管理",
+    "keyValue": 1137,
+    "dateCode": "POSITION_TYPE_1118",
+    "keyValueStr": "1137",
+    "name": "职业分类",
+    "id": 1274
+}, {
+    "keyName": "物流/仓储项目管理",
+    "keyValue": 1138,
+    "dateCode": "POSITION_TYPE_1118",
+    "keyValueStr": "1138",
+    "name": "职业分类",
+    "id": 1275
+}, {
+    "keyName": "咨询项目管理",
+    "keyValue": 1139,
+    "dateCode": "POSITION_TYPE_1118",
+    "keyValueStr": "1139",
+    "name": "职业分类",
+    "id": 1276
+}, {
+    "keyName": "能源/矿产项目管理",
+    "keyValue": 1140,
+    "dateCode": "POSITION_TYPE_1118",
+    "keyValueStr": "1140",
+    "name": "职业分类",
+    "id": 1277
+}, {
+    "keyName": "其他",
+    "keyValue": 1141,
+    "dateCode": "POSITION_TYPE_1118",
+    "keyValueStr": "1141",
+    "name": "职业分类",
+    "id": 1278
+}, {
+    "keyName": "质量管理/安全防护",
+    "keyValue": 1142,
+    "dateCode": "POSITION_TYPE",
+    "keyValueStr": "Z",
+    "name": "职业分类",
+    "id": 1279
+}, {
+    "keyName": "质量管理/测试经理",
+    "keyValue": 1143,
+    "dateCode": "POSITION_TYPE_1142",
+    "keyValueStr": "1143",
+    "name": "职业分类",
+    "id": 1280
+}, {
+    "keyName": "质量管理/测试主管",
+    "keyValue": 1144,
+    "dateCode": "POSITION_TYPE_1142",
+    "keyValueStr": "1144",
+    "name": "职业分类",
+    "id": 1281
+}, {
+    "keyName": "质量管理/测试工程师",
+    "keyValue": 1145,
+    "dateCode": "POSITION_TYPE_1142",
+    "keyValueStr": "1145",
+    "name": "职业分类",
+    "id": 1282
+}, {
+    "keyName": "质量检验员/测试员",
+    "keyValue": 1146,
+    "dateCode": "POSITION_TYPE_1142",
+    "keyValueStr": "1146",
+    "name": "职业分类",
+    "id": 1283
+}, {
+    "keyName": "化验/检验",
+    "keyValue": 1147,
+    "dateCode": "POSITION_TYPE_1142",
+    "keyValueStr": "1147",
+    "name": "职业分类",
+    "id": 1284
+}, {
+    "keyName": "认证/体系工程师/审核员",
+    "keyValue": 1148,
+    "dateCode": "POSITION_TYPE_1142",
+    "keyValueStr": "1148",
+    "name": "职业分类",
+    "id": 1285
+}, {
+    "keyName": "环境/健康/安全经理/主管",
+    "keyValue": 1149,
+    "dateCode": "POSITION_TYPE_1142",
+    "keyValueStr": "1149",
+    "name": "职业分类",
+    "id": 1286
+}, {
+    "keyName": "环境/健康/安全工程师",
+    "keyValue": 1150,
+    "dateCode": "POSITION_TYPE_1142",
+    "keyValueStr": "1150",
+    "name": "职业分类",
+    "id": 1287
+}, {
+    "keyName": "供应商/采购质量管理",
+    "keyValue": 1151,
+    "dateCode": "POSITION_TYPE_1142",
+    "keyValueStr": "1151",
+    "name": "职业分类",
+    "id": 1288
+}, {
+    "keyName": "安全管理",
+    "keyValue": 1152,
+    "dateCode": "POSITION_TYPE_1142",
+    "keyValueStr": "1152",
+    "name": "职业分类",
+    "id": 1289
+}, {
+    "keyName": "安全消防",
+    "keyValue": 1153,
+    "dateCode": "POSITION_TYPE_1142",
+    "keyValueStr": "1153",
+    "name": "职业分类",
+    "id": 1290
+}, {
+    "keyName": "其他",
+    "keyValue": 1154,
+    "dateCode": "POSITION_TYPE_1142",
+    "keyValueStr": "1154",
+    "name": "职业分类",
+    "id": 1291
+}, {
+    "keyName": "高级管理",
+    "keyValue": 1155,
+    "dateCode": "POSITION_TYPE",
+    "keyValueStr": "G",
+    "name": "职业分类",
+    "id": 1292
+}, {
+    "keyName": "首席执行官CEO/总裁/总经理",
+    "keyValue": 1156,
+    "dateCode": "POSITION_TYPE_1155",
+    "keyValueStr": "1156",
+    "name": "职业分类",
+    "id": 1293
+}, {
+    "keyName": "首席运营官COO",
+    "keyValue": 1157,
+    "dateCode": "POSITION_TYPE_1155",
+    "keyValueStr": "1157",
+    "name": "职业分类",
+    "id": 1294
+}, {
+    "keyName": "首席财务官CFO",
+    "keyValue": 1158,
+    "dateCode": "POSITION_TYPE_1155",
+    "keyValueStr": "1158",
+    "name": "职业分类",
+    "id": 1295
+}, {
+    "keyName": "CTO/CIO",
+    "keyValue": 1159,
+    "dateCode": "POSITION_TYPE_1155",
+    "keyValueStr": "1159",
+    "name": "职业分类",
+    "id": 1296
+}, {
+    "keyName": "副总裁/副总经理",
+    "keyValue": 1160,
+    "dateCode": "POSITION_TYPE_1155",
+    "keyValueStr": "1160",
+    "name": "职业分类",
+    "id": 1297
+}, {
+    "keyName": "分公司/代表处负责人",
+    "keyValue": 1161,
+    "dateCode": "POSITION_TYPE_1155",
+    "keyValueStr": "1161",
+    "name": "职业分类",
+    "id": 1298
+}, {
+    "keyName": "部门/事业部管理",
+    "keyValue": 1162,
+    "dateCode": "POSITION_TYPE_1155",
+    "keyValueStr": "1162",
+    "name": "职业分类",
+    "id": 1299
+}, {
+    "keyName": "总裁助理/总经理助理",
+    "keyValue": 1163,
+    "dateCode": "POSITION_TYPE_1155",
+    "keyValueStr": "1163",
+    "name": "职业分类",
+    "id": 1300
+}, {
+    "keyName": "总编/副总编",
+    "keyValue": 1164,
+    "dateCode": "POSITION_TYPE_1155",
+    "keyValueStr": "1164",
+    "name": "职业分类",
+    "id": 1301
+}, {
+    "keyName": "行长/副行长",
+    "keyValue": 1165,
+    "dateCode": "POSITION_TYPE_1155",
+    "keyValueStr": "1165",
+    "name": "职业分类",
+    "id": 1302
+}, {
+    "keyName": "工厂厂长/副厂长",
+    "keyValue": 1166,
+    "dateCode": "POSITION_TYPE_1155",
+    "keyValueStr": "1166",
+    "name": "职业分类",
+    "id": 1303
+}, {
+    "keyName": "校长/副校长",
+    "keyValue": 1167,
+    "dateCode": "POSITION_TYPE_1155",
+    "keyValueStr": "1167",
+    "name": "职业分类",
+    "id": 1304
+}, {
+    "keyName": "合伙人",
+    "keyValue": 1168,
+    "dateCode": "POSITION_TYPE_1155",
+    "keyValueStr": "1168",
+    "name": "职业分类",
+    "id": 1305
+}, {
+    "keyName": "其他",
+    "keyValue": 1169,
+    "dateCode": "POSITION_TYPE_1155",
+    "keyValueStr": "1169",
+    "name": "职业分类",
+    "id": 1306
+}, {
+    "keyName": "软件/互联网开发/系统集成",
+    "keyValue": 1170,
+    "dateCode": "POSITION_TYPE",
+    "keyValueStr": "R",
+    "name": "职业分类",
+    "id": 1307
+}, {
+    "keyName": "高级软件工程师",
+    "keyValue": 1171,
+    "dateCode": "POSITION_TYPE_1170",
+    "keyValueStr": "1171",
+    "name": "职业分类",
+    "id": 1308
+}, {
+    "keyName": "软件工程师",
+    "keyValue": 1172,
+    "dateCode": "POSITION_TYPE_1170",
+    "keyValueStr": "1172",
+    "name": "职业分类",
+    "id": 1309
+}, {
+    "keyName": "软件研发工程师",
+    "keyValue": 1173,
+    "dateCode": "POSITION_TYPE_1170",
+    "keyValueStr": "1173",
+    "name": "职业分类",
+    "id": 1310
+}, {
+    "keyName": "需求工程师",
+    "keyValue": 1174,
+    "dateCode": "POSITION_TYPE_1170",
+    "keyValueStr": "1174",
+    "name": "职业分类",
+    "id": 1311
+}, {
+    "keyName": "系统架构设计师",
+    "keyValue": 1175,
+    "dateCode": "POSITION_TYPE_1170",
+    "keyValueStr": "1175",
+    "name": "职业分类",
+    "id": 1312
+}, {
+    "keyName": "系统分析员",
+    "keyValue": 1176,
+    "dateCode": "POSITION_TYPE_1170",
+    "keyValueStr": "1176",
+    "name": "职业分类",
+    "id": 1313
+}, {
+    "keyName": "数据库开发工程师",
+    "keyValue": 1177,
+    "dateCode": "POSITION_TYPE_1170",
+    "keyValueStr": "1177",
+    "name": "职业分类",
+    "id": 1314
+}, {
+    "keyName": "ERP技术/开发应用",
+    "keyValue": 1178,
+    "dateCode": "POSITION_TYPE_1170",
+    "keyValueStr": "1178",
+    "name": "职业分类",
+    "id": 1315
+}, {
+    "keyName": "互联网软件工程师",
+    "keyValue": 1179,
+    "dateCode": "POSITION_TYPE_1170",
+    "keyValueStr": "1179",
+    "name": "职业分类",
+    "id": 1316
+}, {
+    "keyName": "手机软件开发工程师",
+    "keyValue": 1180,
+    "dateCode": "POSITION_TYPE_1170",
+    "keyValueStr": "1180",
+    "name": "职业分类",
+    "id": 1317
+}, {
+    "keyName": "嵌入式软件开发",
+    "keyValue": 1181,
+    "dateCode": "POSITION_TYPE_1170",
+    "keyValueStr": "1181",
+    "name": "职业分类",
+    "id": 1318
+}, {
+    "keyName": "移动互联网开发",
+    "keyValue": 1182,
+    "dateCode": "POSITION_TYPE_1170",
+    "keyValueStr": "1182",
+    "name": "职业分类",
+    "id": 1319
+}, {
+    "keyName": "WEB前端开发",
+    "keyValue": 1183,
+    "dateCode": "POSITION_TYPE_1170",
+    "keyValueStr": "1183",
+    "name": "职业分类",
+    "id": 1320
+}, {
+    "keyName": "语音/视频/图形开发",
+    "keyValue": 1184,
+    "dateCode": "POSITION_TYPE_1170",
+    "keyValueStr": "1184",
+    "name": "职业分类",
+    "id": 1321
+}, {
+    "keyName": "用户界面（UI）设计",
+    "keyValue": 1185,
+    "dateCode": "POSITION_TYPE_1170",
+    "keyValueStr": "1185",
+    "name": "职业分类",
+    "id": 1322
+}, {
+    "keyName": "用户体验（UE/UX)设计",
+    "keyValue": 1186,
+    "dateCode": "POSITION_TYPE_1170",
+    "keyValueStr": "1186",
+    "name": "职业分类",
+    "id": 1323
+}, {
+    "keyName": "网页设计/制作/美工",
+    "keyValue": 1187,
+    "dateCode": "POSITION_TYPE_1170",
+    "keyValueStr": "1187",
+    "name": "职业分类",
+    "id": 1324
+}, {
+    "keyName": "游戏设计/开发",
+    "keyValue": 1188,
+    "dateCode": "POSITION_TYPE_1170",
+    "keyValueStr": "1188",
+    "name": "职业分类",
+    "id": 1325
+}, {
+    "keyName": "游戏策划",
+    "keyValue": 1189,
+    "dateCode": "POSITION_TYPE_1170",
+    "keyValueStr": "1189",
+    "name": "职业分类",
+    "id": 1326
+}, {
+    "keyName": "游戏界面设计",
+    "keyValue": 1190,
+    "dateCode": "POSITION_TYPE_1170",
+    "keyValueStr": "1190",
+    "name": "职业分类",
+    "id": 1327
+}, {
+    "keyName": "系统集成工程师",
+    "keyValue": 1191,
+    "dateCode": "POSITION_TYPE_1170",
+    "keyValueStr": "1191",
+    "name": "职业分类",
+    "id": 1328
+}, {
+    "keyName": "其他",
+    "keyValue": 1192,
+    "dateCode": "POSITION_TYPE_1170",
+    "keyValueStr": "1192",
+    "name": "职业分类",
+    "id": 1329
+}, {
+    "keyName": "硬件开发",
+    "keyValue": 1193,
+    "dateCode": "POSITION_TYPE",
+    "keyValueStr": "Y",
+    "name": "职业分类",
+    "id": 1330
+}, {
+    "keyName": "高级硬件工程师",
+    "keyValue": 1194,
+    "dateCode": "POSITION_TYPE_1193",
+    "keyValueStr": "1194",
+    "name": "职业分类",
+    "id": 1331
+}, {
+    "keyName": "硬件工程师",
+    "keyValue": 1195,
+    "dateCode": "POSITION_TYPE_1193",
+    "keyValueStr": "1195",
+    "name": "职业分类",
+    "id": 1332
+}, {
+    "keyName": "嵌入式硬件开发",
+    "keyValue": 1196,
+    "dateCode": "POSITION_TYPE_1193",
+    "keyValueStr": "1196",
+    "name": "职业分类",
+    "id": 1333
+}, {
+    "keyName": "其他",
+    "keyValue": 1197,
+    "dateCode": "POSITION_TYPE_1193",
+    "keyValueStr": "1197",
+    "name": "职业分类",
+    "id": 1334
+}, {
+    "keyName": "互联网产品/运营管理",
+    "keyValue": 1198,
+    "dateCode": "POSITION_TYPE",
+    "keyValueStr": "H",
+    "name": "职业分类",
+    "id": 1335
+}, {
+    "keyName": "互联网产品经理/主管",
+    "keyValue": 1199,
+    "dateCode": "POSITION_TYPE_1198",
+    "keyValueStr": "1199",
+    "name": "职业分类",
+    "id": 1336
+}, {
+    "keyName": "互联网产品专员/助理",
+    "keyValue": 1200,
+    "dateCode": "POSITION_TYPE_1198",
+    "keyValueStr": "1200",
+    "name": "职业分类",
+    "id": 1337
+}, {
+    "keyName": "电子商务经理/主管",
+    "keyValue": 1201,
+    "dateCode": "POSITION_TYPE_1198",
+    "keyValueStr": "1201",
+    "name": "职业分类",
+    "id": 1338
+}, {
+    "keyName": "电子商务专员/助理",
+    "keyValue": 1202,
+    "dateCode": "POSITION_TYPE_1198",
+    "keyValueStr": "1202",
+    "name": "职业分类",
+    "id": 1339
+}, {
+    "keyName": "网络运营管理",
+    "keyValue": 1203,
+    "dateCode": "POSITION_TYPE_1198",
+    "keyValueStr": "1203",
+    "name": "职业分类",
+    "id": 1340
+}, {
+    "keyName": "网络运营专员/助理",
+    "keyValue": 1204,
+    "dateCode": "POSITION_TYPE_1198",
+    "keyValueStr": "1204",
+    "name": "职业分类",
+    "id": 1341
+}, {
+    "keyName": "网站编辑",
+    "keyValue": 1205,
+    "dateCode": "POSITION_TYPE_1198",
+    "keyValueStr": "1205",
+    "name": "职业分类",
+    "id": 1342
+}, {
+    "keyName": "SEO/SEM",
+    "keyValue": 1206,
+    "dateCode": "POSITION_TYPE_1198",
+    "keyValueStr": "1206",
+    "name": "职业分类",
+    "id": 1343
+}, {
+    "keyName": "其他",
+    "keyValue": 1207,
+    "dateCode": "POSITION_TYPE_1198",
+    "keyValueStr": "1207",
+    "name": "职业分类",
+    "id": 1344
+}, {
+    "keyName": "IT质量管理/测试管理",
+    "keyValue": 1208,
+    "dateCode": "POSITION_TYPE",
+    "keyValueStr": "I",
+    "name": "职业分类",
+    "id": 1345
+}, {
+    "keyName": "IT质量管理经理/主管",
+    "keyValue": 1209,
+    "dateCode": "POSITION_TYPE_1208",
+    "keyValueStr": "1209",
+    "name": "职业分类",
+    "id": 1346
+}, {
+    "keyName": "IT质量管理工程师",
+    "keyValue": 1210,
+    "dateCode": "POSITION_TYPE_1208",
+    "keyValueStr": "1210",
+    "name": "职业分类",
+    "id": 1347
+}, {
+    "keyName": "系统测试",
+    "keyValue": 1211,
+    "dateCode": "POSITION_TYPE_1208",
+    "keyValueStr": "1211",
+    "name": "职业分类",
+    "id": 1348
+}, {
+    "keyName": "软件测试",
+    "keyValue": 1212,
+    "dateCode": "POSITION_TYPE_1208",
+    "keyValueStr": "1212",
+    "name": "职业分类",
+    "id": 1349
+}, {
+    "keyName": "硬件测试",
+    "keyValue": 1213,
+    "dateCode": "POSITION_TYPE_1208",
+    "keyValueStr": "1213",
+    "name": "职业分类",
+    "id": 1350
+}, {
+    "keyName": "配置管理工程师",
+    "keyValue": 1214,
+    "dateCode": "POSITION_TYPE_1208",
+    "keyValueStr": "1214",
+    "name": "职业分类",
+    "id": 1351
+}, {
+    "keyName": "信息技术标准化工程师",
+    "keyValue": 1215,
+    "dateCode": "POSITION_TYPE_1208",
+    "keyValueStr": "1215",
+    "name": "职业分类",
+    "id": 1352
+}, {
+    "keyName": "其他",
+    "keyValue": 1216,
+    "dateCode": "POSITION_TYPE_1208",
+    "keyValueStr": "1216",
+    "name": "职业分类",
+    "id": 1353
+}, {
+    "keyName": "IT运维/技术支持",
+    "keyValue": 1217,
+    "dateCode": "POSITION_TYPE",
+    "keyValueStr": "I",
+    "name": "职业分类",
+    "id": 1354
+}, {
+    "keyName": "信息技术经理/主管",
+    "keyValue": 1218,
+    "dateCode": "POSITION_TYPE_1217",
+    "keyValueStr": "1218",
+    "name": "职业分类",
+    "id": 1355
+}, {
+    "keyName": "信息技术专员",
+    "keyValue": 1219,
+    "dateCode": "POSITION_TYPE_1217",
+    "keyValueStr": "1219",
+    "name": "职业分类",
+    "id": 1356
+}, {
+    "keyName": "IT技术支持/维护经理",
+    "keyValue": 1220,
+    "dateCode": "POSITION_TYPE_1217",
+    "keyValueStr": "1220",
+    "name": "职业分类",
+    "id": 1357
+}, {
+    "keyName": "IT技术支持/维护工程师",
+    "keyValue": 1221,
+    "dateCode": "POSITION_TYPE_1217",
+    "keyValueStr": "1221",
+    "name": "职业分类",
+    "id": 1358
+}, {
+    "keyName": "系统工程师",
+    "keyValue": 1222,
+    "dateCode": "POSITION_TYPE_1217",
+    "keyValueStr": "1222",
+    "name": "职业分类",
+    "id": 1359
+}, {
+    "keyName": "系统管理员",
+    "keyValue": 1223,
+    "dateCode": "POSITION_TYPE_1217",
+    "keyValueStr": "1223",
+    "name": "职业分类",
+    "id": 1360
+}, {
+    "keyName": "网络工程师",
+    "keyValue": 1224,
+    "dateCode": "POSITION_TYPE_1217",
+    "keyValueStr": "1224",
+    "name": "职业分类",
+    "id": 1361
+}, {
+    "keyName": "网络管理员",
+    "keyValue": 1225,
+    "dateCode": "POSITION_TYPE_1217",
+    "keyValueStr": "1225",
+    "name": "职业分类",
+    "id": 1362
+}, {
+    "keyName": "网络与信息安全工程师",
+    "keyValue": 1226,
+    "dateCode": "POSITION_TYPE_1217",
+    "keyValueStr": "1226",
+    "name": "职业分类",
+    "id": 1363
+}, {
+    "keyName": "数据库管理员",
+    "keyValue": 1227,
+    "dateCode": "POSITION_TYPE_1217",
+    "keyValueStr": "1227",
+    "name": "职业分类",
+    "id": 1364
+}, {
+    "keyName": "计算机硬件维护工程师",
+    "keyValue": 1228,
+    "dateCode": "POSITION_TYPE_1217",
+    "keyValueStr": "1228",
+    "name": "职业分类",
+    "id": 1365
+}, {
+    "keyName": "ERP实施顾问",
+    "keyValue": 1229,
+    "dateCode": "POSITION_TYPE_1217",
+    "keyValueStr": "1229",
+    "name": "职业分类",
+    "id": 1366
+}, {
+    "keyName": "IT技术文员/助理",
+    "keyValue": 1230,
+    "dateCode": "POSITION_TYPE_1217",
+    "keyValueStr": "1230",
+    "name": "职业分类",
+    "id": 1367
+}, {
+    "keyName": "IT文档工程师",
+    "keyValue": 1231,
+    "dateCode": "POSITION_TYPE_1217",
+    "keyValueStr": "1231",
+    "name": "职业分类",
+    "id": 1368
+}, {
+    "keyName": "helpdesk",
+    "keyValue": 1232,
+    "dateCode": "POSITION_TYPE_1217",
+    "keyValueStr": "1232",
+    "name": "职业分类",
+    "id": 1369
+}, {
+    "keyName": "其他",
+    "keyValue": 1233,
+    "dateCode": "POSITION_TYPE_1217",
+    "keyValueStr": "1233",
+    "name": "职业分类",
+    "id": 1370
+}, {
+    "keyName": "IT管理/项目协调",
+    "keyValue": 1234,
+    "dateCode": "POSITION_TYPE",
+    "keyValueStr": "I",
+    "name": "职业分类",
+    "id": 1371
+}, {
+    "keyName": "CTO/CIO",
+    "keyValue": 1235,
+    "dateCode": "POSITION_TYPE_1234",
+    "keyValueStr": "1235",
+    "name": "职业分类",
+    "id": 1372
+}, {
+    "keyName": "IT技术/研发总监",
+    "keyValue": 1236,
+    "dateCode": "POSITION_TYPE_1234",
+    "keyValueStr": "1236",
+    "name": "职业分类",
+    "id": 1373
+}, {
+    "keyName": "IT技术/研发经理/主管",
+    "keyValue": 1237,
+    "dateCode": "POSITION_TYPE_1234",
+    "keyValueStr": "1237",
+    "name": "职业分类",
+    "id": 1374
+}, {
+    "keyName": "IT项目总监",
+    "keyValue": 1238,
+    "dateCode": "POSITION_TYPE_1234",
+    "keyValueStr": "1238",
+    "name": "职业分类",
+    "id": 1375
+}, {
+    "keyName": "IT项目经理/主管",
+    "keyValue": 1239,
+    "dateCode": "POSITION_TYPE_1234",
+    "keyValueStr": "1239",
+    "name": "职业分类",
+    "id": 1376
+}, {
+    "keyName": "IT项目执行/协调人员",
+    "keyValue": 1240,
+    "dateCode": "POSITION_TYPE_1234",
+    "keyValueStr": "1240",
+    "name": "职业分类",
+    "id": 1377
+}, {
+    "keyName": "其他",
+    "keyValue": 1241,
+    "dateCode": "POSITION_TYPE_1234",
+    "keyValueStr": "1241",
+    "name": "职业分类",
+    "id": 1378
+}, {
+    "keyName": "电信/通信技术开发及应用",
+    "keyValue": 1242,
+    "dateCode": "POSITION_TYPE",
+    "keyValueStr": "D",
+    "name": "职业分类",
+    "id": 1379
+}, {
+    "keyName": "通信技术工程师",
+    "keyValue": 1243,
+    "dateCode": "POSITION_TYPE_1242",
+    "keyValueStr": "1243",
+    "name": "职业分类",
+    "id": 1380
+}, {
+    "keyName": "通信研发工程师",
+    "keyValue": 1244,
+    "dateCode": "POSITION_TYPE_1242",
+    "keyValueStr": "1244",
+    "name": "职业分类",
+    "id": 1381
+}, {
+    "keyName": "数据通信工程师",
+    "keyValue": 1245,
+    "dateCode": "POSITION_TYPE_1242",
+    "keyValueStr": "1245",
+    "name": "职业分类",
+    "id": 1382
+}, {
+    "keyName": "移动通信工程师",
+    "keyValue": 1246,
+    "dateCode": "POSITION_TYPE_1242",
+    "keyValueStr": "1246",
+    "name": "职业分类",
+    "id": 1383
+}, {
+    "keyName": "电信网络工程师",
+    "keyValue": 1247,
+    "dateCode": "POSITION_TYPE_1242",
+    "keyValueStr": "1247",
+    "name": "职业分类",
+    "id": 1384
+}, {
+    "keyName": "电信交付工程师",
+    "keyValue": 1248,
+    "dateCode": "POSITION_TYPE_1242",
+    "keyValueStr": "1248",
+    "name": "职业分类",
+    "id": 1385
+}, {
+    "keyName": "有限传输工程师",
+    "keyValue": 1249,
+    "dateCode": "POSITION_TYPE_1242",
+    "keyValueStr": "1249",
+    "name": "职业分类",
+    "id": 1386
+}, {
+    "keyName": "无线/射频通信工程师",
+    "keyValue": 1250,
+    "dateCode": "POSITION_TYPE_1242",
+    "keyValueStr": "1250",
+    "name": "职业分类",
+    "id": 1387
+}, {
+    "keyName": "通信电源工程师",
+    "keyValue": 1251,
+    "dateCode": "POSITION_TYPE_1242",
+    "keyValueStr": "1251",
+    "name": "职业分类",
+    "id": 1388
+}, {
+    "keyName": "通信标准化工程师",
+    "keyValue": 1252,
+    "dateCode": "POSITION_TYPE_1242",
+    "keyValueStr": "1252",
+    "name": "职业分类",
+    "id": 1389
+}, {
+    "keyName": "通信项目管理",
+    "keyValue": 1253,
+    "dateCode": "POSITION_TYPE_1242",
+    "keyValueStr": "1253",
+    "name": "职业分类",
+    "id": 1390
+}, {
+    "keyName": "其他",
+    "keyValue": 1254,
+    "dateCode": "POSITION_TYPE_1242",
+    "keyValueStr": "1254",
+    "name": "职业分类",
+    "id": 1391
+}, {
+    "keyName": "房地产开发/经纪/中介",
+    "keyValue": 1255,
+    "dateCode": "POSITION_TYPE",
+    "keyValueStr": "F",
+    "name": "职业分类",
+    "id": 1392
+}, {
+    "keyName": "房地产项目策划经理/主管",
+    "keyValue": 1256,
+    "dateCode": "POSITION_TYPE_1255",
+    "keyValueStr": "1256",
+    "name": "职业分类",
+    "id": 1393
+}, {
+    "keyName": "房地产项目策划专员/助理",
+    "keyValue": 1257,
+    "dateCode": "POSITION_TYPE_1255",
+    "keyValueStr": "1257",
+    "name": "职业分类",
+    "id": 1394
+}, {
+    "keyName": "房地产项目招投标",
+    "keyValue": 1258,
+    "dateCode": "POSITION_TYPE_1255",
+    "keyValueStr": "1258",
+    "name": "职业分类",
+    "id": 1395
+}, {
+    "keyName": "房地产项目开发报建",
+    "keyValue": 1259,
+    "dateCode": "POSITION_TYPE_1255",
+    "keyValueStr": "1259",
+    "name": "职业分类",
+    "id": 1396
+}, {
+    "keyName": "房地产项目配套工程师",
+    "keyValue": 1260,
+    "dateCode": "POSITION_TYPE_1255",
+    "keyValueStr": "1260",
+    "name": "职业分类",
+    "id": 1397
+}, {
+    "keyName": "房地产销售经理",
+    "keyValue": 1261,
+    "dateCode": "POSITION_TYPE_1255",
+    "keyValueStr": "1261",
+    "name": "职业分类",
+    "id": 1398
+}, {
+    "keyName": "房地产销售主管",
+    "keyValue": 1262,
+    "dateCode": "POSITION_TYPE_1255",
+    "keyValueStr": "1262",
+    "name": "职业分类",
+    "id": 1399
+}, {
+    "keyName": "房地产销售/置业顾问",
+    "keyValue": 1263,
+    "dateCode": "POSITION_TYPE_1255",
+    "keyValueStr": "1263",
+    "name": "职业分类",
+    "id": 1400
+}, {
+    "keyName": "房地产评估",
+    "keyValue": 1264,
+    "dateCode": "POSITION_TYPE_1255",
+    "keyValueStr": "1264",
+    "name": "职业分类",
+    "id": 1401
+}, {
+    "keyName": "房地产中介/交易",
+    "keyValue": 1265,
+    "dateCode": "POSITION_TYPE_1255",
+    "keyValueStr": "1265",
+    "name": "职业分类",
+    "id": 1402
+}, {
+    "keyName": "房地产项目管理",
+    "keyValue": 1266,
+    "dateCode": "POSITION_TYPE_1255",
+    "keyValueStr": "1266",
+    "name": "职业分类",
+    "id": 1403
+}, {
+    "keyName": "其他",
+    "keyValue": 1267,
+    "dateCode": "POSITION_TYPE_1255",
+    "keyValueStr": "1267",
+    "name": "职业分类",
+    "id": 1404
+}, {
+    "keyName": "土木/建筑/装修/市政工程",
+    "keyValue": 1268,
+    "dateCode": "POSITION_TYPE",
+    "keyValueStr": "T",
+    "name": "职业分类",
+    "id": 1405
+}, {
+    "keyName": "高级建筑工程师/总工",
+    "keyValue": 1269,
+    "dateCode": "POSITION_TYPE_1268",
+    "keyValueStr": "1269",
+    "name": "职业分类",
+    "id": 1406
+}, {
+    "keyName": "建筑工程师",
+    "keyValue": 1270,
+    "dateCode": "POSITION_TYPE_1268",
+    "keyValueStr": "1270",
+    "name": "职业分类",
+    "id": 1407
+}, {
+    "keyName": "建筑设计师",
+    "keyValue": 1271,
+    "dateCode": "POSITION_TYPE_1268",
+    "keyValueStr": "1271",
+    "name": "职业分类",
+    "id": 1408
+}, {
+    "keyName": "土木/土建/结构工程师",
+    "keyValue": 1272,
+    "dateCode": "POSITION_TYPE_1268",
+    "keyValueStr": "1272",
+    "name": "职业分类",
+    "id": 1409
+}, {
+    "keyName": "岩木工程",
+    "keyValue": 1273,
+    "dateCode": "POSITION_TYPE_1268",
+    "keyValueStr": "1273",
+    "name": "职业分类",
+    "id": 1410
+}, {
+    "keyName": "建筑制图",
+    "keyValue": 1274,
+    "dateCode": "POSITION_TYPE_1268",
+    "keyValueStr": "1274",
+    "name": "职业分类",
+    "id": 1411
+}, {
+    "keyName": "建筑工程测绘/测量",
+    "keyValue": 1275,
+    "dateCode": "POSITION_TYPE_1268",
+    "keyValueStr": "1275",
+    "name": "职业分类",
+    "id": 1412
+}, {
+    "keyName": "道路/桥梁/隧道工程技术",
+    "keyValue": 1276,
+    "dateCode": "POSITION_TYPE_1268",
+    "keyValueStr": "1276",
+    "name": "职业分类",
+    "id": 1413
+}, {
+    "keyName": "水利/港口工程技术",
+    "keyValue": 1277,
+    "dateCode": "POSITION_TYPE_1268",
+    "keyValueStr": "1277",
+    "name": "职业分类",
+    "id": 1414
+}, {
+    "keyName": "架线和管理工程技术",
+    "keyValue": 1278,
+    "dateCode": "POSITION_TYPE_1268",
+    "keyValueStr": "1278",
+    "name": "职业分类",
+    "id": 1415
+}, {
+    "keyName": "排水/暖通/空调工程",
+    "keyValue": 1279,
+    "dateCode": "POSITION_TYPE_1268",
+    "keyValueStr": "1279",
+    "name": "职业分类",
+    "id": 1416
+}, {
+    "keyName": "智能大厦/布线/弱电/安防",
+    "keyValue": 1280,
+    "dateCode": "POSITION_TYPE_1268",
+    "keyValueStr": "1280",
+    "name": "职业分类",
+    "id": 1417
+}, {
+    "keyName": "室内装潢设计",
+    "keyValue": 1281,
+    "dateCode": "POSITION_TYPE_1268",
+    "keyValueStr": "1281",
+    "name": "职业分类",
+    "id": 1418
+}, {
+    "keyName": "幕墙工程师",
+    "keyValue": 1282,
+    "dateCode": "POSITION_TYPE_1268",
+    "keyValueStr": "1282",
+    "name": "职业分类",
+    "id": 1419
+}, {
+    "keyName": "园林/景观设计",
+    "keyValue": 1283,
+    "dateCode": "POSITION_TYPE_1268",
+    "keyValueStr": "1283",
+    "name": "职业分类",
+    "id": 1420
+}, {
+    "keyName": "城市规划与设计",
+    "keyValue": 1284,
+    "dateCode": "POSITION_TYPE_1268",
+    "keyValueStr": "1284",
+    "name": "职业分类",
+    "id": 1421
+}, {
+    "keyName": "市政工程师",
+    "keyValue": 1285,
+    "dateCode": "POSITION_TYPE_1268",
+    "keyValueStr": "1285",
+    "name": "职业分类",
+    "id": 1422
+}, {
+    "keyName": "工程监理/质量管理",
+    "keyValue": 1286,
+    "dateCode": "POSITION_TYPE_1268",
+    "keyValueStr": "1286",
+    "name": "职业分类",
+    "id": 1423
+}, {
+    "keyName": "工程造价/预结算",
+    "keyValue": 1287,
+    "dateCode": "POSITION_TYPE_1268",
+    "keyValueStr": "1287",
+    "name": "职业分类",
+    "id": 1424
+}, {
+    "keyName": "工程资料管理",
+    "keyValue": 1288,
+    "dateCode": "POSITION_TYPE_1268",
+    "keyValueStr": "1288",
+    "name": "职业分类",
+    "id": 1425
+}, {
+    "keyName": "建筑施工现场管理",
+    "keyValue": 1289,
+    "dateCode": "POSITION_TYPE_1268",
+    "keyValueStr": "1289",
+    "name": "职业分类",
+    "id": 1426
+}, {
+    "keyName": "施工队长",
+    "keyValue": 1290,
+    "dateCode": "POSITION_TYPE_1268",
+    "keyValueStr": "1290",
+    "name": "职业分类",
+    "id": 1427
+}, {
+    "keyName": "施工员",
+    "keyValue": 1291,
+    "dateCode": "POSITION_TYPE_1268",
+    "keyValueStr": "1291",
+    "name": "职业分类",
+    "id": 1428
+}, {
+    "keyName": "建筑工程安全管理",
+    "keyValue": 1292,
+    "dateCode": "POSITION_TYPE_1268",
+    "keyValueStr": "1292",
+    "name": "职业分类",
+    "id": 1429
+}, {
+    "keyName": "其他",
+    "keyValue": 1293,
+    "dateCode": "POSITION_TYPE_1268",
+    "keyValueStr": "1293",
+    "name": "职业分类",
+    "id": 1430
+}, {
+    "keyName": "物业管理",
+    "keyValue": 1294,
+    "dateCode": "POSITION_TYPE",
+    "keyValueStr": "W",
+    "name": "职业分类",
+    "id": 1431
+}, {
+    "keyName": "物业经理/主管",
+    "keyValue": 1295,
+    "dateCode": "POSITION_TYPE_1294",
+    "keyValueStr": "1295",
+    "name": "职业分类",
+    "id": 1432
+}, {
+    "keyName": "物业管理专员/助理",
+    "keyValue": 1296,
+    "dateCode": "POSITION_TYPE_1294",
+    "keyValueStr": "1296",
+    "name": "职业分类",
+    "id": 1433
+}, {
+    "keyName": "物业租赁/销售",
+    "keyValue": 1297,
+    "dateCode": "POSITION_TYPE_1294",
+    "keyValueStr": "1297",
+    "name": "职业分类",
+    "id": 1434
+}, {
+    "keyName": "物业维修",
+    "keyValue": 1298,
+    "dateCode": "POSITION_TYPE_1294",
+    "keyValueStr": "1298",
+    "name": "职业分类",
+    "id": 1435
+}, {
+    "keyName": "物业顾问",
+    "keyValue": 1299,
+    "dateCode": "POSITION_TYPE_1294",
+    "keyValueStr": "1299",
+    "name": "职业分类",
+    "id": 1436
+}, {
+    "keyName": "物业招商管理",
+    "keyValue": 1300,
+    "dateCode": "POSITION_TYPE_1294",
+    "keyValueStr": "1300",
+    "name": "职业分类",
+    "id": 1437
+}, {
+    "keyName": "其他",
+    "keyValue": 1301,
+    "dateCode": "POSITION_TYPE_1294",
+    "keyValueStr": "1301",
+    "name": "职业分类",
+    "id": 1438
+}, {
+    "keyName": "银行",
+    "keyValue": 1302,
+    "dateCode": "POSITION_TYPE",
+    "keyValueStr": "Y",
+    "name": "职业分类",
+    "id": 1439
+}, {
+    "keyName": "行长/副行长",
+    "keyValue": 1303,
+    "dateCode": "POSITION_TYPE_1302",
+    "keyValueStr": "1303",
+    "name": "职业分类",
+    "id": 1440
+}, {
+    "keyName": "银行经理/主任",
+    "keyValue": 1304,
+    "dateCode": "POSITION_TYPE_1302",
+    "keyValueStr": "1304",
+    "name": "职业分类",
+    "id": 1441
+}, {
+    "keyName": "银行大堂经理",
+    "keyValue": 1305,
+    "dateCode": "POSITION_TYPE_1302",
+    "keyValueStr": "1305",
+    "name": "职业分类",
+    "id": 1442
+}, {
+    "keyName": "银行客户总监",
+    "keyValue": 1306,
+    "dateCode": "POSITION_TYPE_1302",
+    "keyValueStr": "1306",
+    "name": "职业分类",
+    "id": 1443
+}, {
+    "keyName": "银行客户经理",
+    "keyValue": 1307,
+    "dateCode": "POSITION_TYPE_1302",
+    "keyValueStr": "1307",
+    "name": "职业分类",
+    "id": 1444
+}, {
+    "keyName": "银行客户主管",
+    "keyValue": 1308,
+    "dateCode": "POSITION_TYPE_1302",
+    "keyValueStr": "1308",
+    "name": "职业分类",
+    "id": 1445
+}, {
+    "keyName": "银行客户代表",
+    "keyValue": 1309,
+    "dateCode": "POSITION_TYPE_1302",
+    "keyValueStr": "1309",
+    "name": "职业分类",
+    "id": 1446
+}, {
+    "keyName": "银行客户服务",
+    "keyValue": 1310,
+    "dateCode": "POSITION_TYPE_1302",
+    "keyValueStr": "1310",
+    "name": "职业分类",
+    "id": 1447
+}, {
+    "keyName": "综合业务经理/主管",
+    "keyValue": 1311,
+    "dateCode": "POSITION_TYPE_1302",
+    "keyValueStr": "1311",
+    "name": "职业分类",
+    "id": 1448
+}, {
+    "keyName": "综合业务专员/助理",
+    "keyValue": 1312,
+    "dateCode": "POSITION_TYPE_1302",
+    "keyValueStr": "1312",
+    "name": "职业分类",
+    "id": 1449
+}, {
+    "keyName": "银行会计/柜员",
+    "keyValue": 1313,
+    "dateCode": "POSITION_TYPE_1302",
+    "keyValueStr": "1313",
+    "name": "职业分类",
+    "id": 1450
+}, {
+    "keyName": "公司业务",
+    "keyValue": 1314,
+    "dateCode": "POSITION_TYPE_1302",
+    "keyValueStr": "1314",
+    "name": "职业分类",
+    "id": 1451
+}, {
+    "keyName": "个人业务",
+    "keyValue": 1315,
+    "dateCode": "POSITION_TYPE_1302",
+    "keyValueStr": "1315",
+    "name": "职业分类",
+    "id": 1452
+}, {
+    "keyName": "银行卡/电子业务推广",
+    "keyValue": 1316,
+    "dateCode": "POSITION_TYPE_1302",
+    "keyValueStr": "1316",
+    "name": "职业分类",
+    "id": 1453
+}, {
+    "keyName": "信贷管理/资信评估/分析",
+    "keyValue": 1317,
+    "dateCode": "POSITION_TYPE_1302",
+    "keyValueStr": "1317",
+    "name": "职业分类",
+    "id": 1454
+}, {
+    "keyName": "信审核查",
+    "keyValue": 1318,
+    "dateCode": "POSITION_TYPE_1302",
+    "keyValueStr": "1318",
+    "name": "职业分类",
+    "id": 1455
+}, {
+    "keyName": "外汇交易",
+    "keyValue": 1319,
+    "dateCode": "POSITION_TYPE_1302",
+    "keyValueStr": "1319",
+    "name": "职业分类",
+    "id": 1456
+}, {
+    "keyName": "进出口/信用证结算",
+    "keyValue": 1320,
+    "dateCode": "POSITION_TYPE_1302",
+    "keyValueStr": "1320",
+    "name": "职业分类",
+    "id": 1457
+}, {
+    "keyName": "清算人员",
+    "keyValue": 1321,
+    "dateCode": "POSITION_TYPE_1302",
+    "keyValueStr": "1321",
+    "name": "职业分类",
+    "id": 1458
+}, {
+    "keyName": "风险控制",
+    "keyValue": 1322,
+    "dateCode": "POSITION_TYPE_1302",
+    "keyValueStr": "1322",
+    "name": "职业分类",
+    "id": 1459
+}, {
+    "keyName": "其他",
+    "keyValue": 1323,
+    "dateCode": "POSITION_TYPE_1302",
+    "keyValueStr": "1323",
+    "name": "职业分类",
+    "id": 1460
+}, {
+    "keyName": "证券/期货/投资管理",
+    "keyValue": 1324,
+    "dateCode": "POSITION_TYPE",
+    "keyValueStr": "Z",
+    "name": "职业分类",
+    "id": 1461
+}, {
+    "keyName": "证券总监/部门经理",
+    "keyValue": 1325,
+    "dateCode": "POSITION_TYPE_1324",
+    "keyValueStr": "1325",
+    "name": "职业分类",
+    "id": 1462
+}, {
+    "keyName": "证券/期货/外汇经纪人",
+    "keyValue": 1326,
+    "dateCode": "POSITION_TYPE_1324",
+    "keyValueStr": "1326",
+    "name": "职业分类",
+    "id": 1463
+}, {
+    "keyName": "证券/投资客户总监",
+    "keyValue": 1327,
+    "dateCode": "POSITION_TYPE_1324",
+    "keyValueStr": "1327",
+    "name": "职业分类",
+    "id": 1464
+}, {
+    "keyName": "证券/投资客户经理",
+    "keyValue": 1328,
+    "dateCode": "POSITION_TYPE_1324",
+    "keyValueStr": "1328",
+    "name": "职业分类",
+    "id": 1465
+}, {
+    "keyName": "证券/投资客户主管",
+    "keyValue": 1329,
+    "dateCode": "POSITION_TYPE_1324",
+    "keyValueStr": "1329",
+    "name": "职业分类",
+    "id": 1466
+}, {
+    "keyName": "证券/投资客户代表",
+    "keyValue": 1330,
+    "dateCode": "POSITION_TYPE_1324",
+    "keyValueStr": "1330",
+    "name": "职业分类",
+    "id": 1467
+}, {
+    "keyName": "证券分析/金融研究",
+    "keyValue": 1331,
+    "dateCode": "POSITION_TYPE_1324",
+    "keyValueStr": "1331",
+    "name": "职业分类",
+    "id": 1468
+}, {
+    "keyName": "投资/理财服务",
+    "keyValue": 1332,
+    "dateCode": "POSITION_TYPE_1324",
+    "keyValueStr": "1332",
+    "name": "职业分类",
+    "id": 1469
+}, {
+    "keyName": "投资银行业务",
+    "keyValue": 1333,
+    "dateCode": "POSITION_TYPE_1324",
+    "keyValueStr": "1333",
+    "name": "职业分类",
+    "id": 1470
+}, {
+    "keyName": "融资总监",
+    "keyValue": 1334,
+    "dateCode": "POSITION_TYPE_1324",
+    "keyValueStr": "1334",
+    "name": "职业分类",
+    "id": 1471
+}, {
+    "keyName": "融资经理/主管",
+    "keyValue": 1335,
+    "dateCode": "POSITION_TYPE_1324",
+    "keyValueStr": "1335",
+    "name": "职业分类",
+    "id": 1472
+}, {
+    "keyName": "融资专员/助理",
+    "keyValue": 1336,
+    "dateCode": "POSITION_TYPE_1324",
+    "keyValueStr": "1336",
+    "name": "职业分类",
+    "id": 1473
+}, {
+    "keyName": "股票/期货操盘手",
+    "keyValue": 1337,
+    "dateCode": "POSITION_TYPE_1324",
+    "keyValueStr": "1337",
+    "name": "职业分类",
+    "id": 1474
+}, {
+    "keyName": "资产评估",
+    "keyValue": 1338,
+    "dateCode": "POSITION_TYPE_1324",
+    "keyValueStr": "1338",
+    "name": "职业分类",
+    "id": 1475
+}, {
+    "keyName": "风险管理/控制/稽查",
+    "keyValue": 1339,
+    "dateCode": "POSITION_TYPE_1324",
+    "keyValueStr": "1339",
+    "name": "职业分类",
+    "id": 1476
+}, {
+    "keyName": "储备经理人",
+    "keyValue": 1340,
+    "dateCode": "POSITION_TYPE_1324",
+    "keyValueStr": "1340",
+    "name": "职业分类",
+    "id": 1477
+}, {
+    "keyName": "证券/投资项目管理",
+    "keyValue": 1341,
+    "dateCode": "POSITION_TYPE_1324",
+    "keyValueStr": "1341",
+    "name": "职业分类",
+    "id": 1478
+}, {
+    "keyName": "其他",
+    "keyValue": 1342,
+    "dateCode": "POSITION_TYPE_1324",
+    "keyValueStr": "1342",
+    "name": "职业分类",
+    "id": 1479
+}, {
+    "keyName": "保险",
+    "keyValue": 1343,
+    "dateCode": "POSITION_TYPE",
+    "keyValueStr": "B",
+    "name": "职业分类",
+    "id": 1480
+}, {
+    "keyName": "保险业务管理",
+    "keyValue": 1344,
+    "dateCode": "POSITION_TYPE_1343",
+    "keyValueStr": "1344",
+    "name": "职业分类",
+    "id": 1481
+}, {
+    "keyName": "保险代理/经纪人/客户经理",
+    "keyValue": 1345,
+    "dateCode": "POSITION_TYPE_1343",
+    "keyValueStr": "1345",
+    "name": "职业分类",
+    "id": 1482
+}, {
+    "keyName": "保险顾问/财务规划师",
+    "keyValue": 1346,
+    "dateCode": "POSITION_TYPE_1343",
+    "keyValueStr": "1346",
+    "name": "职业分类",
+    "id": 1483
+}, {
+    "keyName": "保险产品开发/项目策划",
+    "keyValue": 1347,
+    "dateCode": "POSITION_TYPE_1343",
+    "keyValueStr": "1347",
+    "name": "职业分类",
+    "id": 1484
+}, {
+    "keyName": "保险培训师",
+    "keyValue": 1348,
+    "dateCode": "POSITION_TYPE_1343",
+    "keyValueStr": "1348",
+    "name": "职业分类",
+    "id": 1485
+}, {
+    "keyName": "保险契约管理",
+    "keyValue": 1349,
+    "dateCode": "POSITION_TYPE_1343",
+    "keyValueStr": "1349",
+    "name": "职业分类",
+    "id": 1486
+}, {
+    "keyName": "核保理赔",
+    "keyValue": 1350,
+    "dateCode": "POSITION_TYPE_1343",
+    "keyValueStr": "1350",
+    "name": "职业分类",
+    "id": 1487
+}, {
+    "keyName": "汽车定损/车险理赔",
+    "keyValue": 1351,
+    "dateCode": "POSITION_TYPE_1343",
+    "keyValueStr": "1351",
+    "name": "职业分类",
+    "id": 1488
+}, {
+    "keyName": "保险精算师",
+    "keyValue": 1352,
+    "dateCode": "POSITION_TYPE_1343",
+    "keyValueStr": "1352",
+    "name": "职业分类",
+    "id": 1489
+}, {
+    "keyName": "客户服务/续期管理",
+    "keyValue": 1353,
+    "dateCode": "POSITION_TYPE_1343",
+    "keyValueStr": "1353",
+    "name": "职业分类",
+    "id": 1490
+}, {
+    "keyName": "保险内勤",
+    "keyValue": 1354,
+    "dateCode": "POSITION_TYPE_1343",
+    "keyValueStr": "1354",
+    "name": "职业分类",
+    "id": 1491
+}, {
+    "keyName": "保险项目经理/主管",
+    "keyValue": 1355,
+    "dateCode": "POSITION_TYPE_1343",
+    "keyValueStr": "1355",
+    "name": "职业分类",
+    "id": 1492
+}, {
+    "keyName": "储备经理人",
+    "keyValue": 1356,
+    "dateCode": "POSITION_TYPE_1343",
+    "keyValueStr": "1356",
+    "name": "职业分类",
+    "id": 1493
+}, {
+    "keyName": "其他",
+    "keyValue": 1357,
+    "dateCode": "POSITION_TYPE_1343",
+    "keyValueStr": "1357",
+    "name": "职业分类",
+    "id": 1494
+}, {
+    "keyName": "信托/担保/拍卖/典当",
+    "keyValue": 1358,
+    "dateCode": "POSITION_TYPE",
+    "keyValueStr": "X",
+    "name": "职业分类",
+    "id": 1495
+}, {
+    "keyName": "信托服务",
+    "keyValue": 1359,
+    "dateCode": "POSITION_TYPE_1358",
+    "keyValueStr": "1359",
+    "name": "职业分类",
+    "id": 1496
+}, {
+    "keyName": "担保业务",
+    "keyValue": 1360,
+    "dateCode": "POSITION_TYPE_1358",
+    "keyValueStr": "1360",
+    "name": "职业分类",
+    "id": 1497
+}, {
+    "keyName": "拍卖师",
+    "keyValue": 1361,
+    "dateCode": "POSITION_TYPE_1358",
+    "keyValueStr": "1361",
+    "name": "职业分类",
+    "id": 1498
+}, {
+    "keyName": "典当业务",
+    "keyValue": 1362,
+    "dateCode": "POSITION_TYPE_1358",
+    "keyValueStr": "1362",
+    "name": "职业分类",
+    "id": 1499
+}, {
+    "keyName": "珠宝/收藏品鉴定",
+    "keyValue": 1363,
+    "dateCode": "POSITION_TYPE_1358",
+    "keyValueStr": "1363",
+    "name": "职业分类",
+    "id": 1500
+}, {
+    "keyName": "其他",
+    "keyValue": 1364,
+    "dateCode": "POSITION_TYPE_1358",
+    "keyValueStr": "1364",
+    "name": "职业分类",
+    "id": 1501
+}, {
+    "keyName": "采购/贸易",
+    "keyValue": 1365,
+    "dateCode": "POSITION_TYPE",
+    "keyValueStr": "C",
+    "name": "职业分类",
+    "id": 1502
+}, {
+    "keyName": "采购总监",
+    "keyValue": 1366,
+    "dateCode": "POSITION_TYPE_1365",
+    "keyValueStr": "1366",
+    "name": "职业分类",
+    "id": 1503
+}, {
+    "keyName": "采购经理/主管",
+    "keyValue": 1367,
+    "dateCode": "POSITION_TYPE_1365",
+    "keyValueStr": "1367",
+    "name": "职业分类",
+    "id": 1504
+}, {
+    "keyName": "采购专员/助理",
+    "keyValue": 1368,
+    "dateCode": "POSITION_TYPE_1365",
+    "keyValueStr": "1368",
+    "name": "职业分类",
+    "id": 1505
+}, {
+    "keyName": "供应商开发",
+    "keyValue": 1369,
+    "dateCode": "POSITION_TYPE_1365",
+    "keyValueStr": "1369",
+    "name": "职业分类",
+    "id": 1506
+}, {
+    "keyName": "供应链管理",
+    "keyValue": 1370,
+    "dateCode": "POSITION_TYPE_1365",
+    "keyValueStr": "1370",
+    "name": "职业分类",
+    "id": 1507
+}, {
+    "keyName": "买手",
+    "keyValue": 1371,
+    "dateCode": "POSITION_TYPE_1365",
+    "keyValueStr": "1371",
+    "name": "职业分类",
+    "id": 1508
+}, {
+    "keyName": "外贸/贸易经理/主管",
+    "keyValue": 1372,
+    "dateCode": "POSITION_TYPE_1365",
+    "keyValueStr": "1372",
+    "name": "职业分类",
+    "id": 1509
+}, {
+    "keyName": "外贸/贸易专员/助理",
+    "keyValue": 1373,
+    "dateCode": "POSITION_TYPE_1365",
+    "keyValueStr": "1373",
+    "name": "职业分类",
+    "id": 1510
+}, {
+    "keyName": "贸易跟单",
+    "keyValue": 1374,
+    "dateCode": "POSITION_TYPE_1365",
+    "keyValueStr": "1374",
+    "name": "职业分类",
+    "id": 1511
+}, {
+    "keyName": "报关员",
+    "keyValue": 1375,
+    "dateCode": "POSITION_TYPE_1365",
+    "keyValueStr": "1375",
+    "name": "职业分类",
+    "id": 1512
+}, {
+    "keyName": "其他",
+    "keyValue": 1376,
+    "dateCode": "POSITION_TYPE_1365",
+    "keyValueStr": "1376",
+    "name": "职业分类",
+    "id": 1513
+}, {
+    "keyName": "交通运输服务",
+    "keyValue": 1377,
+    "dateCode": "POSITION_TYPE",
+    "keyValueStr": "J",
+    "name": "职业分类",
+    "id": 1514
+}, {
+    "keyName": "机动车司机/驾驶",
+    "keyValue": 1378,
+    "dateCode": "POSITION_TYPE_1377",
+    "keyValueStr": "1378",
+    "name": "职业分类",
+    "id": 1515
+}, {
+    "keyName": "列车驾驶/操作",
+    "keyValue": 1379,
+    "dateCode": "POSITION_TYPE_1377",
+    "keyValueStr": "1379",
+    "name": "职业分类",
+    "id": 1516
+}, {
+    "keyName": "船舶驾驶/操作",
+    "keyValue": 1380,
+    "dateCode": "POSITION_TYPE_1377",
+    "keyValueStr": "1380",
+    "name": "职业分类",
+    "id": 1517
+}, {
+    "keyName": "飞机驾驶/操作",
+    "keyValue": 1381,
+    "dateCode": "POSITION_TYPE_1377",
+    "keyValueStr": "1381",
+    "name": "职业分类",
+    "id": 1518
+}, {
+    "keyName": "公交/地铁乘务",
+    "keyValue": 1382,
+    "dateCode": "POSITION_TYPE_1377",
+    "keyValueStr": "1382",
+    "name": "职业分类",
+    "id": 1519
+}, {
+    "keyName": "列车乘务",
+    "keyValue": 1383,
+    "dateCode": "POSITION_TYPE_1377",
+    "keyValueStr": "1383",
+    "name": "职业分类",
+    "id": 1520
+}, {
+    "keyName": "船舶乘务",
+    "keyValue": 1384,
+    "dateCode": "POSITION_TYPE_1377",
+    "keyValueStr": "1384",
+    "name": "职业分类",
+    "id": 1521
+}, {
+    "keyName": "航空乘务",
+    "keyValue": 1385,
+    "dateCode": "POSITION_TYPE_1377",
+    "keyValueStr": "1385",
+    "name": "职业分类",
+    "id": 1522
+}, {
+    "keyName": "船员/水手",
+    "keyValue": 1386,
+    "dateCode": "POSITION_TYPE_1377",
+    "keyValueStr": "1386",
+    "name": "职业分类",
+    "id": 1523
+}, {
+    "keyName": "地勤人员",
+    "keyValue": 1387,
+    "dateCode": "POSITION_TYPE_1377",
+    "keyValueStr": "1387",
+    "name": "职业分类",
+    "id": 1524
+}, {
+    "keyName": "其他",
+    "keyValue": 1388,
+    "dateCode": "POSITION_TYPE_1377",
+    "keyValueStr": "1388",
+    "name": "职业分类",
+    "id": 1525
+}, {
+    "keyName": "物流/仓储",
+    "keyValue": 1389,
+    "dateCode": "POSITION_TYPE",
+    "keyValueStr": "W",
+    "name": "职业分类",
+    "id": 1526
+}, {
+    "keyName": "物流总监",
+    "keyValue": 1390,
+    "dateCode": "POSITION_TYPE_1389",
+    "keyValueStr": "1390",
+    "name": "职业分类",
+    "id": 1527
+}, {
+    "keyName": "物流经理/主管",
+    "keyValue": 1391,
+    "dateCode": "POSITION_TYPE_1389",
+    "keyValueStr": "1391",
+    "name": "职业分类",
+    "id": 1528
+}, {
+    "keyName": "物流专员/助理",
+    "keyValue": 1392,
+    "dateCode": "POSITION_TYPE_1389",
+    "keyValueStr": "1392",
+    "name": "职业分类",
+    "id": 1529
+}, {
+    "keyName": "货运代理",
+    "keyValue": 1393,
+    "dateCode": "POSITION_TYPE_1389",
+    "keyValueStr": "1393",
+    "name": "职业分类",
+    "id": 1530
+}, {
+    "keyName": "运输经理/主管",
+    "keyValue": 1394,
+    "dateCode": "POSITION_TYPE_1389",
+    "keyValueStr": "1394",
+    "name": "职业分类",
+    "id": 1531
+}, {
+    "keyName": "快递员/速递员",
+    "keyValue": 1395,
+    "dateCode": "POSITION_TYPE_1389",
+    "keyValueStr": "1395",
+    "name": "职业分类",
+    "id": 1532
+}, {
+    "keyName": "水运/空运/陆运操作",
+    "keyValue": 1396,
+    "dateCode": "POSITION_TYPE_1389",
+    "keyValueStr": "1396",
+    "name": "职业分类",
+    "id": 1533
+}, {
+    "keyName": "集装箱业务",
+    "keyValue": 1397,
+    "dateCode": "POSITION_TYPE_1389",
+    "keyValueStr": "1397",
+    "name": "职业分类",
+    "id": 1534
+}, {
+    "keyName": "报关员",
+    "keyValue": 1398,
+    "dateCode": "POSITION_TYPE_1389",
+    "keyValueStr": "1398",
+    "name": "职业分类",
+    "id": 1535
+}, {
+    "keyName": "单证员",
+    "keyValue": 1399,
+    "dateCode": "POSITION_TYPE_1389",
+    "keyValueStr": "1399",
+    "name": "职业分类",
+    "id": 1536
+}, {
+    "keyName": "仓库经理/主管",
+    "keyValue": 1400,
+    "dateCode": "POSITION_TYPE_1389",
+    "keyValueStr": "1400",
+    "name": "职业分类",
+    "id": 1537
+}, {
+    "keyName": "仓库/物料管理员",
+    "keyValue": 1401,
+    "dateCode": "POSITION_TYPE_1389",
+    "keyValueStr": "1401",
+    "name": "职业分类",
+    "id": 1538
+}, {
+    "keyName": "路货/分拣/打包",
+    "keyValue": 1402,
+    "dateCode": "POSITION_TYPE_1389",
+    "keyValueStr": "1402",
+    "name": "职业分类",
+    "id": 1539
+}, {
+    "keyName": "物流/仓储调度",
+    "keyValue": 1403,
+    "dateCode": "POSITION_TYPE_1389",
+    "keyValueStr": "1403",
+    "name": "职业分类",
+    "id": 1540
+}, {
+    "keyName": "物流/仓储项目管理",
+    "keyValue": 1404,
+    "dateCode": "POSITION_TYPE_1389",
+    "keyValueStr": "1404",
+    "name": "职业分类",
+    "id": 1541
+}, {
+    "keyName": "搬运工",
+    "keyValue": 1405,
+    "dateCode": "POSITION_TYPE_1389",
+    "keyValueStr": "1405",
+    "name": "职业分类",
+    "id": 1542
+}, {
+    "keyName": "其他",
+    "keyValue": 1406,
+    "dateCode": "POSITION_TYPE_1389",
+    "keyValueStr": "1406",
+    "name": "职业分类",
+    "id": 1543
+}, {
+    "keyName": "生产管理/运营",
+    "keyValue": 1407,
+    "dateCode": "POSITION_TYPE",
+    "keyValueStr": "S",
+    "name": "职业分类",
+    "id": 1544
+}, {
+    "keyName": "工厂厂长/副厂长",
+    "keyValue": 1408,
+    "dateCode": "POSITION_TYPE_1407",
+    "keyValueStr": "1408",
+    "name": "职业分类",
+    "id": 1545
+}, {
+    "keyName": "生产总监",
+    "keyValue": 1409,
+    "dateCode": "POSITION_TYPE_1407",
+    "keyValueStr": "1409",
+    "name": "职业分类",
+    "id": 1546
+}, {
+    "keyName": "生产经理/车间主任",
+    "keyValue": 1410,
+    "dateCode": "POSITION_TYPE_1407",
+    "keyValueStr": "1410",
+    "name": "职业分类",
+    "id": 1547
+}, {
+    "keyName": "生产主管/督导/组长",
+    "keyValue": 1411,
+    "dateCode": "POSITION_TYPE_1407",
+    "keyValueStr": "1411",
+    "name": "职业分类",
+    "id": 1548
+}, {
+    "keyName": "生产运营管理",
+    "keyValue": 1412,
+    "dateCode": "POSITION_TYPE_1407",
+    "keyValueStr": "1412",
+    "name": "职业分类",
+    "id": 1549
+}, {
+    "keyName": "生产项目经理/主管",
+    "keyValue": 1413,
+    "dateCode": "POSITION_TYPE_1407",
+    "keyValueStr": "1413",
+    "name": "职业分类",
+    "id": 1550
+}, {
+    "keyName": "生产项目工程师",
+    "keyValue": 1414,
+    "dateCode": "POSITION_TYPE_1407",
+    "keyValueStr": "1414",
+    "name": "职业分类",
+    "id": 1551
+}, {
+    "keyName": "产品管理",
+    "keyValue": 1415,
+    "dateCode": "POSITION_TYPE_1407",
+    "keyValueStr": "1415",
+    "name": "职业分类",
+    "id": 1552
+}, {
+    "keyName": "生产计划",
+    "keyValue": 1416,
+    "dateCode": "POSITION_TYPE_1407",
+    "keyValueStr": "1416",
+    "name": "职业分类",
+    "id": 1553
+}, {
+    "keyName": "制造工程师",
+    "keyValue": 1417,
+    "dateCode": "POSITION_TYPE_1407",
+    "keyValueStr": "1417",
+    "name": "职业分类",
+    "id": 1554
+}, {
+    "keyName": "工艺/制程工程师",
+    "keyValue": 1418,
+    "dateCode": "POSITION_TYPE_1407",
+    "keyValueStr": "1418",
+    "name": "职业分类",
+    "id": 1555
+}, {
+    "keyName": "工业工程师",
+    "keyValue": 1419,
+    "dateCode": "POSITION_TYPE_1407",
+    "keyValueStr": "1419",
+    "name": "职业分类",
+    "id": 1556
+}, {
+    "keyName": "生产设备管理",
+    "keyValue": 1420,
+    "dateCode": "POSITION_TYPE_1407",
+    "keyValueStr": "1420",
+    "name": "职业分类",
+    "id": 1557
+}, {
+    "keyName": "生产物料管理（PMC)",
+    "keyValue": 1421,
+    "dateCode": "POSITION_TYPE_1407",
+    "keyValueStr": "1421",
+    "name": "职业分类",
+    "id": 1558
+}, {
+    "keyName": "包装工程师",
+    "keyValue": 1422,
+    "dateCode": "POSITION_TYPE_1407",
+    "keyValueStr": "1422",
+    "name": "职业分类",
+    "id": 1559
+}, {
+    "keyName": "技术文档工程师",
+    "keyValue": 1423,
+    "dateCode": "POSITION_TYPE_1407",
+    "keyValueStr": "1423",
+    "name": "职业分类",
+    "id": 1560
+}, {
+    "keyName": "其他",
+    "keyValue": 1424,
+    "dateCode": "POSITION_TYPE_1407",
+    "keyValueStr": "1424",
+    "name": "职业分类",
+    "id": 1561
+}, {
+    "keyName": "电子/电器/半导体/仪器仪表",
+    "keyValue": 1425,
+    "dateCode": "POSITION_TYPE",
+    "keyValueStr": "D",
+    "name": "职业分类",
+    "id": 1562
+}, {
+    "keyName": "电子技术研发工程师",
+    "keyValue": 1426,
+    "dateCode": "POSITION_TYPE_1425",
+    "keyValueStr": "1426",
+    "name": "职业分类",
+    "id": 1563
+}, {
+    "keyName": "电子/电器工程师",
+    "keyValue": 1427,
+    "dateCode": "POSITION_TYPE_1425",
+    "keyValueStr": "1427",
+    "name": "职业分类",
+    "id": 1564
+}, {
+    "keyName": "电器研发工程师",
+    "keyValue": 1428,
+    "dateCode": "POSITION_TYPE_1425",
+    "keyValueStr": "1428",
+    "name": "职业分类",
+    "id": 1565
+}, {
+    "keyName": "电子/电器工艺/制程工程师",
+    "keyValue": 1429,
+    "dateCode": "POSITION_TYPE_1425",
+    "keyValueStr": "1429",
+    "name": "职业分类",
+    "id": 1566
+}, {
+    "keyName": "电路工程师/技术员",
+    "keyValue": 1430,
+    "dateCode": "POSITION_TYPE_1425",
+    "keyValueStr": "1430",
+    "name": "职业分类",
+    "id": 1567
+}, {
+    "keyName": "模拟电路设计/应用工程师",
+    "keyValue": 1431,
+    "dateCode": "POSITION_TYPE_1425",
+    "keyValueStr": "1431",
+    "name": "职业分类",
+    "id": 1568
+}, {
+    "keyName": "版图设计工程师",
+    "keyValue": 1432,
+    "dateCode": "POSITION_TYPE_1425",
+    "keyValueStr": "1432",
+    "name": "职业分类",
+    "id": 1569
+}, {
+    "keyName": "集成电路IC设计工程师",
+    "keyValue": 1433,
+    "dateCode": "POSITION_TYPE_1425",
+    "keyValueStr": "1433",
+    "name": "职业分类",
+    "id": 1570
+}, {
+    "keyName": "IC验证工程师",
+    "keyValue": 1434,
+    "dateCode": "POSITION_TYPE_1425",
+    "keyValueStr": "1434",
+    "name": "职业分类",
+    "id": 1571
+}, {
+    "keyName": "电子元器件工程师",
+    "keyValue": 1435,
+    "dateCode": "POSITION_TYPE_1425",
+    "keyValueStr": "1435",
+    "name": "职业分类",
+    "id": 1572
+}, {
+    "keyName": "射频工程师",
+    "keyValue": 1436,
+    "dateCode": "POSITION_TYPE_1425",
+    "keyValueStr": "1436",
+    "name": "职业分类",
+    "id": 1573
+}, {
+    "keyName": "无线电工程师",
+    "keyValue": 1437,
+    "dateCode": "POSITION_TYPE_1425",
+    "keyValueStr": "1437",
+    "name": "职业分类",
+    "id": 1574
+}, {
+    "keyName": "激光/光电子技术",
+    "keyValue": 1438,
+    "dateCode": "POSITION_TYPE_1425",
+    "keyValueStr": "1438",
+    "name": "职业分类",
+    "id": 1575
+}, {
+    "keyName": "光源/照明工程师",
+    "keyValue": 1439,
+    "dateCode": "POSITION_TYPE_1425",
+    "keyValueStr": "1439",
+    "name": "职业分类",
+    "id": 1576
+}, {
+    "keyName": "变压器与磁电工程师",
+    "keyValue": 1440,
+    "dateCode": "POSITION_TYPE_1425",
+    "keyValueStr": "1440",
+    "name": "职业分类",
+    "id": 1577
+}, {
+    "keyName": "电源/电池开发",
+    "keyValue": 1441,
+    "dateCode": "POSITION_TYPE_1425",
+    "keyValueStr": "1441",
+    "name": "职业分类",
+    "id": 1578
+}, {
+    "keyName": "家用电器/数码产品研发",
+    "keyValue": 1442,
+    "dateCode": "POSITION_TYPE_1425",
+    "keyValueStr": "1442",
+    "name": "职业分类",
+    "id": 1579
+}, {
+    "keyName": "空调工程/设计",
+    "keyValue": 1443,
+    "dateCode": "POSITION_TYPE_1425",
+    "keyValueStr": "1443",
+    "name": "职业分类",
+    "id": 1580
+}, {
+    "keyName": "音频/视频工程师/技术员",
+    "keyValue": 1444,
+    "dateCode": "POSITION_TYPE_1425",
+    "keyValueStr": "1444",
+    "name": "职业分类",
+    "id": 1581
+}, {
+    "keyName": "安防系统工程师",
+    "keyValue": 1445,
+    "dateCode": "POSITION_TYPE_1425",
+    "keyValueStr": "1445",
+    "name": "职业分类",
+    "id": 1582
+}, {
+    "keyName": "电子/电器设备工程师",
+    "keyValue": 1446,
+    "dateCode": "POSITION_TYPE_1425",
+    "keyValueStr": "1446",
+    "name": "职业分类",
+    "id": 1583
+}, {
+    "keyName": "电子/电器维修/保养",
+    "keyValue": 1447,
+    "dateCode": "POSITION_TYPE_1425",
+    "keyValueStr": "1447",
+    "name": "职业分类",
+    "id": 1584
+}, {
+    "keyName": "电子/电器项目管理",
+    "keyValue": 1448,
+    "dateCode": "POSITION_TYPE_1425",
+    "keyValueStr": "1448",
+    "name": "职业分类",
+    "id": 1585
+}, {
+    "keyName": "电气工程师",
+    "keyValue": 1449,
+    "dateCode": "POSITION_TYPE_1425",
+    "keyValueStr": "1449",
+    "name": "职业分类",
+    "id": 1586
+}, {
+    "keyName": "电气设计",
+    "keyValue": 1450,
+    "dateCode": "POSITION_TYPE_1425",
+    "keyValueStr": "1450",
+    "name": "职业分类",
+    "id": 1587
+}, {
+    "keyName": "电气线路设计",
+    "keyValue": 1451,
+    "dateCode": "POSITION_TYPE_1425",
+    "keyValueStr": "1451",
+    "name": "职业分类",
+    "id": 1588
+}, {
+    "keyName": "线路结构设计",
+    "keyValue": 1452,
+    "dateCode": "POSITION_TYPE_1425",
+    "keyValueStr": "1452",
+    "name": "职业分类",
+    "id": 1589
+}, {
+    "keyName": "半导体技术",
+    "keyValue": 1453,
+    "dateCode": "POSITION_TYPE_1425",
+    "keyValueStr": "1453",
+    "name": "职业分类",
+    "id": 1590
+}, {
+    "keyName": "仪器/仪表/计量工程师",
+    "keyValue": 1454,
+    "dateCode": "POSITION_TYPE_1425",
+    "keyValueStr": "1454",
+    "name": "职业分类",
+    "id": 1591
+}, {
+    "keyName": "自动化工程师",
+    "keyValue": 1455,
+    "dateCode": "POSITION_TYPE_1425",
+    "keyValueStr": "1455",
+    "name": "职业分类",
+    "id": 1592
+}, {
+    "keyName": "现场应用工程师（FAE)",
+    "keyValue": 1456,
+    "dateCode": "POSITION_TYPE_1425",
+    "keyValueStr": "1456",
+    "name": "职业分类",
+    "id": 1593
+}, {
+    "keyName": "测试/可靠性工程师",
+    "keyValue": 1457,
+    "dateCode": "POSITION_TYPE_1425",
+    "keyValueStr": "1457",
+    "name": "职业分类",
+    "id": 1594
+}, {
+    "keyName": "其他",
+    "keyValue": 1458,
+    "dateCode": "POSITION_TYPE_1425",
+    "keyValueStr": "1458",
+    "name": "职业分类",
+    "id": 1595
+}, {
+    "keyName": "汽车制作",
+    "keyValue": 1459,
+    "dateCode": "POSITION_TYPE",
+    "keyValueStr": "Q",
+    "name": "职业分类",
+    "id": 1596
+}, {
+    "keyName": "汽车动力系统工程师",
+    "keyValue": 1460,
+    "dateCode": "POSITION_TYPE_1459",
+    "keyValueStr": "1460",
+    "name": "职业分类",
+    "id": 1597
+}, {
+    "keyName": "汽车底盘/总装工程师",
+    "keyValue": 1461,
+    "dateCode": "POSITION_TYPE_1459",
+    "keyValueStr": "1461",
+    "name": "职业分类",
+    "id": 1598
+}, {
+    "keyName": "车身设计工程师",
+    "keyValue": 1462,
+    "dateCode": "POSITION_TYPE_1459",
+    "keyValueStr": "1462",
+    "name": "职业分类",
+    "id": 1599
+}, {
+    "keyName": "汽车电子工程师",
+    "keyValue": 1463,
+    "dateCode": "POSITION_TYPE_1459",
+    "keyValueStr": "1463",
+    "name": "职业分类",
+    "id": 1600
+}, {
+    "keyName": "汽车机械工程师",
+    "keyValue": 1464,
+    "dateCode": "POSITION_TYPE_1459",
+    "keyValueStr": "1464",
+    "name": "职业分类",
+    "id": 1601
+}, {
+    "keyName": "汽车零部件设计师",
+    "keyValue": 1465,
+    "dateCode": "POSITION_TYPE_1459",
+    "keyValueStr": "1465",
+    "name": "职业分类",
+    "id": 1602
+}, {
+    "keyName": "汽车装配工艺工程师",
+    "keyValue": 1466,
+    "dateCode": "POSITION_TYPE_1459",
+    "keyValueStr": "1466",
+    "name": "职业分类",
+    "id": 1603
+}, {
+    "keyName": "安全性能工程师",
+    "keyValue": 1467,
+    "dateCode": "POSITION_TYPE_1459",
+    "keyValueStr": "1467",
+    "name": "职业分类",
+    "id": 1604
+}, {
+    "keyName": "汽车工程项目管理",
+    "keyValue": 1468,
+    "dateCode": "POSITION_TYPE_1459",
+    "keyValueStr": "1468",
+    "name": "职业分类",
+    "id": 1605
+}, {
+    "keyName": "其他",
+    "keyValue": 1469,
+    "dateCode": "POSITION_TYPE_1459",
+    "keyValueStr": "1469",
+    "name": "职业分类",
+    "id": 1606
+}, {
+    "keyName": "汽车销售与服务",
+    "keyValue": 1470,
+    "dateCode": "POSITION_TYPE",
+    "keyValueStr": "Q",
+    "name": "职业分类",
+    "id": 1607
+}, {
+    "keyName": "汽车销售",
+    "keyValue": 1471,
+    "dateCode": "POSITION_TYPE_1470",
+    "keyValueStr": "1471",
+    "name": "职业分类",
+    "id": 1608
+}, {
+    "keyName": "汽车零配件销售",
+    "keyValue": 1472,
+    "dateCode": "POSITION_TYPE_1470",
+    "keyValueStr": "1472",
+    "name": "职业分类",
+    "id": 1609
+}, {
+    "keyName": "汽车售后服务/客户服务",
+    "keyValue": 1473,
+    "dateCode": "POSITION_TYPE_1470",
+    "keyValueStr": "1473",
+    "name": "职业分类",
+    "id": 1610
+}, {
+    "keyName": "汽车维修/保养",
+    "keyValue": 1474,
+    "dateCode": "POSITION_TYPE_1470",
+    "keyValueStr": "1474",
+    "name": "职业分类",
+    "id": 1611
+}, {
+    "keyName": "汽车质量管理/检验检测",
+    "keyValue": 1475,
+    "dateCode": "POSITION_TYPE_1470",
+    "keyValueStr": "1475",
+    "name": "职业分类",
+    "id": 1612
+}, {
+    "keyName": "汽车定损/车险理赔",
+    "keyValue": 1476,
+    "dateCode": "POSITION_TYPE_1470",
+    "keyValueStr": "1476",
+    "name": "职业分类",
+    "id": 1613
+}, {
+    "keyName": "汽车装饰美容",
+    "keyValue": 1477,
+    "dateCode": "POSITION_TYPE_1470",
+    "keyValueStr": "1477",
+    "name": "职业分类",
+    "id": 1614
+}, {
+    "keyName": "二手车评估师",
+    "keyValue": 1478,
+    "dateCode": "POSITION_TYPE_1470",
+    "keyValueStr": "1478",
+    "name": "职业分类",
+    "id": 1615
+}, {
+    "keyName": "4S店管理",
+    "keyValue": 1479,
+    "dateCode": "POSITION_TYPE_1470",
+    "keyValueStr": "1479",
+    "name": "职业分类",
+    "id": 1616
+}, {
+    "keyName": "其他",
+    "keyValue": 1480,
+    "dateCode": "POSITION_TYPE_1470",
+    "keyValueStr": "1480",
+    "name": "职业分类",
+    "id": 1617
+}, {
+    "keyName": "机械设计/制造/维修",
+    "keyValue": 1481,
+    "dateCode": "POSITION_TYPE",
+    "keyValueStr": "J",
+    "name": "职业分类",
+    "id": 1618
+}, {
+    "keyName": "工程机械经理",
+    "keyValue": 1482,
+    "dateCode": "POSITION_TYPE_1481",
+    "keyValueStr": "1482",
+    "name": "职业分类",
+    "id": 1619
+}, {
+    "keyName": "工程机械主管",
+    "keyValue": 1483,
+    "dateCode": "POSITION_TYPE_1481",
+    "keyValueStr": "1483",
+    "name": "职业分类",
+    "id": 1620
+}, {
+    "keyName": "机械设备经理",
+    "keyValue": 1484,
+    "dateCode": "POSITION_TYPE_1481",
+    "keyValueStr": "1484",
+    "name": "职业分类",
+    "id": 1621
+}, {
+    "keyName": "机械设备工程师",
+    "keyValue": 1485,
+    "dateCode": "POSITION_TYPE_1481",
+    "keyValueStr": "1485",
+    "name": "职业分类",
+    "id": 1622
+}, {
+    "keyName": "机械工程师",
+    "keyValue": 1486,
+    "dateCode": "POSITION_TYPE_1481",
+    "keyValueStr": "1486",
+    "name": "职业分类",
+    "id": 1623
+}, {
+    "keyName": "机械设计师",
+    "keyValue": 1487,
+    "dateCode": "POSITION_TYPE_1481",
+    "keyValueStr": "1487",
+    "name": "职业分类",
+    "id": 1624
+}, {
+    "keyName": "机械制图员",
+    "keyValue": 1488,
+    "dateCode": "POSITION_TYPE_1481",
+    "keyValueStr": "1488",
+    "name": "职业分类",
+    "id": 1625
+}, {
+    "keyName": "机械研发工程师",
+    "keyValue": 1489,
+    "dateCode": "POSITION_TYPE_1481",
+    "keyValueStr": "1489",
+    "name": "职业分类",
+    "id": 1626
+}, {
+    "keyName": "机械结构工程师",
+    "keyValue": 1490,
+    "dateCode": "POSITION_TYPE_1481",
+    "keyValueStr": "1490",
+    "name": "职业分类",
+    "id": 1627
+}, {
+    "keyName": "机械工艺/制程工程师",
+    "keyValue": 1491,
+    "dateCode": "POSITION_TYPE_1481",
+    "keyValueStr": "1491",
+    "name": "职业分类",
+    "id": 1628
+}, {
+    "keyName": "气动工程师",
+    "keyValue": 1492,
+    "dateCode": "POSITION_TYPE_1481",
+    "keyValueStr": "1492",
+    "name": "职业分类",
+    "id": 1629
+}, {
+    "keyName": "CNC/数控工程师",
+    "keyValue": 1493,
+    "dateCode": "POSITION_TYPE_1481",
+    "keyValueStr": "1493",
+    "name": "职业分类",
+    "id": 1630
+}, {
+    "keyName": "模具工程师",
+    "keyValue": 1494,
+    "dateCode": "POSITION_TYPE_1481",
+    "keyValueStr": "1494",
+    "name": "职业分类",
+    "id": 1631
+}, {
+    "keyName": "夹具工程师",
+    "keyValue": 1495,
+    "dateCode": "POSITION_TYPE_1481",
+    "keyValueStr": "1495",
+    "name": "职业分类",
+    "id": 1632
+}, {
+    "keyName": "注塑工程师",
+    "keyValue": 1496,
+    "dateCode": "POSITION_TYPE_1481",
+    "keyValueStr": "1496",
+    "name": "职业分类",
+    "id": 1633
+}, {
+    "keyName": "铸造/锻造工程师/技师",
+    "keyValue": 1497,
+    "dateCode": "POSITION_TYPE_1481",
+    "keyValueStr": "1497",
+    "name": "职业分类",
+    "id": 1634
+}, {
+    "keyName": "机电工程师",
+    "keyValue": 1498,
+    "dateCode": "POSITION_TYPE_1481",
+    "keyValueStr": "1498",
+    "name": "职业分类",
+    "id": 1635
+}, {
+    "keyName": "材料工程师",
+    "keyValue": 1499,
+    "dateCode": "POSITION_TYPE_1481",
+    "keyValueStr": "1499",
+    "name": "职业分类",
+    "id": 1636
+}, {
+    "keyName": "机械维修/保养",
+    "keyValue": 1500,
+    "dateCode": "POSITION_TYPE_1481",
+    "keyValueStr": "1500",
+    "name": "职业分类",
+    "id": 1637
+}, {
+    "keyName": "飞机设计与制造",
+    "keyValue": 1501,
+    "dateCode": "POSITION_TYPE_1481",
+    "keyValueStr": "1501",
+    "name": "职业分类",
+    "id": 1638
+}, {
+    "keyName": "飞机维修/保养",
+    "keyValue": 1502,
+    "dateCode": "POSITION_TYPE_1481",
+    "keyValueStr": "1502",
+    "name": "职业分类",
+    "id": 1639
+}, {
+    "keyName": "列车设计与制造",
+    "keyValue": 1503,
+    "dateCode": "POSITION_TYPE_1481",
+    "keyValueStr": "1503",
+    "name": "职业分类",
+    "id": 1640
+}, {
+    "keyName": "列车维修/保养",
+    "keyValue": 1504,
+    "dateCode": "POSITION_TYPE_1481",
+    "keyValueStr": "1504",
+    "name": "职业分类",
+    "id": 1641
+}, {
+    "keyName": "船舶设计与制造",
+    "keyValue": 1505,
+    "dateCode": "POSITION_TYPE_1481",
+    "keyValueStr": "1505",
+    "name": "职业分类",
+    "id": 1642
+}, {
+    "keyName": "船舶维修/保养",
+    "keyValue": 1506,
+    "dateCode": "POSITION_TYPE_1481",
+    "keyValueStr": "1506",
+    "name": "职业分类",
+    "id": 1643
+}, {
+    "keyName": "其他",
+    "keyValue": 1507,
+    "dateCode": "POSITION_TYPE_1481",
+    "keyValueStr": "1507",
+    "name": "职业分类",
+    "id": 1644
+}, {
+    "keyName": "服装/纺织/皮革设计",
+    "keyValue": 1508,
+    "dateCode": "POSITION_TYPE",
+    "keyValueStr": "F",
+    "name": "职业分类",
+    "id": 1645
+}, {
+    "keyName": "服装/纺织品设计",
+    "keyValue": 1509,
+    "dateCode": "POSITION_TYPE_1508",
+    "keyValueStr": "1509",
+    "name": "职业分类",
+    "id": 1646
+}, {
+    "keyName": "服装打样/制版",
+    "keyValue": 1510,
+    "dateCode": "POSITION_TYPE_1508",
+    "keyValueStr": "1510",
+    "name": "职业分类",
+    "id": 1647
+}, {
+    "keyName": "服装/纺织/皮革工艺师",
+    "keyValue": 1511,
+    "dateCode": "POSITION_TYPE_1508",
+    "keyValueStr": "1511",
+    "name": "职业分类",
+    "id": 1648
+}, {
+    "keyName": "电脑放码员",
+    "keyValue": 1512,
+    "dateCode": "POSITION_TYPE_1508",
+    "keyValueStr": "1512",
+    "name": "职业分类",
+    "id": 1649
+}, {
+    "keyName": "裁床",
+    "keyValue": 1513,
+    "dateCode": "POSITION_TYPE_1508",
+    "keyValueStr": "1513",
+    "name": "职业分类",
+    "id": 1650
+}, {
+    "keyName": "样衣工",
+    "keyValue": 1514,
+    "dateCode": "POSITION_TYPE_1508",
+    "keyValueStr": "1514",
+    "name": "职业分类",
+    "id": 1651
+}, {
+    "keyName": "面料辅料开发/采购",
+    "keyValue": 1515,
+    "dateCode": "POSITION_TYPE_1508",
+    "keyValueStr": "1515",
+    "name": "职业分类",
+    "id": 1652
+}, {
+    "keyName": "服装/纺织/皮革跟单",
+    "keyValue": 1516,
+    "dateCode": "POSITION_TYPE_1508",
+    "keyValueStr": "1516",
+    "name": "职业分类",
+    "id": 1653
+}, {
+    "keyName": "服装/纺织品/皮革销售",
+    "keyValue": 1517,
+    "dateCode": "POSITION_TYPE_1508",
+    "keyValueStr": "1517",
+    "name": "职业分类",
+    "id": 1654
+}, {
+    "keyName": "服装/纺织品/皮革质量管理",
+    "keyValue": 1518,
+    "dateCode": "POSITION_TYPE_1508",
+    "keyValueStr": "1518",
+    "name": "职业分类",
+    "id": 1655
+}, {
+    "keyName": "服装/纺织/皮革项目管理",
+    "keyValue": 1519,
+    "dateCode": "POSITION_TYPE_1508",
+    "keyValueStr": "1519",
+    "name": "职业分类",
+    "id": 1656
+}, {
+    "keyName": "其他",
+    "keyValue": 1520,
+    "dateCode": "POSITION_TYPE_1508",
+    "keyValueStr": "1520",
+    "name": "职业分类",
+    "id": 1657
+}, {
+    "keyName": "技工/操作工",
+    "keyValue": 1521,
+    "dateCode": "POSITION_TYPE",
+    "keyValueStr": "J",
+    "name": "职业分类",
+    "id": 1658
+}, {
+    "keyName": "车床/磨床/铣床/冲床工",
+    "keyValue": 1522,
+    "dateCode": "POSITION_TYPE_1521",
+    "keyValueStr": "1522",
+    "name": "职业分类",
+    "id": 1659
+}, {
+    "keyName": "模具工程师",
+    "keyValue": 1523,
+    "dateCode": "POSITION_TYPE_1521",
+    "keyValueStr": "1523",
+    "name": "职业分类",
+    "id": 1660
+}, {
+    "keyName": "钳工/机修工/钣金工",
+    "keyValue": 1524,
+    "dateCode": "POSITION_TYPE_1521",
+    "keyValueStr": "1524",
+    "name": "职业分类",
+    "id": 1661
+}, {
+    "keyName": "电焊工/栁焊工",
+    "keyValue": 1525,
+    "dateCode": "POSITION_TYPE_1521",
+    "keyValueStr": "1525",
+    "name": "职业分类",
+    "id": 1662
+}, {
+    "keyName": "电工",
+    "keyValue": 1526,
+    "dateCode": "POSITION_TYPE_1521",
+    "keyValueStr": "1526",
+    "name": "职业分类",
+    "id": 1663
+}, {
+    "keyName": "水工/木工/油漆工",
+    "keyValue": 1527,
+    "dateCode": "POSITION_TYPE_1521",
+    "keyValueStr": "1527",
+    "name": "职业分类",
+    "id": 1664
+}, {
+    "keyName": "铲车/叉车工",
+    "keyValue": 1528,
+    "dateCode": "POSITION_TYPE_1521",
+    "keyValueStr": "1528",
+    "name": "职业分类",
+    "id": 1665
+}, {
+    "keyName": "空调工/电梯工/锅炉工",
+    "keyValue": 1529,
+    "dateCode": "POSITION_TYPE_1521",
+    "keyValueStr": "1529",
+    "name": "职业分类",
+    "id": 1666
+}, {
+    "keyName": "汽车维修/保养",
+    "keyValue": 1530,
+    "dateCode": "POSITION_TYPE_1521",
+    "keyValueStr": "1530",
+    "name": "职业分类",
+    "id": 1667
+}, {
+    "keyName": "普工/操作工",
+    "keyValue": 1531,
+    "dateCode": "POSITION_TYPE_1521",
+    "keyValueStr": "1531",
+    "name": "职业分类",
+    "id": 1668
+}, {
+    "keyName": "其他",
+    "keyValue": 1532,
+    "dateCode": "POSITION_TYPE_1521",
+    "keyValueStr": "1532",
+    "name": "职业分类",
+    "id": 1669
+}, {
+    "keyName": "生物/制药/医疗器械",
+    "keyValue": 1533,
+    "dateCode": "POSITION_TYPE",
+    "keyValueStr": "S",
+    "name": "职业分类",
+    "id": 1670
+}, {
+    "keyName": "医药代表",
+    "keyValue": 1534,
+    "dateCode": "POSITION_TYPE_1533",
+    "keyValueStr": "1534",
+    "name": "职业分类",
+    "id": 1671
+}, {
+    "keyName": "医药销售经理/主管",
+    "keyValue": 1535,
+    "dateCode": "POSITION_TYPE_1533",
+    "keyValueStr": "1535",
+    "name": "职业分类",
+    "id": 1672
+}, {
+    "keyName": "药品市场推广经理/主管",
+    "keyValue": 1536,
+    "dateCode": "POSITION_TYPE_1533",
+    "keyValueStr": "1536",
+    "name": "职业分类",
+    "id": 1673
+}, {
+    "keyName": "药品市场推广专员/助理",
+    "keyValue": 1537,
+    "dateCode": "POSITION_TYPE_1533",
+    "keyValueStr": "1537",
+    "name": "职业分类",
+    "id": 1674
+}, {
+    "keyName": "医疗器械销售",
+    "keyValue": 1538,
+    "dateCode": "POSITION_TYPE_1533",
+    "keyValueStr": "1538",
+    "name": "职业分类",
+    "id": 1675
+}, {
+    "keyName": "医疗器械推广",
+    "keyValue": 1539,
+    "dateCode": "POSITION_TYPE_1533",
+    "keyValueStr": "1539",
+    "name": "职业分类",
+    "id": 1676
+}, {
+    "keyName": "医药学术推广",
+    "keyValue": 1540,
+    "dateCode": "POSITION_TYPE_1533",
+    "keyValueStr": "1540",
+    "name": "职业分类",
+    "id": 1677
+}, {
+    "keyName": "医药招商",
+    "keyValue": 1541,
+    "dateCode": "POSITION_TYPE_1533",
+    "keyValueStr": "1541",
+    "name": "职业分类",
+    "id": 1678
+}, {
+    "keyName": "医药项目管理",
+    "keyValue": 1542,
+    "dateCode": "POSITION_TYPE_1533",
+    "keyValueStr": "1542",
+    "name": "职业分类",
+    "id": 1679
+}, {
+    "keyName": "医药项目招投标管理",
+    "keyValue": 1543,
+    "dateCode": "POSITION_TYPE_1533",
+    "keyValueStr": "1543",
+    "name": "职业分类",
+    "id": 1680
+}, {
+    "keyName": "生物工程/生物制药",
+    "keyValue": 1544,
+    "dateCode": "POSITION_TYPE_1533",
+    "keyValueStr": "1544",
+    "name": "职业分类",
+    "id": 1681
+}, {
+    "keyName": "药品研发",
+    "keyValue": 1545,
+    "dateCode": "POSITION_TYPE_1533",
+    "keyValueStr": "1545",
+    "name": "职业分类",
+    "id": 1682
+}, {
+    "keyName": "医疗器械研发",
+    "keyValue": 1546,
+    "dateCode": "POSITION_TYPE_1533",
+    "keyValueStr": "1546",
+    "name": "职业分类",
+    "id": 1683
+}, {
+    "keyName": "临床研究员",
+    "keyValue": 1547,
+    "dateCode": "POSITION_TYPE_1533",
+    "keyValueStr": "1547",
+    "name": "职业分类",
+    "id": 1684
+}, {
+    "keyName": "临床协调员",
+    "keyValue": 1548,
+    "dateCode": "POSITION_TYPE_1533",
+    "keyValueStr": "1548",
+    "name": "职业分类",
+    "id": 1685
+}, {
+    "keyName": "临床数据分析员",
+    "keyValue": 1549,
+    "dateCode": "POSITION_TYPE_1533",
+    "keyValueStr": "1549",
+    "name": "职业分类",
+    "id": 1686
+}, {
+    "keyName": "医药化学分析",
+    "keyValue": 1550,
+    "dateCode": "POSITION_TYPE_1533",
+    "keyValueStr": "1550",
+    "name": "职业分类",
+    "id": 1687
+}, {
+    "keyName": "医药技术研发管理人员",
+    "keyValue": 1551,
+    "dateCode": "POSITION_TYPE_1533",
+    "keyValueStr": "1551",
+    "name": "职业分类",
+    "id": 1688
+}, {
+    "keyName": "药品注册",
+    "keyValue": 1552,
+    "dateCode": "POSITION_TYPE_1533",
+    "keyValueStr": "1552",
+    "name": "职业分类",
+    "id": 1689
+}, {
+    "keyName": "医疗器械注册",
+    "keyValue": 1553,
+    "dateCode": "POSITION_TYPE_1533",
+    "keyValueStr": "1553",
+    "name": "职业分类",
+    "id": 1690
+}, {
+    "keyName": "药品生产/质量管理",
+    "keyValue": 1554,
+    "dateCode": "POSITION_TYPE_1533",
+    "keyValueStr": "1554",
+    "name": "职业分类",
+    "id": 1691
+}, {
+    "keyName": "医疗器械生产/质量管理",
+    "keyValue": 1555,
+    "dateCode": "POSITION_TYPE_1533",
+    "keyValueStr": "1555",
+    "name": "职业分类",
+    "id": 1692
+}, {
+    "keyName": "医疗器械维修/保养",
+    "keyValue": 1556,
+    "dateCode": "POSITION_TYPE_1533",
+    "keyValueStr": "1556",
+    "name": "职业分类",
+    "id": 1693
+}, {
+    "keyName": "其他",
+    "keyValue": 1557,
+    "dateCode": "POSITION_TYPE_1533",
+    "keyValueStr": "1557",
+    "name": "职业分类",
+    "id": 1694
+}, {
+    "keyName": "化工",
+    "keyValue": 1558,
+    "dateCode": "POSITION_TYPE",
+    "keyValueStr": "H",
+    "name": "职业分类",
+    "id": 1695
+}, {
+    "keyName": "化工工程师",
+    "keyValue": 1559,
+    "dateCode": "POSITION_TYPE_1558",
+    "keyValueStr": "1559",
+    "name": "职业分类",
+    "id": 1696
+}, {
+    "keyName": "化工研发工程师",
+    "keyValue": 1560,
+    "dateCode": "POSITION_TYPE_1558",
+    "keyValueStr": "1560",
+    "name": "职业分类",
+    "id": 1697
+}, {
+    "keyName": "化学分析",
+    "keyValue": 1561,
+    "dateCode": "POSITION_TYPE_1558",
+    "keyValueStr": "1561",
+    "name": "职业分类",
+    "id": 1698
+}, {
+    "keyName": "化学技术应用",
+    "keyValue": 1562,
+    "dateCode": "POSITION_TYPE_1558",
+    "keyValueStr": "1562",
+    "name": "职业分类",
+    "id": 1699
+}, {
+    "keyName": "化学操作",
+    "keyValue": 1563,
+    "dateCode": "POSITION_TYPE_1558",
+    "keyValueStr": "1563",
+    "name": "职业分类",
+    "id": 1700
+}, {
+    "keyName": "化学制剂研发",
+    "keyValue": 1564,
+    "dateCode": "POSITION_TYPE_1558",
+    "keyValueStr": "1564",
+    "name": "职业分类",
+    "id": 1701
+}, {
+    "keyName": "油漆/化工涂料研发",
+    "keyValue": 1565,
+    "dateCode": "POSITION_TYPE_1558",
+    "keyValueStr": "1565",
+    "name": "职业分类",
+    "id": 1702
+}, {
+    "keyName": "塑料工程师",
+    "keyValue": 1566,
+    "dateCode": "POSITION_TYPE_1558",
+    "keyValueStr": "1566",
+    "name": "职业分类",
+    "id": 1703
+}, {
+    "keyName": "化学实验室技术员/研究员",
+    "keyValue": 1567,
+    "dateCode": "POSITION_TYPE_1558",
+    "keyValueStr": "1567",
+    "name": "职业分类",
+    "id": 1704
+}, {
+    "keyName": "化工项目管理",
+    "keyValue": 1568,
+    "dateCode": "POSITION_TYPE_1558",
+    "keyValueStr": "1568",
+    "name": "职业分类",
+    "id": 1705
+}, {
+    "keyName": "其他",
+    "keyValue": 1569,
+    "dateCode": "POSITION_TYPE_1558",
+    "keyValueStr": "1569",
+    "name": "职业分类",
+    "id": 1706
+}, {
+    "keyName": "影视/媒体/出版/印刷",
+    "keyValue": 1570,
+    "dateCode": "POSITION_TYPE",
+    "keyValueStr": "Y",
+    "name": "职业分类",
+    "id": 1707
+}, {
+    "keyName": "导演/编导",
+    "keyValue": 1571,
+    "dateCode": "POSITION_TYPE_1570",
+    "keyValueStr": "1571",
+    "name": "职业分类",
+    "id": 1708
+}, {
+    "keyName": "总编/副总编",
+    "keyValue": 1572,
+    "dateCode": "POSITION_TYPE_1570",
+    "keyValueStr": "1572",
+    "name": "职业分类",
+    "id": 1709
+}, {
+    "keyName": "艺术指导/舞美设计",
+    "keyValue": 1573,
+    "dateCode": "POSITION_TYPE_1570",
+    "keyValueStr": "1573",
+    "name": "职业分类",
+    "id": 1710
+}, {
+    "keyName": "摄影师/摄像师",
+    "keyValue": 1574,
+    "dateCode": "POSITION_TYPE_1570",
+    "keyValueStr": "1574",
+    "name": "职业分类",
+    "id": 1711
+}, {
+    "keyName": "化妆师/造型师/服装/道具",
+    "keyValue": 1575,
+    "dateCode": "POSITION_TYPE_1570",
+    "keyValueStr": "1575",
+    "name": "职业分类",
+    "id": 1712
+}, {
+    "keyName": "主持人/司仪",
+    "keyValue": 1576,
+    "dateCode": "POSITION_TYPE_1570",
+    "keyValueStr": "1576",
+    "name": "职业分类",
+    "id": 1713
+}, {
+    "keyName": "演员/模特",
+    "keyValue": 1577,
+    "dateCode": "POSITION_TYPE_1570",
+    "keyValueStr": "1577",
+    "name": "职业分类",
+    "id": 1714
+}, {
+    "keyName": "配音员",
+    "keyValue": 1578,
+    "dateCode": "POSITION_TYPE_1570",
+    "keyValueStr": "1578",
+    "name": "职业分类",
+    "id": 1715
+}, {
+    "keyName": "音效师",
+    "keyValue": 1579,
+    "dateCode": "POSITION_TYPE_1570",
+    "keyValueStr": "1579",
+    "name": "职业分类",
+    "id": 1716
+}, {
+    "keyName": "后期制作",
+    "keyValue": 1580,
+    "dateCode": "POSITION_TYPE_1570",
+    "keyValueStr": "1580",
+    "name": "职业分类",
+    "id": 1717
+}, {
+    "keyName": "经纪人/星探",
+    "keyValue": 1581,
+    "dateCode": "POSITION_TYPE_1570",
+    "keyValueStr": "1581",
+    "name": "职业分类",
+    "id": 1718
+}, {
+    "keyName": "放映管理",
+    "keyValue": 1582,
+    "dateCode": "POSITION_TYPE_1570",
+    "keyValueStr": "1582",
+    "name": "职业分类",
+    "id": 1719
+}, {
+    "keyName": "作家/编剧/撰稿人",
+    "keyValue": 1583,
+    "dateCode": "POSITION_TYPE_1570",
+    "keyValueStr": "1583",
+    "name": "职业分类",
+    "id": 1720
+}, {
+    "keyName": "文字编辑/组稿",
+    "keyValue": 1584,
+    "dateCode": "POSITION_TYPE_1570",
+    "keyValueStr": "1584",
+    "name": "职业分类",
+    "id": 1721
+}, {
+    "keyName": "美术编辑/美术设计",
+    "keyValue": 1585,
+    "dateCode": "POSITION_TYPE_1570",
+    "keyValueStr": "1585",
+    "name": "职业分类",
+    "id": 1722
+}, {
+    "keyName": "记者/采编",
+    "keyValue": 1586,
+    "dateCode": "POSITION_TYPE_1570",
+    "keyValueStr": "1586",
+    "name": "职业分类",
+    "id": 1723
+}, {
+    "keyName": "电话采编",
+    "keyValue": 1587,
+    "dateCode": "POSITION_TYPE_1570",
+    "keyValueStr": "1587",
+    "name": "职业分类",
+    "id": 1724
+}, {
+    "keyName": "文案策划",
+    "keyValue": 1588,
+    "dateCode": "POSITION_TYPE_1570",
+    "keyValueStr": "1588",
+    "name": "职业分类",
+    "id": 1725
+}, {
+    "keyName": "校对/录入",
+    "keyValue": 1589,
+    "dateCode": "POSITION_TYPE_1570",
+    "keyValueStr": "1589",
+    "name": "职业分类",
+    "id": 1726
+}, {
+    "keyName": "发行管理",
+    "keyValue": 1590,
+    "dateCode": "POSITION_TYPE_1570",
+    "keyValueStr": "1590",
+    "name": "职业分类",
+    "id": 1727
+}, {
+    "keyName": "排版设计",
+    "keyValue": 1591,
+    "dateCode": "POSITION_TYPE_1570",
+    "keyValueStr": "1591",
+    "name": "职业分类",
+    "id": 1728
+}, {
+    "keyName": "印刷排版/制版",
+    "keyValue": 1592,
+    "dateCode": "POSITION_TYPE_1570",
+    "keyValueStr": "1592",
+    "name": "职业分类",
+    "id": 1729
+}, {
+    "keyName": "印刷操作",
+    "keyValue": 1593,
+    "dateCode": "POSITION_TYPE_1570",
+    "keyValueStr": "1593",
+    "name": "职业分类",
+    "id": 1730
+}, {
+    "keyName": "其他",
+    "keyValue": 1594,
+    "dateCode": "POSITION_TYPE_1570",
+    "keyValueStr": "1594",
+    "name": "职业分类",
+    "id": 1731
+}, {
+    "keyName": "艺术/设计",
+    "keyValue": 1595,
+    "dateCode": "POSITION_TYPE",
+    "keyValueStr": "Y",
+    "name": "职业分类",
+    "id": 1732
+}, {
+    "keyName": "设计管理人员",
+    "keyValue": 1596,
+    "dateCode": "POSITION_TYPE_1595",
+    "keyValueStr": "1596",
+    "name": "职业分类",
+    "id": 1733
+}, {
+    "keyName": "艺术/设计总监",
+    "keyValue": 1597,
+    "dateCode": "POSITION_TYPE_1595",
+    "keyValueStr": "1597",
+    "name": "职业分类",
+    "id": 1734
+}, {
+    "keyName": "绘画",
+    "keyValue": 1598,
+    "dateCode": "POSITION_TYPE_1595",
+    "keyValueStr": "1598",
+    "name": "职业分类",
+    "id": 1735
+}, {
+    "keyName": "原画师",
+    "keyValue": 1599,
+    "dateCode": "POSITION_TYPE_1595",
+    "keyValueStr": "1599",
+    "name": "职业分类",
+    "id": 1736
+}, {
+    "keyName": "CAD设计/制图",
+    "keyValue": 1600,
+    "dateCode": "POSITION_TYPE_1595",
+    "keyValueStr": "1600",
+    "name": "职业分类",
+    "id": 1737
+}, {
+    "keyName": "平面设计",
+    "keyValue": 1601,
+    "dateCode": "POSITION_TYPE_1595",
+    "keyValueStr": "1601",
+    "name": "职业分类",
+    "id": 1738
+}, {
+    "keyName": "三维/3D设计/制作",
+    "keyValue": 1602,
+    "dateCode": "POSITION_TYPE_1595",
+    "keyValueStr": "1602",
+    "name": "职业分类",
+    "id": 1739
+}, {
+    "keyName": "Flash设计/开发",
+    "keyValue": 1603,
+    "dateCode": "POSITION_TYPE_1595",
+    "keyValueStr": "1603",
+    "name": "职业分类",
+    "id": 1740
+}, {
+    "keyName": "特效设计",
+    "keyValue": 1604,
+    "dateCode": "POSITION_TYPE_1595",
+    "keyValueStr": "1604",
+    "name": "职业分类",
+    "id": 1741
+}, {
+    "keyName": "视觉设计",
+    "keyValue": 1605,
+    "dateCode": "POSITION_TYPE_1595",
+    "keyValueStr": "1605",
+    "name": "职业分类",
+    "id": 1742
+}, {
+    "keyName": "用户体验（UE/UX)设计",
+    "keyValue": 1606,
+    "dateCode": "POSITION_TYPE_1595",
+    "keyValueStr": "1606",
+    "name": "职业分类",
+    "id": 1743
+}, {
+    "keyName": "美术编辑/美术设计",
+    "keyValue": 1607,
+    "dateCode": "POSITION_TYPE_1595",
+    "keyValueStr": "1607",
+    "name": "职业分类",
+    "id": 1744
+}, {
+    "keyName": "多媒体/动画设计",
+    "keyValue": 1608,
+    "dateCode": "POSITION_TYPE_1595",
+    "keyValueStr": "1608",
+    "name": "职业分类",
+    "id": 1745
+}, {
+    "keyName": "包装设计",
+    "keyValue": 1609,
+    "dateCode": "POSITION_TYPE_1595",
+    "keyValueStr": "1609",
+    "name": "职业分类",
+    "id": 1746
+}, {
+    "keyName": "家具设计",
+    "keyValue": 1610,
+    "dateCode": "POSITION_TYPE_1595",
+    "keyValueStr": "1610",
+    "name": "职业分类",
+    "id": 1747
+}, {
+    "keyName": "家具用品设计",
+    "keyValue": 1611,
+    "dateCode": "POSITION_TYPE_1595",
+    "keyValueStr": "1611",
+    "name": "职业分类",
+    "id": 1748
+}, {
+    "keyName": "工艺品/珠宝设计",
+    "keyValue": 1612,
+    "dateCode": "POSITION_TYPE_1595",
+    "keyValueStr": "1612",
+    "name": "职业分类",
+    "id": 1749
+}, {
+    "keyName": "玩具设计",
+    "keyValue": 1613,
+    "dateCode": "POSITION_TYPE_1595",
+    "keyValueStr": "1613",
+    "name": "职业分类",
+    "id": 1750
+}, {
+    "keyName": "店面/展览/展示/陈列设计",
+    "keyValue": 1614,
+    "dateCode": "POSITION_TYPE_1595",
+    "keyValueStr": "1614",
+    "name": "职业分类",
+    "id": 1751
+}, {
+    "keyName": "工业设计",
+    "keyValue": 1615,
+    "dateCode": "POSITION_TYPE_1595",
+    "keyValueStr": "1615",
+    "name": "职业分类",
+    "id": 1752
+}, {
+    "keyName": "游戏界面设计",
+    "keyValue": 1616,
+    "dateCode": "POSITION_TYPE_1595",
+    "keyValueStr": "1616",
+    "name": "职业分类",
+    "id": 1753
+}, {
+    "keyName": "其他",
+    "keyValue": 1617,
+    "dateCode": "POSITION_TYPE_1595",
+    "keyValueStr": "1617",
+    "name": "职业分类",
+    "id": 1754
+}, {
+    "keyName": "咨询/顾问/调研/数据分析",
+    "keyValue": 1618,
+    "dateCode": "POSITION_TYPE",
+    "keyValueStr": "Z",
+    "name": "职业分类",
+    "id": 1755
+}, {
+    "keyName": "咨询总监",
+    "keyValue": 1619,
+    "dateCode": "POSITION_TYPE_1618",
+    "keyValueStr": "1619",
+    "name": "职业分类",
+    "id": 1756
+}, {
+    "keyName": "咨询经理/主管",
+    "keyValue": 1620,
+    "dateCode": "POSITION_TYPE_1618",
+    "keyValueStr": "1620",
+    "name": "职业分类",
+    "id": 1757
+}, {
+    "keyName": "咨询顾问/咨询员",
+    "keyValue": 1621,
+    "dateCode": "POSITION_TYPE_1618",
+    "keyValueStr": "1621",
+    "name": "职业分类",
+    "id": 1758
+}, {
+    "keyName": "专业顾问",
+    "keyValue": 1622,
+    "dateCode": "POSITION_TYPE_1618",
+    "keyValueStr": "1622",
+    "name": "职业分类",
+    "id": 1759
+}, {
+    "keyName": "调研员",
+    "keyValue": 1623,
+    "dateCode": "POSITION_TYPE_1618",
+    "keyValueStr": "1623",
+    "name": "职业分类",
+    "id": 1760
+}, {
+    "keyName": "数据分析师",
+    "keyValue": 1624,
+    "dateCode": "POSITION_TYPE_1618",
+    "keyValueStr": "1624",
+    "name": "职业分类",
+    "id": 1761
+}, {
+    "keyName": "情报信息分析",
+    "keyValue": 1625,
+    "dateCode": "POSITION_TYPE_1618",
+    "keyValueStr": "1625",
+    "name": "职业分类",
+    "id": 1762
+}, {
+    "keyName": "猎头顾问/助理",
+    "keyValue": 1626,
+    "dateCode": "POSITION_TYPE_1618",
+    "keyValueStr": "1626",
+    "name": "职业分类",
+    "id": 1763
+}, {
+    "keyName": "咨询项目管理",
+    "keyValue": 1627,
+    "dateCode": "POSITION_TYPE_1618",
+    "keyValueStr": "1627",
+    "name": "职业分类",
+    "id": 1764
+}, {
+    "keyName": "其他",
+    "keyValue": 1628,
+    "dateCode": "POSITION_TYPE_1618",
+    "keyValueStr": "1628",
+    "name": "职业分类",
+    "id": 1765
+}, {
+    "keyName": "教育/培训",
+    "keyValue": 1629,
+    "dateCode": "POSITION_TYPE",
+    "keyValueStr": "J",
+    "name": "职业分类",
+    "id": 1766
+}, {
+    "keyName": "幼教",
+    "keyValue": 1630,
+    "dateCode": "POSITION_TYPE_1629",
+    "keyValueStr": "1630",
+    "name": "职业分类",
+    "id": 1767
+}, {
+    "keyName": "小学教师",
+    "keyValue": 1631,
+    "dateCode": "POSITION_TYPE_1629",
+    "keyValueStr": "1631",
+    "name": "职业分类",
+    "id": 1768
+}, {
+    "keyName": "初中教师",
+    "keyValue": 1632,
+    "dateCode": "POSITION_TYPE_1629",
+    "keyValueStr": "1632",
+    "name": "职业分类",
+    "id": 1769
+}, {
+    "keyName": "高中教师",
+    "keyValue": 1633,
+    "dateCode": "POSITION_TYPE_1629",
+    "keyValueStr": "1633",
+    "name": "职业分类",
+    "id": 1770
+}, {
+    "keyName": "大学教师",
+    "keyValue": 1634,
+    "dateCode": "POSITION_TYPE_1629",
+    "keyValueStr": "1634",
+    "name": "职业分类",
+    "id": 1771
+}, {
+    "keyName": "职业技术教师",
+    "keyValue": 1635,
+    "dateCode": "POSITION_TYPE_1629",
+    "keyValueStr": "1635",
+    "name": "职业分类",
+    "id": 1772
+}, {
+    "keyName": "家教",
+    "keyValue": 1636,
+    "dateCode": "POSITION_TYPE_1629",
+    "keyValueStr": "1636",
+    "name": "职业分类",
+    "id": 1773
+}, {
+    "keyName": "兼职教师",
+    "keyValue": 1637,
+    "dateCode": "POSITION_TYPE_1629",
+    "keyValueStr": "1637",
+    "name": "职业分类",
+    "id": 1774
+}, {
+    "keyName": "理科教师",
+    "keyValue": 1638,
+    "dateCode": "POSITION_TYPE_1629",
+    "keyValueStr": "1638",
+    "name": "职业分类",
+    "id": 1775
+}, {
+    "keyName": "文科教师",
+    "keyValue": 1639,
+    "dateCode": "POSITION_TYPE_1629",
+    "keyValueStr": "1639",
+    "name": "职业分类",
+    "id": 1776
+}, {
+    "keyName": "外语教师",
+    "keyValue": 1640,
+    "dateCode": "POSITION_TYPE_1629",
+    "keyValueStr": "1640",
+    "name": "职业分类",
+    "id": 1777
+}, {
+    "keyName": "音乐教师",
+    "keyValue": 1641,
+    "dateCode": "POSITION_TYPE_1629",
+    "keyValueStr": "1641",
+    "name": "职业分类",
+    "id": 1778
+}, {
+    "keyName": "美术教师",
+    "keyValue": 1642,
+    "dateCode": "POSITION_TYPE_1629",
+    "keyValueStr": "1642",
+    "name": "职业分类",
+    "id": 1779
+}, {
+    "keyName": "体育教师/教练",
+    "keyValue": 1643,
+    "dateCode": "POSITION_TYPE_1629",
+    "keyValueStr": "1643",
+    "name": "职业分类",
+    "id": 1780
+}, {
+    "keyName": "校长/副校长",
+    "keyValue": 1644,
+    "dateCode": "POSITION_TYPE_1629",
+    "keyValueStr": "1644",
+    "name": "职业分类",
+    "id": 1781
+}, {
+    "keyName": "教学/教务管理人员",
+    "keyValue": 1645,
+    "dateCode": "POSITION_TYPE_1629",
+    "keyValueStr": "1645",
+    "name": "职业分类",
+    "id": 1782
+}, {
+    "keyName": "培训督导",
+    "keyValue": 1646,
+    "dateCode": "POSITION_TYPE_1629",
+    "keyValueStr": "1646",
+    "name": "职业分类",
+    "id": 1783
+}, {
+    "keyName": "培训师/讲师",
+    "keyValue": 1647,
+    "dateCode": "POSITION_TYPE_1629",
+    "keyValueStr": "1647",
+    "name": "职业分类",
+    "id": 1784
+}, {
+    "keyName": "培训助理/助教",
+    "keyValue": 1648,
+    "dateCode": "POSITION_TYPE_1629",
+    "keyValueStr": "1648",
+    "name": "职业分类",
+    "id": 1785
+}, {
+    "keyName": "教育产品开发",
+    "keyValue": 1649,
+    "dateCode": "POSITION_TYPE_1629",
+    "keyValueStr": "1649",
+    "name": "职业分类",
+    "id": 1786
+}, {
+    "keyName": "培训策划",
+    "keyValue": 1650,
+    "dateCode": "POSITION_TYPE_1629",
+    "keyValueStr": "1650",
+    "name": "职业分类",
+    "id": 1787
+}, {
+    "keyName": "培训/招生/课程顾问",
+    "keyValue": 1651,
+    "dateCode": "POSITION_TYPE_1629",
+    "keyValueStr": "1651",
+    "name": "职业分类",
+    "id": 1788
+}, {
+    "keyName": "其他",
+    "keyValue": 1652,
+    "dateCode": "POSITION_TYPE_1629",
+    "keyValueStr": "1652",
+    "name": "职业分类",
+    "id": 1789
+}, {
+    "keyName": "律师/法务/合规",
+    "keyValue": 1653,
+    "dateCode": "POSITION_TYPE",
+    "keyValueStr": "L",
+    "name": "职业分类",
+    "id": 1790
+}, {
+    "keyName": "法务经理/主管",
+    "keyValue": 1654,
+    "dateCode": "POSITION_TYPE_1653",
+    "keyValueStr": "1654",
+    "name": "职业分类",
+    "id": 1791
+}, {
+    "keyName": "法务专员/助理",
+    "keyValue": 1655,
+    "dateCode": "POSITION_TYPE_1653",
+    "keyValueStr": "1655",
+    "name": "职业分类",
+    "id": 1792
+}, {
+    "keyName": "律师/法务/合规",
+    "keyValue": 1656,
+    "dateCode": "POSITION_TYPE_1653",
+    "keyValueStr": "1656",
+    "name": "职业分类",
+    "id": 1793
+}, {
+    "keyName": "律师助理",
+    "keyValue": 1657,
+    "dateCode": "POSITION_TYPE_1653",
+    "keyValueStr": "1657",
+    "name": "职业分类",
+    "id": 1794
+}, {
+    "keyName": "企业律师/合规经理/主管",
+    "keyValue": 1658,
+    "dateCode": "POSITION_TYPE_1653",
+    "keyValueStr": "1658",
+    "name": "职业分类",
+    "id": 1795
+}, {
+    "keyName": "企业律师/合规顾问",
+    "keyValue": 1659,
+    "dateCode": "POSITION_TYPE_1653",
+    "keyValueStr": "1659",
+    "name": "职业分类",
+    "id": 1796
+}, {
+    "keyName": "知识产权/专利顾问/代理人",
+    "keyValue": 1660,
+    "dateCode": "POSITION_TYPE_1653",
+    "keyValueStr": "1660",
+    "name": "职业分类",
+    "id": 1797
+}, {
+    "keyName": "合同管理",
+    "keyValue": 1661,
+    "dateCode": "POSITION_TYPE_1653",
+    "keyValueStr": "1661",
+    "name": "职业分类",
+    "id": 1798
+}, {
+    "keyName": "其他",
+    "keyValue": 1662,
+    "dateCode": "POSITION_TYPE_1653",
+    "keyValueStr": "1662",
+    "name": "职业分类",
+    "id": 1799
+}, {
+    "keyName": "翻译（口译与笔译）",
+    "keyValue": 1663,
+    "dateCode": "POSITION_TYPE",
+    "keyValueStr": "F",
+    "name": "职业分类",
+    "id": 1800
+}, {
+    "keyName": "英语翻译",
+    "keyValue": 1664,
+    "dateCode": "POSITION_TYPE_1663",
+    "keyValueStr": "1664",
+    "name": "职业分类",
+    "id": 1801
+}, {
+    "keyName": "法语翻译",
+    "keyValue": 1665,
+    "dateCode": "POSITION_TYPE_1663",
+    "keyValueStr": "1665",
+    "name": "职业分类",
+    "id": 1802
+}, {
+    "keyName": "日语翻译",
+    "keyValue": 1666,
+    "dateCode": "POSITION_TYPE_1663",
+    "keyValueStr": "1666",
+    "name": "职业分类",
+    "id": 1803
+}, {
+    "keyName": "德语翻译",
+    "keyValue": 1667,
+    "dateCode": "POSITION_TYPE_1663",
+    "keyValueStr": "1667",
+    "name": "职业分类",
+    "id": 1804
+}, {
+    "keyName": "俄语翻译",
+    "keyValue": 1668,
+    "dateCode": "POSITION_TYPE_1663",
+    "keyValueStr": "1668",
+    "name": "职业分类",
+    "id": 1805
+}, {
+    "keyName": "西班牙语翻译",
+    "keyValue": 1669,
+    "dateCode": "POSITION_TYPE_1663",
+    "keyValueStr": "1669",
+    "name": "职业分类",
+    "id": 1806
+}, {
+    "keyName": "意大利语翻译",
+    "keyValue": 1670,
+    "dateCode": "POSITION_TYPE_1663",
+    "keyValueStr": "1670",
+    "name": "职业分类",
+    "id": 1807
+}, {
+    "keyName": "葡萄牙语翻译",
+    "keyValue": 1671,
+    "dateCode": "POSITION_TYPE_1663",
+    "keyValueStr": "1671",
+    "name": "职业分类",
+    "id": 1808
+}, {
+    "keyName": "阿拉伯语翻译",
+    "keyValue": 1672,
+    "dateCode": "POSITION_TYPE_1663",
+    "keyValueStr": "1672",
+    "name": "职业分类",
+    "id": 1809
+}, {
+    "keyName": "韩语/朝鲜语翻译",
+    "keyValue": 1673,
+    "dateCode": "POSITION_TYPE_1663",
+    "keyValueStr": "1673",
+    "name": "职业分类",
+    "id": 1810
+}, {
+    "keyName": "其他语种翻译",
+    "keyValue": 1674,
+    "dateCode": "POSITION_TYPE_1663",
+    "keyValueStr": "1674",
+    "name": "职业分类",
+    "id": 1811
+}, {
+    "keyName": "商超/酒店/娱乐管理/服务",
+    "keyValue": 1675,
+    "dateCode": "POSITION_TYPE",
+    "keyValueStr": "S",
+    "name": "职业分类",
+    "id": 1812
+}, {
+    "keyName": "店长/卖场管理",
+    "keyValue": 1676,
+    "dateCode": "POSITION_TYPE_1675",
+    "keyValueStr": "1676",
+    "name": "职业分类",
+    "id": 1813
+}, {
+    "keyName": "楼面管理",
+    "keyValue": 1677,
+    "dateCode": "POSITION_TYPE_1675",
+    "keyValueStr": "1677",
+    "name": "职业分类",
+    "id": 1814
+}, {
+    "keyName": "品牌/连锁招商管理",
+    "keyValue": 1678,
+    "dateCode": "POSITION_TYPE_1675",
+    "keyValueStr": "1678",
+    "name": "职业分类",
+    "id": 1815
+}, {
+    "keyName": "大堂经理/领班",
+    "keyValue": 1679,
+    "dateCode": "POSITION_TYPE_1675",
+    "keyValueStr": "1679",
+    "name": "职业分类",
+    "id": 1816
+}, {
+    "keyName": "酒店管理",
+    "keyValue": 1680,
+    "dateCode": "POSITION_TYPE_1675",
+    "keyValueStr": "1680",
+    "name": "职业分类",
+    "id": 1817
+}, {
+    "keyName": "客房管理",
+    "keyValue": 1681,
+    "dateCode": "POSITION_TYPE_1675",
+    "keyValueStr": "1681",
+    "name": "职业分类",
+    "id": 1818
+}, {
+    "keyName": "收银主管",
+    "keyValue": 1682,
+    "dateCode": "POSITION_TYPE_1675",
+    "keyValueStr": "1682",
+    "name": "职业分类",
+    "id": 1819
+}, {
+    "keyName": "收银员",
+    "keyValue": 1683,
+    "dateCode": "POSITION_TYPE_1675",
+    "keyValueStr": "1683",
+    "name": "职业分类",
+    "id": 1820
+}, {
+    "keyName": "店员/营业员/导购员",
+    "keyValue": 1684,
+    "dateCode": "POSITION_TYPE_1675",
+    "keyValueStr": "1684",
+    "name": "职业分类",
+    "id": 1821
+}, {
+    "keyName": "理货员",
+    "keyValue": 1685,
+    "dateCode": "POSITION_TYPE_1675",
+    "keyValueStr": "1685",
+    "name": "职业分类",
+    "id": 1822
+}, {
+    "keyName": "促销主管/督导",
+    "keyValue": 1686,
+    "dateCode": "POSITION_TYPE_1675",
+    "keyValueStr": "1686",
+    "name": "职业分类",
+    "id": 1823
+}, {
+    "keyName": "促销员",
+    "keyValue": 1687,
+    "dateCode": "POSITION_TYPE_1675",
+    "keyValueStr": "1687",
+    "name": "职业分类",
+    "id": 1824
+}, {
+    "keyName": "品类管理",
+    "keyValue": 1688,
+    "dateCode": "POSITION_TYPE_1675",
+    "keyValueStr": "1688",
+    "name": "职业分类",
+    "id": 1825
+}, {
+    "keyName": "前厅接待/礼仪/迎宾",
+    "keyValue": 1689,
+    "dateCode": "POSITION_TYPE_1675",
+    "keyValueStr": "1689",
+    "name": "职业分类",
+    "id": 1826
+}, {
+    "keyName": "预订员",
+    "keyValue": 1690,
+    "dateCode": "POSITION_TYPE_1675",
+    "keyValueStr": "1690",
+    "name": "职业分类",
+    "id": 1827
+}, {
+    "keyName": "行李员",
+    "keyValue": 1691,
+    "dateCode": "POSITION_TYPE_1675",
+    "keyValueStr": "1691",
+    "name": "职业分类",
+    "id": 1828
+}, {
+    "keyName": "服务员",
+    "keyValue": 1692,
+    "dateCode": "POSITION_TYPE_1675",
+    "keyValueStr": "1692",
+    "name": "职业分类",
+    "id": 1829
+}, {
+    "keyName": "防损员/内保",
+    "keyValue": 1693,
+    "dateCode": "POSITION_TYPE_1675",
+    "keyValueStr": "1693",
+    "name": "职业分类",
+    "id": 1830
+}, {
+    "keyName": "奢侈品销售",
+    "keyValue": 1694,
+    "dateCode": "POSITION_TYPE_1675",
+    "keyValueStr": "1694",
+    "name": "职业分类",
+    "id": 1831
+}, {
+    "keyName": "支持人/司仪",
+    "keyValue": 1695,
+    "dateCode": "POSITION_TYPE_1675",
+    "keyValueStr": "1695",
+    "name": "职业分类",
+    "id": 1832
+}, {
+    "keyName": "其他",
+    "keyValue": 1696,
+    "dateCode": "POSITION_TYPE_1675",
+    "keyValueStr": "1696",
+    "name": "职业分类",
+    "id": 1833
+}, {
+    "keyName": "旅游/度假/出入境服务",
+    "keyValue": 1697,
+    "dateCode": "POSITION_TYPE",
+    "keyValueStr": "L",
+    "name": "职业分类",
+    "id": 1834
+}, {
+    "keyName": "旅游产品销售",
+    "keyValue": 1698,
+    "dateCode": "POSITION_TYPE_1697",
+    "keyValueStr": "1698",
+    "name": "职业分类",
+    "id": 1835
+}, {
+    "keyName": "旅游顾问",
+    "keyValue": 1699,
+    "dateCode": "POSITION_TYPE_1697",
+    "keyValueStr": "1699",
+    "name": "职业分类",
+    "id": 1836
+}, {
+    "keyName": "导游/票务",
+    "keyValue": 1700,
+    "dateCode": "POSITION_TYPE_1697",
+    "keyValueStr": "1700",
+    "name": "职业分类",
+    "id": 1837
+}, {
+    "keyName": "旅游计划调度",
+    "keyValue": 1701,
+    "dateCode": "POSITION_TYPE_1697",
+    "keyValueStr": "1701",
+    "name": "职业分类",
+    "id": 1838
+}, {
+    "keyName": "旅游产品/线路策划",
+    "keyValue": 1702,
+    "dateCode": "POSITION_TYPE_1697",
+    "keyValueStr": "1702",
+    "name": "职业分类",
+    "id": 1839
+}, {
+    "keyName": "签证业务办理",
+    "keyValue": 1703,
+    "dateCode": "POSITION_TYPE_1697",
+    "keyValueStr": "1703",
+    "name": "职业分类",
+    "id": 1840
+}, {
+    "keyName": "其他",
+    "keyValue": 1704,
+    "dateCode": "POSITION_TYPE_1697",
+    "keyValueStr": "1704",
+    "name": "职业分类",
+    "id": 1841
+}, {
+    "keyName": "烹饪/料理/食品研发",
+    "keyValue": 1705,
+    "dateCode": "POSITION_TYPE",
+    "keyValueStr": "P",
+    "name": "职业分类",
+    "id": 1842
+}, {
+    "keyName": "厨师/面点师",
+    "keyValue": 1706,
+    "dateCode": "POSITION_TYPE_1705",
+    "keyValueStr": "1706",
+    "name": "职业分类",
+    "id": 1843
+}, {
+    "keyName": "食品加工/处理",
+    "keyValue": 1707,
+    "dateCode": "POSITION_TYPE_1705",
+    "keyValueStr": "1707",
+    "name": "职业分类",
+    "id": 1844
+}, {
+    "keyName": "调酒师/茶艺师/咖啡师",
+    "keyValue": 1708,
+    "dateCode": "POSITION_TYPE_1705",
+    "keyValueStr": "1708",
+    "name": "职业分类",
+    "id": 1845
+}, {
+    "keyName": "营养师",
+    "keyValue": 1709,
+    "dateCode": "POSITION_TYPE_1705",
+    "keyValueStr": "1709",
+    "name": "职业分类",
+    "id": 1846
+}, {
+    "keyName": "厨工",
+    "keyValue": 1710,
+    "dateCode": "POSITION_TYPE_1705",
+    "keyValueStr": "1710",
+    "name": "职业分类",
+    "id": 1847
+}, {
+    "keyName": "食品/饮料研发",
+    "keyValue": 1711,
+    "dateCode": "POSITION_TYPE_1705",
+    "keyValueStr": "1711",
+    "name": "职业分类",
+    "id": 1848
+}, {
+    "keyName": "食品/饮料检验",
+    "keyValue": 1712,
+    "dateCode": "POSITION_TYPE_1705",
+    "keyValueStr": "1712",
+    "name": "职业分类",
+    "id": 1849
+}, {
+    "keyName": "其他",
+    "keyValue": 1713,
+    "dateCode": "POSITION_TYPE_1705",
+    "keyValueStr": "1713",
+    "name": "职业分类",
+    "id": 1850
+}, {
+    "keyName": "保健/美容/美发/健身",
+    "keyValue": 1714,
+    "dateCode": "POSITION_TYPE",
+    "keyValueStr": "B",
+    "name": "职业分类",
+    "id": 1851
+}, {
+    "keyName": "美发/发型师",
+    "keyValue": 1715,
+    "dateCode": "POSITION_TYPE_1714",
+    "keyValueStr": "1715",
+    "name": "职业分类",
+    "id": 1852
+}, {
+    "keyName": "化妆师",
+    "keyValue": 1716,
+    "dateCode": "POSITION_TYPE_1714",
+    "keyValueStr": "1716",
+    "name": "职业分类",
+    "id": 1853
+}, {
+    "keyName": "美容师/美甲师",
+    "keyValue": 1717,
+    "dateCode": "POSITION_TYPE_1714",
+    "keyValueStr": "1717",
+    "name": "职业分类",
+    "id": 1854
+}, {
+    "keyName": "美容顾问（BA)",
+    "keyValue": 1718,
+    "dateCode": "POSITION_TYPE_1714",
+    "keyValueStr": "1718",
+    "name": "职业分类",
+    "id": 1855
+}, {
+    "keyName": "健身/美体/舞蹈教练",
+    "keyValue": 1719,
+    "dateCode": "POSITION_TYPE_1714",
+    "keyValueStr": "1719",
+    "name": "职业分类",
+    "id": 1856
+}, {
+    "keyName": "按摩/足疗",
+    "keyValue": 1720,
+    "dateCode": "POSITION_TYPE_1714",
+    "keyValueStr": "1720",
+    "name": "职业分类",
+    "id": 1857
+}, {
+    "keyName": "救生员",
+    "keyValue": 1721,
+    "dateCode": "POSITION_TYPE_1714",
+    "keyValueStr": "1721",
+    "name": "职业分类",
+    "id": 1858
+}, {
+    "keyName": "其他",
+    "keyValue": 1722,
+    "dateCode": "POSITION_TYPE_1714",
+    "keyValueStr": "1722",
+    "name": "职业分类",
+    "id": 1859
+}, {
+    "keyName": "医院/医疗/护理",
+    "keyValue": 1723,
+    "dateCode": "POSITION_TYPE",
+    "keyValueStr": "Y",
+    "name": "职业分类",
+    "id": 1860
+}, {
+    "keyName": "医疗管理人员",
+    "keyValue": 1724,
+    "dateCode": "POSITION_TYPE_1723",
+    "keyValueStr": "1724",
+    "name": "职业分类",
+    "id": 1861
+}, {
+    "keyName": "综合门诊/全科医生",
+    "keyValue": 1725,
+    "dateCode": "POSITION_TYPE_1723",
+    "keyValueStr": "1725",
+    "name": "职业分类",
+    "id": 1862
+}, {
+    "keyName": "内科医生",
+    "keyValue": 1726,
+    "dateCode": "POSITION_TYPE_1723",
+    "keyValueStr": "1726",
+    "name": "职业分类",
+    "id": 1863
+}, {
+    "keyName": "外壳医生",
+    "keyValue": 1727,
+    "dateCode": "POSITION_TYPE_1723",
+    "keyValueStr": "1727",
+    "name": "职业分类",
+    "id": 1864
+}, {
+    "keyName": "儿科医生",
+    "keyValue": 1728,
+    "dateCode": "POSITION_TYPE_1723",
+    "keyValueStr": "1728",
+    "name": "职业分类",
+    "id": 1865
+}, {
+    "keyName": "牙科医生",
+    "keyValue": 1729,
+    "dateCode": "POSITION_TYPE_1723",
+    "keyValueStr": "1729",
+    "name": "职业分类",
+    "id": 1866
+}, {
+    "keyName": "美容整形科医生",
+    "keyValue": 1730,
+    "dateCode": "POSITION_TYPE_1723",
+    "keyValueStr": "1730",
+    "name": "职业分类",
+    "id": 1867
+}, {
+    "keyName": "中医科医生",
+    "keyValue": 1731,
+    "dateCode": "POSITION_TYPE_1723",
+    "keyValueStr": "1731",
+    "name": "职业分类",
+    "id": 1868
+}, {
+    "keyName": "麻醉医生",
+    "keyValue": 1732,
+    "dateCode": "POSITION_TYPE_1723",
+    "keyValueStr": "1732",
+    "name": "职业分类",
+    "id": 1869
+}, {
+    "keyName": "心理医生",
+    "keyValue": 1733,
+    "dateCode": "POSITION_TYPE_1723",
+    "keyValueStr": "1733",
+    "name": "职业分类",
+    "id": 1870
+}, {
+    "keyName": "眼科医生/验光师",
+    "keyValue": 1734,
+    "dateCode": "POSITION_TYPE_1723",
+    "keyValueStr": "1734",
+    "name": "职业分类",
+    "id": 1871
+}, {
+    "keyName": "医学影像/放射科医师",
+    "keyValue": 1735,
+    "dateCode": "POSITION_TYPE_1723",
+    "keyValueStr": "1735",
+    "name": "职业分类",
+    "id": 1872
+}, {
+    "keyName": "化验/检验科医师",
+    "keyValue": 1736,
+    "dateCode": "POSITION_TYPE_1723",
+    "keyValueStr": "1736",
+    "name": "职业分类",
+    "id": 1873
+}, {
+    "keyName": "药房管理/药剂师",
+    "keyValue": 1737,
+    "dateCode": "POSITION_TYPE_1723",
+    "keyValueStr": "1737",
+    "name": "职业分类",
+    "id": 1874
+}, {
+    "keyName": "理疗师",
+    "keyValue": 1738,
+    "dateCode": "POSITION_TYPE_1723",
+    "keyValueStr": "1738",
+    "name": "职业分类",
+    "id": 1875
+}, {
+    "keyName": "兽医",
+    "keyValue": 1739,
+    "dateCode": "POSITION_TYPE_1723",
+    "keyValueStr": "1739",
+    "name": "职业分类",
+    "id": 1876
+}, {
+    "keyName": "护士/护理人员",
+    "keyValue": 1740,
+    "dateCode": "POSITION_TYPE_1723",
+    "keyValueStr": "1740",
+    "name": "职业分类",
+    "id": 1877
+}, {
+    "keyName": "营养师",
+    "keyValue": 1741,
+    "dateCode": "POSITION_TYPE_1723",
+    "keyValueStr": "1741",
+    "name": "职业分类",
+    "id": 1878
+}, {
+    "keyName": "针灸/推拿",
+    "keyValue": 1742,
+    "dateCode": "POSITION_TYPE_1723",
+    "keyValueStr": "1742",
+    "name": "职业分类",
+    "id": 1879
+}, {
+    "keyName": "其他",
+    "keyValue": 1743,
+    "dateCode": "POSITION_TYPE_1723",
+    "keyValueStr": "1743",
+    "name": "职业分类",
+    "id": 1880
+}, {
+    "keyName": "社区/居民/家政服务",
+    "keyValue": 1744,
+    "dateCode": "POSITION_TYPE",
+    "keyValueStr": "S",
+    "name": "职业分类",
+    "id": 1881
+}, {
+    "keyName": "保安经理",
+    "keyValue": 1745,
+    "dateCode": "POSITION_TYPE_1744",
+    "keyValueStr": "1745",
+    "name": "职业分类",
+    "id": 1882
+}, {
+    "keyName": "保安",
+    "keyValue": 1746,
+    "dateCode": "POSITION_TYPE_1744",
+    "keyValueStr": "1746",
+    "name": "职业分类",
+    "id": 1883
+}, {
+    "keyName": "家政人员",
+    "keyValue": 1747,
+    "dateCode": "POSITION_TYPE_1744",
+    "keyValueStr": "1747",
+    "name": "职业分类",
+    "id": 1884
+}, {
+    "keyName": "婚礼/庆典策划服务",
+    "keyValue": 1748,
+    "dateCode": "POSITION_TYPE_1744",
+    "keyValueStr": "1748",
+    "name": "职业分类",
+    "id": 1885
+}, {
+    "keyName": "宠物护理和美容",
+    "keyValue": 1749,
+    "dateCode": "POSITION_TYPE_1744",
+    "keyValueStr": "1749",
+    "name": "职业分类",
+    "id": 1886
+}, {
+    "keyName": "保姆/母婴护理",
+    "keyValue": 1750,
+    "dateCode": "POSITION_TYPE_1744",
+    "keyValueStr": "1750",
+    "name": "职业分类",
+    "id": 1887
+}, {
+    "keyName": "搬运工",
+    "keyValue": 1751,
+    "dateCode": "POSITION_TYPE_1744",
+    "keyValueStr": "1751",
+    "name": "职业分类",
+    "id": 1888
+}, {
+    "keyName": "保洁",
+    "keyValue": 1752,
+    "dateCode": "POSITION_TYPE_1744",
+    "keyValueStr": "1752",
+    "name": "职业分类",
+    "id": 1889
+}, {
+    "keyName": "其他",
+    "keyValue": 1753,
+    "dateCode": "POSITION_TYPE_1744",
+    "keyValueStr": "1753",
+    "name": "职业分类",
+    "id": 1890
+}, {
+    "keyName": "能源/矿产/地址勘察",
+    "keyValue": 1754,
+    "dateCode": "POSITION_TYPE",
+    "keyValueStr": "N",
+    "name": "职业分类",
+    "id": 1891
+}, {
+    "keyName": "石油/天然气技术人员",
+    "keyValue": 1755,
+    "dateCode": "POSITION_TYPE_1754",
+    "keyValueStr": "1755",
+    "name": "职业分类",
+    "id": 1892
+}, {
+    "keyName": "空调/热能工程黑丝",
+    "keyValue": 1756,
+    "dateCode": "POSITION_TYPE_1754",
+    "keyValueStr": "1756",
+    "name": "职业分类",
+    "id": 1893
+}, {
+    "keyName": "核力/火力工程师",
+    "keyValue": 1757,
+    "dateCode": "POSITION_TYPE_1754",
+    "keyValueStr": "1757",
+    "name": "职业分类",
+    "id": 1894
+}, {
+    "keyName": "水利/水电工程师",
+    "keyValue": 1758,
+    "dateCode": "POSITION_TYPE_1754",
+    "keyValueStr": "1758",
+    "name": "职业分类",
+    "id": 1895
+}, {
+    "keyName": "电力工程师/技术员",
+    "keyValue": 1759,
+    "dateCode": "POSITION_TYPE_1754",
+    "keyValueStr": "1759",
+    "name": "职业分类",
+    "id": 1896
+}, {
+    "keyName": "地址勘察/选矿/采矿",
+    "keyValue": 1760,
+    "dateCode": "POSITION_TYPE_1754",
+    "keyValueStr": "1760",
+    "name": "职业分类",
+    "id": 1897
+}, {
+    "keyName": "能源/矿产项目管理",
+    "keyValue": 1761,
+    "dateCode": "POSITION_TYPE_1754",
+    "keyValueStr": "1761",
+    "name": "职业分类",
+    "id": 1898
+}, {
+    "keyName": "其他",
+    "keyValue": 1762,
+    "dateCode": "POSITION_TYPE_1754",
+    "keyValueStr": "1762",
+    "name": "职业分类",
+    "id": 1899
+}, {
+    "keyName": "环境科学/环保",
+    "keyValue": 1763,
+    "dateCode": "POSITION_TYPE",
+    "keyValueStr": "H",
+    "name": "职业分类",
+    "id": 1900
+}, {
+    "keyName": "环保技术工程师",
+    "keyValue": 1764,
+    "dateCode": "POSITION_TYPE_1763",
+    "keyValueStr": "1764",
+    "name": "职业分类",
+    "id": 1901
+}, {
+    "keyName": "环境评价工程师",
+    "keyValue": 1765,
+    "dateCode": "POSITION_TYPE_1763",
+    "keyValueStr": "1765",
+    "name": "职业分类",
+    "id": 1902
+}, {
+    "keyName": "环境监测工程师",
+    "keyValue": 1766,
+    "dateCode": "POSITION_TYPE_1763",
+    "keyValueStr": "1766",
+    "name": "职业分类",
+    "id": 1903
+}, {
+    "keyName": "水处理工程师",
+    "keyValue": 1767,
+    "dateCode": "POSITION_TYPE_1763",
+    "keyValueStr": "1767",
+    "name": "职业分类",
+    "id": 1904
+}, {
+    "keyName": "固废气处理工程师",
+    "keyValue": 1768,
+    "dateCode": "POSITION_TYPE_1763",
+    "keyValueStr": "1768",
+    "name": "职业分类",
+    "id": 1905
+}, {
+    "keyName": "废气处理工程师",
+    "keyValue": 1769,
+    "dateCode": "POSITION_TYPE_1763",
+    "keyValueStr": "1769",
+    "name": "职业分类",
+    "id": 1906
+}, {
+    "keyName": "生态治理/规划",
+    "keyValue": 1770,
+    "dateCode": "POSITION_TYPE_1763",
+    "keyValueStr": "1770",
+    "name": "职业分类",
+    "id": 1907
+}, {
+    "keyName": "环境管理/园林景观保护",
+    "keyValue": 1771,
+    "dateCode": "POSITION_TYPE_1763",
+    "keyValueStr": "1771",
+    "name": "职业分类",
+    "id": 1908
+}, {
+    "keyName": "其他",
+    "keyValue": 1772,
+    "dateCode": "POSITION_TYPE_1763",
+    "keyValueStr": "1772",
+    "name": "职业分类",
+    "id": 1909
+}, {
+    "keyName": "农/林/牧/渔业",
+    "keyValue": 1773,
+    "dateCode": "POSITION_TYPE",
+    "keyValueStr": "N",
+    "name": "职业分类",
+    "id": 1910
+}, {
+    "keyName": "农艺师",
+    "keyValue": 1774,
+    "dateCode": "POSITION_TYPE_1773",
+    "keyValueStr": "1774",
+    "name": "职业分类",
+    "id": 1911
+}, {
+    "keyName": "林业技术人员",
+    "keyValue": 1775,
+    "dateCode": "POSITION_TYPE_1773",
+    "keyValueStr": "1775",
+    "name": "职业分类",
+    "id": 1912
+}, {
+    "keyName": "园艺师",
+    "keyValue": 1776,
+    "dateCode": "POSITION_TYPE_1773",
+    "keyValueStr": "1776",
+    "name": "职业分类",
+    "id": 1913
+}, {
+    "keyName": "畜牧师",
+    "keyValue": 1777,
+    "dateCode": "POSITION_TYPE_1773",
+    "keyValueStr": "1777",
+    "name": "职业分类",
+    "id": 1914
+}, {
+    "keyName": "动物育种/养殖",
+    "keyValue": 1778,
+    "dateCode": "POSITION_TYPE_1773",
+    "keyValueStr": "1778",
+    "name": "职业分类",
+    "id": 1915
+}, {
+    "keyName": "动物营养/饲料研发",
+    "keyValue": 1779,
+    "dateCode": "POSITION_TYPE_1773",
+    "keyValueStr": "1779",
+    "name": "职业分类",
+    "id": 1916
+}, {
+    "keyName": "饲料销售",
+    "keyValue": 1780,
+    "dateCode": "POSITION_TYPE_1773",
+    "keyValueStr": "1780",
+    "name": "职业分类",
+    "id": 1917
+}, {
+    "keyName": "其他",
+    "keyValue": 1781,
+    "dateCode": "POSITION_TYPE_1773",
+    "keyValueStr": "1781",
+    "name": "职业分类",
+    "id": 1918
+}, {
+    "keyName": "公务员/事业单位/科研机构",
+    "keyValue": 1782,
+    "dateCode": "POSITION_TYPE",
+    "keyValueStr": "G",
+    "name": "职业分类",
+    "id": 1919
+}, {
+    "keyName": "实习生",
+    "keyValue": 1783,
+    "dateCode": "POSITION_TYPE_1782",
+    "keyValueStr": "1783",
+    "name": "职业分类",
+    "id": 1920
+}, {
+    "keyName": "培训生",
+    "keyValue": 1784,
+    "dateCode": "POSITION_TYPE_1782",
+    "keyValueStr": "1784",
+    "name": "职业分类",
+    "id": 1921
+}, {
+    "keyName": "储备管理",
+    "keyValue": 1785,
+    "dateCode": "POSITION_TYPE_1782",
+    "keyValueStr": "1785",
+    "name": "职业分类",
+    "id": 1922
+}, {
+    "keyName": "其他",
+    "keyValue": 1786,
+    "dateCode": "POSITION_TYPE_1782",
+    "keyValueStr": "1786",
+    "name": "职业分类",
+    "id": 1923
+}, {
+    "keyName": "实习生/培训生/储备干部",
+    "keyValue": 1787,
+    "dateCode": "POSITION_TYPE",
+    "keyValueStr": "S",
+    "name": "职业分类",
+    "id": 1924
+}, {
+    "keyName": "实习生",
+    "keyValue": 1788,
+    "dateCode": "POSITION_TYPE_1787",
+    "keyValueStr": "1788",
+    "name": "职业分类",
+    "id": 1925
+}, {
+    "keyName": "培训生",
+    "keyValue": 1789,
+    "dateCode": "POSITION_TYPE_1787",
+    "keyValueStr": "1789",
+    "name": "职业分类",
+    "id": 1926
+}, {
+    "keyName": "储备干部",
+    "keyValue": 1790,
+    "dateCode": "POSITION_TYPE_1787",
+    "keyValueStr": "1790",
+    "name": "职业分类",
+    "id": 1927
+}, {
+    "keyName": "其他",
+    "keyValue": 1791,
+    "dateCode": "POSITION_TYPE_1787",
+    "keyValueStr": "1791",
+    "name": "职业分类",
+    "id": 1928
+}, {
+    "keyName": "志愿者/社会工作者",
+    "keyValue": 1792,
+    "dateCode": "POSITION_TYPE",
+    "keyValueStr": "Z",
+    "name": "职业分类",
+    "id": 1929
+}, {
+    "keyName": "志愿者/义工",
+    "keyValue": 1793,
+    "dateCode": "POSITION_TYPE_1792",
+    "keyValueStr": "1793",
+    "name": "职业分类",
+    "id": 1930
+}, {
+    "keyName": "社会工作者/社工",
+    "keyValue": 1794,
+    "dateCode": "POSITION_TYPE_1792",
+    "keyValueStr": "1794",
+    "name": "职业分类",
+    "id": 1931
+}, {
+    "keyName": "其他",
+    "keyValue": 1795,
+    "dateCode": "POSITION_TYPE_1792",
+    "keyValueStr": "1795",
+    "name": "职业分类",
+    "id": 1932
+}, {
+    "keyName": "兼职/临时",
+    "keyValue": 1796,
+    "dateCode": "POSITION_TYPE",
+    "keyValueStr": "J",
+    "name": "职业分类",
+    "id": 1933
+}, {
+    "keyName": "兼职",
+    "keyValue": 1797,
+    "dateCode": "POSITION_TYPE_1796",
+    "keyValueStr": "1797",
+    "name": "职业分类",
+    "id": 1934
+}, {
+    "keyName": "临时",
+    "keyValue": 1798,
+    "dateCode": "POSITION_TYPE_1796",
+    "keyValueStr": "1798",
+    "name": "职业分类",
+    "id": 1935
+}, {
+    "keyName": "其他",
+    "keyValue": 1799,
+    "dateCode": "POSITION_TYPE_1796",
+    "keyValueStr": "1799",
+    "name": "职业分类",
+    "id": 1936
+}, {
+    "keyName": "北京市",
+    "keyValue": null,
+    "dateCode": "PROVINCE",
+    "keyValueStr": null,
+    "name": "省份",
+    "id": 1961
+}, {
+    "keyName": "上海市",
+    "keyValue": null,
+    "dateCode": "PROVINCE",
+    "keyValueStr": null,
+    "name": "省份",
+    "id": 1962
+}, {
+    "keyName": "广东省",
+    "keyValue": null,
+    "dateCode": "PROVINCE",
+    "keyValueStr": null,
+    "name": "省份",
+    "id": 1963
+}, {
+    "keyName": "天津市",
+    "keyValue": null,
+    "dateCode": "PROVINCE",
+    "keyValueStr": null,
+    "name": "省份",
+    "id": 1964
+}, {
+    "keyName": "山西省",
+    "keyValue": null,
+    "dateCode": "PROVINCE",
+    "keyValueStr": null,
+    "name": "省份",
+    "id": 1965
+}, {
+    "keyName": "山东省",
+    "keyValue": null,
+    "dateCode": "PROVINCE",
+    "keyValueStr": null,
+    "name": "省份",
+    "id": 1966
+}, {
+    "keyName": "四川省",
+    "keyValue": null,
+    "dateCode": "PROVINCE",
+    "keyValueStr": null,
+    "name": "省份",
+    "id": 1967
+}, {
+    "keyName": "吉林省",
+    "keyValue": null,
+    "dateCode": "PROVINCE",
+    "keyValueStr": null,
+    "name": "省份",
+    "id": 1968
+}, {
+    "keyName": "台湾省",
+    "keyValue": null,
+    "dateCode": "PROVINCE",
+    "keyValueStr": null,
+    "name": "省份",
+    "id": 1969
+}, {
+    "keyName": "安徽省",
+    "keyValue": null,
+    "dateCode": "PROVINCE",
+    "keyValueStr": null,
+    "name": "省份",
+    "id": 1970
+}, {
+    "keyName": "黑龙江省",
+    "keyValue": null,
+    "dateCode": "PROVINCE",
+    "keyValueStr": null,
+    "name": "省份",
+    "id": 1971
+}, {
+    "keyName": "青海省",
+    "keyValue": null,
+    "dateCode": "PROVINCE",
+    "keyValueStr": null,
+    "name": "省份",
+    "id": 1972
+}, {
+    "keyName": "陕西省",
+    "keyValue": null,
+    "dateCode": "PROVINCE",
+    "keyValueStr": null,
+    "name": "省份",
+    "id": 1973
+}, {
+    "keyName": "重庆市",
+    "keyValue": null,
+    "dateCode": "PROVINCE",
+    "keyValueStr": null,
+    "name": "省份",
+    "id": 1974
+}, {
+    "keyName": "辽宁省",
+    "keyValue": null,
+    "dateCode": "PROVINCE",
+    "keyValueStr": null,
+    "name": "省份",
+    "id": 1975
+}, {
+    "keyName": "贵州省",
+    "keyValue": null,
+    "dateCode": "PROVINCE",
+    "keyValueStr": null,
+    "name": "省份",
+    "id": 1976
+}, {
+    "keyName": "西藏自治区",
+    "keyValue": null,
+    "dateCode": "PROVINCE",
+    "keyValueStr": null,
+    "name": "省份",
+    "id": 1977
+}, {
+    "keyName": "福建省",
+    "keyValue": null,
+    "dateCode": "PROVINCE",
+    "keyValueStr": null,
+    "name": "省份",
+    "id": 1978
+}, {
+    "keyName": "甘肃省",
+    "keyValue": null,
+    "dateCode": "PROVINCE",
+    "keyValueStr": null,
+    "name": "省份",
+    "id": 1979
+}, {
+    "keyName": "湖南省",
+    "keyValue": null,
+    "dateCode": "PROVINCE",
+    "keyValueStr": null,
+    "name": "省份",
+    "id": 1980
+}, {
+    "keyName": "湖北省",
+    "keyValue": null,
+    "dateCode": "PROVINCE",
+    "keyValueStr": null,
+    "name": "省份",
+    "id": 1981
+}, {
+    "keyName": "海南省",
+    "keyValue": null,
+    "dateCode": "PROVINCE",
+    "keyValueStr": null,
+    "name": "省份",
+    "id": 1982
+}, {
+    "keyName": "浙江省",
+    "keyValue": null,
+    "dateCode": "PROVINCE",
+    "keyValueStr": null,
+    "name": "省份",
+    "id": 1983
+}, {
+    "keyName": "河南省",
+    "keyValue": null,
+    "dateCode": "PROVINCE",
+    "keyValueStr": null,
+    "name": "省份",
+    "id": 1984
+}, {
+    "keyName": "河北省",
+    "keyValue": null,
+    "dateCode": "PROVINCE",
+    "keyValueStr": null,
+    "name": "省份",
+    "id": 1985
+}, {
+    "keyName": "江西省",
+    "keyValue": null,
+    "dateCode": "PROVINCE",
+    "keyValueStr": null,
+    "name": "省份",
+    "id": 1986
+}, {
+    "keyName": "江苏省",
+    "keyValue": null,
+    "dateCode": "PROVINCE",
+    "keyValueStr": null,
+    "name": "省份",
+    "id": 1987
+}, {
+    "keyName": "云南省",
+    "keyValue": null,
+    "dateCode": "PROVINCE",
+    "keyValueStr": null,
+    "name": "省份",
+    "id": 1988
+}, {
+    "keyName": "新疆维吾尔自治区",
+    "keyValue": null,
+    "dateCode": "PROVINCE",
+    "keyValueStr": null,
+    "name": "省份",
+    "id": 1989
+}, {
+    "keyName": "广西壮族自治区",
+    "keyValue": null,
+    "dateCode": "PROVINCE",
+    "keyValueStr": null,
+    "name": "省份",
+    "id": 1990
+}, {
+    "keyName": "宁夏回族自治区",
+    "keyValue": null,
+    "dateCode": "PROVINCE",
+    "keyValueStr": null,
+    "name": "省份",
+    "id": 1991
+}, {
+    "keyName": "内蒙古自治区",
+    "keyValue": null,
+    "dateCode": "PROVINCE",
+    "keyValueStr": null,
+    "name": "省份",
+    "id": 1992
+}, {
+    "keyName": "澳门特别行政区",
+    "keyValue": null,
+    "dateCode": "PROVINCE",
+    "keyValueStr": null,
+    "name": "省份",
+    "id": 1993
+}, {
+    "keyName": "香港特别行政区",
+    "keyValue": null,
+    "dateCode": "PROVINCE",
+    "keyValueStr": null,
+    "name": "省份",
+    "id": 1994
+}, {
+    "keyName": "预支付",
+    "keyValue": 1,
+    "dateCode": "ORDER_STATUS",
+    "keyValueStr": null,
+    "name": "支付状态",
+    "id": 1995
+}, {
+    "keyName": "支付成功",
+    "keyValue": 2,
+    "dateCode": "ORDER_STATUS",
+    "keyValueStr": null,
+    "name": "支付状态",
+    "id": 1996
+}, {
+    "keyName": "支付失败",
+    "keyValue": 3,
+    "dateCode": "ORDER_STATUS",
+    "keyValueStr": null,
+    "name": "支付状态",
+    "id": 1997
+}, {
+    "keyName": "申请提款",
+    "keyValue": 4,
+    "dateCode": "ORDER_STATUS",
+    "keyValueStr": null,
+    "name": "支付状态",
+    "id": 1998
+}, {
+    "keyName": "提款成功",
+    "keyValue": 5,
+    "dateCode": "ORDER_STATUS",
+    "keyValueStr": null,
+    "name": "支付状态",
+    "id": 1999
+}, {
+    "keyName": "提款失败",
+    "keyValue": 6,
+    "dateCode": "ORDER_STATUS",
+    "keyValueStr": null,
+    "name": "支付状态",
+    "id": 2000
+}, {
+    "keyName": "进入签约",
+    "keyValue": 181,
+    "dateCode": "RESUME_RECORD_STATUS",
+    "keyValueStr": null,
+    "name": "简历投递记录状态",
+    "id": 2001
+}
+];
