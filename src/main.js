@@ -8,15 +8,16 @@ import 'vue-awesome/icons'
 import Icon from 'vue-awesome/components/Icon'
 //使用font-awesome
 import 'font-awesome/css/font-awesome.min.css';
-
 //使用表情包
 import VueEmoji from 'emoji-vue';
+
 Vue.component('v-icon', Icon);
 Vue.component('VueEmoji', VueEmoji);
 Vue.config.productionTip = false;
 
 import {$post} from "./utils/request";
 Vue.prototype.$post = $post;
+
 
 router.beforeEach((to, from, next) => {
   //每刷新一次页面，重新请求数据

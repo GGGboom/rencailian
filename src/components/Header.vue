@@ -28,9 +28,9 @@
                 </div>
                 <!--搜索框-->
                 <div v-if="page==='company' || page==='job'">
-                    <el-input @keydown.enter.native="search" placeholder="搜索公司或职位"
+                    <el-input @keydown.enter.native="search" placeholder="搜索公司或职位" :clearable="true"
                               size="small" v-model="searchContent">
-                        <el-button slot="append" icon="el-icon-search" @click="search(page)"></el-button>
+                        <el-button slot="append" icon="el-icon-search" @click="search()"></el-button>
                     </el-input>
                 </div>
                 <!--搜索框-->
@@ -141,7 +141,6 @@
 <script>
     import Attachment from './Attachment';
     import {CommonUtils} from "../utils/commonUtil";
-
     export default {
         name: "Navigation",
         props: {
@@ -172,20 +171,22 @@
             goto(path) {
                 this.$router.push({name: path});
             },
-            search(page) {
-                switch (page) {
-                    case "company": {
-                        let url = `/company/allcompany${this.searchContent}`;
-                        this.$router.push(url);
-                        break;
-                    }
-                    case "job": {
-                        let url = `/job${this.searchContent}`;
-                        this.$router.push(url);
-                        break;
-                    }
+            search() {
+                // console.log(this.$route.name);
+                // let params={
+                //     pageSize:5,
+                //     pageNum:1,
+                //     authorization:CommonUtils.getStore("token")
+                // };
+                let url = "";
+                if(this.$route.name==="job_all" || this.$route.name==="jobSearch"){
+                     url = `/job/all/${this.searchContent}`;
+
+                    this.$router.push(url, () => {}, err=>err);
+                }else if (this.$route.name==="allcompany") {
+                    url = `/jobseeker/position/vague/${this.searchContent}`;
+                    this.$router.push(url);
                 }
-                console.log(page)
             },
             CloseDialog(){                  //关闭上传简历对话框
                 this.dialogVisible = false;

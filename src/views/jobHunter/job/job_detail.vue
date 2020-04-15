@@ -10,29 +10,33 @@
                             </span>
                         </div>
                         <div class="name">
-                            <h1>小初高各科教师</h1>
-                            <span class="salary">7-12k</span>
+                            <h1>{{info.position.name}}</h1>
+                            <span class="salary">{{info.position.salaryRangeTxt}}</span>
                         </div>
                         <p>
-                            南宁 <em class="dolt"></em>1-3年 <em class="dolt"></em>本科
+                             {{info.position.city}}
+                            <em class="dolt"></em>
+                            {{info.position.serviceLengthTxt}}
+                            <em class="dolt"></em>
+                            {{info.position.educationTxt}}
                         </p>
                         <div class="tag-container">
 
                         </div>
                     </div>
                     <div class="job-op">
-                        <router-link to="" class="btn btn-startchat">
+                        <router-link to="/msg" class="btn btn-startchat">
                             立即沟通
                         </router-link>
-                        <div class="op-container">
-                            <router-link to="">
+                        <div class="op-container d-flex d-flex-sbt">
+                            <div class="job-btn">
                                 <i class="el-icon-files"></i>
                                 完善在线简历
-                            </router-link>
-                            <router-link to="" class="fr">
-                                <i class="el-icon-upload"></i>
-                                上传简历附件
-                            </router-link>
+                            </div>
+                            <div class="job-btn fr star-hover" @click="favourite">
+                                <i class="el-icon-star-on"></i>
+                                收藏
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -49,20 +53,20 @@
                                 <img src="../../../assets/img/aliyun.jpg" alt>
                             </router-link>
                             <router-link to="" class="company-name">
-                                阿里云
+                                {{company.simpleName}}
                             </router-link>
                         </div>
                         <p>
                             <i class="fa fa-line-chart" aria-hidden="true"></i>
-                            融资阶段
+                            融资阶段:{{company.financingRoundTxt}}
                         </p>
                         <p>
                             <i class="fa fa-user-o" aria-hidden="true"></i>
-                            公司规模
+                            公司规模:{{company.companySizeTxt}}
                         </p>
                         <p>
                             <i class="fa fa-tags" aria-hidden="true"></i>
-                            互联网
+                            {{company.industryTypeTxt}}
                         </p>
                         <p>
                             <i class="fa fa-sitemap" aria-hidden="true"></i>
@@ -78,10 +82,13 @@
                         <div class="detail-figure">
                             <img src="../../../assets/img/msg_avatar.png" alt>
                         </div>
-                        <h2 class="name">潘双全</h2>
-                        <p class="gray">
-                            招聘者<em class="vdot">·</em>刚刚在线
-                        </p>
+                        <div class="name">
+                            {{info.publishUserName}}
+                            <span class="gray online-status">
+                                招聘者<em class="vdot">·</em>刚刚在线
+                            </span>
+                        </div>
+
                     </div>
                     <div class="detail-content">
                         <div class="job-sec">
@@ -89,11 +96,11 @@
                             <div class="text">
                                 1、职位描述
                                 <br>
-                                软件工程师
+                                {{info.position.description}}
                                 <br>
                                 2、职业要求
                                 <br>
-                                技术专业、认真负责
+                                {{info.position.positionRequire?info.position.positionRequire:"无"}}
                             </div>
                         </div>
                         <div class="job-sec">
@@ -102,7 +109,7 @@
 
                             </div>
                             <div class="text">
-                                上海市上海区浦东新区世纪大道
+                                <i class="el-icon-location-information">{{info.position.address}}</i>
                             </div>
                         </div>
                     </div>
@@ -114,12 +121,74 @@
 </template>
 
 <script>
+    import {getJobById,favourite} from "../../../api/job";
+    import {getCompanyById} from "../../../api/company";
+    import {CommonUtils} from "../../../utils/commonUtil";
+
     export default {
         name: "job_detail",
         data(){
             return{
-
+                info:{
+                    position:{}
+                },
+                company:{}
             }
+        },
+        methods:{
+            get(positionId,companyId){
+               getJobById({authorization:CommonUtils.getStore("token")},positionId)
+                   .then(res=>{
+                       if(res.code===0){
+                           this.info = res;
+                           this.info.position.salaryRangeTxt = CommonUtils.getKeyName('SALARY_RANGE', res.position.salaryRange);
+                           this.info.position.serviceLengthTxt = CommonUtils.getKeyName('SERVICE_LENGTH', res.position.serviceLength);
+                           this.info.position.educationTxt = CommonUtils.getKeyName('EDUCATION', res.position.education);
+                           console.log(res);
+                       }
+                   })
+                   .catch(err=>{
+                       console.log(err);
+                   })
+
+               getCompanyById({authorization:CommonUtils.getStore("token")},companyId)
+                   .then(res=>{
+                       if(res.code === 0){
+                           this.company = res.company;
+                           console.log(this.company)
+                           this.company.companySizeTxt = CommonUtils.getKeyName('COMPANY_SIZE',this.company.companySize);
+                           this.company.industryTypeTxt = CommonUtils.getKeyName('POSITION_TYPE', this.company.industryType);
+                           this.company.financingRoundTxt = CommonUtils.getKeyName('FINANCING_ROUND', this.company.financingRound);
+                           this.company.companySizeTxt = this.company.companySize;
+
+                       }
+                   })
+                   .catch(err=>{
+                       console.log(err);
+                   })
+           },
+            favourite(){
+                let positionID = this.$route.query.positionId;
+                favourite(positionID,CommonUtils.getStore("token"))
+                    .then(res=>{
+                        if(res.code===0){
+                            this.$message.success("收藏成功");
+                            setTimeout(()=>{
+                                this.$router.go(0);
+                            },900)
+                        }else{
+                            this.$message.error(res.message);
+                        }
+                    })
+                    .catch(err=>{
+                        console.log(err);
+                    })
+            }
+        },
+        mounted() {
+            let positionID = this.$route.query.positionId;
+            let companyId = this.$route.query.companyId;
+            this.get(positionID,companyId);
         }
     }
 </script>

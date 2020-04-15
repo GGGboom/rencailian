@@ -65,7 +65,7 @@
                     },
                     {
                         subName:'投递记录',
-                        link:"/profile/history",
+                        link:"/profile/records",
                         index:5
                     },
                     {

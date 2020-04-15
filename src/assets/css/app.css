@@ -79,6 +79,9 @@ body ::-webkit-scrollbar-track-piece {
 .normal-margin-top{
     margin-top: 10px;
 }
+.medium-margin-top{
+    margin-top: 20px;
+}
 .normal-pdd{
     padding: 10px 0;
 }
@@ -122,4 +125,28 @@ body ::-webkit-scrollbar-track-piece {
     width: 25px;
 }
 /*空消息盒子*/
+
+/*分页*/
+.page-box pagination.is-background .el-pager li {
+    background-color: #fff!important;
+}
+.page-box pagination.is-background .el-pager li:hover{
+    color: #62d5c8!important;
+}
+.page-box .el-pagination.is-background .el-pager li:not(.disabled).active {
+    background-color: #62d5c8!important;
+    color: #FFF!important;
+}
+.page-box {
+    margin: 10px 0;
+    width: 100%;
+}
+.page-box .el-pagination.is-background .el-pager li,.page-box .el-pagination.is-background .btn-prev,.page-box  .el-pagination.is-background .btn-next{
+    margin: 0 5px;
+    background-color: #FFF;
+    color: #606266;
+    min-width: 30px;
+    border-radius: 2px;
+}
+/*分页*/
 

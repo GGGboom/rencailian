@@ -9,7 +9,6 @@
                         </dt>
                         <dd>
                             <el-input v-model="ruleForm.name">
-
                             </el-input>
                         </dd>
                     </dl>
@@ -92,9 +91,7 @@
 
     import VDistpicker from 'v-distpicker';
     import {getInfo,saveInfo} from "../../../api/user";
-    import {strToDate,dateToString} from "../../../utils/dateUtil";
     import {CommonUtils} from "../../../utils/commonUtil";
-
     export default {
         name: "info",
         components: {
@@ -108,8 +105,7 @@
                 this.ruleForm.huntingStatus = obj.id;
                 console.log(`${this.ruleForm.huntingStatus}+${obj.id}`)
             },
-            //城市选择器
-            proviceAddress(data) {
+            proviceAddress(data) {//城市选择器
                 console.log(data)
             },
             handleAvatarSuccess(res, file) {
@@ -126,12 +122,11 @@
                 }
                 return isJPG && isLt2M;
             },
-            //保存修改
-            async saveInfomation() {
+            async saveInfomation() {        //保存修改
                 let user = CommonUtils.getStore("user");
                 let formdata = new FormData();
                 formdata.append("name",this.ruleForm.name);
-                formdata.append("birthday",dateToString(this.ruleForm.birthday));
+                formdata.append("birthday",CommonUtils.dateToString(this.ruleForm.birthday));
                 formdata.append("huntingStatus",this.ruleForm.huntingStatus);
                 formdata.append("workCity",1);
                 formdata.append("gender",this.ruleForm.gender);
@@ -141,10 +136,9 @@
                             user.gender = this.ruleForm.gender;
                             user.huntingStatus = this.ruleForm.huntingStatus;
                             user.name = this.ruleForm.name;
-                            user.birthday = dateToString(this.ruleForm.birthday);
+                            user.birthday = CommonUtils.dateToString(this.ruleForm.birthday);
                             this.$message.success("修改成功");
-                            //修改成功则修改localstorage
-                            CommonUtils.setStore("user",user);
+                            CommonUtils.setStore("user",user);          //修改成功则修改localstorage
                             setTimeout(()=>{
                                 this.$router.go(0);
                             },1000);
@@ -163,7 +157,7 @@
                 if(res.code===0){
                     this.ruleForm.name = res.user.name;
                     this.ruleForm.gender = res.user.detail.gender.toString();
-                    this.ruleForm.birthday = strToDate(res.user.detail.birthday);
+                    this.ruleForm.birthday = CommonUtils.strToDate(res.user.detail.birthday);
                     this.ruleForm.workCity = res.user.detail.workCity;
                     this.ruleForm.huntingStatus = res.user.detail.huntingStatus;
                 }
@@ -181,7 +175,7 @@
         },
         data() {
             return {
-                statusList:CommonUtils.huntingStatus,
+                statusList:CommonUtils.getEnumNameList('HUNTING_STATUS'),
                 ruleForm: {
                     name: "",
                     gender: 1,

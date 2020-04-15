@@ -205,8 +205,7 @@
 
 <script>
     import {getContract} from "../../../api/user";
-    import {getStore} from "../../../utils/localStorageUtil";
-
+    import {CommonUtils} from "../../../utils/commonUtil";
     export default {
         name: "contract",
         data(){
@@ -274,7 +273,7 @@
                 this.styleObj2.display = 'block';
             },
             get(){
-                getContract({loginId:getStore("user").userId,authorization:getStore("user").token},2)
+                getContract({loginId:CommonUtils.getStore("user").userId,authorization:CommonUtils.getStore("token")},2)
                     .then(res=>{
                         this.jobHunter_contract = res.contracts;
                         console.log(res);

@@ -131,10 +131,10 @@
                 return showDelivery;
             },
             getEducationStr(num){
-                return CommonUtils.getEducation(num);
+                return CommonUtils.getKeyName('EDUCATION',num);
             },
             getServiceStr(num){
-                return CommonUtils.getServiceLength(num);
+                return CommonUtils.getKeyName('SERVICE_LENGTH',num);
             },
             pageChange(page,list){
                 this.showDeliverList = [];

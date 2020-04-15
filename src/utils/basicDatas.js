@@ -408,7 +408,7 @@ export const BasicData = [
 }, {
     "keyName": "0-20",
     "keyValue": 1,
-    "dateCode": "COMPANY_SIZE",
+    "dateCode": "F",
     "keyValueStr": null,
     "name": "公司规模",
     "id": 259
@@ -812,12 +812,20 @@ export const BasicData = [
     "name": "城市编码",
     "id": 327
 }, {
-    "keyName": "客服/售前/售后技术",
-    "keyValue": 1001,
-    "dateCode": "POSITION_TYPE",
-    "keyValueStr": "K",
-    "name": "职业分类",
-    "id": 1138
+        "keyName": "全部",
+        "keyValue": 0,
+        "dateCode": "POSITION_TYPE",
+        "keyValueStr": "K",
+        "name": "职业分类",
+        "id": 1111
+
+}, {
+        "keyName": "客服/售前/售后技术",
+        "keyValue": 1001,
+        "dateCode": "POSITION_TYPE",
+        "keyValueStr": "K",
+        "name": "职业分类",
+        "id": 1138
 }, {
     "keyName": "客户服务总监",
     "keyValue": 1002,

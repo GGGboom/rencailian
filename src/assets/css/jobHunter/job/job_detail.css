@@ -140,11 +140,12 @@
     top: 60px;
     width: 100%;
 }
-.job-banner .op-container a {
+.job-banner .op-container .job-btn{
     height: 22px;
     line-height: 22px;
     font-size: 16px;
     color: #5ed5c8;
+    cursor: pointer;
 }
 
 .job-box{
@@ -222,10 +223,6 @@
     position: static;
 }
 .job-detail .detail-figure {
-    float: left;
-    position: static;
-}
-.job-detail .detail-figure {
     left: 0;
 }
 .job-detail .detail-figure img {
@@ -248,8 +245,9 @@
 .gray {
     color: #9fa3af;
 }
-.job-detail .detail-op p {
+.job-detail .detail-op .online-status {
     margin-top: 5px;
+    font-size: 13px!important;
 }
 .job-detail .detail-content {
     clear: left;

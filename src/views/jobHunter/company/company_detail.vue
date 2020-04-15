@@ -122,25 +122,43 @@
 </template>
 
 <script>
+    import {getCompanyById} from "../../../api/company";
+    import {CommonUtils} from "../../../utils/commonUtil";
 
     export default {
         name: "company_detail",
         data() {
             return {
                 url: require("../../../assets/img/alibaba.jpg"),
-                activeIndex: "1"
+                activeIndex: "1",
+                company:{}
             }
         },
         methods: {
-            init(){
-                window.scrollTo(0,0);
+            get(companyId){
+                getCompanyById({authorization:CommonUtils.getStore("token")},companyId)
+                    .then(res=>{
+                        if(res.code===0){
+                            this.company = res.company;
+                        }
+                        console.log(res);
+                    })
+                    .catch(err=>{
+                        console.log(err);
+                    })
+                console.log(companyId);
+                console.log(CommonUtils.getStore("token"));
             },
             handleSelect(key, keyPath) {
                 console.log(key, keyPath);
             }
         },
         created() {
-            this.init();
+            console.log(this.$route.query);
+            this.get(this.$route.query.companyId)
+        },
+        beforeCreate() {
+            this.$emit("setHeader","detail")
         }
     }
 </script>

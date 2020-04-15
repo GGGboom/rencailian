@@ -1,87 +1,5 @@
 import {getInfo} from "../api/user";
 import {BasicData} from "./basicDatas";
-
-
-//获取公司规模
-export function getCompanySize(n){
-    switch (n) {
-        case 0:{
-            return "未设置";
-        }
-        case 1:{
-            return "0-20人";
-        }
-        case 2:{
-            return "20-100人";
-        }
-        case 3:{
-            return "100-500人";
-        }
-        case 4:{
-            return "500-1000人";
-        }
-        case 5:{
-            return "1000-10000人";
-        }
-        case 6:{
-            return "10000人以上";
-        }
-    }
-}
-
-//获取公司验证状态
-export function getVerifiedStatus(n) {
-    switch (n) {
-        case 0:{
-            return "未认证";
-        }
-        case 1:{
-            return "认证通过";
-        }
-        case 2:{
-            return "认证中";
-        }
-        case 3:{
-            return "认证不通过";
-        }
-    }
-}
-
-//获取公司融资状态
-export function getFinancingRound(n) {
-    switch (n) {
-        case 0:{
-            return "初始值";
-        }
-        case 1:{
-            return "未融资";
-        }
-        case 2:{
-            return "天使轮";
-        }
-        case 3:{
-            return "A轮";
-        }
-        case 4:{
-            return "B轮";
-        }
-        case 5:{
-            return "C轮";
-        }
-        case 6:{
-            return "D轮及以上";
-        }
-        case 7:{
-            return "已上市";
-        }
-        case 8:{
-            return "不需要融资";
-        }
-    }
-}
-
-
-
 export const CommonUtils = {
     domainNamePrefix :'http://49.234.230.195:58080/',  //prefix of api address
     // domainNamePrefix :'http://localhost:8080/talent_war_exploded/',  //prefix of api address
@@ -126,7 +44,6 @@ export const CommonUtils = {
             });
         }
     },
-
 
     /**
      * @param keyword
@@ -184,65 +101,83 @@ export const CommonUtils = {
     },
 
     /**
-     * @description Get the education string by number
-     * @param index
-     * @returns {string}
+     * @description Get the meaning of the enumeration in Chinese
      */
-    getEducation:(index)=>{
-        switch (index) {
-            case 1:{
-                return "小学";
-            }
-            case 2:{
-                return "初中";
-            }
-            case 3:{
-                return "高中";
-            }
-            case 4:{
-                return "大专";
-            }
-            case 5:{
-                return "本科";
-            }
-            case 6:{
-                return "硕士";
-            }
-            case 7:{
-                return "博士";
-            }
-            case 8:{
-                return "博士后";
+    getKeyName:function(date_code,key_value){
+        let commonBasicData = BasicData;
+        let keyName = '';
+        if(key_value!=null && commonBasicData && commonBasicData != null && typeof(commonBasicData)!="undefined"){
+            for(let i=0;i<commonBasicData.length;i++){
+                let currData = commonBasicData[i];
+                if(currData.dateCode == date_code && currData.keyValue ==key_value ){
+                    keyName = currData.keyName;
+                }
             }
         }
+        return keyName;
     },
 
     /**
-     * @description Get the serviceLength string by number
-     * @param num
-     * @returns {string}
+     * @description Get the digital value of the enumeration
      */
-    getServiceLength:(num)=>{
-        switch (num) {
-            case 0:{
-                return "默认值";
-            }
-            case 1:{
-                return "1年以内";
-            }
-            case 2:{
-                return "1-3年";
-            }
-            case 3:{
-                return "3-5年";
-            }
-            case 4:{
-                return "5-10年";
-            }
-            case 5:{
-                return "10年以上";
+    getKeyValue:function(date_code,key_name){
+        let commonBasicData = BasicData;
+        let keyValue = '';
+        if(key_name!=null && commonBasicData && commonBasicData != null && typeof(commonBasicData)!="undefined"){
+            for(let i=0;i<commonBasicData.length;i++){
+                let currData = commonBasicData[i];
+                if(currData.dateCode === date_code && currData.keyName === key_name ){
+                    keyValue = currData.keyValue;
+                    break;
+                }
             }
         }
+        return keyValue;
+    },
+
+    strToDate:(str)=>{
+        return new Date((str).replace(/-/,"/"));
+    },
+
+    dateToString:(date)=>{
+        try {
+            let year = date.getFullYear();
+            let month =(date.getMonth() + 1).toString();
+            let day = (date.getDate()).toString();
+            if (month.length === 1) {
+                month = "0" + month;
+            }
+            if (day.length === 1) {
+                day = "0" + day;
+            }
+            return year + "-" + month + "-" + day;
+        }catch (e) {
+            console.log(e);
+        }
+
+    },
+
+    /**
+     * @description Get the enumeration list by date_code
+     */
+    getEnumNameList:function(date_code,noEmpty){
+        let commonBasicData = BasicData;
+        let enumList = [];
+        if(typeof(noEmpty)=='undefined'){
+            enumList.push('');
+        }
+        if(commonBasicData && commonBasicData != null && typeof(commonBasicData)!="undefined"){
+            for(let i=0;i<commonBasicData.length;i++){
+                let currData = commonBasicData[i];
+                let obj={};
+                if(currData.dateCode === date_code){
+                    obj.txt = currData.keyName;
+                    obj.id = currData.keyValue;
+                    enumList.push(obj);
+                }
+            }
+        }
+        return enumList;
     },
 
     /**
@@ -351,27 +286,6 @@ export const CommonUtils = {
         }
 
     ],
-
-    /**
-     * 求职状态
-     */
-    huntingStatus:[
-        {
-            txt:"在职-暂不考虑",
-            id:1
-        },{
-            txt:"在职-考虑机会",
-            id:2
-        },{
-            txt:"在职-月内到岗",
-            id:3
-        },{
-            txt:"离职-随时到岗",
-            id:4
-        }
-    ],
-
-
 
     /**
      * 薪资范围
@@ -498,90 +412,4 @@ export const CommonUtils = {
             id:8
         },
     ],
-
-    /**
-     * @description Get the meaning of the enumeration in Chinese
-     */
-    getKeyName:function(date_code,key_value){
-        let commonBasicData = BasicData;
-        let keyName = '';
-        if(key_value!=null && commonBasicData && commonBasicData != null && typeof(commonBasicData)!="undefined"){
-            for(let i=0;i<commonBasicData.length;i++){
-                let currData = commonBasicData[i];
-                if(currData.dateCode == date_code && currData.keyValue ==key_value ){
-                    keyName = currData.keyName;
-                }
-            }
-        }
-        return keyName;
-    },
-
-    /**
-     * @description Get the digital value of the enumeration
-     */
-    getKeyValue:function(date_code,key_name){
-        let commonBasicData = BasicData;
-        let keyValue = '';
-        if(key_name!=null && commonBasicData && commonBasicData != null && typeof(commonBasicData)!="undefined"){
-            for(let i=0;i<commonBasicData.length;i++){
-                let currData = commonBasicData[i];
-                if(currData.dateCode == date_code && currData.keyName ==key_name ){
-                    keyValue = currData.keyValue;
-                    break;
-                }
-            }
-        }
-        return keyValue;
-    },
-
-
-    strToDate:(str)=>{
-        return new Date((str).replace(/-/,"/"));
-    },
-    dateToString:(date)=>{
-        try {
-            let year = date.getFullYear();
-            let month =(date.getMonth() + 1).toString();
-            let day = (date.getDate()).toString();
-            if (month.length === 1) {
-                month = "0" + month;
-            }
-            if (day.length === 1) {
-                day = "0" + day;
-            }
-            return year + "-" + month + "-" + day;
-        }catch (e) {
-            console.log(e);
-        }
-
-    },
-
-    compareStartEndTime:(startTime,endTime)=>{
-        if(startTime.getTime()>endTime.getTime()){
-            return false;
-        }
-        return true;
-    },
-
-    /**
-     * @description Get the HuntingStatus string by number
-     * @param num
-     * @returns {string}
-     */
-    getHuntingStatus:(num)=>{
-          switch (num) {
-              case 1:{
-                  return "在职-暂不考虑";
-              }
-              case 2:{
-                  return "在职-月内到岗";
-              }
-              case 3:{
-                  return "在职-月内到岗";
-              }
-              case 4:{
-                  return "离职-随时到岗";
-              }
-          }
-    },
 };

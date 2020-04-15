@@ -13,7 +13,7 @@
 
                                     </router-link>
                                     <span class="salary">
-                                        {{positionItem.salaryRangeStart}}-{{positionItem.salaryRangeEnd}}K
+                                        {{positionItem.salaryRange}}
                                     </span>
                                 </h3>
                             </div>
@@ -22,7 +22,7 @@
                                     {{positionItem.companyName}}
                                 </span>
                                 <span class="ml-0 mr-3">
-                                    {{positionItem.publishStatus}}
+                                    {{positionItem.financingRound}}
                                 </span>
                                 <span class="ml-0 mr-3">
                                     {{positionItem.address}}
@@ -30,7 +30,7 @@
                             </div>
                         </div>
                         <div class="col-4">
-                            <el-button size="mini">取消收藏</el-button>
+                            <el-button size="mini" @click="deleteFavourite(positionItem.positionId,2)">取消收藏</el-button>
                             <el-button size="mini">立即沟通</el-button>
                         </div>
                     </li>
@@ -75,7 +75,7 @@
                         </div>
                         <div class="col-4  d-md-flex vertical-center">
                             <el-button size="mini">查看全部在招职位</el-button>
-                            <el-button size="mini">取消收藏</el-button>
+                            <el-button size="mini" @click="deleteFavourite(item.companyId,1)">取消收藏</el-button>
                         </div>
                     </li>
                 </ul>
@@ -89,7 +89,8 @@
 <script>
     import {getFavourite} from "../../../api/user";
     import {CommonUtils} from "../../../utils/commonUtil";
-    import {getCompanySize,getFinancingRound,getVerifiedStatus} from "../../../utils/commonUtil";
+    import {canelFavourite} from "../../../api/job";
+    import {canelFavouriteComp} from "../../../api/company";
 
     export default {
         name: "collect",
@@ -97,108 +98,77 @@
             return {
                 activeName: 'first',
                 companys:[],
-                positions:[
-                    {
-                        "companyId": 1,
-                        "positionId": 1,
-                        "name": "软件工程师",
-                        "address": "上海市松江区",
-                        "salaryRangeStart": 10,
-                        "salaryRangeEnd": 20,
-                        "serviceLength": null,
-                        "createTime": null,
-                        "updateTime": null,
-                        "publishTime": null,
-                        "publishStatus": "D轮及以上",
-                        "education": null,
-                        "isDeleted": false,
-                        "simpleName": null,
-                        "companyName": '阿里巴巴'
-                    },
-                    {
-                        "companyId": 2,
-                        "positionId": 2,
-                        "name": "软件工程师",
-                        "address": "上海市浦东新区",
-                        "salaryRangeStart": 15,
-                        "salaryRangeEnd": 25,
-                        "serviceLength": null,
-                        "createTime": null,
-                        "updateTime": null,
-                        "publishTime": null,
-                        "publishStatus": "D轮及以上",
-                        "education": null,
-                        "isDeleted": false,
-                        "simpleName": null,
-                        "companyName": '腾讯'
-                    },
-                    {
-                        "companyId": 3,
-                        "positionId": 3,
-                        "name": "高级软件工程师",
-                        "address": "上海市普陀区",
-                        "salaryRangeStart": 12,
-                        "salaryRangeEnd": 23,
-                        "serviceLength": null,
-                        "createTime": null,
-                        "updateTime": null,
-                        "publishTime": null,
-                        "publishStatus": "D轮及以上",
-                        "education": null,
-                        "isDeleted": false,
-                        "simpleName": null,
-                        "companyName": '百度'
-                    }
-                    ,
-                    {
-                        "companyId": 4,
-                        "positionId": 4,
-                        "name": "软件工程师",
-                        "address": "上海市静安区",
-                        "salaryRangeStart": 12,
-                        "salaryRangeEnd": 23,
-                        "serviceLength": null,
-                        "createTime": null,
-                        "updateTime": null,
-                        "publishTime": null,
-                        "publishStatus": "D轮及以上",
-                        "education": null,
-                        "isDeleted": false,
-                        "simpleName": null,
-                        "companyName": '字节跳动'
-                    }
-                ]
+                positions:[]
             };
         },
         methods: {
             handleClick(tab, event) {
                 console.log(tab, event);
             },
-            //获取收藏公司列表
-            getCompany(){
+            getCompany(){ //获取收藏公司列表
                 getFavourite({authorization:CommonUtils.getStore("token")},1).then((res)=>{
                     if(res.code===0){
                         console.log(res);
                         this.companys = JSON.parse(JSON.stringify(res.companys));
                         this.companys.forEach(item=>{
-                            item.verifiedStatus = getVerifiedStatus(item.verifiedStatus);
-                            item.financingRound = getFinancingRound(item.financingRound);
-                            item.companySize = getCompanySize(item.companySize);
+                            item.verifiedStatus = CommonUtils.getKeyName('VERIFIED_STATUS',item.verifiedStatus);
+                            item.financingRound = CommonUtils.getKeyName('FINANCING_ROUND',item.financingRound);
+                            item.companySize = CommonUtils.getKeyName('COMPANY_SIZE',item.companySize);
                         })
                     }
                 }).catch(err=>{
                     console.log(err);
                 });
             },
-            //获取收藏职位列表
-            getPosition(){
+            getPosition(){//获取收藏职位列表
                 getFavourite({authorization:CommonUtils.getStore("token")},2).then((res)=>{
                     if(res.code===0){
+                        this.positions = res.positions;
+                        this.positions.forEach(item=>{
+                            item.salaryRange = CommonUtils.getKeyName('SALARY_RANGE', item.salaryRange);
+                            item.serviceLength = CommonUtils.getKeyName('SERVICE_LENGTH', item.serviceLength);
+                            item.education = CommonUtils.getKeyName('EDUCATION', item.education);
+                            item.financingRound = CommonUtils.getKeyName('FINANCING_ROUND', item.financingRound);
+                        })
                         console.log(res);
                     }
                 }).catch(err=>{
                     console.log(err);
                 });
+            },
+            deleteFavourite(id,type){
+                if(type===2){       //2是取消收藏职位
+                    canelFavourite(null,CommonUtils.getStore("token"),id,type)
+                        .then(res=>{
+                            if(res.code===0){
+                                this.$message.success("取消收藏成功");
+                                setTimeout(()=>{
+                                    this.$router.go(0);
+                                },900)
+                            }else{
+                                this.$message.error(res.message);
+                            }
+                        })
+                        .catch(err=>{
+                            console.log(err);
+                        })
+                }else{              //取消收藏公司
+                    canelFavouriteComp(null,CommonUtils.getStore("token"),id,type)
+                        .then(res=>{
+                            if(res.code===0){
+                                this.$message.success("取消收藏成功");
+                                setTimeout(()=>{
+                                    this.$router.go(0);
+                                },900)
+                            }else{
+                                this.$message.error(res.message);
+                            }
+                        })
+                        .catch(err=>{
+                            console.log(err);
+                        })
+                }
+
             }
         },
         mounted() {

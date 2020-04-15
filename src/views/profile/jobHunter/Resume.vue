@@ -21,12 +21,12 @@
                                         </span>
                                         <el-divider direction="vertical"></el-divider>
                                         <span class="label-item">
-                                            <i v-if="baseForm.gender===1" class="fa fa-mars" aria-hidden="true">男</i>
+                                            <i v-if="baseForm.gender==='1'" class="fa fa-mars" aria-hidden="true">男</i>
                                             <i v-else class="fa fa-venus" aria-hidden="true">女</i>
                                         </span>
                                         <el-divider direction="vertical"></el-divider>
                                         <span class="label-item">
-                                            <i class="el-icon-location-outline"></i>上海
+                                            <i class="el-icon-location-outline"></i>{{baseForm.citys}}
                                         </span>
                                     </div>
                                 </div>
@@ -138,7 +138,7 @@
                                     </div>
                                     <div class="d-flex-row">
                                         <p class="normal-pdd">
-                                            <span>求职状态:{{intentionForm.huntingStatus}}</span>
+                                            <span>求职状态:{{intentionForm.huntingStatusTxt}}</span>
                                         </p>
                                         <p class="normal-pdd">
                                             <span>自我评价:{{intentionForm.selfEvaluation}}</span>
@@ -259,7 +259,7 @@
                                                 {{item.workDescription}}
                                             </div>
                                         </div>
-                                        <div class="resume-delete" @click="delWorkExp(item.id)">
+                                        <div class="resume-delete" @click="deleteHandle(item.id,0)">
                                             <el-button type="text" icon="el-icon-delete" >删除
                                             </el-button>
                                         </div>
@@ -404,7 +404,7 @@
                                                 {{item.projectDescprition}}
                                             </div>
                                         </div>
-                                        <div class="resume-delete" @click="deleteProject(item.id)">
+                                        <div class="resume-delete" @click="deleteHandle(item.id,1)">
                                             <el-button type="text" icon="el-icon-delete" >删除
                                             </el-button>
                                         </div>
@@ -535,7 +535,7 @@
                                             </h4>
                                         </div>
                                         <div class="resume-delete">
-                                            <el-button type="text" icon="el-icon-delete" @click="delDegree(item.id)">删除
+                                            <el-button type="text" icon="el-icon-delete" @click="deleteHandle(item.id,2)">删除
                                             </el-button>
                                         </div>
                                     </li>
@@ -667,11 +667,11 @@
                 project: true,
                 education: true,
                 avatar: require("../../../assets/img/aliyun.jpg"),
-                industryType: CommonUtils.industryType,
-                huntingStatus: CommonUtils.huntingStatus,
-                salaryRange: CommonUtils.salaryRange,
-                educationList: CommonUtils.education,
-                cities: CommonUtils.cities,
+                industryType: CommonUtils.getEnumNameList('INDUSTRY_TYPE'),
+                huntingStatus: CommonUtils.getEnumNameList('HUNTING_STATUS'),
+                salaryRange: CommonUtils.getEnumNameList('SALARY_RANGE'),
+                educationList: CommonUtils.getEnumNameList('EDUCATION'),
+                cities: CommonUtils.getEnumNameList('WORK_CITY'),
                 baseForm: {                      //基本信息表单
                     gender: "",
                     name: "",
@@ -830,9 +830,10 @@
                     this.baseForm.name = this.user.name;
                     this.baseForm.birthday = this.user.detail.birthday;
                     this.baseForm.huntingStatus = this.user.detail.huntingStatus.toString();
-                    this.baseForm.citys = this.user.detail.workCity;
+                    this.baseForm.citys = CommonUtils.getKeyName('WORK_CITY', this.user.detail.workCity);
                     this.baseForm.gender = user.detail.gender.toString();
-                    this.intentionForm.huntingStatus = CommonUtils.getHuntingStatus(this.user.detail.huntingStatus);
+                    this.intentionForm.huntingStatus = this.user.detail.huntingStatus;
+                    this.intentionForm.huntingStatusTxt = CommonUtils.getKeyName('HUNTING_STATUS', this.user.detail.huntingStatus);
                     this.intentionForm.expectIndustry = CommonUtils.getKeyName('POSITION_TYPE', this.user.detail.expectIndustry);
                     this.intentionForm.selfEvaluation = this.user.detail.selfEvaluation;
                     this.intentionForm.expectPost = CommonUtils.getKeyName('POSITION_TYPE_' + this.user.detail.expectIndustry, this.user.detail.expectPost);
@@ -914,18 +915,8 @@
                     })
                 } else {                   //新建工作经历
                     this.experienceForm = {};                                //id为空为新建工作经历
-                    this.experienceForm.id = null;
                 }
 
-            },
-            async delWorkExp(id){            //删除工作经历
-               let res = await deleteWorkExp(null,CommonUtils.getStore("token"),id);
-               if(res.code===0){
-                   this.$message.success("删除成功");
-                   this.$router.go(0);
-               }else{
-                   this.$message.error(res.message);
-               }
             },
             updateExperience(formName) {             //新建工作经历
                 this.$refs[formName].validate(async valid => {
@@ -943,18 +934,18 @@
                                 companyName: this.experienceForm.companyName,
                                 position: 0,
                                 ishidden: 0                 //是否隐藏简历
-                            }
+                            };
                             if (this.experienceForm.id !== undefined) {
                                 data.id = this.experienceForm.id;
                             }
-
-                            console.log(CommonUtils.getKeyValue('POSITION_TYPE', this.experienceForm.industryType))
+                            console.log(data);
                             let res = await updateWorkExp(JSON.stringify(data), CommonUtils.getStore("token"));
                             if (res.code === 0) {
                                 this.$message.success("修改成功");
                                 setTimeout(() => {
                                     this.$router.go(0);
-                                }, 1000)
+                                }, 1000);
+                                console.log(res);
                             } else {
                                 console.log(res);
                             }
@@ -1011,15 +1002,6 @@
                     }
                 })
             },
-            async deleteProject(id){
-               let res = await deleteProjectExp(null,CommonUtils.getStore("token"),id);
-                if(res.code===0){
-                    this.$message.success("删除成功");
-                    this.$router.go(0);
-                }else{
-                    this.$message.error(res.message);
-                }
-            },
             showDegrees(id, type) {
                 this.education = false;
                 if (type === 0) {
@@ -1036,15 +1018,6 @@
                     })
                 } else {
                     this.educationForm = {};                                //id为空为新建项目
-                }
-            },
-            async delDegree(id){
-                let res = await deleteDegree(null,CommonUtils.getStore("token"),id);
-                if(res.code===0){
-                    this.$message.success("删除成功");
-                    this.$router.go(0);
-                }else{
-                    this.$message.error(res.message);
                 }
             },
             updateEducation(formName){
@@ -1076,6 +1049,32 @@
                         console.log("err!")
                     }
                 })
+            },
+            async deleteHandle(id,type){
+                let res={};
+                switch (type) {
+                    case 0:{            //删除工作经历
+                        res = await deleteWorkExp(null,CommonUtils.getStore("token"),id);
+                        break;
+                    }
+                    case 1:{            //删除项目经历
+                        res = await deleteProjectExp(null,CommonUtils.getStore("token"),id);
+                        break;
+                    }
+                    case 2:{            //删除教育经历
+                        res = await deleteDegree(null,CommonUtils.getStore("token"),id);
+                        break;
+                    }
+                }
+                console.log("run");
+                if(res.code===0){
+                    this.$message.success("删除成功");
+                    setTimeout(()=>{
+                        this.$router.go(0);
+                    },900);
+                }else{
+                    this.$message.error(res.message);
+                }
             }
         },
         created() {

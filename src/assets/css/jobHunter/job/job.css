@@ -100,7 +100,7 @@
     background: 0 0;
     margin-right: 300px;
 }
-.job-list li {
+.job-list .job-li {
     height: 130px;
     cursor: pointer;
     margin-bottom: 10px;
@@ -310,3 +310,6 @@
 .citys .el-button--text{
     margin: 0 20px;
 }
+
+
+

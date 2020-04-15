@@ -29,8 +29,8 @@ const routes = [
             //所有公司页面
             {
                 path: 'all',
-                name: 'allcompany',
-                component: () => import( '../views/jobHunter/company/allcompany.vue'),
+                name: 'company_all',
+                component: () => import( '../views/jobHunter/company/company_all.vue'),
                 meta: {title: '所有公司', requireAuth: true}
             },
             //公司详情页面
@@ -54,6 +54,13 @@ const routes = [
                 path: 'all',
                 name: 'job_all',
                 component: () => import( '../views/jobHunter/job/job_all.vue'),
+                meta: {title: '职位', requireAuth: true}
+            },
+            //职位
+            {
+                path: 'all/:search',
+                name: 'jobSearch',
+                component: () => import( '@/views/jobHunter/job/job_all.vue'),
                 meta: {title: '职位', requireAuth: true}
             },
             //职位
@@ -86,9 +93,9 @@ const routes = [
             },
             //投递记录
             {
-                path: 'history',
-                name: 'delivery_history',
-                component: () => import( '../views/profile/jobHunter/delivery_history.vue'),
+                path: 'records',
+                name: 'delivery_records',
+                component: () => import( '../views/profile/jobHunter/delivery_records.vue'),
                 meta: {title: '投递记录', requireAuth: true}
             },
             //面试安排
@@ -198,7 +205,7 @@ const routes = [
             {
                 path: 'allcompany',
                 name: 'allcompany',
-                component: () => import( '../views/jobHunter/company/allcompany.vue'),
+                component: () => import( '../views/jobHunter/company/company_all.vue'),
                 meta: {title: '所有公司', requireAuth: true}
             }
         ]

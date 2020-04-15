@@ -56,8 +56,6 @@
                                 <el-dropdown-item>黄金糕</el-dropdown-item>
                                 <el-dropdown-item>狮子头</el-dropdown-item>
                                 <el-dropdown-item>螺蛳粉</el-dropdown-item>
-                                <el-dropdown-item disabled>双皮奶</el-dropdown-item>
-                                <el-dropdown-item divided>蚵仔煎</el-dropdown-item>
                             </el-dropdown-menu>
                         </el-dropdown>
                     </div>
@@ -70,8 +68,6 @@
                                 <el-dropdown-item>黄金糕</el-dropdown-item>
                                 <el-dropdown-item>狮子头</el-dropdown-item>
                                 <el-dropdown-item>螺蛳粉</el-dropdown-item>
-                                <el-dropdown-item disabled>双皮奶</el-dropdown-item>
-                                <el-dropdown-item divided>蚵仔煎</el-dropdown-item>
                             </el-dropdown-menu>
                         </el-dropdown>
                     </div>
@@ -81,7 +77,7 @@
         <!--筛选框-->
 
         <div class="inner">
-            <div class="job-box">
+            <div class="job-box medium-margin-top">
                 <div class="sider">
                     <div class="sider-item">
                         <a href="javascript:;" class="btn attachment-resume-upload"
@@ -101,294 +97,77 @@
                         </router-link>
                     </div>
                 </div>
-                <div class="job-list">
+                <div class="job-list" v-loading="loading">
+                    <div class="empty-box" v-if="jobList.length===0 && !loading">
+                        <div class="message">
+                            <img class="mark" src="../../../assets/img/i.png" alt>
+                            <span class="message-txt">
+                            当前数据为空
+                            </span>
+                        </div>
+                    </div>
                     <ul>
-                        <li>
-                            <router-link to="/job/detail">
-                                <div class="job-primary">
-                                    <div class="info-primary">
-                                        <div class="primary-wrapper">
-                                            <router-link to="" style="float: left;">
-                                                <div class="job-title">
-                                                    <span class="job-name">电商平面设计管培生</span>
-                                                    <span class="job-area-wrapper">
-                                                        <span class="job-area">北京</span>
+                        <li v-for="item in jobList" :key="item.id" class="job-li" >
+                            <div class="job-primary">
+                                <div class="info-primary">
+                                    <div class="primary-wrapper">
+                                        <router-link :to="{path:'/job/detail',query: {companyId: item.companyId,positionId:item.positionId}}" style="float: left;">
+                                            <div class="job-title">
+                                                <span class="job-name">{{item.name}}</span>
+                                                <span class="job-area-wrapper">
+                                                        <span class="job-area">{{item.city}}</span>
                                                     </span>
-                                                    <span class="job-pub-time">发布于02月15日</span>
-                                                </div>
-                                                <div class="job-limit">
-                                                    <span class="red">6-7K</span>
-                                                    <p>
-                                                        <span>雨纷纷</span>
-                                                        <el-divider direction="vertical"></el-divider>
-                                                        <span>旧故里</span>
-                                                        <el-divider direction="vertical"></el-divider>
-                                                        <span>草木深</span>
-                                                    </p>
-                                                </div>
-                                            </router-link>
-                                        </div>
-                                        <div class="info-company">
-                                            <div class="company-text">
-                                                <h3 class="name">
-                                                    <router-link to="">
-                                                        公司名称
-                                                    </router-link>
-                                                </h3>
-                                                <div>
-                                                    <span>细节</span>
-                                                    <el-divider direction="vertical"></el-divider>
-                                                    <span>细节</span>
-                                                    <el-divider direction="vertical"></el-divider>
-                                                    <span>细节</span>
-                                                </div>
+                                                <span class="job-pub-time">发布于{{item.createTimeTxt}}</span>
+                                            </div>
+                                            <div class="job-limit">
+                                                <span class="red">{{item.salaryRangeTxt}}</span>
+                                                <p>
+                                                    <span><i class="el-icon-location-information"></i>{{item.address}}</span>
+                                                </p>
+                                            </div>
+                                        </router-link>
+                                    </div>
+                                    <div class="info-company">
+                                        <div class="company-text">
+                                            <h3 class="name">
+                                                <router-link to="">
+                                                    {{item.companyName}}
+                                                </router-link>
+                                            </h3>
+                                            <div>
+                                                <span>细节</span>
+                                                <el-divider direction="vertical"></el-divider>
+                                                <span>细节</span>
+                                                <el-divider direction="vertical"></el-divider>
+                                                <span>细节</span>
                                             </div>
                                         </div>
                                     </div>
-                                    <el-divider class="divider"></el-divider>
-                                    <div class="info-append">
+                                </div>
+                                <el-divider class="divider"></el-divider>
+                                <div class="info-append">
 
-                                        <div class="tags">
-                                            <el-tag type="info" size="mini">标签三</el-tag>
-                                            <el-tag type="info" size="mini">标签三</el-tag>
-                                            <el-tag type="info" size="mini">标签三</el-tag>
-                                        </div>
-                                        <div class="info-desc">
-                                            节日福利，零食下午茶，员工旅游，带薪年假，年终奖，五险一金，餐补，加班补助，定期体检，交通补助，补充医疗保险
-                                        </div>
+                                    <div class="tags">
+                                        <el-tag type="info" size="mini">{{item.educationTxt}}</el-tag>
+                                        <el-tag type="info" size="mini">{{item.serviceLengthTxt}}</el-tag>
+                                    </div>
+                                    <div class="info-desc">
+                                        {{item.description}}
                                     </div>
                                 </div>
-                            </router-link>
-                        </li>
-                        <li>
-                            <router-link to="/job/detail">
-                                <div class="job-primary">
-                                    <div class="info-primary">
-                                        <div class="primary-wrapper">
-                                            <router-link to="" style="float: left;">
-                                                <div class="job-title">
-                                                    <span class="job-name">电商平面设计管培生</span>
-                                                    <span class="job-area-wrapper">
-                                                        <span class="job-area">北京</span>
-                                                    </span>
-                                                    <span class="job-pub-time">发布于02月15日</span>
-                                                </div>
-                                                <div class="job-limit">
-                                                    <span class="red">6-7K</span>
-                                                    <p>
-                                                        <span>雨纷纷</span>
-                                                        <el-divider direction="vertical"></el-divider>
-                                                        <span>旧故里</span>
-                                                        <el-divider direction="vertical"></el-divider>
-                                                        <span>草木深</span>
-                                                    </p>
-                                                </div>
-                                            </router-link>
-                                        </div>
-                                        <div class="info-company">
-                                            <div class="company-text">
-                                                <h3 class="name">
-                                                    <router-link to="">
-                                                        公司名称
-                                                    </router-link>
-                                                </h3>
-                                                <div>
-                                                    <span>细节</span>
-                                                    <el-divider direction="vertical"></el-divider>
-                                                    <span>细节</span>
-                                                    <el-divider direction="vertical"></el-divider>
-                                                    <span>细节</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <el-divider class="divider"></el-divider>
-                                    <div class="info-append">
-
-                                        <div class="tags">
-                                            <el-tag type="info" size="mini">标签三</el-tag>
-                                            <el-tag type="info" size="mini">标签三</el-tag>
-                                            <el-tag type="info" size="mini">标签三</el-tag>
-                                        </div>
-                                        <div class="info-desc">
-                                            节日福利，零食下午茶，员工旅游，带薪年假，年终奖，五险一金，餐补，加班补助，定期体检，交通补助，补充医疗保险
-                                        </div>
-                                    </div>
-                                </div>
-                            </router-link>
-                        </li>
-                        <li>
-                            <router-link to="/job/detail">
-                                <div class="job-primary">
-                                    <div class="info-primary">
-                                        <div class="primary-wrapper">
-                                            <router-link to="" style="float: left;">
-                                                <div class="job-title">
-                                                    <span class="job-name">电商平面设计管培生</span>
-                                                    <span class="job-area-wrapper">
-                                                        <span class="job-area">北京</span>
-                                                    </span>
-                                                    <span class="job-pub-time">发布于02月15日</span>
-                                                </div>
-                                                <div class="job-limit">
-                                                    <span class="red">6-7K</span>
-                                                    <p>
-                                                        <span>雨纷纷</span>
-                                                        <el-divider direction="vertical"></el-divider>
-                                                        <span>旧故里</span>
-                                                        <el-divider direction="vertical"></el-divider>
-                                                        <span>草木深</span>
-                                                    </p>
-                                                </div>
-                                            </router-link>
-                                        </div>
-                                        <div class="info-company">
-                                            <div class="company-text">
-                                                <h3 class="name">
-                                                    <router-link to="">
-                                                        公司名称
-                                                    </router-link>
-                                                </h3>
-                                                <div>
-                                                    <span>细节</span>
-                                                    <el-divider direction="vertical"></el-divider>
-                                                    <span>细节</span>
-                                                    <el-divider direction="vertical"></el-divider>
-                                                    <span>细节</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <el-divider class="divider"></el-divider>
-                                    <div class="info-append">
-
-                                        <div class="tags">
-                                            <el-tag type="info" size="mini">标签三</el-tag>
-                                            <el-tag type="info" size="mini">标签三</el-tag>
-                                            <el-tag type="info" size="mini">标签三</el-tag>
-                                        </div>
-                                        <div class="info-desc">
-                                            节日福利，零食下午茶，员工旅游，带薪年假，年终奖，五险一金，餐补，加班补助，定期体检，交通补助，补充医疗保险
-                                        </div>
-                                    </div>
-                                </div>
-                            </router-link>
-                        </li>
-                        <li>
-                            <router-link to="/job/detail">
-                                <div class="job-primary">
-                                    <div class="info-primary">
-                                        <div class="primary-wrapper">
-                                            <router-link to="" style="float: left;">
-                                                <div class="job-title">
-                                                    <span class="job-name">电商平面设计管培生</span>
-                                                    <span class="job-area-wrapper">
-                                                        <span class="job-area">北京</span>
-                                                    </span>
-                                                    <span class="job-pub-time">发布于02月15日</span>
-                                                </div>
-                                                <div class="job-limit">
-                                                    <span class="red">6-7K</span>
-                                                    <p>
-                                                        <span>雨纷纷</span>
-                                                        <el-divider direction="vertical"></el-divider>
-                                                        <span>旧故里</span>
-                                                        <el-divider direction="vertical"></el-divider>
-                                                        <span>草木深</span>
-                                                    </p>
-                                                </div>
-                                            </router-link>
-                                        </div>
-                                        <div class="info-company">
-                                            <div class="company-text">
-                                                <h3 class="name">
-                                                    <router-link to="">
-                                                        公司名称
-                                                    </router-link>
-                                                </h3>
-                                                <div>
-                                                    <span>细节</span>
-                                                    <el-divider direction="vertical"></el-divider>
-                                                    <span>细节</span>
-                                                    <el-divider direction="vertical"></el-divider>
-                                                    <span>细节</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <el-divider class="divider"></el-divider>
-                                    <div class="info-append">
-
-                                        <div class="tags">
-                                            <el-tag type="info" size="mini">标签三</el-tag>
-                                            <el-tag type="info" size="mini">标签三</el-tag>
-                                            <el-tag type="info" size="mini">标签三</el-tag>
-                                        </div>
-                                        <div class="info-desc">
-                                            节日福利，零食下午茶，员工旅游，带薪年假，年终奖，五险一金，餐补，加班补助，定期体检，交通补助，补充医疗保险
-                                        </div>
-                                    </div>
-                                </div>
-                            </router-link>
-                        </li>
-                        <li>
-                            <router-link to="/job/detail">
-                                <div class="job-primary">
-                                    <div class="info-primary">
-                                        <div class="primary-wrapper">
-                                            <router-link to="" style="float: left;">
-                                                <div class="job-title">
-                                                    <span class="job-name">电商平面设计管培生</span>
-                                                    <span class="job-area-wrapper">
-                                                        <span class="job-area">北京</span>
-                                                    </span>
-                                                    <span class="job-pub-time">发布于02月15日</span>
-                                                </div>
-                                                <div class="job-limit">
-                                                    <span class="red">6-7K</span>
-                                                    <p>
-                                                        <span>雨纷纷</span>
-                                                        <el-divider direction="vertical"></el-divider>
-                                                        <span>旧故里</span>
-                                                        <el-divider direction="vertical"></el-divider>
-                                                        <span>草木深</span>
-                                                    </p>
-                                                </div>
-                                            </router-link>
-                                        </div>
-                                        <div class="info-company">
-                                            <div class="company-text">
-                                                <h3 class="name">
-                                                    <router-link to="">
-                                                        公司名称
-                                                    </router-link>
-                                                </h3>
-                                                <div>
-                                                    <span>细节</span>
-                                                    <el-divider direction="vertical"></el-divider>
-                                                    <span>细节</span>
-                                                    <el-divider direction="vertical"></el-divider>
-                                                    <span>细节</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <el-divider class="divider"></el-divider>
-                                    <div class="info-append">
-
-                                        <div class="tags">
-                                            <el-tag type="info" size="mini">标签三</el-tag>
-                                            <el-tag type="info" size="mini">标签三</el-tag>
-                                            <el-tag type="info" size="mini">标签三</el-tag>
-                                        </div>
-                                        <div class="info-desc">
-                                            节日福利，零食下午茶，员工旅游，带薪年假，年终奖，五险一金，餐补，加班补助，定期体检，交通补助，补充医疗保险
-                                        </div>
-                                    </div>
-                                </div>
-                            </router-link>
+                            </div>
                         </li>
                     </ul>
+                    <div class="page-box">
+                        <el-pagination
+                                background
+                                :current-page.sync="currentPage"
+                                @current-change="curChange"
+                                layout="prev, pager, next"
+                                :page-size="pageSize"
+                                :total="total">
+                        </el-pagination>
+                    </div>
                 </div>
             </div>
         </div>
@@ -438,17 +217,38 @@
 </template>
 
 <script>
+    import {getJobList,searchJob} from "../../../api/job";
+    import {CommonUtils} from "../../../utils/commonUtil";
+
     export default {
         name: "job_all",
         data() {
             return {
-                city: "",
                 job_type: "",
                 industry: "",
-                dialogVisible: false
+                dialogVisible: false,
+                loading:true,
+                jobList:[],
+                salaryRange:[0],
+                industryType:[0],
+                nearDistance:2000,
+                location:[],
+                area:"",
+                city: "上海市",            //默认值
+                total:0,
+                pageSize:5,
+                currentPage:1             //当前处于第几页
             }
         },
         methods: {
+            curChange(page){
+                let searchContent = this.$route.params.search?this.$route.params.search:undefined;
+                if(searchContent===undefined){
+                    this.get(this.pageSize,page);
+                }else{
+                    this.FuzzySearch(searchContent,this.pageSize,page);
+                }
+            },
             handleClose(done) {
                 this.$confirm('确认关闭？')
                     .then(()=> {
@@ -458,10 +258,69 @@
             },
             showdialog(){
                 this.dialogVisible = true;
+            },
+            async get(pageSize,pageNum){
+                let data = {
+                    salaryRange:this.salaryRange,
+                    industryType:this.industryType,
+                    nearDistance:this.nearDistance,
+                    location:this.location,
+                    area:this.area,
+                    city:this.city
+                };
+                let res = await getJobList(data,CommonUtils.getStore("token"),pageSize,pageNum);
+                if(res.code===0){
+                    this.loading = false;
+                    this.jobList = res.result.collection;
+                    this.total = res.result.total;
+                    this.jobList.forEach(item=>{
+                        item.salaryRangeTxt = CommonUtils.getKeyName('SALARY_RANGE', item.salaryRange);
+                        item.serviceLengthTxt = CommonUtils.getKeyName('SERVICE_LENGTH', item.serviceLength);
+                        item.createTimeTxt = CommonUtils.getFormatDateTime(item.createTime,"yyyy-MM-dd HH:mm:ss");
+                        item.educationTxt = CommonUtils.getKeyName('EDUCATION', item.education);
+                        item.publishStatusTxt = CommonUtils.getKeyName('PUBLISH_STATUS', item.publishStatus);
+                    });
+                }
+            },
+            async FuzzySearch(search,pageS,pageN){//模糊搜索
+                let res =await searchJob({pageSize:pageS,pageNum:pageN,authorization:CommonUtils.getStore("token")},search);
+                if(res.code===0){
+                    this.loading = false;
+                    this.jobList = res.result.collection;
+                    this.total = res.result.total;
+                    this.jobList.forEach(item=>{
+                        item.salaryRangeTxt = CommonUtils.getKeyName('SALARY_RANGE', item.salaryRange);
+                        item.serviceLengthTxt = CommonUtils.getKeyName('SERVICE_LENGTH', item.serviceLength);
+                        item.createTimeTxt = CommonUtils.getFormatDateTime(item.createTime,"yyyy-MM-dd HH:mm:ss");
+                        item.educationTxt = CommonUtils.getKeyName('EDUCATION', item.education);
+                        item.publishStatusTxt = CommonUtils.getKeyName('PUBLISH_STATUS', item.publishStatus);
+                    });
+                }
             }
         },
         beforeCreate() {
             this.$emit('setHeader','job');
+        },
+        async created() {
+            let searchContent = this.$route.params.search?this.$route.params.search:undefined;
+            if(searchContent===undefined){
+                this.get(5,1);
+            }else{
+
+                this.FuzzySearch(searchContent,this.pageSize,1);
+            }
+        },
+        watch:{
+           async '$route.query'() {
+               let searchContent = this.$route.params.search?this.$route.params.search:undefined;
+               if(searchContent===undefined){
+                   this.currentPage = 1;
+                   this.get(5,1);
+               }else{
+                   this.currentPage = 1;
+                   await this.FuzzySearch(searchContent,this.pageSize,1);
+               }
+           }
         }
     }
 </script>
