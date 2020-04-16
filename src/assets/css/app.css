@@ -150,3 +150,7 @@ body ::-webkit-scrollbar-track-piece {
 }
 /*分页*/
 
+.btn-pointer{
+    cursor: pointer!important;
+}
+

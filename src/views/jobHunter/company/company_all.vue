@@ -8,7 +8,8 @@
                     <span class="title">行业类型:</span>
                     <div class="content">
                         <!--:class="cur:"-->
-                        <el-link v-for="item in ind" :key="item.id" :underline="false" :class="item.id==industryId?'cur':''" @click.native="selectInd(item)">
+                        <el-link v-for="item in ind" :key="item.id" :underline="false"
+                                 :class="item.id==industryId?'cur':''" @click.native="selectInd(item)">
                             {{item.txt}}
                         </el-link>
                     </div>
@@ -17,7 +18,8 @@
                 <div class="filter-row stage">
                     <span class="title">融资阶段:</span>
                     <div class="content">
-                        <el-link v-for="item in financeRound" :key="item.id" :class="item.id==financeId?'cur':''"  @click.native="selectFin(item)" :underline="false">
+                        <el-link v-for="item in financeRound" :key="item.id" :class="item.id==financeId?'cur':''"
+                                 @click.native="selectFin(item)" :underline="false">
                             {{item.txt}}
                         </el-link>
                     </div>
@@ -26,7 +28,8 @@
                 <div class="filter-row scale">
                     <span class="title">公司规模:</span>
                     <div class="content">
-                        <el-link v-for="item in companyScale" :key="item.id" :class="item.id==companyScaleId?'cur':''"  @click.native="selectScale(item)"  :underline="false">
+                        <el-link v-for="item in companyScale" :key="item.id" :class="item.id==companyScaleId?'cur':''"
+                                 @click.native="selectScale(item)" :underline="false">
                             {{item.txt}}
                         </el-link>
                     </div>
@@ -108,10 +111,20 @@
         <!--搜索区-->
 
         <!--公司列表-->
-        <div class="company-tab-box company-list">
+        <div class="company-tab-box company-list" v-loading="loading">
+            <div class="empty-box" v-if="companyList.length===0 && !loading">
+                <div class="message">
+                    <img class="mark" src="../../../assets/img/i.png" alt>
+                    <span class="message-txt">
+                            当前数据为空
+                            </span>
+                </div>
+            </div>
             <ul>
                 <li v-for="item in companyList" :key="item.id">
-                    <router-link :to="{path:'/company/detail',query: {companyId: item.companyId,positionId:item.positionId}}" class="company-info">
+                    <router-link
+                            :to="{path:'/company/detail',query: {companyId: item.companyId,positionId:item.positionId}}"
+                            class="company-info">
                         <img :src="url" alt>
                         <div class="conpany-text">
                             <h4>
@@ -145,6 +158,7 @@
                 <el-pagination
                         :page-size="pageSize"
                         :pager-count="11"
+                        :current-page.sync="currentPage"
                         layout="prev, pager, next"
                         @current-change="currentChange"
                         :total="total">
@@ -158,89 +172,130 @@
 <script>
 
     import {CommonUtils} from "../../../utils/commonUtil";
-    import {getCompanyList} from "../../../api/company";
+    import {getCompanyList, searchCompany} from "../../../api/company";
+
     export default {
         name: "company_all",
-        components:{
-
-        },
+        components: {},
         data() {
             return {
-                fit: "fill",
                 company: 'first',
                 url: require("../../../assets/img/alibaba.jpg"),
-                industryId:0,
-                ind:CommonUtils.getEnumNameList('POSITION_TYPE').slice(0,15),               //行业类型
-                financeRound:CommonUtils.getEnumNameList('FINANCING_ROUND'),                //融资规模
-                financeId:1,
-                companyScale:CommonUtils.getEnumNameList('COMPANY_SIZE'),
-                companyScaleId:2,
-                companyList:[],
-                pageSize:8,
-                total:0,
-                salaryRange:[0],
-                industryType:[0],
-                nearDistance:2000,
-                location:[],
-                city:"上海市",
-                area:""
+                industryId: 0,
+                ind: CommonUtils.getEnumNameList('POSITION_TYPE').slice(0, 15),               //行业类型
+                financeRound: CommonUtils.getEnumNameList('FINANCING_ROUND'),                //融资规模
+                financeId: 1,
+                companyScale: CommonUtils.getEnumNameList('COMPANY_SIZE'),
+                companyScaleId: 2,
+                companyList: [],
+                pageSize: 8,
+                total: 0,
+                salaryRange: [0],
+                industryType: [0],
+                nearDistance: 2000,
+                location: [],
+                city: "上海市",
+                area: "",
+                loading:true,
+                currentPage:1
             }
         },
         methods: {
-            currentChange(page){
-                this.get(this.pageSize,page);
+            async FuzzySearch(search, pageS, pageN) {
+                let res = await searchCompany({
+                    pageSize: pageS,
+                    pageNum: pageN,
+                    authorization: CommonUtils.getStore("token")
+                }, search);
+                if (res.code === 0) {
+                    this.loading = false;
+                    this.companyList = res.model;
+                    console.log(this.companyList)
+                    this.companyList.forEach(item => {
+                        item.id = item.companyId + item.positionId;
+                    });
+                    this.total = res.model.length;
+                }
             },
-            get(pageSize,pageNum){
+            currentChange(page) {
+                let searchContent = this.$route.params.search ? this.$route.params.search : undefined;
+                if (searchContent === undefined) {
+                    this.get(this.pageSize, page);
+                } else {
+                    this.FuzzySearch(searchContent, this.pageSize, page);
+                }
+            },
+            get(pageSize, pageNum) {
                 let data = {
-                    salaryRange:this.salaryRange,
-                    industryType:this.industryType,
-                    nearDistance:this.nearDistance,
-                    location:this.location,
-                    city:this.city,
-                    area:this.area
+                    salaryRange: this.salaryRange,
+                    industryType: this.industryType,
+                    nearDistance: this.nearDistance,
+                    location: this.location,
+                    city: this.city,
+                    area: this.area
                 };
-                getCompanyList(data,CommonUtils.getStore("token"),pageSize,pageNum)
-                    .then(res=>{
-                        if(res.code===0){
+                getCompanyList(data, CommonUtils.getStore("token"), pageSize, pageNum)
+                    .then(res => {
+                        if (res.code === 0) {
+                            this.loading = false;
                             this.companyList = res.result.collection;
-                            this.companyList.forEach(item=>{
-                                item.id = item.companyId+item.positionId;
+                            this.companyList.forEach(item => {
+                                item.id = item.companyId + item.positionId;
                             });
                             this.total = res.result.total;
                         }
                         console.log(res);
                     })
-                    .catch(err=>{
+                    .catch(err => {
                         console.log(err);
                     })
             },
             handleClick(tab, event) {
                 console.log(tab, event);
             },
-            selectInd(item){
+            selectInd(item) {
                 this.industryId = item.id;
             },
-            selectFin(item){
+            selectFin(item) {
                 this.financeId = item.id;
             },
-            selectScale(item){
+            selectScale(item) {
                 this.companyScaleId = item.id;
             }
-        },
+        }
+        ,
         created() {
-            this.get(this.pageSize,1);
-            console.log(CommonUtils.getEnumNameList('COMPANY_SIZE'));
+            let searchContent = this.$route.params.search ? this.$route.params.search : undefined;
+            if (searchContent === undefined) {
+                this.get(this.pageSize, 1);
+            } else {
+                this.FuzzySearch(searchContent, this.pageSize, 1);
+            }
+        },
+        watch:{
+            async '$route.query'(){
+                let searchContent = this.$route.params.search ? this.$route.params.search : undefined;
+                if (searchContent === undefined) {
+                    this.currentPage = 1;
+                    this.get(5, 1);
+                } else {
+                    this.currentPage = 1;
+                    await this.FuzzySearch(searchContent, this.pageSize, 1);
+                }
+            }
         }
     }
 </script>
 
 <style scoped>
     @import "../../../assets/css/jobHunter/company/allcompany.css";
-    .layout-center{
+
+    .layout-center {
         display: flex;
         justify-content: center;
         background: #fff;
     }
+
     .el-pagination {
         white-space: nowrap;
         padding: 2px 5px;

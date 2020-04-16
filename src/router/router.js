@@ -33,6 +33,13 @@ const routes = [
                 component: () => import( '../views/jobHunter/company/company_all.vue'),
                 meta: {title: '所有公司', requireAuth: true}
             },
+            //所有公司页面
+            {
+                path: 'all/:search',
+                name: 'companySearch',
+                component: () => import( '../views/jobHunter/company/company_all.vue'),
+                meta: {title: '所有公司', requireAuth: true}
+            },
             //公司详情页面
             {
                 path: 'detail',

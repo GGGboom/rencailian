@@ -141,6 +141,7 @@
 .content-item .products{
     display: flex;
     align-content: center;
+    padding: 15px 0;
 }
 .content-item .products .product-img img{
     width: 60px;

@@ -48,7 +48,7 @@
                         </el-dropdown>
                     </div>
                     <div class="dropdown-wrap">
-                        <el-dropdown  class="jobdialog">
+                        <el-dropdown class="jobdialog">
                         <span class="el-dropdown-link">
                             融资规模<i class="el-icon-arrow-down el-icon--right"></i>
                         </span>
@@ -60,7 +60,7 @@
                         </el-dropdown>
                     </div>
                     <div class="dropdown-wrap">
-                        <el-dropdown  class="jobdialog">
+                        <el-dropdown class="jobdialog">
                         <span class="el-dropdown-link">
                             公司规模<i class="el-icon-arrow-down el-icon--right"></i>
                         </span>
@@ -107,11 +107,13 @@
                         </div>
                     </div>
                     <ul>
-                        <li v-for="item in jobList" :key="item.id" class="job-li" >
+                        <li v-for="item in jobList" :key="item.id" class="job-li">
                             <div class="job-primary">
                                 <div class="info-primary">
                                     <div class="primary-wrapper">
-                                        <router-link :to="{path:'/job/detail',query: {companyId: item.companyId,positionId:item.positionId}}" style="float: left;">
+                                        <router-link
+                                                :to="{path:'/job/detail',query: {companyId: item.companyId,positionId:item.positionId}}"
+                                                style="float: left;">
                                             <div class="job-title">
                                                 <span class="job-name">{{item.name}}</span>
                                                 <span class="job-area-wrapper">
@@ -122,7 +124,8 @@
                                             <div class="job-limit">
                                                 <span class="red">{{item.salaryRangeTxt}}</span>
                                                 <p>
-                                                    <span><i class="el-icon-location-information"></i>{{item.address}}</span>
+                                                    <span><i
+                                                            class="el-icon-location-information"></i>{{item.address}}</span>
                                                 </p>
                                             </div>
                                         </router-link>
@@ -174,7 +177,7 @@
         <el-dialog
                 title="请选择城市"
                 :visible.sync="dialogVisible"
-                >
+        >
             <div class="citys">
                 <el-button type="text">北京</el-button>
                 <el-divider direction="vertical"></el-divider>
@@ -217,7 +220,7 @@
 </template>
 
 <script>
-    import {getJobList,searchJob} from "../../../api/job";
+    import {getJobList, searchJob} from "../../../api/job";
     import {CommonUtils} from "../../../utils/commonUtil";
 
     export default {
@@ -227,71 +230,76 @@
                 job_type: "",
                 industry: "",
                 dialogVisible: false,
-                loading:true,
-                jobList:[],
-                salaryRange:[0],
-                industryType:[0],
-                nearDistance:2000,
-                location:[],
-                area:"",
+                loading: true,
+                jobList: [],
+                salaryRange: [0],
+                industryType: [0],
+                nearDistance: 2000,
+                location: [],
+                area: "",
                 city: "上海市",            //默认值
-                total:0,
-                pageSize:5,
-                currentPage:1             //当前处于第几页
+                total: 0,
+                pageSize: 5,
+                currentPage: 1             //当前处于第几页
             }
         },
         methods: {
-            curChange(page){
-                let searchContent = this.$route.params.search?this.$route.params.search:undefined;
-                if(searchContent===undefined){
-                    this.get(this.pageSize,page);
-                }else{
-                    this.FuzzySearch(searchContent,this.pageSize,page);
+            curChange(page) {
+                let searchContent = this.$route.params.search ? this.$route.params.search : undefined;
+                if (searchContent === undefined) {
+                    this.get(this.pageSize, page);
+                } else {
+                    this.FuzzySearch(searchContent, this.pageSize, page);
                 }
             },
             handleClose(done) {
                 this.$confirm('确认关闭？')
-                    .then(()=> {
+                    .then(() => {
                         done();
                     })
-                    .catch(() => {});
+                    .catch(() => {
+                    });
             },
-            showdialog(){
+            showdialog() {
                 this.dialogVisible = true;
             },
-            async get(pageSize,pageNum){
+            async get(pageSize, pageNum) {
                 let data = {
-                    salaryRange:this.salaryRange,
-                    industryType:this.industryType,
-                    nearDistance:this.nearDistance,
-                    location:this.location,
-                    area:this.area,
-                    city:this.city
+                    salaryRange: this.salaryRange,
+                    industryType: this.industryType,
+                    nearDistance: this.nearDistance,
+                    location: this.location,
+                    area: this.area,
+                    city: this.city
                 };
-                let res = await getJobList(data,CommonUtils.getStore("token"),pageSize,pageNum);
-                if(res.code===0){
+                let res = await getJobList(data, CommonUtils.getStore("token"), pageSize, pageNum);
+                if (res.code === 0) {
                     this.loading = false;
                     this.jobList = res.result.collection;
                     this.total = res.result.total;
-                    this.jobList.forEach(item=>{
+                    this.jobList.forEach(item => {
                         item.salaryRangeTxt = CommonUtils.getKeyName('SALARY_RANGE', item.salaryRange);
                         item.serviceLengthTxt = CommonUtils.getKeyName('SERVICE_LENGTH', item.serviceLength);
-                        item.createTimeTxt = CommonUtils.getFormatDateTime(item.createTime,"yyyy-MM-dd HH:mm:ss");
+                        item.createTimeTxt = CommonUtils.getFormatDateTime(item.createTime, "yyyy-MM-dd HH:mm:ss");
                         item.educationTxt = CommonUtils.getKeyName('EDUCATION', item.education);
                         item.publishStatusTxt = CommonUtils.getKeyName('PUBLISH_STATUS', item.publishStatus);
                     });
                 }
             },
-            async FuzzySearch(search,pageS,pageN){//模糊搜索
-                let res =await searchJob({pageSize:pageS,pageNum:pageN,authorization:CommonUtils.getStore("token")},search);
-                if(res.code===0){
+            async FuzzySearch(search, pageS, pageN) {//模糊搜索
+                let res = await searchJob({
+                    pageSize: pageS,
+                    pageNum: pageN,
+                    authorization: CommonUtils.getStore("token")
+                }, search);
+                if (res.code === 0) {
                     this.loading = false;
                     this.jobList = res.result.collection;
                     this.total = res.result.total;
-                    this.jobList.forEach(item=>{
+                    this.jobList.forEach(item => {
                         item.salaryRangeTxt = CommonUtils.getKeyName('SALARY_RANGE', item.salaryRange);
                         item.serviceLengthTxt = CommonUtils.getKeyName('SERVICE_LENGTH', item.serviceLength);
-                        item.createTimeTxt = CommonUtils.getFormatDateTime(item.createTime,"yyyy-MM-dd HH:mm:ss");
+                        item.createTimeTxt = CommonUtils.getFormatDateTime(item.createTime, "yyyy-MM-dd HH:mm:ss");
                         item.educationTxt = CommonUtils.getKeyName('EDUCATION', item.education);
                         item.publishStatusTxt = CommonUtils.getKeyName('PUBLISH_STATUS', item.publishStatus);
                     });
@@ -299,28 +307,27 @@
             }
         },
         beforeCreate() {
-            this.$emit('setHeader','job');
+            this.$emit('setHeader', 'job');
         },
         async created() {
-            let searchContent = this.$route.params.search?this.$route.params.search:undefined;
-            if(searchContent===undefined){
-                this.get(5,1);
-            }else{
-
-                this.FuzzySearch(searchContent,this.pageSize,1);
+            let searchContent = this.$route.params.search ? this.$route.params.search : undefined;
+            if (searchContent === undefined) {
+                this.get(5, 1);
+            } else {
+                this.FuzzySearch(searchContent, this.pageSize, 1);
             }
         },
-        watch:{
-           async '$route.query'() {
-               let searchContent = this.$route.params.search?this.$route.params.search:undefined;
-               if(searchContent===undefined){
-                   this.currentPage = 1;
-                   this.get(5,1);
-               }else{
-                   this.currentPage = 1;
-                   await this.FuzzySearch(searchContent,this.pageSize,1);
-               }
-           }
+        watch: {
+            async '$route.query'() {
+                let searchContent = this.$route.params.search ? this.$route.params.search : undefined;
+                if (searchContent === undefined) {
+                    this.currentPage = 1;
+                    this.get(5, 1);
+                } else {
+                    this.currentPage = 1;
+                    await this.FuzzySearch(searchContent, this.pageSize, 1);
+                }
+            }
         }
     }
 </script>

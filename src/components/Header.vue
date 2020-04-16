@@ -172,20 +172,14 @@
                 this.$router.push({name: path});
             },
             search() {
-                // console.log(this.$route.name);
-                // let params={
-                //     pageSize:5,
-                //     pageNum:1,
-                //     authorization:CommonUtils.getStore("token")
-                // };
                 let url = "";
                 if(this.$route.name==="job_all" || this.$route.name==="jobSearch"){
                      url = `/job/all/${this.searchContent}`;
-
                     this.$router.push(url, () => {}, err=>err);
-                }else if (this.$route.name==="allcompany") {
-                    url = `/jobseeker/position/vague/${this.searchContent}`;
-                    this.$router.push(url);
+                }else if (this.$route.name==="company_all" || this.$route.name === "companySearch") {
+                    url = `/company/all/${this.searchContent}`;
+                    this.$router.push(url, () => {}, err=>err);
+                    console.log("run")
                 }
             },
             CloseDialog(){                  //关闭上传简历对话框
