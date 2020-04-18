@@ -200,21 +200,22 @@ const routes = [
         path: '/talent',
         name: 'talent',
         component: () => import(/* webpackChunkName: "about" */ '../views/hr/talent/talent_index.vue'),
+        meta: {title: '人才', requireAuth: true},
         children: [
-            //公司详情页面
+            //人才详情页面
+            {
+                path: 'all',
+                name: 'talent_all',
+                component: () => import( '../views/hr/talent/talent_all.vue'),
+                meta: {title: '人才', requireAuth: true}
+            },
+            //人才详情页面
             {
                 path: 'detail',
-                name: 'detail',
-                component: () => import( '../views/jobHunter/company/company_detail.vue'),
-                meta: {title: '公司详情', requireAuth: true}
+                name: 'talent_detail',
+                component: () => import( '../views/hr/talent/talent_detail.vue'),
+                meta: {title: '人才详情', requireAuth: true}
             },
-            //所有公司页面
-            {
-                path: 'allcompany',
-                name: 'allcompany',
-                component: () => import( '../views/jobHunter/company/company_all.vue'),
-                meta: {title: '所有公司', requireAuth: true}
-            }
         ]
     },
 

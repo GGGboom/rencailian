@@ -18,4 +18,5 @@ export const getBlackList = (params)=>get("/blacklist",params);
 export const addBlack = (data,token,companyId)=>post("/blacklist/"+companyId,data,token);
 export const getInterViewDate = (params)=>get("/jobhunter/delivery/interview",params);
 export const changePasswd = (data,token)=>put("/users",data,token);
+export const changeRole = (data,token) => put(`/users/conver/${data}`,null,token);
 // export const getDeliver = (params)=>get("/jobhunter/delivery",params,token);
