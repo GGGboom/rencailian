@@ -38,3 +38,9 @@
 .form-btn .el-button{
     padding: 10px 30px;
 }
+.application-main .el-form-item{
+    margin-bottom: 0;
+}
+.py{
+    padding: 40px;
+}

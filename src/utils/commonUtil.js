@@ -181,6 +181,37 @@ export const CommonUtils = {
     },
 
     /**
+     * @description Get the enumeration list by date_code
+     */
+    getEnumObjList:function(date_code,notneedall){
+        let commonBasicData = BasicData;
+        let enumList = [];
+        if(typeof(notneedall)=='undefined'){
+            enumList.push({
+                name: '全部',
+                value: '',
+                selectIndex: -1,
+                strValue:''
+            });
+        }
+        if(commonBasicData && commonBasicData != null && typeof(commonBasicData)!="undefined"){
+            for(let i=0;i<commonBasicData.length;i++){
+                let currData = commonBasicData[i];
+                if(currData.dateCode === date_code){
+                    currData.selectIndex = -1;
+                    enumList.push({
+                        name: currData.keyName,
+                        value: currData.keyValue,
+                        strValue: currData.keyValueStr,
+                        selectIndex: -1
+                    });
+                }
+            }
+        }
+        return enumList;
+    },
+
+    /**
      * 行业类型
      */
     industryType:[

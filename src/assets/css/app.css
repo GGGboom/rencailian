@@ -79,6 +79,9 @@ body ::-webkit-scrollbar-track-piece {
 .normal-margin-top{
     margin-top: 10px;
 }
+.normal-pad-top{
+    padding-top: 10px;
+}
 .medium-margin-top{
     margin-top: 20px;
 }

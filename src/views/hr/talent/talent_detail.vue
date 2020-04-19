@@ -5,31 +5,9 @@
                 <!--其他信息-->
                 <div class="sider">
                     <div class="sider-company">
-                        <p class="title">其他信息</p>
-                        <div class="company-info">
-                            <router-link to="">
-                                <img src="../../../assets/img/aliyun.jpg" alt>
-                            </router-link>
-                            <router-link to="" class="company-name">
-                                公司名
-                            </router-link>
+                        <div class="sider-item">
+                            <el-button type="primary" @click="chat">立即沟通</el-button>
                         </div>
-                        <p>
-                            <i class="fa fa-line-chart" aria-hidden="true"></i>
-                            融资阶段:
-                        </p>
-                        <p>
-                            <i class="fa fa-user-o" aria-hidden="true"></i>
-                            公司规模:
-                        </p>
-                        <p>
-                            <i class="fa fa-tags" aria-hidden="true"></i>
-
-                        </p>
-                        <p>
-                            <i class="fa fa-sitemap" aria-hidden="true"></i>
-                            网址
-                        </p>
                     </div>
                 </div>
                 <!--其他信息-->
@@ -42,12 +20,12 @@
                         </div>
                         <div class="name">
                             <span class="gray online-status">
-                                信用<em class="vdot">·</em>100
+                                信用<em class="vdot">·</em>{{talentUser.reputationScore}}
                             </span>
                         </div>
                         <div class="name">
                             <span class="gray online-status">
-                                潘双全<em class="vdot">·</em>刚刚在线
+                                {{talentUser.name}}<em class="vdot">·</em>刚刚在线
                             </span>
                         </div>
 
@@ -58,7 +36,7 @@
                             <div class="text">
                                 1、职位描述
                                 <br>
-                                11111
+                                {{talentUser.salaryRangeTxt}}|{{talentUser.serviceLengthTxt}}|{{talentUser.educationTxt}}
                                 <br>
                                 2、职业要求
                                 <br>
@@ -68,7 +46,7 @@
                         <div class="job-sec">
                             <h3>求职状态</h3>
                             <div class="text">
-
+                                {{talentUser.huntingStatusTxt}}
                             </div>
                         </div>
                         <div class="job-sec">
@@ -77,7 +55,7 @@
 
                             </div>
                             <div class="text">
-                                <i class="el-icon-location-information">1111111</i>
+                                {{talentUser.selfEvaluation===null?"无数据":talentUser.selfEvaluation}}
                             </div>
                         </div>
                         <div class="job-sec">
@@ -85,7 +63,7 @@
                                 推荐我的发布职位给该求职者
                             </h3>
                             <div class="text">
-
+                                根据期望岗位匹配
                             </div>
                         </div>
                     </div>
@@ -97,6 +75,8 @@
 </template>
 
 <script>
+    import {getExpectPost} from "../../../api/talent";
+    import {CommonUtils} from "../../../utils/commonUtil";
 
     export default {
         name: "talent_detail",
@@ -105,14 +85,60 @@
                 info:{
                     position:{}
                 },
-                company:{}
+                company:{},
+                talentUser:{},
+                positions:[],
+                positionsNames:[],
+                value:0,
             }
         },
         methods:{
-
+            init(){
+                this.talentUser=JSON.parse(sessionStorage.getItem('talentUser'));
+                this.talentUser.huntingStatusTxt = CommonUtils.getKeyName('HUNTING_STATUS', this.talentUser.huntingStatus);
+                console.log(this.talentUser)
+                this.minePublishPost(this.talentUser.expectPost);
+            },
+            minePublishPost(expectPost){
+                if(expectPost!=''){
+                    getExpectPost({positionName:expectPost,authorization:CommonUtils.getStore("token")})
+                        .then(res=>{
+                            if(res.code===0){
+                                this.positions = res.position;
+                                this.positions.forEach(function(item){
+                                    let obj = {'label':item.name,'value':item.positionId};
+                                    this.positionsNames.push(obj);
+                                });
+                            }
+                            console.log(res);
+                        })
+                        .catch(err=>{
+                            console.log(err);
+                        })
+                }
+            },
+            chat(){
+                if(this.value!=0){
+                    let receivedId = this.talentUser.userId;
+                    for(let i=0;i<this.positions.length;i++){
+                        if(this.positions[i].positionId==this.value){
+                            sessionStorage.setItem('chatPosition',JSON.stringify(this.positions[i]));
+                        }
+                    }
+                    this.$router.push({path:"/msg",query:{receivedId:receivedId,name:this.talentUser.name,from:"td"}});
+                }else{
+                    if(this.talentUser.expectPost==null || typeof(this.talentUser.expectPost)=='undefined'){
+                        this.$message.error('该求职者没有期望岗位');
+                    }else if(this.positionsNames.length==0){
+                        this.$message.error('您未发布职位，或发布的职位中没有与该求职者匹配的');
+                    }else{
+                        this.$message.error('请推荐您发布的岗位给求职者');
+                    }
+                }
+            }
         },
         mounted() {
-
+            this.init();
         }
     }
 </script>

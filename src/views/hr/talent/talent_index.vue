@@ -19,6 +19,9 @@
             goToDetail(){
                 this.$router.push("/talent/detail");
             }
+        },
+        beforeCreate() {
+            this.$emit('setHeader','talent');
         }
     }
 </script>

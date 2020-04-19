@@ -153,7 +153,7 @@ export const BasicData = [
     "keyValueStr": null,
     "name": "公司图片类型",
     "id": 25
-}, {
+},{
     "keyName": "1年以内",
     "keyValue": 1,
     "dateCode": "SERVICE_LENGTH",
@@ -811,14 +811,6 @@ export const BasicData = [
     "keyValueStr": "021",
     "name": "城市编码",
     "id": 327
-}, {
-        "keyName": "全部",
-        "keyValue": 0,
-        "dateCode": "POSITION_TYPE",
-        "keyValueStr": "K",
-        "name": "职业分类",
-        "id": 1111
-
 }, {
         "keyName": "客服/售前/售后技术",
         "keyValue": 1001,

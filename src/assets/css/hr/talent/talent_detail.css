@@ -282,3 +282,6 @@
 .talent-detail-box .layout-center{
     margin: 0 auto;
 }
+.talent-detail-box .sider-item .el-button{
+    border-radius:0
+}

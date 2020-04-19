@@ -27,7 +27,7 @@
                     </nav>
                 </div>
                 <!--搜索框-->
-                <div v-if="page==='company' || page==='job'">
+                <div v-if="page==='company' || page==='job' || page==='talent'">
                     <el-input @keydown.enter.native="search" placeholder="搜索公司或职位" :clearable="true"
                               size="small" v-model="searchContent">
                         <el-button slot="append" icon="el-icon-search" @click="search()"></el-button>
@@ -321,7 +321,10 @@
                     url = `/company/all/${this.searchContent}`;
                     this.$router.push(url, () => {
                     }, err => err);
-                    console.log("run")
+                } else if (this.$route.name === "talent_all" || this.$route.name === "talent_search") {
+                    url = `/talent/all/${this.searchContent}`;
+                    this.$router.push(url, () => {
+                    }, err => err);
                 }
             },
             CloseDialog() {                  //关闭上传简历对话框
@@ -331,7 +334,6 @@
                 this.user = localStorage.getItem("user");
                 if (this.user) {
                     this.logoUrl = CommonUtils.staticPathPrefix + CommonUtils.getStore("user").headerImagePath;
-                    console.log(this.$store.state.identityType);
                     switch (this.$store.state.identityType) {//1为招聘者,2是应聘者
                         case 1: {                             //招聘者
                             this.idtype = false;
@@ -381,7 +383,6 @@
         },
         created() {
             this.init();
-            console.log(this.radio)
         },
         mounted() {
 

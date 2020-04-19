@@ -202,14 +202,18 @@ const routes = [
         component: () => import(/* webpackChunkName: "about" */ '../views/hr/talent/talent_index.vue'),
         meta: {title: '人才', requireAuth: true},
         children: [
-            //人才详情页面
             {
                 path: 'all',
                 name: 'talent_all',
                 component: () => import( '../views/hr/talent/talent_all.vue'),
                 meta: {title: '人才', requireAuth: true}
             },
-            //人才详情页面
+            {
+                path: 'all/:search',
+                name: 'talent_search',
+                component: () => import( '../views/hr/talent/talent_all.vue'),
+                meta: {title: '人才', requireAuth: true}
+            },
             {
                 path: 'detail',
                 name: 'talent_detail',
@@ -234,7 +238,7 @@ const routes = [
             //编辑页面
             {
                 path: 'edit',
-                name: 'edit',
+                name: 'position_edit',
                 component: () => import( '../views/hr/position/edit.vue'),
                 meta: {title: '简历管理', requireAuth: true}
             },
