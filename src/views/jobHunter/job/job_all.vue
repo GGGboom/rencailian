@@ -1,80 +1,70 @@
 <template>
     <div>
-        <!--筛选框-->
-        <div id="filter-box">
-            <div class="inner filter-mrg">
-                <div class="condition-box">
-                    <div class="show-condition-district">
-                        <span class="hotcity">热门城市:</span>
-                        <el-link :underline="false">全国</el-link>
-                        <el-link :underline="false">北京</el-link>
-                        <el-link :underline="false">上海</el-link>
-                        <el-link :underline="false">广州</el-link>
-                        <el-link :underline="false">深圳</el-link>
-                        <el-link :underline="false">杭州</el-link>
-                        <el-link :underline="false">天津</el-link>
-                        <el-link :underline="false">苏州</el-link>
-                        <el-link :underline="false">武汉</el-link>
-                        <el-link :underline="false">厦门</el-link>
-                        <el-link :underline="false">长沙</el-link>
-                        <el-link :underline="false">成都</el-link>
-                        <el-link :underline="false">郑州</el-link>
-                        <el-link :underline="false">重庆</el-link>
-                        <el-button class="allcity" type="text" @click="showdialog">全部城市</el-button>
-                    </div>
-                    <div class="condition-district show-condition-district">
-                        <span class="hotcity">区域:</span>
-                        <el-link :underline="false">全国</el-link>
-                        <el-link :underline="false">全国</el-link>
-                        <el-link :underline="false">全国</el-link>
-                        <el-link :underline="false">全国</el-link>
-                        <el-link :underline="false">全国</el-link>
-                        <el-link :underline="false">全国</el-link>
-                        <el-link :underline="false">全国</el-link>
-                        <el-link :underline="false">全国</el-link>
+        <!--搜索区-->
+        <div class="filter-box">
+            <div class="filter-condition ">
+                <!--融资规模-->
+                <div class="filter-row industry">
+                    <span class="title">融资规模:</span>
+                    <div class="content">
+                        <el-link v-for="(item,index) in financeRound" :key="index" :underline="false"
+                                 :class="{red:index===tabJob.financeInd}" @click.native="filterClick(index,0)">
+                            {{item.name}}
+                        </el-link>
                     </div>
                 </div>
-                <div class="filter-select-box">
-                    <div class="dropdown-wrap ">
-                        <el-dropdown class="jobdialog">
-                        <span class="el-dropdown-link">
-                            工作经验<i class="el-icon-arrow-down el-icon--right"></i>
-                        </span>
-                            <el-dropdown-menu slot="dropdown">
-                                <el-dropdown-item>黄金糕</el-dropdown-item>
-                                <el-dropdown-item>狮子头</el-dropdown-item>
-                                <el-dropdown-item>螺蛳粉</el-dropdown-item>
-                            </el-dropdown-menu>
-                        </el-dropdown>
-                    </div>
-                    <div class="dropdown-wrap">
-                        <el-dropdown class="jobdialog">
-                        <span class="el-dropdown-link">
-                            融资规模<i class="el-icon-arrow-down el-icon--right"></i>
-                        </span>
-                            <el-dropdown-menu slot="dropdown">
-                                <el-dropdown-item>黄金糕</el-dropdown-item>
-                                <el-dropdown-item>狮子头</el-dropdown-item>
-                                <el-dropdown-item>螺蛳粉</el-dropdown-item>
-                            </el-dropdown-menu>
-                        </el-dropdown>
-                    </div>
-                    <div class="dropdown-wrap">
-                        <el-dropdown class="jobdialog">
-                        <span class="el-dropdown-link">
-                            公司规模<i class="el-icon-arrow-down el-icon--right"></i>
-                        </span>
-                            <el-dropdown-menu slot="dropdown">
-                                <el-dropdown-item>黄金糕</el-dropdown-item>
-                                <el-dropdown-item>狮子头</el-dropdown-item>
-                                <el-dropdown-item>螺蛳粉</el-dropdown-item>
-                            </el-dropdown-menu>
-                        </el-dropdown>
+                <!--融资规模-->
+
+                <!--员工规模-->
+                <div class="filter-row industry">
+                    <span class="title">员工规模:</span>
+                    <div class="content">
+                        <el-link v-for="(item,index) in companyScale" :key="index" :underline="false"
+                                 :class="{red:index===tabJob.companyScaleInd}" @click.native="filterClick(index,1)">
+                            {{item.name}}
+                        </el-link>
                     </div>
                 </div>
+                <!--员工规模-->
+
+                <!--学历-->
+                <div class="filter-row industry">
+                    <span class="title">学历:</span>
+                    <div class="content">
+                        <el-link v-for="(item,index) in educationList" :key="index" :underline="false"
+                                 :class="{red:index===tabJob.educationInd}" @click.native="filterClick(index,2)">
+                            {{item.name}}
+                        </el-link>
+                    </div>
+                </div>
+                <!--学历-->
+
+                <!--薪资-->
+                <div class="filter-row industry">
+                    <span class="title">薪资:</span>
+                    <div class="content">
+                        <el-link v-for="(item,index) in salaryRangeList" :key="index" :underline="false"
+                                 :class="{red:index===tabJob.salaryRangeInd}" @click.native="filterClick(index,3)">
+                            {{item.name}}
+                        </el-link>
+                    </div>
+                </div>
+                <!--薪资-->
+
+                <!--经验-->
+                <div class="filter-row industry">
+                    <span class="title">经验:</span>
+                    <div class="content">
+                        <el-link v-for="(item,index) in experienceList" :key="index" :underline="false"
+                                 :class="{red:index===tabJob.experienceInd}" @click.native="filterClick(index,4)">
+                            {{item.name}}
+                        </el-link>
+                    </div>
+                </div>
+                <!--经验-->
             </div>
         </div>
-        <!--筛选框-->
+        <!--搜索区-->
 
         <div class="inner">
             <div class="job-box medium-margin-top">
@@ -97,7 +87,7 @@
                         </router-link>
                     </div>
                 </div>
-                <div class="job-list" v-loading="loading">
+                <div class="job-list normal-margin-btm" v-loading="loading">
                     <div class="empty-box" v-if="jobList.length===0 && !loading">
                         <div class="message">
                             <img class="mark" src="../../../assets/img/i.png" alt>
@@ -161,9 +151,8 @@
                             </div>
                         </li>
                     </ul>
-                    <div class="page-box">
+                    <div class="layout-center" v-if="jobList.length!==0">
                         <el-pagination
-                                background
                                 :current-page.sync="currentPage"
                                 @current-change="curChange"
                                 layout="prev, pager, next"
@@ -174,71 +163,39 @@
                 </div>
             </div>
         </div>
-        <el-dialog
-                title="请选择城市"
-                :visible.sync="dialogVisible"
-        >
-            <div class="citys">
-                <el-button type="text">北京</el-button>
-                <el-divider direction="vertical"></el-divider>
-                <el-button type="text">上海</el-button>
-                <el-divider direction="vertical"></el-divider>
-                <el-button type="text">广州</el-button>
-                <el-divider direction="vertical"></el-divider>
-                <el-button type="text">深圳</el-button>
-                <el-divider direction="vertical"></el-divider>
-                <el-button type="text">杭州</el-button>
-                <el-divider direction="vertical"></el-divider>
-                <el-button type="text">天津</el-button>
-                <el-divider direction="vertical"></el-divider>
-                <el-button type="text">西安</el-button>
-                <el-divider direction="vertical"></el-divider>
-                <el-button type="text">苏州</el-button>
-                <el-divider direction="vertical"></el-divider>
-                <el-button type="text">武汉</el-button>
-                <el-divider direction="vertical"></el-divider>
-                <el-button type="text">厦门</el-button>
-                <el-divider direction="vertical"></el-divider>
-                <el-button type="text">长沙</el-button>
-                <el-divider direction="vertical"></el-divider>
-                <el-button type="text">成都</el-button>
-                <el-divider direction="vertical"></el-divider>
-                <el-button type="text">郑州</el-button>
-                <el-divider direction="vertical"></el-divider>
-                <el-button type="text">重庆</el-button>
-                <el-divider direction="vertical"></el-divider>
-                <el-button type="text">珠海</el-button>
-            </div>
-            <span slot="footer" class="dialog-footer">
-                <el-button @click="dialogVisible = false">取 消</el-button>
-                <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
-            </span>
-        </el-dialog>
     </div>
 </template>
 
 <script>
     import {getJobList, searchJob} from "../../../api/job";
     import {CommonUtils} from "../../../utils/commonUtil";
-
     export default {
         name: "job_all",
         data() {
             return {
-                job_type: "",
-                industry: "",
-                dialogVisible: false,
-                loading: true,
-                jobList: [],
-                salaryRange: [0],
-                industryType: [0],
-                nearDistance: 2000,
-                location: [],
-                area: "",
-                city: "上海市",            //默认值
-                total: 0,
-                pageSize: 5,
-                currentPage: 1             //当前处于第几页
+                financeRound: [],                  //融资规模
+                companyScale: [],                  //员工规模
+                educationList:[],                  //学历
+                salaryRangeList: [],               //薪资
+                experienceList: [],                //经验
+                tabJob: {
+                    financeInd: 0,                 //融资规模默认筛选项
+                    companyScaleInd: 0,            //员工规模默认筛选项
+                    educationInd:0,                //学历默认筛选项
+                    salaryRangeInd:0,              //薪资默认筛选项
+                    experienceInd:0,               //经验默认筛选项
+                },
+                loading: true,                     //v-loading默认参数
+                jobList: [],                       //v-for职位列表
+                salaryRange: [0],                  //post默认参数
+                industryType: [0],                 //post默认参数
+                nearDistance: 2000,                //post默认参数
+                location: [],                      //post默认参数
+                area: "",                          //post默认参数
+                city: "上海市",                     //post默认参数
+                total: 0,                          //分页搜索总数
+                pageSize: 5,                       //页面大小
+                currentPage: 1                     //当前处于第几页
             }
         },
         methods: {
@@ -258,10 +215,7 @@
                     .catch(() => {
                     });
             },
-            showdialog() {
-                this.dialogVisible = true;
-            },
-            async get(pageSize, pageNum) {
+            async get(pageSize, pageNum) {//获取默认数据
                 let data = {
                     salaryRange: this.salaryRange,
                     industryType: this.industryType,
@@ -302,12 +256,45 @@
                         item.publishStatusTxt = CommonUtils.getKeyName('PUBLISH_STATUS', item.publishStatus);
                     });
                 }
+            },
+            filterClick(index,type){
+                switch (type) {
+                    case 0:{                     //融资规模
+                        this.tabJob.financeInd = index;
+                        break;
+                    }
+                    case 1:{                     //员工规模
+                        this.tabJob.companyScaleInd = index;
+                        break;
+                    }
+                    case 2:{                     //学历
+                        this.tabJob.educationInd = index;
+                        break;
+                    }
+                    case 3:{                    //薪资
+                        this.tabJob.salaryRangeInd = index;
+                        break;
+                    }
+                    case 4:{                     //经验
+                        this.tabJob.experienceInd = index;
+                        break;
+                    }
+
+                }
+            },
+            init(){
+                this.financeRound = CommonUtils.getEnumObjList('FINANCING_ROUND');
+                this.companyScale = CommonUtils.getEnumObjList('COMPANY_SIZE');
+                this.educationList = CommonUtils.getEnumObjList('EDUCATION');
+                this.salaryRangeList = CommonUtils.getEnumObjList('SALARY_RANGE');
+                this.experienceList = CommonUtils.getEnumObjList('SERVICE_LENGTH');
             }
         },
         beforeCreate() {
             this.$emit('setHeader', 'job');
         },
         async created() {
+            this.init();
             let searchContent = this.$route.params.search ? this.$route.params.search : undefined;
             if (searchContent === undefined) {
                 this.get(5, 1);
@@ -325,6 +312,36 @@
                     this.currentPage = 1;
                     await this.FuzzySearch(searchContent, this.pageSize, 1);
                 }
+            },
+            tabJob:{
+                async handler(newValue) {
+                    let data = {
+                        education:[this.tabJob.educationInd],
+                        salaryRange:[this.tabJob.salaryRangeInd],
+                        serviceLength:[this.tabJob.experienceInd],
+                        financingRound:[this.tabJob.financeInd],
+                        companySize:[this.tabJob.companyScaleInd],
+                        nearDistance:this.nearDistance,
+                        location:this.location,
+                        city:this.city,
+                        area:this.area
+                    };
+                    let res = await getJobList(data, CommonUtils.getStore("token"), this.pageSize, 1);
+                    if (res.code === 0) {
+                        this.loading = false;
+                        this.jobList = res.result.collection;
+                        this.total = res.result.total;
+                        this.jobList.forEach(item => {
+                            item.salaryRangeTxt = CommonUtils.getKeyName('SALARY_RANGE', item.salaryRange);
+                            item.serviceLengthTxt = CommonUtils.getKeyName('SERVICE_LENGTH', item.serviceLength);
+                            item.createTimeTxt = CommonUtils.getFormatDateTime(item.createTime, "yyyy-MM-dd HH:mm:ss");
+                            item.educationTxt = CommonUtils.getKeyName('EDUCATION', item.education);
+                            item.publishStatusTxt = CommonUtils.getKeyName('PUBLISH_STATUS', item.publishStatus);
+                        });
+                    }
+                    console.log(newValue);
+                },
+                deep: true
             }
         }
     }

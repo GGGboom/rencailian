@@ -1,35 +1,61 @@
 <template>
-    <div style="padding:10px 0">
-        <!--筛选框-->
-        <div id="filter-box">
-            <div class="inner">
-                <div >
-                    <div class="inner">
-                        <div class="condition-box">
-                            <div class="show-condition-district">
-                                <span class="hotcity">行业:</span>
-                                <el-link v-for="(item,index) in industryList" :class="{'selected': tab.industryType === index}" :key="index" @click="clickTab(index,0)" :underline="false">{{item.name}}</el-link>
-                                <el-button class="allcity" type="text">所有</el-button>
-                            </div>
-                            <div class="show-condition-district">
-                                <span class="hotcity">热门城市:</span>
-                                <el-link v-for="(item,index) in provinceList" :class="{'selected': tab.provinceIndex === index}" :key="index" @click="clickTab(index,1)" :underline="false">{{item.name}}</el-link>
-                                <el-button class="allcity" type="text">全部城市</el-button>
-                            </div>
-                            <div class="condition-experience show-condition-district">
-                                <span class="hotcity">经验:</span>
-                                <el-link v-for="(item,index) in serviceLengthList" :class="{'selected': tab.experienceIndex === index}" :key="index" @click="clickTab(index,2)" :underline="false">{{item.name}}</el-link>
-                            </div>
-                            <div class="show-condition-district">
-                                <span class="hotcity">学历:</span>
-                                <el-link v-for="(item,index) in educationList" :class="{'selected': tab.educationIndex === index}" :key="index" @click="clickTab(index,3)" :underline="false">{{item.name}}</el-link>
-                            </div>
-                        </div>
+    <div>
+        <!--搜索区-->
+        <div class="filter-box">
+            <div class="filter-condition ">
+                <!--行业-->
+                <div class="filter-row industry">
+                    <span class="title">行业:</span>
+                    <div class="content">
+                        <el-link v-for="(item,index) in industryList" :key="index" :underline="false"
+                                 :class="{'selected': tab.industryType === index}" @click.native="clickTab(index,0)">
+                            {{item.name}}
+                        </el-link>
                     </div>
                 </div>
+                <!--行业-->
+
+
+                <!--热门城市-->
+                <div class="filter-row industry">
+                    <span class="title">热门城市:</span>
+                    <div class="content">
+                        <el-link v-for="(item,index) in provinceList" :key="index" :underline="false"
+                                 :class="{'selected': tab.provinceIndex === index}" @click.native="clickTab(index,1)">
+                            {{item.name}}
+                        </el-link>
+                    </div>
+                </div>
+                <!--热门城市-->
+
+                <!--经验-->
+                <div class="filter-row industry">
+                    <span class="title">经验:</span>
+                    <div class="content">
+                        <el-link v-for="(item,index) in serviceLengthList" :key="index" :underline="false"
+                                 :class="{'selected': tab.experienceIndex === index}" @click.native="clickTab(index,2)">
+                            {{item.name}}
+                        </el-link>
+                    </div>
+                </div>
+                <!--经验-->
+
+                <!--学历-->
+                <div class="filter-row industry">
+                    <span class="title">学历:</span>
+                    <div class="content">
+                        <el-link v-for="(item,index) in educationList" :key="index" :underline="false"
+                                 :class="{'selected': tab.educationIndex === index}" @click.native="clickTab(index,3)">
+                            {{item.name}}
+                        </el-link>
+                    </div>
+                </div>
+                <!--学历-->
+
             </div>
         </div>
-        <!--筛选框-->
+        <!--搜索区-->
+
         <div class="inner">
             <div class="talent-box">
                 <div class="sider">
@@ -80,9 +106,8 @@
                             </div>
                         </li>
                     </ul>
-                    <div class="layout-center">
+                    <div class="layout-center" v-if="talentList.length!==0">
                         <el-pagination
-                                v-if="total>5"
                                 :page-size="pageSize"
                                 :pager-count="11"
                                 :current-page.sync="currentPage"
@@ -117,7 +142,7 @@
                 workCity: CommonUtils.getEnumObjList('WORK_CITY'),
                 serviceLengthList:CommonUtils.getEnumObjList('SERVICE_LENGTH'),
                 educationList:CommonUtils.getEnumObjList('EDUCATION'),
-                provinceList:CommonUtils.getEnumObjList('PROVINCE').slice(0, 12),
+                provinceList:CommonUtils.getEnumObjList('PROVINCE').slice(0, 20),
                 currentPage:1,
                 tab:{
                     industryType:0,         //行业类型
@@ -239,7 +264,7 @@
                         workYears:[newValue.experienceIndex],
                         industryType:[newValue.industryType],
                         workCity:"",
-                    }
+                    };
                     let res = await getTalentList(data,CommonUtils.getStore("token"),5,1);
                     if(res.code===0){
                         this.loading = false;
@@ -265,11 +290,6 @@
 
 <style scoped>
     @import "../../../assets/css/hr/talent/index.css";
-    .layout-center{
-        display: flex;
-        justify-content: center;
-        background: #fff;
-    }
     .el-pagination {
         white-space: nowrap;
         padding: 2px 5px;
@@ -277,6 +297,9 @@
         font-weight: 700;
     }
     .selected{
-        color: #409EFF;
+        color: #409EFF!important;
+    }
+    .el-link.el-link--default:hover{
+        color:#409EFF!important;
     }
 </style>

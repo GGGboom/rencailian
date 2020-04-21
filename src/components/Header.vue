@@ -78,8 +78,7 @@
                             <el-dropdown-item v-if="this.$store.state.identityType===2" icon="el-icon-user"
                                               @click.native="goto('info')">个人中心
                             </el-dropdown-item>
-                            <el-dropdown-item v-else icon="el-icon-user" @click.native="goto('name_certification')">
-                                个人中心
+                            <el-dropdown-item v-else icon="el-icon-user" @click.native="goto('name_certification')">个人中心
                             </el-dropdown-item>
                             <el-dropdown-item icon="el-icon-sort" @click.native="switchDialog = true">切换身份
                             </el-dropdown-item>

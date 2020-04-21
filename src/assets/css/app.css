@@ -82,12 +82,17 @@ body ::-webkit-scrollbar-track-piece {
 .normal-pad-top{
     padding-top: 10px;
 }
+.normal-margin-btm{
+    margin-bottom: 10px;
+}
 .medium-margin-top{
     margin-top: 20px;
 }
 .normal-pdd{
     padding: 10px 0;
 }
+
+
 /*警告消息*/
 .warning-container{
     padding-bottom: 5px;
@@ -130,6 +135,11 @@ body ::-webkit-scrollbar-track-piece {
 /*空消息盒子*/
 
 /*分页*/
+.layout-center{
+    display: flex;
+    justify-content: center;
+    background: #fff;
+}
 .page-box pagination.is-background .el-pager li {
     background-color: #fff!important;
 }
@@ -153,7 +163,63 @@ body ::-webkit-scrollbar-track-piece {
 }
 /*分页*/
 
+
 .btn-pointer{
     cursor: pointer!important;
 }
 
+.info-list .info-item {
+    border-bottom: 1px solid #e1e4e8;
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-self: center;
+    font-size: 16px;
+}
+.emphase{
+    font-size: 19px;
+    padding-left: 5px;
+    border-left: 2px solid #0366d6;
+}
+
+
+/*搜索框*/
+.filter-box .filter-condition{
+    min-width: 1184px;
+    margin: 0 auto;
+    padding: 30px 0;
+    background-color: #fff;
+    line-height: 25px;
+}
+.filter-box .filter-condition .filter-row{
+    margin: 0 auto 13px;
+    width: 1184px;
+}
+.filter-box .filter-row .title{
+    float: left;
+    width: 70px;
+    color: #414a60;
+    font-size: 14px;
+    font-weight: 500;
+    color: #414a60;
+}
+.filter-box .filter-row .content {
+    display: block;
+    overflow: hidden;
+    margin-left: 70px;
+    font-size: 13px;
+}
+.filter-box .filter-row a{
+    display: inline-block;
+    margin-right: 6px;
+    padding: 0 8px;
+    color: #61687c;
+    font-size: 13px;
+}
+.filter-box .filter-row a:hover{
+    color: #00c2b3;
+}
+.filter-box .filter-row:last-of-type {
+    margin-bottom: 0;
+}
+/*搜索框*/

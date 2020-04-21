@@ -108,12 +108,12 @@
                     },
                     {
                         subName:'面试安排',
-                        link:"/profile/interview",
+                        link:"/profile/hrInterview",
                         index:4
                     },
                     {
                         subName:'智能签约',
-                        link:"/profile/contract",
+                        link:"/profile/hrContract",
                         index:5
                     },
                     {

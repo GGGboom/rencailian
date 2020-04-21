@@ -112,7 +112,7 @@
                 </div>
             </div>
             <div class="form-btn">
-                <el-button type="primary" @click="save('form')">发布</el-button>
+                <el-button type="primary" @click="save('form')">{{btnName}}</el-button>
             </div>
         </el-form>
     </div>
@@ -169,7 +169,8 @@
                 serviceLengthList: CommonUtils.getEnumNameList("SERVICE_LENGTH", true),
                 workExperiences: CommonUtils.getEnumNameList("SERVICE_LENGTH"),
                 positionId:0,
-                result:{}
+                result:{},
+                btnName:"发布"
             }
         },
         methods: {
@@ -192,9 +193,20 @@
             save(formName){
                 this.$refs[formName].validate(valid=>{
                     if(valid){
+                        let data = JSON.parse(sessionStorage.getItem('edit_position'));
                         let publish = this.form;
+                        if(this.$route.params.type === 0){          //如果是编辑，则要加上companyId和positionID
+                            publish.companyId=data.companyId;
+                            publish.positionId= data.positionId;
+                        }
+                        publish.name = CommonUtils.getKeyName("POSITION_TYPE",publish.name);
                         editPosition(publish,CommonUtils.getStore("token"))
                             .then(res=>{
+                                if(res.code===0){
+                                    setTimeout(()=>{
+                                        this.$router.push("/position/all");
+                                    },900)
+                                }
                                 console.log(res);
                             })
                             .catch(err=>{
@@ -210,7 +222,9 @@
             this.get();
             if (this.$route.params.type === 0) {
                 this.head = "编辑职位";
+                this.btnName = "保存";
                 let data = JSON.parse(sessionStorage.getItem('edit_position'));
+                this.form.name = CommonUtils.getKeyValue('POSITION_TYPE',(data.name));
                 this.form.serviceLength = CommonUtils.getKeyValue('SERVICE_LENGTH',(data.serviceLength));
                 this.form.education = CommonUtils.getKeyValue('EDUCATION',(data.education));
                 this.form.salaryRange = CommonUtils.getKeyValue('SALARY_RANGE',(data.salaryRange));
@@ -224,6 +238,7 @@
             this.positionId = this.$route.params.positionId;
         },
         mounted() {
+
         }
     }
 </script>

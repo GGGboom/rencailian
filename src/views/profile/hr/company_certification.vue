@@ -18,7 +18,7 @@
                 <span>公司全称</span>
             </div>
             <div class="item-right">
-                <span>阿里云</span>
+                <span>{{company.companyName}}</span>
             </div>
         </div>
         <div class="info-item">
@@ -26,7 +26,7 @@
                 <span>公司简称</span>
             </div>
             <div class="item-right">
-                <span>阿里云</span>
+                <span>{{company.simpleName}}</span>
             </div>
         </div>
         <div class="info-item">
@@ -34,7 +34,7 @@
                 <span>公司规模</span>
             </div>
             <div class="item-right">
-                <span>500-1000</span>
+                <span>{{company.companySize}}</span>
             </div>
         </div>
         <div class="info-item">
@@ -42,7 +42,7 @@
                 <span>发展阶段</span>
             </div>
             <div class="item-right">
-                <span>D轮及以上</span>
+                <span>{{company.financingRound}}</span>
             </div>
         </div>
         <div class="info-item">
@@ -50,13 +50,13 @@
                 <span>所属行业</span>
             </div>
             <div class="item-right">
-                <span>互联网</span>
+                <span>{{company.industryType}}</span>
             </div>
         </div>
         <div class="contract-content">
             <p>公司简介</p>
             <div class="ct-content">
-                <span>阿里云，阿里巴巴集团旗下云计算品牌，全球卓越的云计算技术和服务提供商。创立于2009年，在杭州、北京、硅谷等地设有研发中心和运营机构。</span>
+                <span>{{company.description}}</span>
             </div>
         </div>
         <div class="info-item">
@@ -64,13 +64,13 @@
                 <span>公司网址</span>
             </div>
             <div class="item-right">
-                <span>www.aliyun.com</span>
+                <span>{{company.officialWebsite}}</span>
             </div>
         </div>
         <div class="contract-content">
             <p>公司地址</p>
             <div class="ct-content">
-                <span>上海市浦东新区世纪大道</span>
+                <span>{{company.address}}</span>
             </div>
         </div>
         <div class="info-item">
@@ -119,8 +119,32 @@
 </template>
 
 <script>
+    import {CommonUtils} from "../../../utils/commonUtil";
+
     export default {
-        name: "company_certification"
+        name: "company_certification",
+        data(){
+            return{
+                company:{}
+            }
+        },
+        created() {
+            let local_my_company = CommonUtils.getStore("my_company");
+            if(local_my_company!=null && typeof(local_my_company)!='undefined'){
+                this.company = local_my_company;
+            }
+            this.company.industryType = CommonUtils.getKeyName('INDUSTRY_TYPE',this.company.industryType);
+            this.company.companySize = CommonUtils.getKeyName('COMPANY_SIZE',this.company.companySize);
+            this.company.financingRound = CommonUtils.getKeyName('FINANCING_ROUND',this.company.financingRound);
+            for(let i=0;i<this.company.companyImageList.length;i++){
+                let image = this.company.companyImageList[i];
+                this.company.companyImageList[i].imagePath = CommonUtils.staticPathPrefix + image.filePosition;
+            }
+            for(let i=0;i<this.company.companyProductList.length;i++){
+                let product = this.company.companyProductList[i];
+                this.company.companyProductList[i].productLogoPath = CommonUtils.staticPathPrefix + product.productLogoPath;
+            }
+        }
     }
 </script>
 
@@ -161,9 +185,5 @@
     .info-list .info-item .item-right{
 
     }
-    .emphase{
-        font-size: 19px;
-        padding-left: 5px;
-        border-left: 2px solid #0366d6;
-    }
+
 </style>

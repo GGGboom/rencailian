@@ -35,7 +35,7 @@
                     <div class="">
                         <el-button icon="el-icon-edit" size="mini" @click="editPosition(item)">编辑</el-button>
                         <el-button icon="el-icon-delete" size="mini" v-if="item.publishStatus===2"
-                                   @click="operatePostion(item,0)">删除
+                                   @click="operate(item,0)">删除
                         </el-button>
                         <el-button icon="el-icon-error" size="mini" v-if="item.publishStatus===1"
                                    @click="operate(item,2)">暂停

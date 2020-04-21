@@ -8,19 +8,22 @@
                     <span class="title">行业类型:</span>
                     <div class="content">
                         <!--:class="cur:"-->
-                        <el-link v-for="item in ind" :key="item.id" :underline="false"
-                                 :class="item.id==industryId?'cur':''" @click.native="selectInd(item)">
-                            {{item.txt}}
+                        <el-link v-for="(item,index) in ind" :key="index" :underline="false"
+                                 :class="index===tab.industryId?'cur':''" @click.native="clickTab(index,0)">
+                            {{item.name}}
                         </el-link>
                     </div>
                 </div>
+                <!--行业-->
+
                 <!--融资阶段-->
                 <div class="filter-row stage">
                     <span class="title">融资阶段:</span>
                     <div class="content">
-                        <el-link v-for="item in financeRound" :key="item.id" :class="item.id==financeId?'cur':''"
-                                 @click.native="selectFin(item)" :underline="false">
-                            {{item.txt}}
+                        <el-link v-for="(item,index) in financeRound" :key="index"
+                                 :class="index===tab.financeId?'cur':''"
+                                 @click.native="clickTab(index,1)" :underline="false">
+                            {{item.name}}
                         </el-link>
                     </div>
                 </div>
@@ -28,9 +31,10 @@
                 <div class="filter-row scale">
                     <span class="title">公司规模:</span>
                     <div class="content">
-                        <el-link v-for="item in companyScale" :key="item.id" :class="item.id==companyScaleId?'cur':''"
-                                 @click.native="selectScale(item)" :underline="false">
-                            {{item.txt}}
+                        <el-link v-for="(item,index) in companyScale" :key="index"
+                                 :class="{cur:index===tab.companyScaleId}"
+                                 @click.native="clickTab(index,2)" :underline="false">
+                            {{item.name}}
                         </el-link>
                     </div>
                 </div>
@@ -41,13 +45,13 @@
                 </div>
                 <div class="dropdown-wrap expect-dropdown-wrap">
                     <span class="filter-font border-right">
-                        行业类型:{{ind[industryId].txt}}
+                        行业类型:{{ind[tab.industryId].name}}
                     </span>
                     <span class="filter-font border-right pd-lf">
-                        融资阶段:{{financeRound[financeId].txt}}
+                        融资阶段:{{financeRound[tab.financeId].name}}
                     </span>
                     <span class="filter-font pd-lf">
-                        公司规模:{{companyScale[companyScaleId].txt}}
+                        公司规模:{{companyScale[tab.companyScaleId].name}}
                     </span>
                 </div>
             </div>
@@ -154,7 +158,7 @@
             </ul>
         </div>
         <div class="inner mrg-bt">
-            <div class="layout-center">
+            <div class="layout-center" v-if="companyList.length!==0">
                 <el-pagination
                         :page-size="pageSize"
                         :pager-count="11"
@@ -179,25 +183,27 @@
         components: {},
         data() {
             return {
-                company: 'first',
+                company: 'first',                 //tabs默认index
                 url: require("../../../assets/img/alibaba.jpg"),
-                industryId: 0,
-                ind: CommonUtils.getEnumNameList('POSITION_TYPE').slice(0, 15),               //行业类型
-                financeRound: CommonUtils.getEnumNameList('FINANCING_ROUND'),                //融资规模
-                financeId: 1,
-                companyScale: CommonUtils.getEnumNameList('COMPANY_SIZE'),
-                companyScaleId: 2,
-                companyList: [],
-                pageSize: 8,
-                total: 0,
-                salaryRange: [0],
-                industryType: [0],
-                nearDistance: 2000,
-                location: [],
-                city: "上海市",
-                area: "",
-                loading:true,
-                currentPage:1
+                ind: CommonUtils.getEnumObjList('INDUSTRY_TYPE').slice(0, 20),               //行业类型
+                financeRound: CommonUtils.getEnumObjList('FINANCING_ROUND'),               //融资规模
+                companyScale: CommonUtils.getEnumObjList('COMPANY_SIZE'),                   //员工规模
+                tab: {
+                    industryId: 0,                //行业类型默认筛选项
+                    financeId: 0,                 //融资规模默认筛选项
+                    companyScaleId: 0,            //员工规模默认筛选项
+                },
+                companyList: [],                  //v-for公司列表
+                pageSize: 8,                      //页面大小
+                total: 0,                         //分页搜索总数
+                salaryRange: [0],                 //post默认参数
+                industryType: [0],                //post默认参数
+                nearDistance: 2000,               //post默认参数
+                location: [],                     //post默认参数
+                city: "上海市",                    //post默认参数
+                area: "",                         //post默认参数
+                loading: true,                    //v-loading默认参数
+                currentPage: 1                    //当前处于第几页
             }
         },
         methods: {
@@ -253,17 +259,24 @@
             handleClick(tab, event) {
                 console.log(tab, event);
             },
-            selectInd(item) {
-                this.industryId = item.id;
-            },
-            selectFin(item) {
-                this.financeId = item.id;
-            },
-            selectScale(item) {
-                this.companyScaleId = item.id;
+            clickTab(index, type) {
+                switch (type) {
+                    case 0: {         //行业类型
+                        this.tab.industryId = index;
+                        break;
+                    }
+                    case 1: {        //融资规模
+                        this.tab.financeId = index;
+                        break;
+                    }
+                    case 2: {        //员工规模
+                        this.tab.companyScaleId = index;
+                        break;
+                    }
+                    default:
+                }
             }
-        }
-        ,
+        },
         created() {
             let searchContent = this.$route.params.search ? this.$route.params.search : undefined;
             if (searchContent === undefined) {
@@ -272,8 +285,8 @@
                 this.FuzzySearch(searchContent, this.pageSize, 1);
             }
         },
-        watch:{
-            async '$route.query'(){
+        watch: {
+            async '$route.query'() {
                 let searchContent = this.$route.params.search ? this.$route.params.search : undefined;
                 if (searchContent === undefined) {
                     this.currentPage = 1;
@@ -282,6 +295,27 @@
                     this.currentPage = 1;
                     await this.FuzzySearch(searchContent, this.pageSize, 1);
                 }
+            },
+            tab: {
+                async handler(newValue) {
+                    let data = {
+                        financingRound: [this.tab.companyScaleId],
+                        companySize: [this.tab.financeId],
+                        industryType: [this.tab.industryId],
+                        positionType: [1031],
+                    };
+                    let res = await getCompanyList(data, CommonUtils.getStore("token"), 5, 1);
+                    if (res.code === 0) {
+                        this.loading = false;
+                        this.companyList = res.result.collection;
+                        this.companyList.forEach(item => {
+                            item.id = item.companyId + item.positionId;
+                        });
+                        this.total = res.result.total;
+                    }
+                    console.log(newValue);
+                },
+                deep: true
             }
         }
     }
@@ -289,13 +323,11 @@
 
 <style scoped>
     @import "../../../assets/css/jobHunter/company/allcompany.css";
-
     .layout-center {
         display: flex;
         justify-content: center;
         background: #fff;
     }
-
     .el-pagination {
         white-space: nowrap;
         padding: 2px 5px;

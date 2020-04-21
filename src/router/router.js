@@ -147,6 +147,9 @@ const routes = [
                 component: () => import( '../views/profile/jobHunter/attachment.vue'),
                 meta: {title: '简历附件', requireAuth: true}
             },
+
+
+
             /* ----------------------分割线公司部分------------------------*/
 
             //公司认证
@@ -163,12 +166,40 @@ const routes = [
                 component: () => import( '../views/profile/hr/name_certification.vue'),
                 meta: {title: '实名认证', requireAuth: true}
             },
+            //实名认证-身份证
+            {
+                path: 'verifyid',
+                name: 'verified_name_id',
+                component: () => import( '../views/profile/hr/verified_name_id.vue'),
+                meta: {title: '实名认证', requireAuth: true}
+            },
             //简历管理
             {
                 path: 'resumeManage',
                 name: 'resumeManage',
                 component: () => import( '../views/profile/hr/resume_manage.vue'),
                 meta: {title: '简历管理', requireAuth: true}
+            },
+            //面试安排
+            {
+                path: 'hrInterview',
+                name: 'hr_interview',
+                component: () => import( '../views/profile/hr/interview_hr.vue'),
+                meta: {title: '面试安排', requireAuth: true}
+            },
+            //智能合约
+            {
+                path: 'hrContract',
+                name: 'contract_hr',
+                component: () => import( '../views/profile/hr/contract_hr.vue'),
+                meta: {title: '智能签约', requireAuth: true}
+            },
+            //智能合约
+            {
+                path: 'hrContractDetail',
+                name: 'contract_detail_hr',
+                component: () => import( '../views/profile/hr/contract_detail_hr.vue'),
+                meta: {title: '智能签约', requireAuth: true}
             },
 
 
