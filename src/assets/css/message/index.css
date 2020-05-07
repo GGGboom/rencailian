@@ -180,10 +180,47 @@
     top: -30px!important;
 }
 .emoji{
-    margin-top: 40px;
+    margin-top: 10px;
 }
 .chat_btn{
     padding: 8px 30px;
     display: flex;
     justify-content: flex-end;
+}
+.emoji .chat-item{
+    display: inline-block;
+    margin-left: 40px;
+    margin-bottom: 2px;
+    position: relative;
+}
+.emoji .chat-item .el-icon-circle-plus-outline{
+    font-size: 27px;
+    color: #9fa3b0;
+}
+.emoji .chat-item .el-icon-circle-plus-outline:hover{
+    cursor: pointer;
+}
+.emoji .chat-item .item-panel{
+    position: absolute;
+    width: 225px;
+    height: 227px;
+    display: none;
+    background: #fff!important;
+    z-index: 10000;
+    border: 1px #dfdfdf solid;
+    border-radius: 3px;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
+    top: 26px;
+}
+.item-panel .item-button{
+    display: inline-block;
+}
+.item-panel .item-button img{
+    width: 50px;
+    height: 50px;
+    padding: 10px 12px;
+}
+
+.chat-item .my-show{
+    display: block!important;
 }

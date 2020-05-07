@@ -63,7 +63,7 @@
                                     <div class="message-text">
                                         <div class="text">
                                             <p>
-                                                好的，请稍等
+                                                好的
                                             </p>
                                         </div>
                                     </div>
@@ -72,12 +72,26 @@
                         </div>
                         <div class="chat-im chat-editor">
                             <div class="emoji">
+                                <div class="chat-item">
+                                    <i class="el-icon-circle-plus-outline" @click="showPanel"></i>
+                                    <div :class="{'item-panel':true,'my-show':flag}">
+                                        <div class="item-button">
+                                            <img src="../../assets/img/resume.png" title="发送简历">
+                                        </div>
+                                        <div class="item-button">
+                                            <img src="../../assets/img/contact.png" title="发送联系方式">
+                                        </div>
+                                        <div class="item-button">
+                                            <img src="../../assets/img/photo.png" title="发送找照片">
+                                        </div>
+                                    </div>
+                                </div>
                                 <VueEmoji ref="emoji"  @input="onInput" width="100%" :value="myText" />
                             </div>
                         </div>
                         <div class="chat_btn">
                             <el-button size="mini" @click="clearTextarea">清空</el-button>
-                            <el-button size="mini">发送</el-button>
+                            <el-button size="mini" @click="sendMsg">发送</el-button>
                         </div>
                     </div>
                 </div>
@@ -127,7 +141,8 @@
                 chatIndex:"",
                 chatPosition:"",
                 chatAvatar:"",
-                myText:""
+                myText:"",
+                flag:false
             }
         },
         methods:{
@@ -137,17 +152,30 @@
                 this.chatPosition = item.receiveUserPosition;
             },
             onInput(event) {
-                console.log(event);
+                this.myText = event.data
                 //event.data contains the value of the textarea
             },
             clearTextarea(){
-                this.$refs.emoji.clear()
+                this.$refs.emoji.clear();
             },
+            sendMsg(){
+
+            },
+            showPanel(){
+                if(this.flag===true){
+                    this.flag = false;
+                }else{
+                    this.flag = true;
+                }
+            }
         },
         mounted() {
             this.chatIndex = this.chatRecords[0].receiveUserName;
             this.chatPosition = this.chatRecords[0].receiveUserPosition;
             this.chatAvatar = require("../../assets/img/msg_avatar.png");
+        },
+        beforeCreate() {
+            this.$emit('setHeader','msg');
         }
     }
 </script>

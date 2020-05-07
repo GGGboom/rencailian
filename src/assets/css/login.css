@@ -1,11 +1,12 @@
 .class-main{
-    min-height: 100%;
+    height: calc(100vh);
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     position: relative;
     padding-bottom: 136px;
-    background: #fff;
+    background: url("../img/login_background.jpg") no-repeat;
+    background-size:100% 100%;
 }
 .m-header-box {
     max-width: 960px;
@@ -57,6 +58,7 @@
     height: 7px;
 }
 .m-form-wrapper{
+    padding-top: 50px;
     position: relative;
     width: 100%;
     margin: 36px auto 0;
@@ -74,17 +76,16 @@
     height: 26px;
     line-height: 26px;
 }
-.tab-navs a.active {
+.tab-navs a.log-active {
     border-bottom: 2px solid #3a8ee6;
     color: #3a8ee6;
-    background: #fff!important;
 }
 .tab-navs a {
     float: left;
-    border-bottom: 2px solid #a6afbb;
-    color: #a6afbb;
+    border-bottom: 2px solid #fff;
+    color: #fff;
     line-height: 24px;
-    width: 72px;
+    width: 80px;
 }
 .m-form-wrapper{
     width: 100%;
@@ -101,4 +102,7 @@
 .forget-item{
     margin-top: -10px;
     margin-bottom: 0!important;
+}
+.forget-item .verify{
+    float: left;
 }

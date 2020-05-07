@@ -14,9 +14,11 @@ export const deleteResume = (params,token,id)=>deletefn("/resume/resume/",params
 export const uploadResumeAttach=(data,token)=> post("/resume/resume/upload",data,token);
 export const getBlackList = (params)=>get("/blacklist",params);
 export const addBlack = (data,token,companyId)=>post("/blacklist/"+companyId,data,token);
+export const deleteBlack = (params,token,companyId)=>deletefn("/blacklist/",params,token,companyId);
 export const getInterViewDate = (params)=>get("/jobhunter/delivery/interview",params);
 export const changePasswd = (data,token)=>put("/users",data,token);
 export const changeRole = (data,token) => put(`/users/conver/${data}`,null,token);
+export const getCode = (params) =>get("/users/special/sms_code",params);
 
 
 /*************************招聘者*****************************/

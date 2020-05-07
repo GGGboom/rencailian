@@ -38,7 +38,7 @@
                         <el-button
                                 size="mini"
                                 type="danger"
-                                @click="handleDelete(scope.$index, scope.row)">移除</el-button>
+                                @click="handleDelete(scope.row.companyId)">移除</el-button>
                     </template>
                 </el-table-column>
             </el-table>
@@ -72,96 +72,69 @@
                 title="添加屏蔽公司"
                 :visible.sync="dialogVisible"
                 width="400px">
-            <el-form :model="searchForm" :rules="rules" ref="searchForm" label-width="auto" class="demo-ruleForm">
-                <el-form-item label="公司名称" prop="name">
-                    <el-input v-model="searchForm.companyName" placeholder="请输入要屏蔽的公司名称"></el-input>
-                </el-form-item>
-            </el-form>
+                    <el-input v-model="companyName" placeholder="请输入要屏蔽的公司名称" @blur.native.capture="getCompanyIdByName()"></el-input>
             <span slot="footer" class="dialog-footer">
                 <el-button @click="dialogVisible = false">取 消</el-button>
-                <el-button type="primary" @click="blockCompany('searchForm')">确 定</el-button>
+                <el-button type="primary" @click="blockCompany()">确 定</el-button>
             </span>
         </el-dialog>
     </div>
 </template>
 
 <script>
-    import {getBlackList,addBlack} from "../../../api/user";
+    import {getBlackList,addBlack,deleteBlack} from "../../../api/user";
     import {CommonUtils} from "../../../utils/commonUtil";
+    import {searchCompany} from "../../../api/company";
 
     export default {
         name: "privacy",
         data() {
             return {
                 visible:true,
-                companys:[
-                    {
-                        "companyId": 1,
-                        "logoImagePath": null,
-                        "simpleName": "大黄",
-                        "verifiedStatus": 0,
-                        "financingRound": 1,
-                        "companySize": 1,
-                        "industryType": 1,
-                        "description": null,
-                        "address": "上海市松江区",
-                        "officialWebsite": null,
-                        "createTime": 1534239317000,
-                        "createUserId": 5,
-                        "updateTime": null,
-                        "updateUserId": null,
-                        "isDeleted": false,
-                        "companyName": "阿里影业公司",
-                        "verifiedFailReason": "公司在工商局不存在"
-                    },
-                    {
-                        "companyId": 2,
-                        "logoImagePath": null,
-                        "simpleName": "大黄",
-                        "verifiedStatus": 0,
-                        "financingRound": 1,
-                        "companySize": 1,
-                        "industryType": 1,
-                        "description": null,
-                        "address": "上海市浦东新区",
-                        "officialWebsite": null,
-                        "createTime": 1534239317000,
-                        "createUserId": 5,
-                        "updateTime": null,
-                        "updateUserId": null,
-                        "isDeleted": false,
-                        "companyName": "腾讯影业公司",
-                        "verifiedFailReason": "公司在工商局不存在"
-                    }
-                ],
-                form:{
-                    companyName:""
-                },
+                companys:[],
+                companyName:"",
                 dialogVisible:false,
                 searchForm:{
 
                 },
-                rules:{
-                    companyName: [
-                        { required: true, message: '公司名不能为空', trigger: 'blur' }
-                    ]
-                }
+                dateSlots: [{
+                    flex: 1,
+                    values: [],
+                    className: 'slot3',
+                    textAlign: 'left'
+                }],
+                model : [],
             }
         },
 
         methods: {
-            blockCompany(searchForm){
-                this.$refs[searchForm].validate((valid)=>{
-                    if(valid){
-                        addBlack(null,CommonUtils.getStore("user"),1)
-                            .then(res=>{
-                                console.log(res)
-                            })
-                            .catch(err=>{
-                                console.log(err)
-                            })
+            blockCompany(){
+                if(typeof(this.companyName)=='undefined'){
+                    this.$message.error("请输入要屏蔽的公司名称");
+                    return;
+                }
+                let companyId = 0;
+                console.log(this.model,'model');
+                this.model.forEach((item)=>{
+                    console.log(item,'item')
+                    if(this.companyName == item.companyName){
+                        companyId = item.companyId;
                     }
-                })
+                });
+                addBlack(null,CommonUtils.getStore("token"),companyId)
+                    .then(res=>{
+                        if(res.code===0){
+                            this.$message.success("添加成功");
+                            // setTimeout(()=>{
+                            //     this.$router.go(0);
+                            // },900)
+                        }else{
+                            console.log(res.message);
+                        }
+                    })
+                    .catch(err=>{
+                        console.log(err)
+                    })
 
             },
             handleSelectionChange(val) {
@@ -170,14 +143,45 @@
             get(){
                 getBlackList({authorization:CommonUtils.getStore("token")})
                     .then(res=>{
-                        console.log(res);
+                        if(res.code===0){
+                            this.companys = res.companys;
+                            console.log(this.companys)
+                        }else{
+                            console.log(res.message);
+                        }
                     })
                     .catch(err=>{
                         console.log(err);
                     })
             },
-            handleDelete(index, row) {
-                console.log(index, row);
+            handleDelete(companyId) {
+                deleteBlack(null,CommonUtils.getStore("token"),companyId)
+                    .then(res=>{
+                        if(res.code===0){
+                            this.$message.success("移除成功");
+                            this.get();
+                        }else{
+                            console.log(res.message);
+                        }
+                    })
+            },
+            getCompanyIdByName(){
+                searchCompany({authorization: CommonUtils.getStore("token")},this.companyName)
+                    .then((res)=>{
+                        console.log(res,'data')
+                        var companyName = new Array();
+                        //vm.popupVisible = true;
+                        res.model.forEach(function(item){
+                            console.log(item)
+                            companyName.push(item.companyName);
+                        });
+                        this.model = res.model;
+                        this.dateSlots[0].values = companyName;
+                    })
+                    .catch((err)=>{
+                        console.log(err);
+                    })
+                console.log(this.companyName);
             }
         },
         mounted() {
