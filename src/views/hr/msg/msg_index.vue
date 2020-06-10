@@ -76,13 +76,13 @@
                                     <i class="el-icon-circle-plus-outline" @click="showPanel"></i>
                                     <div :class="{'item-panel':true,'my-show':flag}">
                                         <div class="item-button">
-                                            <img src="../../assets/img/resume.png" title="发送简历">
+                                            <img src="../../../assets/img/resume.png" title="发送简历">
                                         </div>
                                         <div class="item-button">
-                                            <img src="../../assets/img/contact.png" title="发送联系方式">
+                                            <img src="../../../assets/img/contact.png" title="发送联系方式">
                                         </div>
                                         <div class="item-button">
-                                            <img src="../../assets/img/photo.png" title="发送找照片">
+                                            <img src="../../../assets/img/photo.png" title="发送找照片">
                                         </div>
                                     </div>
                                 </div>
@@ -113,28 +113,28 @@
                         receiveUserName:"吴女士",
                         receiveUserId:1,
                         updateTime:"03月07日",
-                        receiveUserHeaderImage:require("../../assets/img/msg_avatar.png"),
+                        receiveUserHeaderImage:require("../../../assets/img/msg_avatar.png"),
                         receiveUserPosition:"阿里云"
                     },
                     {
                         receiveUserName:"张先生",
                         receiveUserId:2,
                         updateTime:"03月04日",
-                        receiveUserHeaderImage:require("../../assets/img/msg_avatar.png"),
+                        receiveUserHeaderImage:require("../../../assets/img/msg_avatar.png"),
                         receiveUserPosition:"腾讯"
                     },
                     {
                         receiveUserName:"郭先生",
                         receiveUserId:3,
                         updateTime:"03月01日",
-                        receiveUserHeaderImage:require("../../assets/img/msg_avatar.png"),
+                        receiveUserHeaderImage:require("../../../assets/img/msg_avatar.png"),
                         receiveUserPosition:"百度"
                     },
                     {
                         receiveUserName:"黄先生",
                         receiveUserId:4,
                         updateTime:"03月02日",
-                        receiveUserHeaderImage:require("../../assets/img/msg_avatar.png"),
+                        receiveUserHeaderImage:require("../../../assets/img/msg_avatar.png"),
                         receiveUserPosition:"京东"
                     }
                 ],
@@ -172,7 +172,7 @@
         mounted() {
             this.chatIndex = this.chatRecords[0].receiveUserName;
             this.chatPosition = this.chatRecords[0].receiveUserPosition;
-            this.chatAvatar = require("../../assets/img/msg_avatar.png");
+            this.chatAvatar = require("../../../assets/img/msg_avatar.png");
         },
         beforeCreate() {
             this.$emit('setHeader','msg');
@@ -181,5 +181,5 @@
 </script>
 
 <style scoped>
-@import "../../assets/css/message/index.css";
+@import "../../../assets/css/message/index.css";
 </style>

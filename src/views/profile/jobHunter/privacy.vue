@@ -116,8 +116,7 @@
                 let companyId = 0;
                 console.log(this.model,'model');
                 this.model.forEach((item)=>{
-                    console.log(item,'item')
-                    if(this.companyName == item.companyName){
+                    if(this.companyName === item.companyName){
                         companyId = item.companyId;
                     }
                 });
@@ -169,7 +168,7 @@
                 searchCompany({authorization: CommonUtils.getStore("token")},this.companyName)
                     .then((res)=>{
                         console.log(res,'data')
-                        var companyName = new Array();
+                        let companyName = new Array();
                         //vm.popupVisible = true;
                         res.model.forEach(function(item){
                             console.log(item)

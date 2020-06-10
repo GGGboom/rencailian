@@ -5,683 +5,108 @@
             <div class="banner-mask">
             </div>
         </div>
-        <!--搜索框-->
-        <div class="search-panel">
-            <div class="inner">
-                <div class="search-box">
-                    <div class="search-form">
-                        <div class="search-form-con" :style="styleObject">
-   
-                            <p class="ipt-wrap">
-                                <input v-on:focus="getFoucs" class="ipt-search" type="text" placeholder="搜索职位、公司">
-                            </p>
-                        </div>
-                        <el-button type="primary">搜索</el-button>
-                    </div>
+        <!--海报-->
 
-                </div>
-            </div>
-        </div>
-        <!--职位-->
-        <div class="inner home-inner">
+        <!--搜索框-->
+
+        <!--搜索框-->
+
+        <!--应聘者职位列表-->
+        <div class="inner home-inner" v-if="this.$store.state.identityType===2">
             <div class="home-box">
                 <div class="common-tab-box job-tab-box">
                     <!--职位列表-->
+                    <div class="box-title">热招职位</div>
                     <div class="common-tab">
-                        <el-tabs v-model="job" @tab-click="handleClick">
-                            <el-tab-pane label="IT·互联网" name="first">
-                                <el-row :gutter="12">
-                                    <el-col :span="6">
-                                        <router-link to="/">
-                                            <el-card shadow="hover">
-                                                <p>
-                                                    <span>算法工程师</span>
-                                                    <span class="salary">30-50k</span>
-                                                </p>
-                                                <div class="common-tag">
-                                                    <span>上海</span>
-                                                    <el-divider direction="vertical"></el-divider>
-                                                    <span>3-5年</span>
-                                                    <el-divider direction="vertical"></el-divider>
-                                                    <span>本科</span>
-                                                </div>
-                                                <div class="split">
-                                                    <el-divider></el-divider>
-                                                </div>
-                                                <div class="common-bot">
-                                                    <el-avatar
-                                                            src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"></el-avatar>
-                                                    <span class="company">招商银行信用卡中心</span>
-                                                </div>
-                                            </el-card>
-                                        </router-link>
-                                    </el-col>
-                                    <el-col :span="6">
-                                        <router-link to="/">
-                                            <el-card shadow="hover">
-                                                <p>
-                                                    <span>算法工程师</span>
-                                                    <span class="salary">30-50k</span>
-                                                </p>
-                                                <div class="common-tag">
-                                                    <span>上海</span>
-                                                    <el-divider direction="vertical"></el-divider>
-                                                    <span>3-5年</span>
-                                                    <el-divider direction="vertical"></el-divider>
-                                                    <span>本科</span>
-                                                </div>
-                                                <div class="split">
-                                                    <el-divider></el-divider>
-                                                </div>
-                                                <div class="common-bot">
-                                                    <el-avatar
-                                                            src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"></el-avatar>
-                                                    <span class="company">招商银行信用卡中心</span>
-                                                </div>
-                                            </el-card>
-                                        </router-link>
-                                    </el-col>
-                                    <el-col :span="6">
-                                        <router-link to="/">
-                                            <el-card shadow="hover">
-                                                <p>
-                                                    <span>算法工程师</span>
-                                                    <span class="salary">30-50k</span>
-                                                </p>
-                                                <div class="common-tag">
-                                                    <span>上海</span>
-                                                    <el-divider direction="vertical"></el-divider>
-                                                    <span>3-5年</span>
-                                                    <el-divider direction="vertical"></el-divider>
-                                                    <span>本科</span>
-                                                </div>
-                                                <div class="split">
-                                                    <el-divider></el-divider>
-                                                </div>
-                                                <div class="common-bot">
-                                                    <el-avatar
-                                                            src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"></el-avatar>
-                                                    <span class="company">招商银行信用卡中心</span>
-                                                </div>
-                                            </el-card>
-                                        </router-link>
-                                    </el-col>
-                                    <el-col :span="6">
-                                        <router-link to="/">
-                                            <el-card shadow="hover">
-                                                <p>
-                                                    <span>算法工程师</span>
-                                                    <span class="salary">30-50k</span>
-                                                </p>
-                                                <div class="common-tag">
-                                                    <span>上海</span>
-                                                    <el-divider direction="vertical"></el-divider>
-                                                    <span>3-5年</span>
-                                                    <el-divider direction="vertical"></el-divider>
-                                                    <span>本科</span>
-                                                </div>
-                                                <div class="split">
-                                                    <el-divider></el-divider>
-                                                </div>
-                                                <div class="common-bot">
-                                                    <el-avatar
-                                                            src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"></el-avatar>
-                                                    <span class="company">招商银行信用卡中心</span>
-                                                </div>
-                                            </el-card>
-                                        </router-link>
-                                    </el-col>
-                                </el-row>
-                                <el-row :gutter="12">
-                                    <el-col :span="6">
-                                        <router-link to="/">
-                                            <el-card shadow="hover">
-                                                <p>
-                                                    <span>算法工程师</span>
-                                                    <span class="salary">30-50k</span>
-                                                </p>
-                                                <div class="common-tag">
-                                                    <span>上海</span>
-                                                    <el-divider direction="vertical"></el-divider>
-                                                    <span>3-5年</span>
-                                                    <el-divider direction="vertical"></el-divider>
-                                                    <span>本科</span>
-                                                </div>
-                                                <div class="split">
-                                                    <el-divider></el-divider>
-                                                </div>
-                                                <div class="common-bot">
-                                                    <el-avatar
-                                                            src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"></el-avatar>
-                                                    <span class="company">招商银行信用卡中心</span>
-                                                </div>
-                                            </el-card>
-                                        </router-link>
-                                    </el-col>
-                                    <el-col :span="6">
-                                        <router-link to="/">
-                                            <el-card shadow="hover">
-                                                <p>
-                                                    <span>算法工程师</span>
-                                                    <span class="salary">30-50k</span>
-                                                </p>
-                                                <div class="common-tag">
-                                                    <span>上海</span>
-                                                    <el-divider direction="vertical"></el-divider>
-                                                    <span>3-5年</span>
-                                                    <el-divider direction="vertical"></el-divider>
-                                                    <span>本科</span>
-                                                </div>
-                                                <div class="split">
-                                                    <el-divider></el-divider>
-                                                </div>
-                                                <div class="common-bot">
-                                                    <el-avatar
-                                                            src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"></el-avatar>
-                                                    <span class="company">招商银行信用卡中心</span>
-                                                </div>
-                                            </el-card>
-                                        </router-link>
-                                    </el-col>
-                                    <el-col :span="6">
-                                        <router-link to="/">
-                                            <el-card shadow="hover">
-                                                <p>
-                                                    <span>算法工程师</span>
-                                                    <span class="salary">30-50k</span>
-                                                </p>
-                                                <div class="common-tag">
-                                                    <span>上海</span>
-                                                    <el-divider direction="vertical"></el-divider>
-                                                    <span>3-5年</span>
-                                                    <el-divider direction="vertical"></el-divider>
-                                                    <span>本科</span>
-                                                </div>
-                                                <div class="split">
-                                                    <el-divider></el-divider>
-                                                </div>
-                                                <div class="common-bot">
-                                                    <el-avatar
-                                                            src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"></el-avatar>
-                                                    <span class="company">招商银行信用卡中心</span>
-                                                </div>
-                                            </el-card>
-                                        </router-link>
-                                    </el-col>
-                                    <el-col :span="6">
-                                        <router-link to="/">
-                                            <el-card shadow="hover">
-                                                <p>
-                                                    <span>算法工程师</span>
-                                                    <span class="salary">30-50k</span>
-                                                </p>
-                                                <div class="common-tag">
-                                                    <span>上海</span>
-                                                    <el-divider direction="vertical"></el-divider>
-                                                    <span>3-5年</span>
-                                                    <el-divider direction="vertical"></el-divider>
-                                                    <span>本科</span>
-                                                </div>
-                                                <div class="split">
-                                                    <el-divider></el-divider>
-                                                </div>
-                                                <div class="common-bot">
-                                                    <el-avatar
-                                                            src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"></el-avatar>
-                                                    <span class="company">招商银行信用卡中心</span>
-                                                </div>
-                                            </el-card>
-                                        </router-link>
-                                    </el-col>
-                                </el-row>
-                                <el-row :gutter="12">
-                                    <el-col :span="6">
-                                        <router-link to="/">
-                                            <el-card shadow="hover">
-                                                <p>
-                                                    <span>算法工程师</span>
-                                                    <span class="salary">30-50k</span>
-                                                </p>
-                                                <div class="common-tag">
-                                                    <span>上海</span>
-                                                    <el-divider direction="vertical"></el-divider>
-                                                    <span>3-5年</span>
-                                                    <el-divider direction="vertical"></el-divider>
-                                                    <span>本科</span>
-                                                </div>
-                                                <div class="split">
-                                                    <el-divider></el-divider>
-                                                </div>
-                                                <div class="common-bot">
-                                                    <el-avatar
-                                                            src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"></el-avatar>
-                                                    <span class="company">招商银行信用卡中心</span>
-                                                </div>
-                                            </el-card>
-                                        </router-link>
-                                    </el-col>
-                                    <el-col :span="6">
-                                        <router-link to="/">
-                                            <el-card shadow="hover">
-                                                <p>
-                                                    <span>算法工程师</span>
-                                                    <span class="salary">30-50k</span>
-                                                </p>
-                                                <div class="common-tag">
-                                                    <span>上海</span>
-                                                    <el-divider direction="vertical"></el-divider>
-                                                    <span>3-5年</span>
-                                                    <el-divider direction="vertical"></el-divider>
-                                                    <span>本科</span>
-                                                </div>
-                                                <div class="split">
-                                                    <el-divider></el-divider>
-                                                </div>
-                                                <div class="common-bot">
-                                                    <el-avatar
-                                                            src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"></el-avatar>
-                                                    <span class="company">招商银行信用卡中心</span>
-                                                </div>
-                                            </el-card>
-                                        </router-link>
-                                    </el-col>
-                                    <el-col :span="6">
-                                        <router-link to="/">
-                                            <el-card shadow="hover">
-                                                <p>
-                                                    <span>算法工程师</span>
-                                                    <span class="salary">30-50k</span>
-                                                </p>
-                                                <div class="common-tag">
-                                                    <span>上海</span>
-                                                    <el-divider direction="vertical"></el-divider>
-                                                    <span>3-5年</span>
-                                                    <el-divider direction="vertical"></el-divider>
-                                                    <span>本科</span>
-                                                </div>
-                                                <div class="split">
-                                                    <el-divider></el-divider>
-                                                </div>
-                                                <div class="common-bot">
-                                                    <el-avatar
-                                                            src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"></el-avatar>
-                                                    <span class="company">招商银行信用卡中心</span>
-                                                </div>
-                                            </el-card>
-                                        </router-link>
-                                    </el-col>
-                                    <el-col :span="6">
-                                        <router-link to="/">
-                                            <el-card shadow="hover">
-                                                <p>
-                                                    <span>算法工程师</span>
-                                                    <span class="salary">30-50k</span>
-                                                </p>
-                                                <div class="common-tag">
-                                                    <span>上海</span>
-                                                    <el-divider direction="vertical"></el-divider>
-                                                    <span>3-5年</span>
-                                                    <el-divider direction="vertical"></el-divider>
-                                                    <span>本科</span>
-                                                </div>
-                                                <div class="split">
-                                                    <el-divider></el-divider>
-                                                </div>
-                                                <div class="common-bot">
-                                                    <el-avatar
-                                                            src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"></el-avatar>
-                                                    <span class="company">招商银行信用卡中心</span>
-                                                </div>
-                                            </el-card>
-                                        </router-link>
-                                    </el-col>
-                                </el-row>
-                            </el-tab-pane>
-                            <el-tab-pane label="金融" name="second">金融</el-tab-pane>
-                            <el-tab-pane label="房地产·建筑" name="third">房地产·建筑</el-tab-pane>
-                            <el-tab-pane label="教育培训" name="fourth">教育培训</el-tab-pane>
-                        </el-tabs>
+                        <el-row :gutter="12">
+                            <el-col v-for="(item,index) in jobList" :key="index" :span="6" >
+                                <router-link :to="item.url">
+                                    <el-card shadow="hover">
+                                        <p>
+                                            <span>{{item.name===""?"无":item.name}}</span>
+                                            <span class="salary">{{item.salaryRangeTxt}}</span>
+                                        </p>
+                                        <div class="common-tag">
+                                            <span>{{item.city}}</span>
+                                            <el-divider direction="vertical"></el-divider>
+                                            <span>{{item.serviceLengthTxt}}</span>
+                                            <el-divider direction="vertical"></el-divider>
+                                            <span>{{item.educationTxt}}</span>
+                                        </div>
+                                        <div class="split">
+                                            <el-divider></el-divider>
+                                        </div>
+                                        <div class="common-bot">
+                                            <el-avatar
+                                                    src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"></el-avatar>
+                                            <span class="company">{{item.description}}</span>
+                                        </div>
+                                    </el-card>
+                                </router-link>
+                            </el-col>
+                        </el-row>
                     </div>
                     <!--查看更多-->
-                    <div class="more-box">
+                    <div class="more-box normal-pad-top">
                         <el-button type="primary">
-                            <router-link to="">
+                            <router-link to="/job/all">
                                 查看更多
                             </router-link>
                         </el-button>
                     </div>
                 </div>
-
             </div>
         </div>
-        <!--公司-->
-        <div class="inner home-inner">
+        <!--应聘者职位列表-->
+
+        <!--公司列表-->
+        <div class="inner home-inner" v-if="this.$store.state.identityType===2">
             <div class="home-box">
                 <div class="common-tab-box company-tab-box">
-                    <!--职位列表-->
+                    <!--公司列表-->
+                    <div class="box-title">热门企业</div>
                     <div class="common-tab company-tab">
-                        <el-tabs v-model="company" @tab-click="handleClick">
-                            <el-tab-pane label="热门企业" name="first">
-                                <el-row :gutter="12">
-                                    <el-col :span="8">
-                                        <router-link to="/company/detail">
-                                            <el-card shadow="hover">
-                                                <div class="company-img">
-                                                    <el-image
-                                                            style="width: 100px; height: 100px"
-                                                            :src="url"
-                                                            :fit="fit"
-                                                            :lazy='true'></el-image>
-                                                    <div class="company-right">
-                                                        <p>
-                                                            <span>阿里云 <span class="credit">信用:100</span></span>
-                                                            <span>上海市上海城区浦东</span>
-                                                            <span class="Authentication">认证通过</span>
-                                                        </p>
-                                                        <div class="common-tag company-tag">
-                                                            <span>上海</span>
-                                                            <el-divider direction="vertical"></el-divider>
-                                                            <span>3-5年</span>
-                                                            <el-divider direction="vertical"></el-divider>
-                                                            <span>本科</span>
-                                                        </div>
-                                                    </div>
+                        <el-row :gutter="12">
+                            <el-col v-for="item in companyList" :key="item.id" :span="8">
+                                <router-link :to="item.url">
+                                    <el-card shadow="hover">
+                                        <div class="company-img">
+                                            <el-image
+                                                    style="width: 100px; height: 100px"
+                                                    :src="url"
+                                                    fit="cover"
+                                                    :lazy='true'></el-image>
+                                            <div class="company-right">
+                                                <p>
+                                                    <span>{{item.companyName}} <span class="credit">信用:100</span></span>
+                                                    <span>{{item.address}}</span>
+                                                    <span class="Authentication">认证通过</span>
+                                                </p>
+                                                <div class="common-tag company-tag">
+                                                    <span>{{item.city}}</span>
+                                                    <el-divider direction="vertical"></el-divider>
+                                                    <span>{{item.serviceLengthTxt}}</span>
+                                                    <el-divider direction="vertical"></el-divider>
+                                                    <span>{{item.educationTxt}}</span>
                                                 </div>
-                                                <div class="split">
-                                                    <el-divider></el-divider>
-                                                </div>
-                                                <div class="company-bot">
-                                                    <span class="company">全部在招职业</span>
-                                                    <span class="recruit-nbr">11</span>
-                                                </div>
-                                            </el-card>
-                                        </router-link>
-                                    </el-col>
-                                    <el-col :span="8">
-                                        <router-link to="/">
-                                            <el-card shadow="hover">
-                                                <div class="company-img">
-                                                    <el-image
-                                                            style="width: 100px; height: 100px"
-                                                            :src="url"
-                                                            :fit="fit"
-                                                            :lazy='true'></el-image>
-                                                    <div class="company-right">
-                                                        <p>
-                                                            <span>阿里云 <span class="credit">信用:100</span></span>
-                                                            <span>上海市上海城区浦东</span>
-                                                            <span class="Authentication">认证通过</span>
-                                                        </p>
-                                                        <div class="common-tag company-tag">
-                                                            <span>上海</span>
-                                                            <el-divider direction="vertical"></el-divider>
-                                                            <span>3-5年</span>
-                                                            <el-divider direction="vertical"></el-divider>
-                                                            <span>本科</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="split">
-                                                    <el-divider></el-divider>
-                                                </div>
-                                                <div class="company-bot">
-                                                    <span class="company">全部在招职业</span>
-                                                    <span class="recruit-nbr">11</span>
-                                                </div>
-                                            </el-card>
-                                        </router-link>
-                                    </el-col>
-                                    <el-col :span="8">
-                                        <router-link to="/">
-                                            <el-card shadow="hover">
-                                                <div class="company-img">
-                                                    <el-image
-                                                            style="width: 100px; height: 100px"
-                                                            :src="url"
-                                                            :fit="fit"
-                                                            :lazy='true'></el-image>
-                                                    <div class="company-right">
-                                                        <p>
-                                                            <span>阿里云 <span class="credit">信用:100</span></span>
-                                                            <span>上海市上海城区浦东</span>
-                                                            <span class="Authentication">认证通过</span>
-                                                        </p>
-                                                        <div class="common-tag company-tag">
-                                                            <span>上海</span>
-                                                            <el-divider direction="vertical"></el-divider>
-                                                            <span>3-5年</span>
-                                                            <el-divider direction="vertical"></el-divider>
-                                                            <span>本科</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="split">
-                                                    <el-divider></el-divider>
-                                                </div>
-                                                <div class="company-bot">
-                                                    <span class="company">全部在招职业</span>
-                                                    <span class="recruit-nbr">11</span>
-                                                </div>
-                                            </el-card>
-                                        </router-link>
-                                    </el-col>
-                                </el-row>
-                                <el-row :gutter="12">
-                                    <el-col :span="8">
-                                        <router-link to="/">
-                                            <el-card shadow="hover">
-                                                <div class="company-img">
-                                                    <el-image
-                                                            style="width: 100px; height: 100px"
-                                                            :src="url"
-                                                            :fit="fit"
-                                                            :lazy='true'></el-image>
-                                                    <div class="company-right">
-                                                        <p>
-                                                            <span>阿里云 <span class="credit">信用:100</span></span>
-                                                            <span>上海市上海城区浦东</span>
-                                                            <span class="Authentication">认证通过</span>
-                                                        </p>
-                                                        <div class="common-tag company-tag">
-                                                            <span>上海</span>
-                                                            <el-divider direction="vertical"></el-divider>
-                                                            <span>3-5年</span>
-                                                            <el-divider direction="vertical"></el-divider>
-                                                            <span>本科</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="split">
-                                                    <el-divider></el-divider>
-                                                </div>
-                                                <div class="company-bot">
-                                                    <span class="company">全部在招职业</span>
-                                                    <span class="recruit-nbr">11</span>
-                                                </div>
-                                            </el-card>
-                                        </router-link>
-                                    </el-col>
-                                    <el-col :span="8">
-                                        <router-link to="/">
-                                            <el-card shadow="hover">
-                                                <div class="company-img">
-                                                    <el-image
-                                                            style="width: 100px; height: 100px"
-                                                            :src="url"
-                                                            :fit="fit"
-                                                            :lazy='true'></el-image>
-                                                    <div class="company-right">
-                                                        <p>
-                                                            <span>阿里云 <span class="credit">信用:100</span></span>
-                                                            <span>上海市上海城区浦东</span>
-                                                            <span class="Authentication">认证通过</span>
-                                                        </p>
-                                                        <div class="common-tag company-tag">
-                                                            <span>上海</span>
-                                                            <el-divider direction="vertical"></el-divider>
-                                                            <span>3-5年</span>
-                                                            <el-divider direction="vertical"></el-divider>
-                                                            <span>本科</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="split">
-                                                    <el-divider></el-divider>
-                                                </div>
-                                                <div class="company-bot">
-                                                    <span class="company">全部在招职业</span>
-                                                    <span class="recruit-nbr">11</span>
-                                                </div>
-                                            </el-card>
-                                        </router-link>
-                                    </el-col>
-                                    <el-col :span="8">
-                                        <router-link to="/">
-                                            <el-card shadow="hover">
-                                                <div class="company-img">
-                                                    <el-image
-                                                            style="width: 100px; height: 100px"
-                                                            :src="url"
-                                                            :fit="fit"
-                                                            :lazy='true'></el-image>
-                                                    <div class="company-right">
-                                                        <p>
-                                                            <span>阿里云 <span class="credit">信用:100</span></span>
-                                                            <span>上海市上海城区浦东</span>
-                                                            <span class="Authentication">认证通过</span>
-                                                        </p>
-                                                        <div class="common-tag company-tag">
-                                                            <span>上海</span>
-                                                            <el-divider direction="vertical"></el-divider>
-                                                            <span>3-5年</span>
-                                                            <el-divider direction="vertical"></el-divider>
-                                                            <span>本科</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="split">
-                                                    <el-divider></el-divider>
-                                                </div>
-                                                <div class="company-bot">
-                                                    <span class="company">全部在招职业</span>
-                                                    <span class="recruit-nbr">11</span>
-                                                </div>
-                                            </el-card>
-                                        </router-link>
-                                    </el-col>
-                                </el-row>
-                                <el-row :gutter="12">
-                                    <el-col :span="8">
-                                        <router-link to="/">
-                                            <el-card shadow="hover">
-                                                <div class="company-img">
-                                                    <el-image
-                                                            style="width: 100px; height: 100px"
-                                                            :src="url"
-                                                            :fit="fit"
-                                                            :lazy='true'></el-image>
-                                                    <div class="company-right">
-                                                        <p>
-                                                            <span>阿里云 <span class="credit">信用:100</span></span>
-                                                            <span>上海市上海城区浦东</span>
-                                                            <span class="Authentication">认证通过</span>
-                                                        </p>
-                                                        <div class="common-tag company-tag">
-                                                            <span>上海</span>
-                                                            <el-divider direction="vertical"></el-divider>
-                                                            <span>3-5年</span>
-                                                            <el-divider direction="vertical"></el-divider>
-                                                            <span>本科</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="split">
-                                                    <el-divider></el-divider>
-                                                </div>
-                                                <div class="company-bot">
-                                                    <span class="company">全部在招职业</span>
-                                                    <span class="recruit-nbr">11</span>
-                                                </div>
-                                            </el-card>
-                                        </router-link>
-                                    </el-col>
-                                    <el-col :span="8">
-                                        <router-link to="/">
-                                            <el-card shadow="hover">
-                                                <div class="company-img">
-                                                    <el-image
-                                                            style="width: 100px; height: 100px"
-                                                            :src="url"
-                                                            :fit="fit"
-                                                            :lazy='true'></el-image>
-                                                    <div class="company-right">
-                                                        <p>
-                                                            <span>阿里云 <span class="credit">信用:100</span></span>
-                                                            <span>上海市上海城区浦东</span>
-                                                            <span class="Authentication">认证通过</span>
-                                                        </p>
-                                                        <div class="common-tag company-tag">
-                                                            <span>上海</span>
-                                                            <el-divider direction="vertical"></el-divider>
-                                                            <span>3-5年</span>
-                                                            <el-divider direction="vertical"></el-divider>
-                                                            <span>本科</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="split">
-                                                    <el-divider></el-divider>
-                                                </div>
-                                                <div class="company-bot">
-                                                    <span class="company">全部在招职业</span>
-                                                    <span class="recruit-nbr">11</span>
-                                                </div>
-                                            </el-card>
-                                        </router-link>
-                                    </el-col>
-                                    <el-col :span="8">
-                                        <router-link to="/">
-                                            <el-card shadow="hover">
-                                                <div class="company-img">
-                                                    <el-image
-                                                            style="width: 100px; height: 100px"
-                                                            :src="url"
-                                                            :fit="fit"
-                                                            :lazy='true'></el-image>
-                                                    <div class="company-right">
-                                                        <p>
-                                                            <span>阿里云 <span class="credit">信用:100</span></span>
-                                                            <span>上海市上海城区浦东</span>
-                                                            <span class="Authentication">认证通过</span>
-                                                        </p>
-                                                        <div class="common-tag company-tag">
-                                                            <span>上海</span>
-                                                            <el-divider direction="vertical"></el-divider>
-                                                            <span>3-5年</span>
-                                                            <el-divider direction="vertical"></el-divider>
-                                                            <span>本科</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="split">
-                                                    <el-divider></el-divider>
-                                                </div>
-                                                <div class="company-bot">
-                                                    <span class="company">全部在招职业</span>
-                                                    <span class="recruit-nbr">11</span>
-                                                </div>
-                                            </el-card>
-                                        </router-link>
-                                    </el-col>
-                                </el-row>
-                            </el-tab-pane>
-                            <el-tab-pane label="上市公司" name="second">上市公司</el-tab-pane>
-                        </el-tabs>
+                                            </div>
+                                        </div>
+                                        <div class="split">
+                                            <el-divider></el-divider>
+                                        </div>
+                                        <div class="company-bot">
+                                            <span class="company">全部在招职业</span>
+                                            <span class="recruit-nbr">11</span>
+                                        </div>
+                                    </el-card>
+                                </router-link>
+                            </el-col>
+                        </el-row>
                     </div>
                     <!--查看更多-->
-                    <div class="more-box">
+                    <div class="more-box normal-pad-top">
                         <el-button type="primary">
-                            <router-link to="">
+                            <router-link to="/company/all">
                                 查看更多
                             </router-link>
                         </el-button>
@@ -690,14 +115,68 @@
 
             </div>
         </div>
+        <!--公司列表-->
+
+        <!--人才列表-->
+        <div class="inner home-inner" v-if="this.$store.state.identityType===1">
+            <div class="home-box">
+                <div class="common-tab-box job-tab-box">
+                    <!--职位列表-->
+                    <div class="box-title">人才</div>
+                    <div class="common-tab home-talent">
+                        <el-row :gutter="12">
+                            <el-col v-for="(item,index) in talentList" :key="index" :span="6" >
+                                <router-link to="/">
+                                    <el-card shadow="hover">
+                                        <div class="common-bot normal-pad-top">
+                                            <el-avatar
+                                                    src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"></el-avatar>
+                                            <el-tag class="info-tag" type="success" effect="plain">信</el-tag>
+                                            <span class="info-credit">{{item.reputationScore}}</span>
+                                        </div>
+                                        <p>
+                                            <span>{{item.name===""?"无":item.name}}</span>
+                                        </p>
+                                        <div class="common-tag">
+                                            <span>{{item.salaryRangeTxt}}</span>
+                                            <el-divider direction="vertical"></el-divider>
+                                            <span>{{item.educationTxt}}</span>
+                                            <el-divider direction="vertical"></el-divider>
+                                            <span>{{item.serviceLengthTxt}}</span>
+                                        </div>
+                                    </el-card>
+                                </router-link>
+                            </el-col>
+                        </el-row>
+                    </div>
+                    <!--查看更多-->
+                    <div class="more-box normal-pad-top">
+                        <el-button type="primary">
+                            <router-link to="/talent/all">
+                                查看更多
+                            </router-link>
+                        </el-button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--人才列表-->
+
+        <!--回到顶部-->
         <Backtop></Backtop>
+        <!--回到顶部-->
     </div>
 </template>
 
 <script>
     import Backtop from '../components/Backtop';
     import $ from 'jquery';
-    $(function(){
+    import {CommonUtils} from "../utils/commonUtil";
+    import {getJobList} from "../api/job";
+    import {getCompanyList} from "../api/company";
+    import {getTalentList} from "../api/talent";
+
+    $(function(){//返回顶部脚本代码
         let $bottomTools = $('.bottom_tools');
         let $qrTools = $('.qr_tool');
         let qrImg = $('.qr_img');
@@ -706,7 +185,7 @@
             let scrollHeight = $(document).height();
             let scrollTop = $(window).scrollTop();
             let $windowHeight = $(window).innerHeight();
-            scrollTop > 10 ? $("#scrollUp").fadeIn().css("display","block") : $("#scrollUp").fadeOut();
+            scrollTop > 50 ? $("#scrollUp").fadeIn().css("display","block") : $("#scrollUp").fadeOut();
             $bottomTools.css("bottom", scrollHeight - scrollTop > $windowHeight ? 40 : $windowHeight + scrollTop + 40 - scrollHeight);
         });
 
@@ -725,33 +204,109 @@
     export default {
         name: 'Home',
         components: {
-            Backtop
+            Backtop                                                 //返回顶部组件
         },
         data() {
             return {
-                imgUrl: "../assets/img/aliyun.jpg",
-                fill: "fill",
-                number: 11,
-                styleObject: {
-                    border: '1px solid #fff'
-                },
-                //职位标签页默认index
-                job: 'first',
-                //公司标签页默认index
-                company: 'first',
-                //公司图片设置为cover
-                fit: 'cover',
-
-                url: require("../assets/img/alibaba.jpg")
+                url: require("../assets/img/alibaba.jpg"),          //公司的默认图片，若后端数据中有每一个公司的图片，可将这个删除
+                pageSize:12,                                        //职位个数的默认大小
+                jobList:[],                                         //职位列表
+                companyList:[],                                     //公司列表
+                talentList:[]                                       //人才列表
             }
         },
         methods: {
-            getFoucs: function () {
-                // this.styleObject.border = '1px solid #53cac3';
+            async init() {//初试化页面
+                if(this.$store.state.identityType===2){
+                    this.getJob(this.pageSize,1);
+                    this.getCompany(this.pageSize-3,1);
+                }else{
+                    this.getTalent(this.pageSize,1);
+                }
             },
-            handleClick(tab, event) {
-                console.log(tab, event);
+            async getJob(pageSize, pageNum){//获取职业列表
+                let data = {
+                    salaryRange: this.salaryRange,
+                    industryType: this.industryType,
+                    nearDistance: this.nearDistance,
+                    location: this.location,
+                    area: this.area,
+                    city: this.city
+                };
+                let res = await getJobList(data, CommonUtils.getStore("token"), pageSize, pageNum);
+                if (res.code === 0) {
+                    this.jobList = res.result.collection;
+                    this.jobList.forEach(item => {
+                        item.salaryRangeTxt = CommonUtils.getKeyName('SALARY_RANGE', item.salaryRange);
+                        item.serviceLengthTxt = CommonUtils.getKeyName('SERVICE_LENGTH', item.serviceLength);
+                        item.createTimeTxt = CommonUtils.getFormatDateTime(item.createTime, "yyyy-MM-dd HH:mm:ss");
+                        item.educationTxt = CommonUtils.getKeyName('EDUCATION', item.education);
+                        item.publishStatusTxt = CommonUtils.getKeyName('PUBLISH_STATUS', item.publishStatus);
+                        item.url = `/job/detail?companyId=${item.companyId}&positionId=${item.positionId}`;
+                    });
+                    console.log(this.jobList);
+                }else {
+                    this.$router.push("/login");
+                }
+            },
+            getCompany(pageSize, pageNum) {//获取公司列表
+                let data = {
+                    salaryRange: this.salaryRange,
+                    industryType: this.industryType,
+                    nearDistance: this.nearDistance,
+                    location: this.location,
+                    city: this.city,
+                    area: this.area
+                };
+                getCompanyList(data, CommonUtils.getStore("token"), pageSize, pageNum)
+                    .then(res => {
+                        if (res.code === 0) {
+                            this.companyList = res.result.collection;
+                            this.companyList.forEach(item => {
+                                item.serviceLengthTxt = CommonUtils.getKeyName('SERVICE_LENGTH', item.serviceLength);
+                                item.educationTxt = CommonUtils.getKeyName('EDUCATION', item.education);
+                                item.url = `/company/detail?companyId=${item.companyId}&positionId=${item.positionId}`;
+                            });
+                            this.companyList.forEach(item => {
+                                item.id = item.companyId + item.positionId;
+                            });
+                            console.log(res);
+                        }else {
+                            this.$router.push("/login");
+                        }
+                    })
+                    .catch(err => {
+                        console.log(err);
+                    })
+            },
+            getTalent(pageSize, pageNum){//获取人才列表
+                let data = {
+                    workCity:""
+                };
+                getTalentList(data,CommonUtils.getStore("token"),pageSize,pageNum)
+                    .then(res=>{
+                        console.log(res);
+                        if(res.code===0){
+                            this.talentList = res.result.collection;
+                            this.talentList.forEach(item=>{
+                                item.salaryRangeTxt = CommonUtils.getKeyName('SALARY_RANGE', item.salaryRange);
+                                item.serviceLengthTxt = CommonUtils.getKeyName('SERVICE_LENGTH', item.workYears);
+                                item.createTimeTxt = CommonUtils.getFormatDateTime(item.createTime, "yyyy-MM-dd HH:mm:ss");
+                                item.educationTxt = CommonUtils.getKeyName('EDUCATION', item.education);
+                                item.publishStatusTxt = CommonUtils.getKeyName('PUBLISH_STATUS', item.publishStatus);
+                                item.expectPost = CommonUtils.getKeyName('POSITION_TYPE_'+item.expectIndustry ,Number(item.expectPost));
+                            });
+                        }else {
+                            this.$router.push("/login");
+                        }
+                    })
+                    .catch(err=>{
+                        this.$message.error(err.toString());
+                    })
             }
+        },
+        created(){
+            this.init();
         },
         beforeCreate() {
             this.$emit('setHeader','home');

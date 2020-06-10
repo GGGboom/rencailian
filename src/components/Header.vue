@@ -61,7 +61,10 @@
 
                 <div class="Header-item mg-right-10">
                     <el-tooltip class="item item-img" effect="light" content="你有新消息" placement="top-start">
-                        <el-button class="nav-item" type="text" @click.native="goto('msg_index')">
+                        <el-button class="nav-item" v-if="this.$store.state.identityType===2" type="text" @click.native="goto('talent_msg_detail')">
+                            消息
+                        </el-button>
+                        <el-button class="nav-item" v-if="this.$store.state.identityType===1" type="text" @click.native="goto('hr_msg')">
                             消息
                         </el-button>
                     </el-tooltip>
@@ -305,7 +308,7 @@
                 sessionStorage.clear();
                 this.$store.commit('exit');
                 this.loginState = false;
-                this.$router.push("/");
+                this.$router.go(0);
             },
             goto(path) {            //切换页面
                 this.$router.push({name: path});

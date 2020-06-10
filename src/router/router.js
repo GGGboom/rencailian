@@ -219,14 +219,31 @@ const routes = [
         component: () => import( '../views/profile/jobHunter/Resume.vue'),
         meta: {title: '个人简历', requireAuth: true},
     },
-    //消息
+
+    //招聘者消息
     {
-        path: '/msg',
-        name: 'msg_index',
-        component: () => import( '../views/message/msg_index.vue'),
+        path: '/hr/msg',
+        name: 'hr_msg',
+        component: () => import( '../views/hr/msg/msg_index.vue'),
         meta: {title: '消息', requireAuth: true}
     },
-    /*人才该路由为招聘者所有*/
+    //应聘者消息
+    {
+        path: '/talent/msg',
+        name: 'talent_msg',
+        component: () => import( '../views/jobHunter/msg/msg_index.vue'),
+        meta: {title: '消息', requireAuth: true},
+        children:[
+            {
+                path: 'detail',
+                name: 'talent_msg_detail',
+                component: () => import( '../views/jobHunter/msg/msg_detail.vue'),
+                meta: {title: '人才', requireAuth: true}
+            },
+        ]
+    },
+
+    /*该路由为招聘者所有*/
     {
         path: '/talent',
         name: 'talent',
@@ -281,5 +298,5 @@ const router = new VueRouter({
     mode: 'history',
     base: process.env.BASE_URL,
     routes
-})
+});
 export default router

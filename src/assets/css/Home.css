@@ -27,69 +27,6 @@
     top: 100px;
     margin: 0 auto;
 }
-.wrap .search-panel{
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-    margin-top: 20px;
-}
-
-.wrap .search-panel .inner{
-    width: 1184px;
-    max-width: 1184px;
-}
-.wrap .search-panel .inner .search-box{
-    width: 934px;
-    margin: 0 auto;
-}
-.search-panel .inner .search-box .search-form{
-    height: 52.4px;
-    position: relative;
-}
-.search-panel .search-form-con{
-    width: 794px;
-    box-shadow: 0 0 6px 0 rgba(0,0,0,.13);
-    background: #fff;
-}
-.search-form-con {
-    float: left;
-    width: 794px;
-}
-.search-panel .position-type{
-    width: 99px;
-    float: left;
-    padding: 15px;
-    border-color: #fff;
-    border-left: 1px solid #fff;
-}
-.search-panel .position-type:hover{
-    cursor: pointer;
-}
-.search-panel .el-dropdown-menu{
-    margin-top: 20px;
-}
-.search-form .ipt-wrap{
-    float: left;
-    width: 500px;
-    background: #fff;
-    border-left: none;
-    border-right: none;
-}
-.ipt-wrap .ipt-search{
-    width: 622px;
-    font-size: 16px;
-    padding: 16px 21px;
-    border: none;
-    outline: none;
-}
-.search-panel .el-button{
-    float: left;
-    height: 52.4px;
-    width: calc(100% - 796px);
-    background: rgb(83, 202, 195);
-    border-color: rgb(83, 202, 195);
-    border-radius: 0px!important;
-}
 .inner {
     width: 1184px;
     margin: 0 auto;
@@ -146,7 +83,7 @@ p .salary{
 }
 .common-tab-box .common-tag{
     display: flex;
-    margin-left: 20px;
+    padding: 0 20px;
 }
 .common-tab-box .split{
     width: 90%;
@@ -238,4 +175,26 @@ p .Authentication{
     margin-left: 10px;
     font-size: 13px;
     color: #ffc33d;
+}
+.common-tab-box .el-row .el-col{
+    padding-top: 10px;
+}
+.common-tab-box .box-title {
+    font-size: 24px;
+    text-align: center;
+    position: relative;
+    margin-bottom: 24px;
+}
+.common-tab-box .box-title::after,.common-tab-box .box-title::before {
+    content: '';
+    display: inline-block;
+    vertical-align: 8px;
+    margin: 0 10px;
+    width: 50px;
+    height: 1px;
+    background: #d1d4db;
+}
+.home-talent .info-tag{
+    padding: 0 5px!important;
+    margin: 0 10px;
 }

@@ -5,8 +5,7 @@
     box-sizing: border-box;
     position: relative;
     padding-bottom: 136px;
-    background: url("../img/login_background.jpg") no-repeat;
-    background-size:100% 100%;
+    background: #fff;
 }
 .m-header-box {
     max-width: 960px;
@@ -83,7 +82,7 @@
 .tab-navs a {
     float: left;
     border-bottom: 2px solid #fff;
-    color: #fff;
+    color: #24292e;
     line-height: 24px;
     width: 80px;
 }
