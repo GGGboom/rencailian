@@ -82,6 +82,12 @@ body ::-webkit-scrollbar-track-piece {
 .normal-pad-top{
     padding-top: 10px;
 }
+.normal-pad-right{
+    padding-right: 10px;
+}
+.medium-pad-right{
+    padding-right: 20px;
+}
 .normal-margin-btm{
     margin-bottom: 10px;
 }

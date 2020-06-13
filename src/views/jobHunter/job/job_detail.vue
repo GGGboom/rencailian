@@ -25,9 +25,9 @@
                         </div>
                     </div>
                     <div class="job-op">
-                        <router-link to="/msg" class="btn btn-startchat">
+                        <div class="btn btn-startchat" @click="chat">
                             立即沟通
-                        </router-link>
+                        </div>
                         <div class="op-container d-flex d-flex-sbt">
                             <div class="job-btn">
                                 <i class="el-icon-files"></i>
@@ -132,11 +132,13 @@
                 info:{
                     position:{}
                 },
-                company:{}
+                company:{},
+                positionId:"",
+                companyId:""
             }
         },
         methods:{
-            get(positionId,companyId){
+            get(positionId,companyId){//获取职位具体信息
                getJobById({authorization:CommonUtils.getStore("token")},positionId)
                    .then(res=>{
                        if(res.code===0){
@@ -167,7 +169,7 @@
                        console.log(err);
                    })
            },
-            favourite(){
+            favourite(){//收藏职位
                 let positionID = this.$route.query.positionId;
                 favourite(positionID,CommonUtils.getStore("token"))
                     .then(res=>{
@@ -183,12 +185,21 @@
                     .catch(err=>{
                         console.log(err);
                     })
+            },
+            chat(){
+                let receiveUser={};
+                receiveUser.receiveUserId = this.info.position.publishUserId;
+                receiveUser.headerImage = this.info.headerImagePath;
+                receiveUser.name = this.info.publishUserName;
+                CommonUtils.setStore("receiveUser",receiveUser);
+                this.$router.push("/talent/msg");
             }
         },
         mounted() {
-            let positionID = this.$route.query.positionId;
-            let companyId = this.$route.query.companyId;
-            this.get(positionID,companyId);
+            this.positionID = this.$route.query.positionId;
+            this.companyId = this.$route.query.companyId;
+            this.get(this.positionID,this.companyId);
+            console.log(this.info);
         }
     }
 </script>

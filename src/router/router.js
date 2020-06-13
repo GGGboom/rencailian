@@ -225,7 +225,7 @@ const routes = [
         path: '/hr/msg',
         name: 'hr_msg',
         component: () => import( '../views/hr/msg/msg_index.vue'),
-        meta: {title: '消息', requireAuth: true}
+        meta: {title: '聊天', requireAuth: true}
     },
     //应聘者消息
     {
@@ -238,7 +238,7 @@ const routes = [
                 path: 'detail',
                 name: 'talent_msg_detail',
                 component: () => import( '../views/jobHunter/msg/msg_detail.vue'),
-                meta: {title: '人才', requireAuth: true}
+                meta: {title: '聊天', requireAuth: true}
             },
         ]
     },

@@ -179,39 +179,13 @@
     left: 8px!important;
     top: -30px!important;
 }
-.emoji{
-    margin-top: 10px;
-}
+
 .chat_btn{
     padding: 8px 30px;
     display: flex;
     justify-content: flex-end;
 }
-.emoji .chat-item{
-    display: inline-block;
-    margin-left: 40px;
-    margin-bottom: 2px;
-    position: relative;
-}
-.emoji .chat-item .el-icon-circle-plus-outline{
-    font-size: 27px;
-    color: #9fa3b0;
-}
-.emoji .chat-item .el-icon-circle-plus-outline:hover{
-    cursor: pointer;
-}
-.emoji .chat-item .item-panel{
-    position: absolute;
-    width: 225px;
-    height: 227px;
-    display: none;
-    background: #fff!important;
-    z-index: 10000;
-    border: 1px #dfdfdf solid;
-    border-radius: 3px;
-    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
-    top: 26px;
-}
+
 .item-panel .item-button{
     display: inline-block;
 }
@@ -224,3 +198,63 @@
 .chat-item .my-show{
     display: block!important;
 }
+.chat-record li:after {
+    display: block;
+    visibility: hidden;
+    clear: both;
+    overflow: hidden;
+    content: "";
+}
+.chat-im .tools-bar{
+    display: flex;
+}
+.tools-bar .el-button{
+    border:none;
+}
+.tools-bar .emoj{
+    font-size: 24px;
+    color: #9fa3b0;
+}
+.chat-im .tools-bar .tool-panel{
+    display: flex;
+    justify-content: space-between;
+}
+.emoj-panel .emoj-item:hover{
+    background: #f1f1f1;
+    cursor: pointer;
+}
+.el-popover .tool-panel{
+    display: flex;
+}
+.el-popover .tool-panel img{
+    width: 70px;
+}
+.el-popover .tool-panel img:hover{
+    cursor: pointer;
+}
+.chat-record li .chat-resume{
+    line-height: 24px;
+    position: relative;
+    display: inline-block;
+    max-width: 544px;
+    padding: 6px 20px;
+    vertical-align: top;
+    word-break: break-all;
+    border-radius: 6px;
+}
+.chat-record li .chat-resume{
+    background: #f2f5fa;
+    float: right;
+    color: #9fa3b0;
+    border-top-right-radius: 0;
+    width: 25%;
+    height: 5.5rem;
+}
+.chat-record li .chat-resume p{
+    font-size: 18px;
+    margin-top: 10px;
+}
+.chat-record li .chat-resume .chat-company{
+    margin-top: 10px;
+}
+

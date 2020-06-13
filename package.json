@@ -10,7 +10,6 @@
   "dependencies": {
     "core-js": "^3.6.4",
     "element-ui": "^2.4.5",
-    "emoji-vue": "^0.2.4",
     "font-awesome": "^4.7.0",
     "jquery": "^3.4.1",
     "less": "^3.11.1",
