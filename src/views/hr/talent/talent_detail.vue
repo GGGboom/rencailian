@@ -50,6 +50,12 @@
                             </div>
                         </div>
                         <div class="job-sec">
+                            <h3>期望职位</h3>
+                            <div class="text">
+                                {{talentUser.expectPost===''?'无数据':talentUser.expectPost}}
+                            </div>
+                        </div>
+                        <div class="job-sec">
                             <h3>自我评价</h3>
                             <div class="job-location">
 
@@ -86,21 +92,20 @@
                     position:{}
                 },
                 company:{},
-                talentUser:{},
-                positions:[],
-                positionsNames:[],
+                talentUser:{},                          //应聘者信息
+                positions:[],                           //招聘者的期望职位列表
+                positionsNames:[],                      //招聘者的职位名字列表
                 value:0,
             }
         },
         methods:{
-            init(){
+            init(){//初始化数据
                 this.talentUser=JSON.parse(sessionStorage.getItem('talentUser'));
                 this.talentUser.huntingStatusTxt = CommonUtils.getKeyName('HUNTING_STATUS', this.talentUser.huntingStatus);
-                console.log(this.talentUser)
                 this.minePublishPost(this.talentUser.expectPost);
             },
-            minePublishPost(expectPost){
-                if(expectPost!=''){
+            minePublishPost(expectPost){//获取应聘者的期望职位，expectPost为应聘者的期望职位名称
+                if(expectPost!==''){//应聘者的期望职位不为空，则查询招聘者发布的职位是否有符合应聘者的
                     getExpectPost({positionName:expectPost,authorization:CommonUtils.getStore("token")})
                         .then(res=>{
                             if(res.code===0){
@@ -109,28 +114,36 @@
                                     let obj = {'label':item.name,'value':item.positionId};
                                     this.positionsNames.push(obj);
                                 });
+                            }else if(res.code===1){
+                                this.$router.push("/login");
+                            }else{
+                                this.$message.error(res.message);
                             }
-                            console.log(res);
                         })
                         .catch(err=>{
                             console.log(err);
                         })
                 }
             },
-            chat(){
-                if(this.value!=0){
-                    let receivedId = this.talentUser.userId;
+            chat(){//聊天handle
+                if(this.value!==0){//招聘者发布的职位与应聘者的期望职位相匹配则转到聊天界面
+                    let receiveUser = {};
                     for(let i=0;i<this.positions.length;i++){
-                        if(this.positions[i].positionId==this.value){
+                        if(this.positions[i].positionId===this.value){
                             sessionStorage.setItem('chatPosition',JSON.stringify(this.positions[i]));
                         }
                     }
-                    this.$router.push({path:"/msg",query:{receivedId:receivedId,name:this.talentUser.name,from:"td"}});
-                }else{
+                    //转到聊天界面前需要将应聘者的头像，名字和userId存入localstorage当中
+                    receiveUser.headerImage = this.talentUser.headerImagePath;
+                    receiveUser.name = this.talentUser.name;
+                    receiveUser.receiveUserId = this.talentUser.userId;
+                    CommonUtils.setStore("receiveUser",receiveUser);
+                    this.$router.push("/hr/msg");
+                }else{//招聘者发布的职位与应聘者的期望职位不匹配
                     if(this.talentUser.expectPost==null || typeof(this.talentUser.expectPost)=='undefined'){
                         this.$message.error('该求职者没有期望岗位');
-                    }else if(this.positionsNames.length==0){
-                        this.$message.error('您未发布职位，或发布的职位中没有与该求职者匹配的');
+                    }else if(this.positionsNames.length===0){
+                        this.$message.error('您未发布职位或发布的职位中没有与该求职者匹配的');
                     }else{
                         this.$message.error('请推荐您发布的岗位给求职者');
                     }

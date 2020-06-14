@@ -142,8 +142,10 @@
                             setTimeout(()=>{
                                 this.$router.go(0);
                             },1000);
+                        }else if(res.code===1){
+                            this.$router.push("/login");
                         }else{
-                            this.$message.warning(res.message);
+                            this.$message.error(res.message);
                         }
                     })
                     .catch(err => {
@@ -160,6 +162,10 @@
                     this.ruleForm.birthday = CommonUtils.strToDate(res.user.detail.birthday);
                     this.ruleForm.workCity = res.user.detail.workCity;
                     this.ruleForm.huntingStatus = res.user.detail.huntingStatus;
+                }else if(res.code===1){
+                    this.$router.push("/login");
+                }else{
+                    this.$message.error(res.message);
                 }
             }).catch(err=>{
                 console.log(err);

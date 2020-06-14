@@ -189,7 +189,7 @@ export const CommonUtils = {
         if(typeof(notneedall)=='undefined'){
             enumList.push({
                 name: '全部',
-                value: '',
+                value: 0,
                 selectIndex: -1,
                 strValue:''
             });

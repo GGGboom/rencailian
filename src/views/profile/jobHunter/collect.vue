@@ -97,12 +97,12 @@
         data() {
             return {
                 activeName: 'first',
-                companys:[],
-                positions:[]
+                companys:[],                //收藏的公司列表
+                positions:[],               //收藏的职位列表
             };
         },
         methods: {
-            handleClick(tab, event) {
+            handleClick(tab, event) {//切换
                 console.log(tab, event);
             },
             getCompany(){ //获取收藏公司列表
@@ -115,6 +115,10 @@
                             item.financingRound = CommonUtils.getKeyName('FINANCING_ROUND',item.financingRound);
                             item.companySize = CommonUtils.getKeyName('COMPANY_SIZE',item.companySize);
                         })
+                    }else if(res.code===1){
+                        this.$router.push("/login");
+                    }else{
+                        this.$message.error(res.message);
                     }
                 }).catch(err=>{
                     console.log(err);
@@ -129,8 +133,11 @@
                             item.serviceLength = CommonUtils.getKeyName('SERVICE_LENGTH', item.serviceLength);
                             item.education = CommonUtils.getKeyName('EDUCATION', item.education);
                             item.financingRound = CommonUtils.getKeyName('FINANCING_ROUND', item.financingRound);
-                        })
-                        console.log(res);
+                        });
+                    }else if(res.code===1){
+                        this.$router.push("/login");
+                    }else{
+                        this.$message.error(res.message);
                     }
                 }).catch(err=>{
                     console.log(err);
@@ -145,6 +152,8 @@
                                 setTimeout(()=>{
                                     this.$router.go(0);
                                 },900)
+                            }else if(res.code===1){
+                                this.$router.push("/login");
                             }else{
                                 this.$message.error(res.message);
                             }
@@ -160,13 +169,15 @@
                                 setTimeout(()=>{
                                     this.$router.go(0);
                                 },900)
+                            }else if(res.code===1){
+                                this.$router.push("/login");
                             }else{
                                 this.$message.error(res.message);
                             }
                         })
                         .catch(err=>{
                             console.log(err);
-                        })
+                        });
                 }
 
             }

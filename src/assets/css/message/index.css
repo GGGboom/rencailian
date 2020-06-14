@@ -257,4 +257,9 @@
 .chat-record li .chat-resume .chat-company{
     margin-top: 10px;
 }
+.chat-diag-title{
+    font-size: 20px;
+    padding: 1.5rem;
+    text-align: center;
+}
 

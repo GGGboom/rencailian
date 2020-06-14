@@ -10,7 +10,7 @@
                             </div>
                             <div class="user-list">
                                 <ul>
-                                    <li v-for="chatItem in chatMesIn10Days"
+                                    <li v-for="chatItem in chatAll"
                                         :key="chatItem.id"
                                         :class="chatItem.receiveUserId===index?'selected':''"
                                         @click="change(chatItem)">
@@ -60,6 +60,7 @@
                 index:0,                        //聊天列表默认高亮下标
                 chatMesBefore10Days: [],        //10天之前的聊天列表
                 chatMesIn10Days: [],            //10天之内的聊天列表
+                chatAll:[],                     //所有聊天列表
                 receive:{                       //接受信息的人，传给msg_detail的数据
                     name:"",                    //姓名
                     position:"",                //职位
@@ -73,14 +74,14 @@
                 getChatList({authorization:CommonUtils.getStore("token")})
                     .then(data=>{
                         if (data.code === 0) {
-                            let chatMes = data.chatRecords;
-                            console.log(chatMes);
+                            this.chatAll = data.chatRecords;
+                            console.log(this.chatAll);
                             let in10days = [];
                             let before10days = [];
                             let tendaymill = CommonUtils.servalDaysBeforeMill(10);
                             let today = CommonUtils.getFormatDateTime(new Date().getTime(), 'yyyy-MM-dd');
-                            for (let i = 0; i < chatMes.length; i++) {
-                                let item = chatMes[i];
+                            for (let i = 0; i < this.chatAll.length; i++) {
+                                let item = this.chatAll[i];
                                 item.headerImage = CommonUtils.staticPathPrefix + item.receiveUserHeaderImage;
                                 if (tendaymill > item.updateTime) {
                                     item.updateTime = CommonUtils.getFormatDateTime(item.updateTime, 'yyyy-MM-dd');
@@ -102,7 +103,9 @@
                             // console.log(this.chatMesIn10Days);
                         } else {
                             if (data.code === 1) {
-                                this.router.push({name:'login'});
+                                this.$router.push({name:'login'});
+                            }else{
+                                this.$message.error(data.message);
                             }
                         }
                     })

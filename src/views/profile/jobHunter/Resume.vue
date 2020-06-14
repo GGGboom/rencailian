@@ -20,10 +20,15 @@
                                             {{baseForm.birthday }}
                                         </span>
                                         <el-divider direction="vertical"></el-divider>
-                                        <span class="label-item">
-                                            <i v-if="baseForm.gender==='1'" class="fa fa-mars" aria-hidden="true">男</i>
-                                            <i v-else class="fa fa-venus" aria-hidden="true">女</i>
+                                        <span class="label-item" v-if="baseForm.gender==='1'">
+                                            <i  class="fa fa-mars" aria-hidden="true"></i>
+                                            男
                                         </span>
+                                        <span class="label-item" v-else>
+                                            <i  class="fa fa-venus" aria-hidden="true"></i>
+                                            女
+                                        </span>
+
                                         <el-divider direction="vertical"></el-divider>
                                         <span class="label-item">
                                             <i class="el-icon-location-outline"></i>{{baseForm.citys}}
@@ -44,6 +49,7 @@
 
                             <el-form ref="baseForm" :rules="baseFormRules" :model="baseForm"
                                      class="ui-form normal-margin-top">
+
                                 <!--姓名-->
                                 <div class="form-item">
                                     <div class="item-label">
@@ -53,6 +59,9 @@
                                         <el-input v-model="baseForm.name" placeholder="请输入内容"></el-input>
                                     </div>
                                 </div>
+                                <!--姓名-->
+
+
                                 <!--求职状态-->
                                 <div class="form-item">
                                     <div class="item-label">
@@ -71,6 +80,8 @@
                                         </el-select>
                                     </div>
                                 </div>
+                                <!--求职状态-->
+
                                 <!--生日-->
                                 <div class="form-item">
                                     <div class="item-label">
@@ -661,54 +672,19 @@
         name: "Resume",
         data() {
             return {
-                baseInfo: true,
-                jobIntention: true,
-                experience: true,
-                project: true,
-                education: true,
-                avatar: require("../../../assets/img/aliyun.jpg"),
-                industryType: CommonUtils.getEnumNameList('INDUSTRY_TYPE'),
-                huntingStatus: CommonUtils.getEnumNameList('HUNTING_STATUS'),
-                salaryRange: CommonUtils.getEnumNameList('SALARY_RANGE'),
-                educationList: CommonUtils.getEnumNameList('EDUCATION'),
-                cities: CommonUtils.getEnumNameList('WORK_CITY'),
-                baseForm: {                      //基本信息表单
+                /*
+                对于用户信息、求职意向、工作经历、项目经历和教育经历，他们都有3个属性：
+                1.类似于baseinfo等flag变量，用于控制编辑框显示与隐藏；
+                2.类似于baseForm,即表单属性
+                3.类似于baseRules，用于检查表单输入是否符合规则
+                */
+                baseInfo: true,                                                                     //用户信息
+                baseForm: {                                                                         //基本信息表单
                     gender: "",
                     name: "",
                     birthday: "",
                     citys: "",
                     huntingStatus: ""
-                },
-                intentionForm: {                   //求职意愿表单
-                    huntingStatus: "",
-                    expectIndustry: "",
-                    salaryRange: "",
-                    expectPost: "",
-                    selfEvaluation: ""
-                },
-                experienceForm: {                   //工作经验表单
-                    companyName: "",
-                    industryType: "",
-                    startTime: "",
-                    endTime: "",
-                    positionName: "",
-                    departName: "",
-                    workDescription: "",
-                },
-                projectForm: {                    //项目经历表单
-                    projectName: "",
-                    projectRole: "",
-                    startTime: "",
-                    endTime: "",
-                    projectUrl: "",
-                    projectDescprition: "",
-                },
-                educationForm: {
-                    college: "",
-                    major: "",
-                    degree: "",
-                    startTime: {},
-                    endTime: {}
                 },
                 baseFormRules: {
                     huntingStatus: [
@@ -726,6 +702,15 @@
                     selfEvaluation: [
                         {required: true, message: '请输入自我评价', trigger: 'blur'}
                     ]
+                },
+
+                jobIntention: true,                                                                 //求职意向
+                intentionForm: {                   //求职意愿表单
+                    huntingStatus: "",
+                    expectIndustry: "",
+                    salaryRange: "",
+                    expectPost: "",
+                    selfEvaluation: ""
                 },
                 intentionRules: {
                     name: [
@@ -746,6 +731,17 @@
                     descr: [
                         {required: true, message: '请输入工作内容', trigger: 'blur'}
                     ]
+                },
+
+                experience: true,                                                                   //工作经历
+                experienceForm: {                   //工作经验表单
+                    companyName: "",
+                    industryType: "",
+                    startTime: "",
+                    endTime: "",
+                    positionName: "",
+                    departName: "",
+                    workDescription: "",
                 },
                 experienceRules: {
                     companyName: [
@@ -770,6 +766,16 @@
                         {required: true, message: '请输入工作内容', trigger: 'blur'}
                     ]
                 },
+
+                project: true,                                                                      //项目经历
+                projectForm: {                    //项目经历表单
+                    projectName: "",
+                    projectRole: "",
+                    startTime: "",
+                    endTime: "",
+                    projectUrl: "",
+                    projectDescprition: "",
+                },
                 projectRules: {
                     projectName: [
                         {required: true, message: '请输入项目名称', trigger: 'blur'},
@@ -786,6 +792,15 @@
                     projectDescprition: [
                         {required: true, message: '请输入项目描述', trigger: 'blur'}
                     ]
+                },
+
+                education: true,                                                                    //教育经历
+                educationForm: {
+                    college: "",
+                    major: "",
+                    degree: "",
+                    startTime: {},
+                    endTime: {}
                 },
                 educationRules: {
                     college: [
@@ -804,16 +819,22 @@
                         {required: true, message: '请选择学历', trigger: 'blur'}
                     ]
                 },
-                workExperiencesList: [],             //工作经验列表
-                projectList: [],
-                degreesList: []
+
+                avatar: '',                                                                         //头像url
+                industryType: CommonUtils.getEnumNameList('INDUSTRY_TYPE'),                         //行业类型数组
+                huntingStatus: CommonUtils.getEnumNameList('HUNTING_STATUS'),                       //求职状态数组
+                salaryRange: CommonUtils.getEnumNameList('SALARY_RANGE'),                           //薪资范围数组
+                educationList: CommonUtils.getEnumNameList('EDUCATION'),                            //教育类型数组
+                cities: CommonUtils.getEnumNameList('WORK_CITY'),                                   //城市数组
+                workExperiencesList: [],                                                            //工作经验列表
+                projectList: [],                                                                    //项目经验列表
+                degreesList: [],                                                                    //教育经历列表
             }
         },
         methods: {
             get() {
                 getInfo({authorization: CommonUtils.getStore("token")})
                     .then(async res => {
-
                         if (res.code === 0) {
                             await CommonUtils.setStore("user", res.user);      //用户信息-存入我的个人中心本地数据
                             console.log(res);
@@ -1078,7 +1099,7 @@
             }
         },
         created() {
-
+            this.avatar = CommonUtils.staticPathPrefix + CommonUtils.getStore("user").headerImagePath;
         },
         async mounted() {
             this.get();

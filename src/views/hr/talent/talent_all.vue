@@ -79,6 +79,8 @@
                             </span>
                         </div>
                     </div>
+
+                    <!--应聘者列表-->
                     <ul class="talent-ul">
                         <li v-for="(item,index) in talentList" :key="item.userId"  @click="goToDetail(index)">
                             <div class="talent-primary">
@@ -106,6 +108,9 @@
                             </div>
                         </li>
                     </ul>
+                    <!--应聘者列表-->
+
+                    <!--分页-->
                     <div class="layout-center" v-if="talentList.length!==0">
                         <el-pagination
                                 :page-size="pageSize"
@@ -116,6 +121,8 @@
                                 :total="total">
                         </el-pagination>
                     </div>
+                    <!--分页-->
+
                 </div>
 
             </div>
@@ -134,26 +141,26 @@
         },
         data(){
             return{
-                talentList:[],
-                pageSize:5,
-                total:0,
-                loading:true,
-                industryList:CommonUtils.getEnumObjList('POSITION_TYPE').slice(0, 12),
-                workCity: CommonUtils.getEnumObjList('WORK_CITY'),
-                serviceLengthList:CommonUtils.getEnumObjList('SERVICE_LENGTH'),
-                educationList:CommonUtils.getEnumObjList('EDUCATION'),
-                provinceList:CommonUtils.getEnumObjList('PROVINCE').slice(0, 20),
-                currentPage:1,
-                tab:{
-                    industryType:0,         //行业类型
-                    provinceIndex:0,        //省份
-                    experienceIndex:0,      //经验
-                    educationIndex:0        //学历
+                talentList:[],                                                              //应聘者列表
+                pageSize:5,                                                                 //分页的页面数据大小
+                total:0,                                                                    //应聘者总数
+                loading:true,                                                               //v-loading参数
+                industryList:CommonUtils.getEnumObjList('POSITION_TYPE').slice(0, 12),      //行业类型数组,默认取前12个
+                workCity: CommonUtils.getEnumObjList('WORK_CITY'),                          //工作城市数组
+                serviceLengthList:CommonUtils.getEnumObjList('SERVICE_LENGTH'),             //服务时长数组
+                educationList:CommonUtils.getEnumObjList('EDUCATION'),                      //教育类型数组
+                provinceList:CommonUtils.getEnumObjList('PROVINCE').slice(0, 20),           //省份数组,默认取前20个
+                currentPage:1,                                                              //当前页面，用于解决搜索时出现的分页index出错
+                tab:{                                                                       //用于监视搜索框是否发生变化，如果发生变化则会触发搜索
+                    industryType:0,                                                         //行业类型
+                    provinceIndex:0,                                                        //省份
+                    experienceIndex:0,                                                      //经验
+                    educationIndex:0                                                        //学历
                 }
             }
         },
         methods:{
-            currentChange(page){
+            currentChange(page){//该函数用于解决筛选时出现的分页index不从1开始的问题
                 let searchContent = this.$route.params.search ? this.$route.params.search : undefined;
                 if (searchContent === undefined) {
                     this.get(this.pageSize, page);
@@ -161,7 +168,7 @@
                     this.FuzzySearch(searchContent, this.pageSize, page);
                 }
             },
-            goToDetail(index){
+            goToDetail(index){//转到detail页面
                 sessionStorage.setItem('talentUser',JSON.stringify(this.talentList[index]));
                 this.$router.push("/talent/detail");
             },
@@ -184,7 +191,9 @@
                                 item.expectPost = CommonUtils.getKeyName('POSITION_TYPE_'+item.expectIndustry ,Number(item.expectPost));
                             });
                             this.total = res.result.total;
-                        }else{
+                        }else if(res.code===1){
+                            this.$router.push("/login");
+                        } else{
                             console.log(res.message);
                         }
                     })
@@ -210,11 +219,18 @@
                         item.expectPost = CommonUtils.getKeyName('POSITION_TYPE_'+item.expectIndustry ,Number(item.expectPost));
                     });
                     this.total = res.result.total;
+                }else if(res.code===1){
+                    this.$router.push("/login");
+                } else{
+                    console.log(res.message);
                 }
             },
+            /*
+            用于处理点击搜索框某一类别时的标签高亮
+             */
             clickTab(index,type) {
                 switch (type) {
-                    case 0:{         //行业类型
+                    case 0:{        //行业类型
                         this.tab.industryType = index;
                         break;
                     }
@@ -242,13 +258,12 @@
             }
         },
         watch: {
-            async '$route.query'() {
+            async '$route.query'() {//路由出现变化时触发的函数
                 this.tab.educationIndex = 0;
                 this.tab.experienceIndex = 0;
                 this.tab.industryType = 0;
                 this.tab.provinceIndex = 0;
                 let searchContent = this.$route.params.search ? this.$route.params.search : undefined;
-                console.log(searchContent)
                 if (searchContent === undefined) {
                     this.currentPage = 1;
                     this.get(5, 1);
@@ -258,7 +273,7 @@
                 }
             },
             tab:{
-                async handler(newValue) {
+                async handler(newValue) {//当行业类型、省份、经验和学历等搜索框出现变化时触发的函数
                     let data = {
                         education:[newValue.educationIndex],
                         workYears:[newValue.experienceIndex],
@@ -278,7 +293,9 @@
                             item.expectPost = CommonUtils.getKeyName('POSITION_TYPE_'+item.expectIndustry ,Number(item.expectPost));
                         });
                         this.total = res.result.total;
-                    }else{
+                    }else if(res.code===1){
+                        this.$router.push("/login");
+                    } else{
                         console.log(res.message);
                     }
                 },

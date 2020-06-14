@@ -150,13 +150,15 @@
                     </router-link>
                     <div class="about-info">
                         <p>
-                            <span>全部在招职业</span>
-                            <span style="padding-left: 5px">1</span>
+                            <span style="margin-right: 10px">{{item.serviceLengthTxt}}</span>
+                            <span style="margin-right: 10px">{{item.educationTxt}}</span>
                         </p>
                     </div>
                 </li>
             </ul>
         </div>
+
+        <!--分页-->
         <div class="inner mrg-bt">
             <div class="layout-center" v-if="companyList.length!==0">
                 <el-pagination
@@ -169,6 +171,8 @@
                 </el-pagination>
             </div>
         </div>
+        <!--分页-->
+
         <!--公司列表-->
     </div>
 </template>
@@ -183,14 +187,14 @@
         components: {},
         data() {
             return {
-                company: 'first',                 //tabs默认index
+                company: 'first',                                                           //tabs默认index
                 url: require("../../../assets/img/alibaba.jpg"),
-                ind: CommonUtils.getEnumObjList('INDUSTRY_TYPE').slice(0, 20),               //行业类型
-                financeRound: CommonUtils.getEnumObjList('FINANCING_ROUND'),               //融资规模
-                companyScale: CommonUtils.getEnumObjList('COMPANY_SIZE'),                   //员工规模
+                ind: CommonUtils.getEnumObjList('POSITION_TYPE').slice(0, 20),               //行业类型
+                financeRound: CommonUtils.getEnumObjList('FINANCING_ROUND'),                 //融资规模
+                companyScale: CommonUtils.getEnumObjList('COMPANY_SIZE'),                    //员工规模
                 tab: {
-                    industryId: 0,                //行业类型默认筛选项
-                    financeId: 0,                 //融资规模默认筛选项
+                    industryId: 0,                                                           //行业类型默认筛选项
+                    financeId: 0,                                                            //融资规模默认筛选项
                     companyScaleId: 0,            //员工规模默认筛选项
                 },
                 companyList: [],                  //v-for公司列表
@@ -218,9 +222,15 @@
                     this.companyList = res.model;
                     console.log(this.companyList)
                     this.companyList.forEach(item => {
+                        item.serviceLengthTxt = CommonUtils.getKeyName('SERVICE_LENGTH', item.serviceLength);
+                        item.educationTxt = CommonUtils.getKeyName('EDUCATION', item.education);
                         item.id = item.companyId + item.positionId;
                     });
                     this.total = res.model.length;
+                }else if(res.code===1){
+                    this.$router.push("/login");
+                } else{
+                    console.log(res.message);
                 }
             },
             currentChange(page) {
@@ -246,18 +256,21 @@
                             this.loading = false;
                             this.companyList = res.result.collection;
                             this.companyList.forEach(item => {
+                                item.serviceLengthTxt = CommonUtils.getKeyName('SERVICE_LENGTH', item.serviceLength);
+                                item.educationTxt = CommonUtils.getKeyName('EDUCATION', item.education);
                                 item.id = item.companyId + item.positionId;
                             });
                             this.total = res.result.total;
+                        }else if(res.code===1){
+                            this.$router.push("/login");
+                        } else{
+                            console.log(res.message);
                         }
                         console.log(res);
                     })
                     .catch(err => {
                         console.log(err);
                     })
-            },
-            handleClick(tab, event) {
-                console.log(tab, event);
             },
             clickTab(index, type) {
                 switch (type) {
@@ -278,12 +291,14 @@
             }
         },
         created() {
+            console.log(this.ind);
             let searchContent = this.$route.params.search ? this.$route.params.search : undefined;
             if (searchContent === undefined) {
                 this.get(this.pageSize, 1);
             } else {
                 this.FuzzySearch(searchContent, this.pageSize, 1);
             }
+            console.log(this.companyList);
         },
         watch: {
             async '$route.query'() {
@@ -302,16 +317,22 @@
                         financingRound: [this.tab.companyScaleId],
                         companySize: [this.tab.financeId],
                         industryType: [this.tab.industryId],
-                        positionType: [1031],
+                        positionType: [],
                     };
                     let res = await getCompanyList(data, CommonUtils.getStore("token"), 5, 1);
                     if (res.code === 0) {
                         this.loading = false;
                         this.companyList = res.result.collection;
                         this.companyList.forEach(item => {
+                            item.serviceLengthTxt = CommonUtils.getKeyName('SERVICE_LENGTH', item.serviceLength);
+                            item.educationTxt = CommonUtils.getKeyName('EDUCATION', item.education);
                             item.id = item.companyId + item.positionId;
                         });
                         this.total = res.result.total;
+                    }else if(res.code===1){
+                        this.$router.push("/login");
+                    }else{
+                        this.$message.error(res.message);
                     }
                     console.log(newValue);
                 },

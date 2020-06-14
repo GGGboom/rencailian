@@ -96,6 +96,8 @@
                             </span>
                         </div>
                     </div>
+
+                    <!--职位列表-->
                     <ul>
                         <li v-for="item in jobList" :key="item.id" class="job-li">
                             <div class="job-primary">
@@ -112,10 +114,11 @@
                                                 <span class="job-pub-time">发布于{{item.createTimeTxt}}</span>
                                             </div>
                                             <div class="job-limit">
-                                                <span class="red">{{item.salaryRangeTxt}}</span>
+                                                <span class="red red-salary">{{item.salaryRangeTxt}}</span>
                                                 <p>
-                                                    <span><i
-                                                            class="el-icon-location-information"></i>{{item.address}}</span>
+                                                    <span>
+                                                        <i class="el-icon-location-information"></i>{{item.address}}
+                                                    </span>
                                                 </p>
                                             </div>
                                         </router-link>
@@ -151,6 +154,9 @@
                             </div>
                         </li>
                     </ul>
+                    <!--职位列表-->
+
+                    <!--分页-->
                     <div class="layout-center" v-if="jobList.length!==0">
                         <el-pagination
                                 :current-page.sync="currentPage"
@@ -160,6 +166,8 @@
                                 :total="total">
                         </el-pagination>
                     </div>
+                    <!--分页-->
+
                 </div>
             </div>
         </div>
@@ -178,7 +186,7 @@
                 educationList:[],                  //学历
                 salaryRangeList: [],               //薪资
                 experienceList: [],                //经验
-                tabJob: {
+                tabJob: {                           //用于监视搜索框是否发生变化，如果发生变化则会触发搜索
                     financeInd: 0,                 //融资规模默认筛选项
                     companyScaleInd: 0,            //员工规模默认筛选项
                     educationInd:0,                //学历默认筛选项
@@ -199,21 +207,13 @@
             }
         },
         methods: {
-            curChange(page) {
+            curChange(page) {//该函数用于解决筛选时出现的分页index不从1开始的问题
                 let searchContent = this.$route.params.search ? this.$route.params.search : undefined;
                 if (searchContent === undefined) {
                     this.get(this.pageSize, page);
                 } else {
                     this.FuzzySearch(searchContent, this.pageSize, page);
                 }
-            },
-            handleClose(done) {
-                this.$confirm('确认关闭？')
-                    .then(() => {
-                        done();
-                    })
-                    .catch(() => {
-                    });
             },
             async get(pageSize, pageNum) {//获取默认数据
                 let data = {
@@ -236,6 +236,10 @@
                         item.educationTxt = CommonUtils.getKeyName('EDUCATION', item.education);
                         item.publishStatusTxt = CommonUtils.getKeyName('PUBLISH_STATUS', item.publishStatus);
                     });
+                }else if(res.code===1){
+                    this.$router.push("/login");
+                } else{
+                    console.log(res.message);
                 }
             },
             async FuzzySearch(search, pageS, pageN) {//模糊搜索
@@ -255,8 +259,15 @@
                         item.educationTxt = CommonUtils.getKeyName('EDUCATION', item.education);
                         item.publishStatusTxt = CommonUtils.getKeyName('PUBLISH_STATUS', item.publishStatus);
                     });
+                }else if(res.code===1){
+                    this.$router.push("/login");
+                } else{
+                    console.log(res.message);
                 }
             },
+            /*
+            用于处理点击搜索框某一类别时的标签高亮
+            */
             filterClick(index,type){
                 switch (type) {
                     case 0:{                     //融资规模
@@ -293,7 +304,7 @@
         beforeCreate() {
             this.$emit('setHeader', 'job');
         },
-        async created() {
+        created() {
             this.init();
             let searchContent = this.$route.params.search ? this.$route.params.search : undefined;
             if (searchContent === undefined) {
@@ -338,6 +349,10 @@
                             item.educationTxt = CommonUtils.getKeyName('EDUCATION', item.education);
                             item.publishStatusTxt = CommonUtils.getKeyName('PUBLISH_STATUS', item.publishStatus);
                         });
+                    }else if(res.code===1){
+                        this.$router.push("/login");
+                    } else{
+                        console.log(res.message);
                     }
                     console.log(newValue);
                 },

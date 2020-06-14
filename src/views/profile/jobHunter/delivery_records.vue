@@ -141,15 +141,24 @@
                 for(let i = (page-1)*this.pageSize; i<(page-1)*this.pageSize+this.pageSize && i<list.length; i++){
                     this.showDeliverList.push(list[i]);
                 }
+            },
+            async init(){
+                let res = await getDeliveryHistory({authorization:CommonUtils.getStore("token")});
+                if(res.code===0){
+                    this.showDeliverList = res.delivery;
+                    this.pageChange(1,this.delivery);
+                    if(res.delivery.length===0){
+                        this.loading  = false;
+                    }else if(res.code===1){
+                        this.$router.push("/login");
+                    }else{
+                        this.$message.error(res.message);
+                    }
+                }
             }
         },
-        async created() {
-            let response =await getDeliveryHistory({authorization:CommonUtils.getStore("token")});
-            this.showDeliverList = response.delivery;
-            this.pageChange(1,this.delivery);
-            if(response.delivery.length===0){
-                this.loading  = false;
-            }
+        created() {
+            this.init();
         }
     }
 </script>

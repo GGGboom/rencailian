@@ -308,7 +308,7 @@
                 sessionStorage.clear();
                 this.$store.commit('exit');
                 this.loginState = false;
-                this.$router.go(0);
+                this.$router.push("/login");
             },
             goto(path) {            //切换页面
                 this.$router.push({name: path});
@@ -329,7 +329,7 @@
                     }, err => err);
                 }
             },
-            CloseDialog() {                  //关闭上传简历对话框
+            CloseDialog() {//关闭上传简历对话框
                 this.dialogVisible = false;
             },
             init() {
@@ -353,7 +353,7 @@
                 }
 
             },
-            changeRoleHandle(){         //切换角色
+            changeRoleHandle(){ //切换角色
                 let localuser = CommonUtils.getStore("user");
                 if(localuser.identityType === 2 && this.radio === "2"){
                     this.$message.error("当前身份为应聘者，无法切换");
@@ -373,8 +373,10 @@
                                 setTimeout(()=>{
                                     this.$router.push("/login");
                                 },900);
-                            }else{
-                                this.$message.error(res.message);
+                            }else if(res.code===1){
+                                this.$router.push("/login");
+                            } else{
+                                console.log(res.message);
                             }
                         })
                         .catch(err=>{

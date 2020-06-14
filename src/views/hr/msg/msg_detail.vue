@@ -48,7 +48,6 @@
                             </div>
                         </div>
                     </li>
-
                 </template>
 
             </ul>
@@ -75,10 +74,10 @@
                         trigger="click">
                     <div class="tool-panel">
                         <div>
-                            <img class="medium-pad-right" src="../../../assets/img/contact.png" alt=""  title="发送联系方式">
+                            <img class="medium-pad-right" src="../../../assets/img/contact.png" alt="" @click="dialogVisible=true"  title="发送联系方式">
                         </div>
                         <div>
-                            <img class="medium-pad-right" src="../../../assets/img/resume.png" alt="" title="发送简历" @click="sendMsg('我想要你的一份附件简历，可以发给我吗？',3,1)">
+                            <img class="medium-pad-right" src="../../../assets/img/resume.png" alt="" @click="sendMsg('我想要你的一份附件简历，可以发给我吗？',3,1)" title="求简历">
                         </div>
                         <div>
                             <el-upload
@@ -108,6 +107,19 @@
             <el-button size="mini" @click="sendMsg(content,2,1,'1')">发送</el-button>
         </div>
 
+        <!--对话框-->
+        <el-dialog
+                :visible.sync="dialogVisible"
+                width="30%">
+            <div class="chat-diag-title">发送联系方式</div>
+            <div class="chat-diag-title">{{user.cellphone}}</div>
+            <span slot="footer" class="dialog-footer">
+            <el-button @click="dialogVisible = false">取 消</el-button>
+            <el-button type="primary" @click="diagHide">确 定</el-button>
+            </span>
+        </el-dialog>
+        <!--对话框-->
+
     </div>
 </template>
 
@@ -117,7 +129,7 @@
 
     export default {
 
-        name: "msg_detail",
+        name: "hr_msg_detail",
         props: {
             receive: {type: Object, required: true}
         },
@@ -137,6 +149,14 @@
                 connectState:"",                //连接状态
                 maxSize:100 * 1024,             //图片的最大上传容量
                 imageUrl:"",                    //图片上传url
+                statusInfo: {
+                    willGoInterview: false,     //同意面试
+                    hasSendResume: false        //已发送简历
+                },
+                talentUser: {},                 //人才用户
+                sendTalentUserInfo:{},          //发送人才用户信息
+                beginVideoCall: false,          //用于视频聊天
+                dialogVisible:false,            //发送联系方式和面试的对话框
                 apiImgUrlPost:CommonUtils.domainNamePrefix+'chat/temporary?authorization='+CommonUtils.getStore("token"),
                 EXPS: [                         // 表情
                     { file: '100.gif', code: '/::)', title: '微笑',reg:/\/::\)/g },
@@ -218,87 +238,94 @@
             * */
             webSocketOnMessage(e){//数据接收
                 let data = JSON.parse(e.data);
-                if(data.code===0){
-                    let list = data.list;
-                    console.log(list);
-                    for(let i=0;i<list.length;i++){
-                        let item=list[i];
-                        if(item.type===3 && item.status===1){
-                            this.isHrAskResume = true;
+                this.productinfos = JSON.parse(e.data);
+                if (data.code === 0) {
+                    let list = data['list'];
+                    for (let i = 0; i < list.length; i++) {
+                        let item = list[i];
+                        if (item.type === 3 && item.status === 2) {//已发送简历
+                            this.statusInfo.hasSendResume = true;
+                        } else if (item.type === 4 && item.status === 2) {//已同意面试邀请
+                            this.statusInfo.willGoInterview = true;
+                        } else if (item.type === 12) {
+                            this.talentUser = JSON.parse(item.message);
+                            console.log(this.talentUser);
+                            this.sendTalentUserInfo = false;
                         }
-                        if(this.user.userId===item["sendId"]){//如果该消息为本人发送
-                            if(item['type']===1 || item['type']===2 || item['type']===3 || item['type']===5 || item['type']===6 || item['type']===7 || (item['type']===4&&item['status']>1)){
-                                if(item.type===6 && item.status===1 ){
-                                    this.videoRoomLinkTo = item.message;
-                                }
+                        if (this.user.userId === item["sendId"]) {
+                            if (item['type'] === 1 || item['type'] === 2 || item['type'] === 3 || item['type'] === 7 || item['type'] === 6 || item['type'] === 5 || (item['type'] === 4 && item['status'] > 1)) {
                                 this.records.push({
                                     type: item["type"],//右边
-                                    time: CommonUtils.getFormatDateTime(item['sendTime'],'yyyy-MM-dd HH:mm:ss'),
+                                    time: CommonUtils.getFormatDateTime(item['sendTime'], 'yyyy-MM-dd HH:mm:ss'),
                                     content: item["message"],
-                                    read:item['readStatus'],
-                                    status:item['status'],
-                                    isMine : true
+                                    read: item['readStatus'],
+                                    status: item['status'],
+                                    isMine: true
                                 });
-                            }else if(item.type===11 && item.status===1){
-                                let position = JSON.parse(item.message);
-                                if(position!=null){
+                            } else if (item.type === 11 && item.status === 1) {
+                                let position = JSON.parse(item["message"]);
+                                if (position != null) {
                                     this.positionInfo = position;
-                                    position.type = item['type'];
-                                    position.time = CommonUtils.getFormatDateTime(item['sendTime'],'yyyy-MM-dd HH:mm:ss');
+                                    position.type = item["type"];
+                                    position.time = CommonUtils.getFormatDateTime(item['sendTime'], 'yyyy-MM-dd HH:mm:ss');
                                     position.read = item['readStatus'];
                                     position.status = item['status'];
-                                    position.isMine=true;
+                                    position.isMine = true;
                                     this.records.push(position);
                                 }
-                            }else if(item.type===4 && item.status===1){
+
+                            } else if (item.type === 4 && item.status === 1) {
                                 let adviceInfo = JSON.parse(item["message"]);
                                 this.adviceInfo = adviceInfo;
                                 adviceInfo.type = item["type"];
-                                adviceInfo.time = CommonUtils.getFormatDateTime(item['sendTime'],'yyyy-MM-dd HH:mm:ss');
+                                adviceInfo.time = CommonUtils.getFormatDateTime(item['sendTime'], 'yyyy-MM-dd HH:mm:ss');
                                 adviceInfo.read = item['readStatus'];
                                 adviceInfo.status = item['status'];
-                                adviceInfo.isMine=true;
+                                adviceInfo.isMine = true;
                                 this.records.push(adviceInfo);
                             }
-                        }else{
-                            if(item['type']===1 || item['type']===2 || item['type']===3 || item['type']===7 || item['type']===6 || item['type']===5 || (item['type']===4&&item['status']>1)){
-                                if(item.type===6 && item.status===1 ){
-                                    this.videoRoomLinkTo = item.message;
-                                    //this.modalShow('receive_video_call')
-                                }else if(item.type===3 && item.status===1){
-                                    this.hrRequireResume = true;
+                        } else {
+                            if (item['type'] === 1 || item['type'] === 2 || item['type'] === 3 || item['type'] === 7 || item['type'] === 6 || item['type'] === 5 || (item['type'] === 4 && item['status'] > 1)) {
+                                if (this.beginVideoCall === true && item['type'] === 6 && item["message"] != '' && item["status"] === 2) {
+                                    this.videoRoomLinkTo = item["message"];
+                                    // this.videoCallTalent();未加入函数
                                 }
-                                this.canSendResume = true;
+                                if (this.beginVideoCall === true && item['type'] === 6 && item["message"] === '' && item["status"] === 2) {
+                                    this.beginVideoCall = false;
+                                }
                                 this.records.push({
                                     type: item["type"],//左边
-                                    time: CommonUtils.getFormatDateTime(item['sendTime'],'yyyy-MM-dd HH:mm:ss'),
+                                    time: CommonUtils.getFormatDateTime(item['sendTime'], 'yyyy-MM-dd HH:mm:ss'),
                                     content: item["message"],
-                                    read:item['readStatus'],
-                                    status:item['status'],
-                                    isMine : false
+                                    status: item['status'],
+                                    read: item['readStatus'],
+                                    isMine: false
                                 });
-                            }else if(item.type===11 && item.status===1){
-                                let position = JSON.parse(item.message);
-                                this.positionInfo = position;
-                                position.type = item["type"];
-                                position.time = CommonUtils.getFormatDateTime(item['sendTime'],'yyyy-MM-dd HH:mm:ss');
-                                position.read = item['readStatus'];
-                                position.status = item['status'];
-                                position.isMine=false;
-                                this.records.push(position);
-                            }else if(item.type===4 && item.status===1){
+                            } else if (item.type === 11 && item.status === 1) {
+                                let position = JSON.parse(item["message"]);
+                                if (position != null) {
+                                    this.positionInfo = position;
+                                    position.type = item["type"];
+                                    position.time = CommonUtils.getFormatDateTime(item['sendTime'], 'yyyy-MM-dd HH:mm:ss');
+                                    position.read = item['readStatus'];
+                                    position.status = item['status'];
+                                    position.isMine = false;
+                                    this.records.push(position);
+                                }
+                            } else if (item.type === 4 && item.status === 1) {
                                 let adviceInfo = JSON.parse(item["message"]);
                                 this.adviceInfo = adviceInfo;
                                 adviceInfo.type = item["type"];
-                                adviceInfo.time = CommonUtils.getFormatDateTime(item['sendTime'],'yyyy-MM-dd HH:mm:ss');
+                                adviceInfo.time = CommonUtils.getFormatDateTime(item['sendTime'], 'yyyy-MM-dd HH:mm:ss');
                                 adviceInfo.read = item['readStatus'];
                                 adviceInfo.status = item['status'];
-                                adviceInfo.isMine=false;
+                                adviceInfo.isMine = false;
                                 this.records.push(adviceInfo);
                             }
                         }
                     }
                 }
+                console.log(this.records);
             },
             close(){
                 if (this.wsIsAlive()) {
@@ -311,69 +338,61 @@
             发送信息
             content为文本信息，type为信息种类，status为发送状态
              */
-            sendMsg(content,type,status,info){
-                console.log(this.websocket);
-                console.log(info);
-                if(content==='' && type<=2){
-                    this.$message.warning('请输入消息');
+            sendMsg: function (content, type, status, info) {
+                let _this = this;
+                if (content === '' && type <= 2) {
+                    _this.$toast('请输入消息');
                     return;
                 }
-                let data = {};
-                data["sendId"]= this.user.userId;
-                data["receivedId"]= Number(this.receivedId);
-                data["type"]= type;
-                if(status){
-                    data["status"]= status;
-                }
-                data["sort"]= 1;
-                if(content==='' && type===3 && status===2){
-                    if(JSON.stringify(this.sendResume)==='{}'){
-                        this.$toast('请选择要发送的简历');
-                    }else{
-                        if(this.isHrAskResume===false){
-                            data["type"] = 7;
-                            data["status"] = 1;
-                        }
-                        data["message"] = JSON.stringify(this.sendResume);
-                        content = this.sendResume.fileName;
-                    }
-                }else if(content==='' && type===4){
-                    data["message"] = JSON.stringify(this.adviceInfo);
-                }else if(type===12){
-                    data["message"]= JSON.stringify(info);
-                    this.websocket.send(JSON.stringify(data));
-                }else if(type===11){
-                    data["message"]= JSON.stringify(info);
-                    this.websocket.send(JSON.stringify(data));
-                    info.content=JSON.stringify(info);
-                    info.isMine=true;
-                    info.type=type;
-                    info.status=status;
-                    info.time=CommonUtils.getFormatDateTime(this['sendTime'],'yyyy-MM-dd HH:mm:ss');
-                    this.records.push(info);
-                }else{
-                    console.log("run type2");
-                    data["message"]= content;
-                }
-                if(this.websocket){
-                    console.log('readyState='+this.websocket.readyState);
-                    if(type!==11){
-                        console.log("sended");
-                        this.websocket.send(JSON.stringify(data));
-
-                        this.records.push({
-                            isMine:true,
-                            type: data["type"],
-                            status: data["status"],
-                            time: CommonUtils.getFormatDateTime(this['sendTime'],'yyyy-MM-dd HH:mm:ss'),
-                            content: content
+                if (_this.websocket && _this.websocket.readyState === 1) {
+                    let data = {};
+                    data["sendId"] = _this.user.userId;
+                    data["receivedId"] = Number(_this.receivedId);
+                    data["type"] = type;
+                    data["sort"] = 1;
+                    data["status"] = status;
+                    console.log(data);
+                    //console.log('readyState='+_this.websocket.readyState);
+                    if (type === 11) { //职位
+                        data["message"] = JSON.stringify(info);
+                        _this.websocket.send(JSON.stringify(data));
+                        info.content = JSON.stringify(info);
+                        info.isMine = true;
+                        info.type = type;
+                        info.status = status;
+                        _this.records.push(info);
+                    } else if (type === 4 && status === 1) {//面试
+                        let adviceInfo = {
+                            name: this.talentUser.name,
+                            positionName: this.positionInfo.name,
+                            positionId: this.positionInfo.positionId,
+                            interviewTime: this.interviewTime,
+                            interviewAddress: this.positionInfo.address,
+                            description: this.description
+                        };
+                        data["message"] = JSON.stringify(adviceInfo);
+                        _this.websocket.send(JSON.stringify(data));
+                        //adviceInfo.content=JSON.stringify(adviceInfo);
+                        adviceInfo.isMine = true;
+                        adviceInfo.type = type;
+                        adviceInfo.status = status;
+                        _this.records.push(adviceInfo);
+                    } else if (type === 12) {
+                        data["message"] = JSON.stringify(info);
+                        _this.websocket.send(JSON.stringify(data));
+                    } else {
+                        data["message"] = content;
+                        _this.websocket.send(JSON.stringify(data));
+                        _this.records.push({
+                            'isMine': true,
+                            'type': type,
+                            'status': status,
+                            'content': content
                         });
                     }
-                    this.content='';
-                }else{
-                    this.records = [];
+                    _this.content = '';
+                } else {
                     this.init();
-
                 }
             },
             wsIsAlive(){//是否保持连接状态
@@ -390,15 +409,15 @@
             },
             replaceFace(con){//替换表情代码
                 let exps=this.EXPS;
-                for(var i=0;i<exps.length;i++){
+                for(let i=0;i<exps.length;i++){
                     con = con.replace(exps[i].reg, `<img src="${require('../../../assets/img/emotion/'+exps[i].file)}" alt="" />`);
                 }
                 return con;
             },
-            handleAvatarSuccess(res, file) {//上传成功之后的handle
+            handleAvatarSuccess(res, file) {//发送图片,上传成功之后的handle
                 this.imageUrl = URL.createObjectURL(file.raw);
             },
-            beforeAvatarUpload(file) {//上传之前检查文件大小和格式
+            beforeAvatarUpload(file) {//发送图片,上传之前检查文件大小和格式
                 const isJPG = file.type === 'image/jpeg';
                 const isLt2M = file.size <this.maxSize;
                 if (!isJPG) {
@@ -409,10 +428,14 @@
                 }
                 return isJPG && isLt2M;
             },
-
+            diagHide(){
+                this.dialogVisible = false;
+                this.sendMsg(this.user.cellphone, 2, 1);
+            }
         },
         created() {
             this.user = CommonUtils.getStore("user");
+            console.log(this.user);
             this.init();
         },
         watch:{
@@ -430,4 +453,7 @@
 
 <style scoped>
     @import "../../../assets/css/message/index.css";
+    .el-dialog__body{
+        padding: 0;
+    }
 </style>

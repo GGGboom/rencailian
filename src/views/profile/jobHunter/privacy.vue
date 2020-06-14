@@ -127,8 +127,10 @@
                             // setTimeout(()=>{
                             //     this.$router.go(0);
                             // },900)
+                        }else if(res.code===1){
+                            this.$router.push("/login");
                         }else{
-                            console.log(res.message);
+                            this.$message.error(res.message);
                         }
                     })
                     .catch(err=>{
@@ -145,8 +147,10 @@
                         if(res.code===0){
                             this.companys = res.companys;
                             console.log(this.companys)
+                        }else if(res.code===1){
+                            this.$router.push("/login");
                         }else{
-                            console.log(res.message);
+                            this.$message.error(res.message);
                         }
                     })
                     .catch(err=>{
@@ -159,28 +163,33 @@
                         if(res.code===0){
                             this.$message.success("移除成功");
                             this.get();
+                        }else if(res.code===1){
+                            this.$router.push("/login");
                         }else{
-                            console.log(res.message);
+                            this.$message.error(res.message);
                         }
                     })
             },
             getCompanyIdByName(){
                 searchCompany({authorization: CommonUtils.getStore("token")},this.companyName)
                     .then((res)=>{
-                        console.log(res,'data')
-                        let companyName = new Array();
-                        //vm.popupVisible = true;
-                        res.model.forEach(function(item){
-                            console.log(item)
-                            companyName.push(item.companyName);
-                        });
-                        this.model = res.model;
-                        this.dateSlots[0].values = companyName;
+                        if(res.code===0){
+                            let companyName = new Array();
+                            res.model.forEach(function(item){
+                                console.log(item)
+                                companyName.push(item.companyName);
+                            });
+                            this.model = res.model;
+                            this.dateSlots[0].values = companyName;
+                        }else if(res.code===1){
+                            this.$router.push("/login");
+                        }else{
+                            this.$message.error(res.message);
+                        }
                     })
                     .catch((err)=>{
                         console.log(err);
-                    })
-                console.log(this.companyName);
+                    });
             }
         },
         mounted() {

@@ -30,7 +30,7 @@
                     </el-button>
                 </div>
                 <div class="flex-cell first hash">
-                    <el-button type="text" @click="deleteResume(item.id)">
+                    <el-button type="text" @click="deleteResumeHandle(item.id)">
                         删除
                     </el-button>
                 </div>
@@ -66,7 +66,7 @@
             'App-Attach':Attach
         },
         methods:{
-            deleteResume(id){
+            deleteResumeHandle(id){//根据id删除简历
                 this.$confirm('确定删除？', '温馨提示', {
                     confirmButtonText: '确定',
                     cancelButtonText: '取消',
@@ -81,6 +81,10 @@
                                     this.get();                 //更新本地简历数据
                                     this.$router.go(0);
                                 },100)
+                            }else if(res.code===1){
+                                this.$router.push("/login");
+                            }else{
+                                this.$message.error(res.message);
                             }
                         })
                         .catch(err=>{
@@ -95,7 +99,7 @@
                 });
 
             },
-            get(){
+            get(){//获取简历附件
                 getResumeAtt({authorization:CommonUtils.getStore("token")})
                     .then(res=>{
                         if(res.code===0){
@@ -105,12 +109,15 @@
                             });
                             CommonUtils.setStore("resume",res.resumes);
                             this.resumes = res.resumes;
+                        }else if(res.code===1){
+                            this.$router.push("/login");
+                        }else{
+                            this.$message.error(res.message);
                         }
                     })
                     .catch(err=>{
                         console.log(err);
                     })
-
             },
             CloseDialog(){
                 this.attachDia = false;

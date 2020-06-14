@@ -95,6 +95,8 @@
                                     setTimeout(()=>{
                                         this.$router.go(0);
                                     },100);
+                                }else if(res.code===1){
+                                    this.$router.push("/login");
                                 }else{
                                     this.$message.error(res.message);
                                 }

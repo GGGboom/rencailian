@@ -342,9 +342,9 @@ export const BasicData = [
     "keyValueStr": null,
     "name": "所在城市",
     "id": 74
-}, {
+}, {//之前广州市和深圳市的keyvalue重复了
     "keyName": "深圳市",
-    "keyValue": 3,
+    "keyValue": 4,
     "dateCode": "WORK_CITY",
     "keyValueStr": null,
     "name": "所在城市",
@@ -408,7 +408,7 @@ export const BasicData = [
 }, {
     "keyName": "0-20",
     "keyValue": 1,
-    "dateCode": "F",
+    "dateCode": "COMPANY_SIZE",
     "keyValueStr": null,
     "name": "公司规模",
     "id": 259

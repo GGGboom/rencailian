@@ -324,45 +324,52 @@
             get(){
                 getContract({loginId:CommonUtils.getStore("user").userId,authorization:CommonUtils.getStore("token")},2)
                     .then(res=>{
-                        this.contract = res.contracts;
-                        this.contract.forEach(item=>{
-                            if(item.contractStatus===1){
-                                item.buttonName ='待签约';
-                                item.buttonType = 1;
-                                this.contract_wait.push(item);
-                                item.buttonColorType = 'yellow';//#FFCC00
-                            }else if(item.contractStatus===2 || item.contractStatus===5){
-                                item.buttonName ='已签约';
-                                item.buttonType = 2;
-                                this.contract_signed.push(item);
-                                item.buttonColorType = 'green';//#00CC00
-                            }else if(item.contractStatus>=7 && item.contractStatus<=15){
-                                item.buttonName ='已仲裁';
-                                item.buttonType = 3;
-                                this.contract_arbitration.push(item);
-                                item.buttonColorType = 'blue';//#0099FF
-                            }else if(item.contractStatus===3 || item.contractStatus===4 || item.contractStatus===6){
-                                item.buttonName ='已失效';
-                                item.buttonType = 4;
-                                this.contract_invalid.push(item);
-                                item.buttonColorType = 'gray';//#A1A1A1
+                        if(res.code===0){
+                            this.contract = res.contracts;
+                            this.contract.forEach(item=>{
+                                if(item.contractStatus===1){
+                                    item.buttonName ='待签约';
+                                    item.buttonType = 1;
+                                    this.contract_wait.push(item);
+                                    item.buttonColorType = 'yellow';//#FFCC00
+                                }else if(item.contractStatus===2 || item.contractStatus===5){
+                                    item.buttonName ='已签约';
+                                    item.buttonType = 2;
+                                    this.contract_signed.push(item);
+                                    item.buttonColorType = 'green';//#00CC00
+                                }else if(item.contractStatus>=7 && item.contractStatus<=15){
+                                    item.buttonName ='已仲裁';
+                                    item.buttonType = 3;
+                                    this.contract_arbitration.push(item);
+                                    item.buttonColorType = 'blue';//#0099FF
+                                }else if(item.contractStatus===3 || item.contractStatus===4 || item.contractStatus===6){
+                                    item.buttonName ='已失效';
+                                    item.buttonType = 4;
+                                    this.contract_invalid.push(item);
+                                    item.buttonColorType = 'gray';//#A1A1A1
+                                }
+                            });
+                            for(let i = 0; i<5 && i<this.contract.length; i++){                       //显示五个所有种类智能合约
+                                this.showList_all.push(this.contract[i]);
                             }
-                        });
-                        for(let i = 0; i<5 && i<this.contract.length; i++){                       //显示五个所有种类智能合约
-                            this.showList_all.push(this.contract[i]);
+                            for(let i = 0; i<5 && i<this.contract_wait.length; i++){                  //显示五个待签约的智能合约
+                                this.showList_wait.push(this.contract_wait[i]);
+                            }
+                            for(let i = 0; i<5 && i<this.contract_signed.length; i++){                //显示五个已签约的智能合约
+                                this.showList_signed.push(this.contract_signed[i]);
+                            }
+                            for(let i = 0; i<5 && i<this.contract_arbitration.length; i++){           //显示五个已仲裁的智能合约
+                                this.showList_arbitration.push(this.contract_arbitration[i]);
+                            }
+                            for(let i = 0; i<5 && i<this.contract_invalid.length; i++){                 //显示五个已失效的智能合约
+                                this.showList_invalid.push(this.contract_invalid[i]);
+                            }
+                        }else if(res.code===1){
+                            this.$router.push("/login");
+                        }else{
+                            this.$message.error(res.message);
                         }
-                        for(let i = 0; i<5 && i<this.contract_wait.length; i++){                  //显示五个待签约的智能合约
-                            this.showList_wait.push(this.contract_wait[i]);
-                        }
-                        for(let i = 0; i<5 && i<this.contract_signed.length; i++){                //显示五个已签约的智能合约
-                            this.showList_signed.push(this.contract_signed[i]);
-                        }
-                        for(let i = 0; i<5 && i<this.contract_arbitration.length; i++){           //显示五个已仲裁的智能合约
-                            this.showList_arbitration.push(this.contract_arbitration[i]);
-                        }
-                        for(let i = 0; i<5 && i<this.contract_invalid.length; i++){                 //显示五个已失效的智能合约
-                            this.showList_invalid.push(this.contract_invalid[i]);
-                        }
+
                     })
                     .catch(err=>{
                         console.log(err);

@@ -20,11 +20,14 @@ Vue.prototype.$post = $post;
 router.beforeEach((to, from, next) => {
   //每刷新一次页面，重新请求数据
   let user = JSON.parse(localStorage.getItem("user"));
-  if(user){
-      //保存登录状态和用户类型
+  if(user){//保存登录状态和用户类型
       store.state.loginState=true;
       store.state.identityType = user.identityType;
-      store.user = user;
+      if(store.state.search===to.params.search){
+          to.params.search = null;
+      }else{
+          store.state.search=to.params.search;
+      }
       next();
   }else{
     store.state.loginState=false;

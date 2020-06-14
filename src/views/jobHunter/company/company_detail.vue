@@ -1,6 +1,8 @@
 <template>
     <div class="company-main">
         <div class="company-banner">
+
+            <!--背景图-->
             <div class="company-inner">
                 <div class="prf">
                     <div class="company-primary">
@@ -38,6 +40,9 @@
                     </div>
                 </div>
             </div>
+            <!--背景图-->
+
+            <!--菜单栏-->
             <div class="tag-page">
                 <el-menu :default-active="activeIndex"
                          class="el-menu-demo"
@@ -46,14 +51,17 @@
                          text-color="#fff"
                          active-text-color="#ffd04b"
                          background-color="transparent">
-                    <el-menu-item index="1">公司简介</el-menu-item>
-                    <el-menu-item index="2">招聘职位</el-menu-item>
+                    <el-menu-item index="1" @click="flag=true">公司简介</el-menu-item>
+                    <el-menu-item index="2" @click="flag=false">招聘职位</el-menu-item>
                 </el-menu>
             </div>
+            <!--菜单栏-->
+
         </div>
         <div class="company-detail">
             <div class="box">
-                <div class="detail-content">
+                <!--公司详细信息-->
+                <div :class="flag===true?'detail-content':'display-none'">
                     <div class="content-item">
                         <h2>公司简介</h2>
                         <div style="width: 20px">
@@ -99,6 +107,32 @@
                         </div>
                     </div>
                 </div>
+                <!--公司详细信息-->
+
+                <div :class="flag===false?'detail-content':'display-none'">
+                    <div class="content-item">
+                        <h2>热招职位</h2>
+                        <div style="width: 20px">
+                            <el-divider></el-divider>
+                        </div>
+                        <router-link :to="{path:'/job/detail',query: {companyId: item.companyId,positionId:item.positionId}}" class="products" v-for="item in company.positionList" :key="item.productId">
+                            <div class="position-info">
+                                <span class="pst-title">{{item.name}}</span>
+                                <el-divider direction="vertical"></el-divider>
+                                <span class="salary">{{item.salaryRange}}</span>
+                                <div class="pst-label">
+                                    <span>{{item.address}}</span>
+                                    <el-divider direction="vertical"></el-divider>
+                                    <span>{{item.education}}</span>
+                                    <el-divider direction="vertical"></el-divider>
+                                    <span>{{item.serviceLength}}</span>
+                                </div>
+                            </div>
+                        </router-link>
+                    </div>
+                </div>
+
+                <!--公司边框-->
                 <div class="detail-sider">
                     <div class="sider-content-item">
                         <h2>公司环境</h2>
@@ -129,6 +163,7 @@
                         </div>
                     </div>
                 </div>
+                <!--公司边框-->
             </div>
         </div>
     </div>
@@ -142,15 +177,16 @@
         name: "company_detail",
         data() {
             return {
-                activeIndex: "1",
-                company: {
-                    positionList: {}
+                activeIndex: "1",                       //菜单栏index
+                flag:true,                              //判断显示公司简介还是显示招聘职位
+                company: {                              //公司基本信息
+                    positionList: []                    //公司所含职位列表
                 },
-                produceList: []
+                produceList: []                         //公司产品列表
             }
         },
         methods: {
-            favouriteCom() {         //收藏公司
+            favouriteCom() {//收藏公司
                 let companyId = this.$route.query.companyId;
                 favouriteCompany(companyId, CommonUtils.getStore("token"))
                     .then(res => {
@@ -159,24 +195,35 @@
                             setTimeout(() => {
                                 this.$router.go(0);
                             }, 900)
+                        }else if(res.code===1){
+                            this.$router.push("/login");
                         } else {
                             this.$message.error(res.message);
                         }
-                        console.log(res);
                     })
                     .catch(err => {
                         console.log(err);
                     })
             },
-            get(companyId) {
+            get(companyId) {//获取公司的详细信息
                 getCompanyById({authorization: CommonUtils.getStore("token")}, companyId)
                     .then(res => {
                         if (res.code === 0) {
+                            console.log(res);
                             this.company = res.company;
+                            this.company.positionList.forEach(item=>{
+                                item.salaryRange = CommonUtils.getKeyName('SALARY_RANGE', item.salaryRange);
+                                item.serviceLength = CommonUtils.getKeyName('SERVICE_LENGTH', item.serviceLength);
+                                item.education = CommonUtils.getKeyName('EDUCATION', item.education);
+                            });
                             this.produceList = res.company.companyProductList;
                             this.company.companySize = CommonUtils.getKeyName('COMPANY_SIZE', this.company.companySize);
                             this.company.industryType = CommonUtils.getKeyName('POSITION_TYPE', this.company.industryType);
                             this.company.financingRound = CommonUtils.getKeyName('FINANCING_ROUND', this.company.financingRound);
+                        }else if(res.code===1){
+                            this.$router.push("/login");
+                        }else{
+                            this.$message.error(res.message);
                         }
                     })
                     .catch(err => {
@@ -185,6 +232,7 @@
             },
             handleSelect(key, keyPath) {
                 console.log(key, keyPath);
+
             }
         },
         created() {

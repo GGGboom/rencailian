@@ -227,8 +227,14 @@
             get() {
                 getContractDetail({authorization: CommonUtils.getStore("token")}, this.contractId)
                     .then(res => {
-                        this.detailContract = res.contract;
-                        console.log(this.detailContract);
+                        if(res.code===0){
+                            this.detailContract = res.contract;
+                            console.log(this.detailContract);
+                        }else if(res.code===1){
+                            this.$router.push("/login");
+                        }else{
+                            this.$message.error(res.message);
+                        }
                     })
                     .catch(err => {
                         console.log(err);

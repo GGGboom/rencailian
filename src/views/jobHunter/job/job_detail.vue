@@ -44,7 +44,8 @@
         </div>
         <div class="job-box bgd">
             <div class="inner">
-                <!--公司信息-->
+
+                <!--职位所属公司信息-->
                 <div class="job-sider">
                     <div class="sider-company">
                         <p class="title">公司基本信息</p>
@@ -74,7 +75,7 @@
                         </p>
                     </div>
                 </div>
-                <!--公司信息-->
+                <!--职位所属公司信息-->
 
                 <!--职位信息-->
                 <div class="job-detail">
@@ -85,7 +86,9 @@
                         <div class="name">
                             {{info.publishUserName}}
                             <span class="gray online-status">
-                                招聘者<em class="vdot">·</em>刚刚在线
+                                招聘者
+                                <em class="vdot">·</em>
+                                刚刚在线
                             </span>
                         </div>
 
@@ -115,6 +118,8 @@
                     </div>
                 </div>
                 <!--职位信息-->
+
+
             </div>
         </div>
     </div>
@@ -129,12 +134,12 @@
         name: "job_detail",
         data(){
             return{
-                info:{
+                info:{                      //职位信息
                     position:{}
                 },
-                company:{},
-                positionId:"",
-                companyId:""
+                company:{},                 //职位所属公司
+                positionId:"",              //职位主键id
+                companyId:"",               //公司主键id
             }
         },
         methods:{
@@ -147,6 +152,10 @@
                            this.info.position.serviceLengthTxt = CommonUtils.getKeyName('SERVICE_LENGTH', res.position.serviceLength);
                            this.info.position.educationTxt = CommonUtils.getKeyName('EDUCATION', res.position.education);
                            console.log(res);
+                       }else if(res.code===1){
+                           this.$router.push("/login");
+                       }else{
+                           this.$message.error(res.message);
                        }
                    })
                    .catch(err=>{
@@ -162,7 +171,10 @@
                            this.company.industryTypeTxt = CommonUtils.getKeyName('POSITION_TYPE', this.company.industryType);
                            this.company.financingRoundTxt = CommonUtils.getKeyName('FINANCING_ROUND', this.company.financingRound);
                            this.company.companySizeTxt = this.company.companySize;
-
+                       }else if(res.code===1){
+                           this.$router.push("/login");
+                       }else{
+                           this.$message.error(res.message);
                        }
                    })
                    .catch(err=>{
@@ -178,6 +190,8 @@
                             setTimeout(()=>{
                                 this.$router.go(0);
                             },900)
+                        }else if(res.code===1){
+                            this.$router.push("/login");
                         }else{
                             this.$message.error(res.message);
                         }
@@ -186,7 +200,7 @@
                         console.log(err);
                     })
             },
-            chat(){
+            chat(){//转到聊天界面，同时将聊天对象信息存入localstorage中
                 let receiveUser={};
                 receiveUser.receiveUserId = this.info.position.publishUserId;
                 receiveUser.headerImage = this.info.headerImagePath;
@@ -205,5 +219,5 @@
 </script>
 
 <style scoped>
-@import "../../../assets/css/jobHunter/job/job_detail.css";
+    @import "../../../assets/css/jobHunter/job/job_detail.css";
 </style>

@@ -7,6 +7,7 @@ const store  = new Vuex.Store({
         loginState:false,
         pageState:true,//在登录注册页面中不需要页头和页脚,该数据用于控制页头和页脚
         identityType:1,//用户类型 1是招聘者，2是应聘者
+        search:"",     //用于记录应聘者-公司、应聘者-职业和招聘者-人才中搜索历史
         //用户基本信息
         user:{
             "companyId": null,

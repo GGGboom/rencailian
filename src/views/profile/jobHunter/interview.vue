@@ -70,11 +70,14 @@
                     .then(res=>{
                         if(res.code===0){
                             this.interview = res.interview;
+                            this.interview.forEach(item=>{
+                                item.interviewTime = item.interviewTime==null?new Date():item.interviewTime;
+                            })
+                        }else if(res.code===1){
+                            this.$router.push("/login");
+                        }else{
+                            this.$message.error(res.message);
                         }
-                        this.interview.forEach(item=>{
-                            item.interviewTime = item.interviewTime==null?new Date():item.interviewTime;
-
-                        })
                     })
                     .catch(err=>{
                         console.log(err);

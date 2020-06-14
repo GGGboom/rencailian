@@ -148,6 +148,10 @@
                                     setTimeout(()=>{
                                         this.$router.go(0);
                                     },1000);
+                                }else if(res.code===0){
+                                    this.$router.push("/login");
+                                }else{
+                                    this.$message.error(res.message);
                                 }
                             })
                             .catch(err=>{
@@ -174,6 +178,10 @@
                                     setTimeout(()=>{
                                         this.$router.go(0);
                                     },100)
+                                }else if(res.code===0){
+                                    this.$router.push("/login");
+                                }else{
+                                    this.$message.error(res.message);
                                 }
                             })
                             .catch(err=>{
@@ -190,7 +198,13 @@
                 list.forEach(item => {
                     getWalletDetail({authorization: CommonUtils.getStore("token")}, item.id)
                         .then(res => {
-                            this.walletList.push(res.result);
+                            if(res.code===0){
+                                this.walletList.push(res.result);
+                            }else if(res.code===0){
+                                this.$router.push("/login");
+                            }else{
+                                this.$message.error(res.message);
+                            }
                         })
                         .catch(err => {
                             console.log(err);
@@ -206,20 +220,16 @@
                     deleteWallet(null,CommonUtils.getStore("token"),id)
                         .then(res=>{
                             if(res.code===0){
-                                this.$message({
-                                    type: 'success',
-                                    message: '删除成功'
-                                });
+                                this.$message.success("删除成功");
                                 let result = CommonUtils.updateLocalUser(2);
                                 console.log(`result:${result}`);
                                 setTimeout(()=>{
                                     this.$router.go(0);
                                 },1000);
+                            }else if(res.code===1){
+                                this.$router.push("/login");
                             }else{
-                                this.$message({
-                                    type: 'info',
-                                    message: res.message
-                                });
+                                this.$message.error(res.message);
                             }
                         })
                         .catch(err=>{

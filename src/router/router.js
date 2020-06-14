@@ -225,14 +225,22 @@ const routes = [
         path: '/hr/msg',
         name: 'hr_msg',
         component: () => import( '../views/hr/msg/msg_index.vue'),
-        meta: {title: '聊天', requireAuth: true}
+        meta: {title: '聊天', requireAuth: true},
+        children:[
+            {
+                path: 'detail',
+                name: 'hr_msg_detail',
+                component: () => import( '../views/hr/msg/msg_detail.vue'),
+                meta: {title: '聊天', requireAuth: true}
+            },
+        ]
     },
     //应聘者消息
     {
         path: '/talent/msg',
         name: 'talent_msg',
         component: () => import( '../views/jobHunter/msg/msg_index.vue'),
-        meta: {title: '消息', requireAuth: true},
+        meta: {title: '聊天', requireAuth: true},
         children:[
             {
                 path: 'detail',
