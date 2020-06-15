@@ -1,9 +1,8 @@
 .application-main{
     background: #fff;
     padding-bottom: 15px;
-    min-height: 800px;
+    min-height: 500px;
 }
-
 .container-xl {
     max-width: 1280px;
     margin: 0 auto;

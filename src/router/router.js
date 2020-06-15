@@ -216,7 +216,7 @@ const routes = [
     {
         path: '/resume',
         name: 'resume',
-        component: () => import( '../views/profile/jobHunter/Resume.vue'),
+        component: () => import( '../views/profile/jobHunter/resume/Resume.vue'),
         meta: {title: '个人简历', requireAuth: true},
     },
 

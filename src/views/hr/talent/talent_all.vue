@@ -172,7 +172,7 @@
                 sessionStorage.setItem('talentUser',JSON.stringify(this.talentList[index]));
                 this.$router.push("/talent/detail");
             },
-            get(pageSize, pageNum){
+            get(pageSize, pageNum){//获取人才列表
                 let data = {
                     workCity:""
                 };

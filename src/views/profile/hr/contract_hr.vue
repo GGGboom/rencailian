@@ -56,7 +56,14 @@
                                 @current-change="pageChangeAll"
                                 :total="contract.length">
                         </el-pagination>
-                        <span v-if="contract.length===0">无记录</span>
+                        <div class="empty-box" v-if="contract.length===0 && !loading" >
+                            <div class="message">
+                                <img class="mark" src="../../../assets/img/i.png" alt>
+                                <span class="message-txt">
+                                    当前数据为空
+                                </span>
+                            </div>
+                        </div>
                     </div>
                 </el-tab-pane>
                 <el-tab-pane label="待签约" name="second">
@@ -112,7 +119,14 @@
                                 @current-change="pageChangeWait"
                                 :total="contract_wait.length">
                         </el-pagination>
-                        <span v-if="contract_wait.length===0">无记录</span>
+                        <div class="empty-box" v-if="contract_wait.length===0 && !loading" >
+                            <div class="message">
+                                <img class="mark" src="../../../assets/img/i.png" alt>
+                                <span class="message-txt">
+                                    当前数据为空
+                                </span>
+                            </div>
+                        </div>
                     </div>
                 </el-tab-pane>
                 <el-tab-pane label="已签约" name="third">
@@ -168,7 +182,14 @@
                                 @current-change="pageChangeSigned"
                                 :total="contract_signed.length">
                         </el-pagination>
-                        <span v-if="contract_signed.length===0">无记录</span>
+                        <div class="empty-box" v-if="contract_signed.length===0 && !loading" >
+                            <div class="message">
+                                <img class="mark" src="../../../assets/img/i.png" alt>
+                                <span class="message-txt">
+                                    当前数据为空
+                                </span>
+                            </div>
+                        </div>
                     </div>
                 </el-tab-pane>
                 <el-tab-pane label="已仲裁" name="fourth">
@@ -224,7 +245,14 @@
                                 @current-change="pageChangeArbitration"
                                 :total="contract_arbitration.length">
                         </el-pagination>
-                        <span v-if="contract_arbitration.length===0">无记录</span>
+                        <div class="empty-box" v-if="contract_arbitration.length===0 && !loading" >
+                            <div class="message">
+                                <img class="mark" src="../../../assets/img/i.png" alt>
+                                <span class="message-txt">
+                                    当前数据为空
+                                </span>
+                            </div>
+                        </div>
                     </div>
                 </el-tab-pane>
                 <el-tab-pane label="已失效" name="fifth">
@@ -280,7 +308,14 @@
                                 @current-change="pageChangeInvalid"
                                 :total="contract_invalid.length">
                         </el-pagination>
-                        <span v-if="contract_invalid.length===0">无记录</span>
+                        <div class="empty-box" v-if="contract_invalid.length===0 && !loading" >
+                            <div class="message">
+                                <img class="mark" src="../../../assets/img/i.png" alt>
+                                <span class="message-txt">
+                                    当前数据为空
+                                </span>
+                            </div>
+                        </div>
                     </div>
                 </el-tab-pane>
             </el-tabs>

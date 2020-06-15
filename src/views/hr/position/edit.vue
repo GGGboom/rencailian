@@ -8,17 +8,20 @@
         <el-form :rules="rules" ref="form" :model="form">
             <div class="border-bottom border-gray-dark py form-item space-btw item-container">
                 <div>
-                <span class="item-label">
-                    职位名称
-                </span>
+                    <span class="item-label">
+                        职位名称
+                    </span>
                 </div>
                 <div class="pad-left">
-                    <el-form-item prop="name">
-                        <el-select v-model="form.name" placeholder="请选择">
-                            <el-option v-for="item in positionType" :key="item.id"
-                                       :label="item.txt" :value="item.id">
-                            </el-option>
-                        </el-select>
+                    <el-form-item prop="type">
+                        <el-cascader
+                                v-model="form.type"
+                                :options="positionTypeList"
+                                :props="{ expandTrigger: 'hover' }"
+                                @change="handleChange"
+                                :show-all-levels="false">
+
+                        </el-cascader>
                     </el-form-item>
                 </div>
             </div>
@@ -30,9 +33,9 @@
                 </div>
                 <div class="pad-left">
                     <el-form-item prop="salaryRange">
-                        <el-select v-model="form.salaryRange" placeholder="请选择">
-                            <el-option v-for="item in salaryRange" :key="item.id" :label="item.txt"
-                                       :value="item.id">
+                        <el-select v-model="form.salaryRange" placeholder="请选择" >
+                            <el-option v-for="item in salaryRangeList" :key="item.value" :label="item.label"
+                                       :value="item.value">
                             </el-option>
                         </el-select>
                     </el-form-item>
@@ -64,8 +67,8 @@
                 <div class="pad-left">
                     <el-form-item prop="serviceLength">
                         <el-select v-model="form.serviceLength" placeholder="请选择">
-                            <el-option v-for="item in workExperiences" :key="item.id"
-                                       :label="item.txt" :value="item.id">
+                            <el-option v-for="item in workExperiences" :key="item.value"
+                                       :label="item.label" :value="item.value">
                             </el-option>
                         </el-select>
                     </el-form-item>
@@ -80,8 +83,8 @@
                 <div class="pad-left">
                     <el-form-item prop="education">
                         <el-select v-model="form.education" placeholder="请选择">
-                            <el-option v-for="item in educationList" :key="item.id"
-                                       :label="item.txt" :value="item.id">
+                            <el-option v-for="item in educationList" :key="item.value"
+                                       :label="item.label" :value="item.value">
                             </el-option>
                         </el-select>
                     </el-form-item>
@@ -112,7 +115,7 @@
                 </div>
             </div>
             <div class="form-btn">
-                <el-button type="primary" @click="save('form')">{{btnName}}</el-button>
+                <el-button type="primary" @click="save('form')">保存</el-button>
             </div>
         </el-form>
     </div>
@@ -120,30 +123,36 @@
 
 <script>
     import {CommonUtils} from "../../../utils/commonUtil";
-    import {getPosition,editPosition} from "../../../api/job";
+    import {editPosition} from "../../../api/job";
 
     export default {
         name: "edit",
         data() {
             return {
+                head: "",
+                salaryRangeList: CommonUtils.getEnumObjList('SALARY_RANGE'),                    //薪资范围数组
+                positionTypeList: CommonUtils.getEnumObjList('POSITION_TYPE'),                  //行业类型数组
+                educationList: CommonUtils.getEnumObjList("EDUCATION"),                         //教育经验数组
+                serviceLengthList: CommonUtils.getEnumObjList("SERVICE_LENGTH"),                //经验数组
+                workExperiences: CommonUtils.getEnumObjList("SERVICE_LENGTH"),                  //工作经验数组
                 form: {
                     name: "",
                     type: undefined,
                     salaryRange: "",
                     address: "",
-                    serviceLength: "",
-                    education: "",
+                    serviceLength: null,
+                    education: null,
                     description: "",
                     positionRequire: "",
-                    longitude: 128,
-                    latitude: 47,
-                    province: "黑龙江",
-                    city: "黑河",
-                    area: "爱辉区",
+                    longitude: 0,
+                    latitude: 0,
+                    province: "",
+                    city: "",
+                    area: "",
                 },
                 rules:{
-                    name: [
-                        {required: true, message: '请输入名称', trigger: 'blur'},
+                    type: [
+                        {required: true, message: '请输入类型', trigger: 'blur'},
                     ],
                     salaryRange: [
                         {required: true, message: '请选择薪资范围', trigger: 'blur'}
@@ -161,84 +170,75 @@
                         {required: true, message: '请输入职位描述', trigger: 'blur'}
                     ]
                 },
-                head: "",
-                // SERVICE_LENGTH
-                salaryRange: CommonUtils.getEnumNameList('SALARY_RANGE'),
-                positionType: CommonUtils.getEnumNameList('POSITION_TYPE'),
-                educationList: CommonUtils.getEnumNameList("EDUCATION", true),
-                serviceLengthList: CommonUtils.getEnumNameList("SERVICE_LENGTH", true),
-                workExperiences: CommonUtils.getEnumNameList("SERVICE_LENGTH"),
-                positionId:0,
-                result:{},
-                btnName:"发布"
             }
         },
         methods: {
-            goback() {
+            handleChange(value) {
+                console.log(value);
+                this.form.type = value[1];
+            },
+            init(){//初始化数据
+                for(let i = 0; i<this.positionTypeList.length; i++){
+                    this.positionTypeList[i].children = [];
+                    this.positionTypeList[i].children = CommonUtils.getSubEnumObjList(this.positionTypeList[i].data_code,this.positionTypeList[i].name);
+                }
+                /*
+                很神奇，query.type传过来时是整数类型，刷新之后则变成了string类型，所以这里要强制转化一下
+                 */
+                if (Number(this.$route.query.type) === 0) {//将之前存入sessionStorage的值赋给data
+                    let data = JSON.parse(sessionStorage.getItem('edit_position'));
+                    this.form = data;
+                    this.head = "编辑职位";
+                } else {
+                    this.head = "发布新职位";
+                }
+            },
+            goback() {//返回所有职位页面
                 this.$router.push("/position/all");
             },
-            get(){
-                let user = CommonUtils.getStore("user");
-                getPosition({authorization:CommonUtils.getStore("token")},user.companyId)
-                    .then(res=>{
-                        console.log(res);
-                        if(res.code===0){
-                            this.result = res.company;
-                        }
-                    })
-                    .catch(err=>{
-                        console.log(err);
-                    })
-            },
-            save(formName){
-                this.$refs[formName].validate(valid=>{
+            save(formName){//检验并提交表单
+                console.log(this.form);
+                this.$refs[formName].validate(async valid=>{
                     if(valid){
-                        let data = JSON.parse(sessionStorage.getItem('edit_position'));
                         let publish = this.form;
-                        if(this.$route.params.type === 0){          //如果是编辑，则要加上companyId和positionID
-                            publish.companyId=data.companyId;
-                            publish.positionId= data.positionId;
+                        if(Number(this.$route.query.type) === 0){//如果是编辑，则要加上companyId和positionID
+                            let data = JSON.parse(sessionStorage.getItem('edit_position'));
+                            publish.companyId = data.companyId;
+                            publish.positionId = data.positionId;
+                            publish.name = CommonUtils.getKeyNameByKeyValue(this.form.type);
+                            delete publish.updateTime;
+                            delete publish.createTime;
                         }
-                        publish.name = CommonUtils.getKeyName("POSITION_TYPE",publish.name);
-                        editPosition(publish,CommonUtils.getStore("token"))
+                        await editPosition(publish,CommonUtils.getStore("token"))
                             .then(res=>{
                                 if(res.code===0){
+                                    this.$message.success("保存成功");
                                     setTimeout(()=>{
                                         this.$router.push("/position/all");
-                                    },900)
+                                    },500);
+                                }else if(res.code===1){
+                                    this.$router.push("/login");
+                                }else{
+                                    this.$message.error(res.message);
                                 }
-                                console.log(res);
                             })
                             .catch(err=>{
                                 console.log(err);
                             })
-                    }else{
-                        console.log("");
                     }
                 })
-            }
+            },
         },
         created() {
-            this.get();
-            if (this.$route.params.type === 0) {
-                this.head = "编辑职位";
-                this.btnName = "保存";
-                let data = JSON.parse(sessionStorage.getItem('edit_position'));
-                this.form.name = CommonUtils.getKeyValue('POSITION_TYPE',(data.name));
-                this.form.serviceLength = CommonUtils.getKeyValue('SERVICE_LENGTH',(data.serviceLength));
-                this.form.education = CommonUtils.getKeyValue('EDUCATION',(data.education));
-                this.form.salaryRange = CommonUtils.getKeyValue('SALARY_RANGE',(data.salaryRange));
-                this.form.description = data.description;
-                this.form.positionRequire = data.positionRequire;
-                this.form.name = data.name;
-                this.form.address = data.address;
-            } else {
-                this.head = "发布新职位";
-            }
-            this.positionId = this.$route.params.positionId;
+            this.init();
         },
-        mounted() {
-
+        watch:{
+            form:{
+                handler(value){
+                    console.log(value);
+                },
+                deep:true
+            }
         }
     }
 </script>

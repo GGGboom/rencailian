@@ -88,14 +88,11 @@
         name: "talent_detail",
         data(){
             return{
-                info:{
-                    position:{}
-                },
                 company:{},
                 talentUser:{},                          //应聘者信息
                 positions:[],                           //招聘者的期望职位列表
                 positionsNames:[],                      //招聘者的职位名字列表
-                value:0,
+                value:0,                                //
             }
         },
         methods:{

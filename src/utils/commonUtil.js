@@ -191,7 +191,8 @@ export const CommonUtils = {
                 name: '全部',
                 value: 0,
                 selectIndex: -1,
-                strValue:''
+                strValue:'',
+                label:'全部'
             });
         }
         if(commonBasicData && commonBasicData != null && typeof(commonBasicData)!="undefined"){
@@ -203,12 +204,49 @@ export const CommonUtils = {
                         name: currData.keyName,
                         value: currData.keyValue,
                         strValue: currData.keyValueStr,
-                        selectIndex: -1
+                        selectIndex: -1,
+                        data_code:date_code,
+                        label:currData.keyName,
                     });
                 }
             }
         }
         return enumList;
+    },
+
+    /**
+     * @description Get the sub enumeration list by date_code and keyName
+     */
+    getSubEnumObjList:function(data_code,keyName){
+        let KeyValue = this.getKeyValue(data_code,keyName);
+        let commonBasicData = BasicData;
+        let enumList = [];
+        data_code = data_code+"_"+KeyValue;
+        if(commonBasicData && commonBasicData != null && typeof(commonBasicData)!="undefined"){
+            for(let i=0;i<commonBasicData.length;i++){
+                let currData = commonBasicData[i];
+                if(currData.dateCode === data_code){
+                    currData.selectIndex = -1;
+                    enumList.push({
+                        name: currData.keyName,
+                        value: currData.keyValue,
+                        strValue: currData.keyValueStr,
+                        selectIndex: -1,
+                        label: currData.keyName,
+                    });
+                }
+            }
+        }
+        return enumList;
+    },
+
+    getKeyNameByKeyValue(keyValue){
+        let commonBasicData = BasicData;
+        for(let i = 0; i<commonBasicData.length; i++){
+            if(keyValue===commonBasicData[i].keyValue)
+                return commonBasicData[i].keyName;
+        }
+        return "";
     },
 
     servalDaysBeforeMill(dayCount){

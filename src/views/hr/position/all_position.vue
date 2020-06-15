@@ -5,61 +5,59 @@
             <el-tab-pane label="已发布" name="second"></el-tab-pane>
             <el-tab-pane label="已暂停" name="third"></el-tab-pane>
         </el-tabs>
-        <ul>
-            <li class="width-full d-flex py-4 border-bottom space-btw li-hover" v-for="item in showList" :key="item.id"
-                @click="goToEdit">
-                <div class="d-inline-block">
-                    <p class="ft-weight pd">
-                        {{item.name}}
-                        <el-tag type="danger" size="mini" v-if="item.publishStatus===2">
-                            已暂停
-                        </el-tag>
-                        <el-tag type="success" size="mini" v-if="item.publishStatus===1">
-                            已发布
-                        </el-tag>
-                    </p>
-                    <div class="pd">
-                        <span class="span-hover">{{item.salaryRange}}</span>
-                        <el-divider direction="vertical"></el-divider>
-                        <span class="span-hover">{{item.education}}</span>
-                        <el-divider direction="vertical"></el-divider>
-                        <span class="span-hover">{{item.serviceLength}}</span>
-                    </div>
-                    <p class="pd">
-                    <span class="font-color">
-                        更新时间:{{item.updateTime}}
-                    </span>
-                    </p>
-                </div>
-                <div class="d-flex">
-                    <div class="">
-                        <el-button icon="el-icon-edit" size="mini" @click="editPosition(item)">编辑</el-button>
-                        <el-button icon="el-icon-delete" size="mini" v-if="item.publishStatus===2"
-                                   @click="operate(item,0)">删除
-                        </el-button>
-                        <el-button icon="el-icon-error" size="mini" v-if="item.publishStatus===1"
-                                   @click="operate(item,2)">暂停
-                        </el-button>
-                        <el-button icon="el-icon-s-promotion" size="mini" v-if="item.publishStatus===2"
-                                   @click="operate(item,1)">重新发布
-                        </el-button>
-                    </div>
-                </div>
-            </li>
-        </ul>
+
+        <!--职位表格-->
+        <el-table
+                :data="showList"
+                border
+                style="width: 100%">
+            <el-table-column
+                    label="职位"
+                    width="200">
+                <template slot-scope="scope">
+                    <span style="margin-left: 10px">{{ scope.row.name }}</span>
+                </template>
+            </el-table-column>
+            <el-table-column
+                    label="更新时间"
+                    width="200">
+                <template slot-scope="scope">
+                    <span style="margin-left: 10px">{{ scope.row.updateTimeTxt }}</span>
+                </template>
+            </el-table-column>
+            <el-table-column
+                    label="基本信息"
+                    width="280">
+                <template slot-scope="scope">
+                    <span class="span-hover">{{scope.row.salaryRangeTxt}}</span>
+                    <el-divider direction="vertical"></el-divider>
+                    <span class="span-hover">{{scope.row.educationTxt}}</span>
+                    <el-divider direction="vertical"></el-divider>
+                    <span class="span-hover">{{scope.row.serviceLengthTxt}}</span>
+                </template>
+            </el-table-column>
+            <el-table-column
+                    prop="address"
+                    label="操作">
+                <template slot-scope="scope">
+                    <el-button icon="el-icon-edit" size="mini" @click="editPosition(scope.row)" type="primary">编辑</el-button>
+                    <el-button icon="el-icon-delete" size="mini" v-if="scope.row.publishStatus===2" type="danger"
+                               @click="operate(scope.row,0)">删除
+                    </el-button>
+                    <el-button icon="el-icon-error" size="mini" v-if="scope.row.publishStatus===1" type="warning"
+                               @click="operate(scope.row,2)">暂停
+                    </el-button>
+                    <el-button icon="el-icon-s-promotion" size="mini" v-if="scope.row.publishStatus===2" type="success"
+                               @click="operate(scope.row,1)">重新发布
+                    </el-button>
+                </template>
+            </el-table-column>
+        </el-table>
+        <!--职位表格-->
+
         <div class="suspend" @click="release">
             发布新职位
         </div>
-        <!--<div class="layout-center normal-margin-top">-->
-            <!--<el-pagination-->
-                    <!--v-if="total>5"-->
-                    <!--:page-size="pageSize"-->
-                    <!--:current-page.sync="currentPage"-->
-                    <!--layout="prev, pager, next"-->
-                    <!--@current-change="currentChange"-->
-                    <!--:total="total">-->
-            <!--</el-pagination>-->
-        <!--</div>-->
     </div>
 </template>
 
@@ -71,16 +69,15 @@
         name: "all_position",
         data() {
             return {
-                dropbtxt: "全部",
-                activeName: 'first',
-                positions: [],
-                publishingPosi: [],//发布中
-                publishAll: [],//已发布
-                stopPosi: [],//停止发布
-                pageSize: 5,
-                total: 0,
-                currentPage: 1,
-                showList: []
+                activeName: 'first',                            //用于在全部、已发布和已暂停之间切换
+                positions: [],                                  //包含所有的职位
+                publishingPosi: [],                             //发布中的职位
+                publishAll: [],                                 //已发布的职位
+                stopPosi: [],                                   //停止发布的职位
+                pageSize: 5,                                    //用于分页,页面大小,为之后系统扩展所用
+                total: 0,                                       //用于分页,所有条数,为之后系统扩展所用
+                currentPage: 1,                                 //用于分页，当前页面,为之后系统扩展所用
+                showList: [],                                   //用于显示职位
             }
         },
         methods: {
@@ -95,7 +92,9 @@
                                     setTimeout(() => {
                                         this.$router.go(0);
                                     }, 900);
-                                } else {
+                                } else if(res.code===1){
+                                    this.$router.push("/login");
+                                } else{
                                     this.$message.error(res.message);
                                 }
                             })
@@ -113,7 +112,9 @@
                                     setTimeout(() => {
                                         this.$router.go(0);
                                     }, 900);
-                                } else {
+                                } else if(res.code===1){
+                                    this.$router.push("/login");
+                                } else{
                                     this.$message.error(res.message);
                                 }
                             })
@@ -130,7 +131,9 @@
                                     setTimeout(() => {
                                         this.$router.go(0);
                                     }, 900)
-                                } else {
+                                } else if(res.code===1){
+                                    this.$router.push("/login");
+                                } else{
                                     this.$message.error(res.message);
                                 }
                             })
@@ -147,11 +150,15 @@
                     }
                 }
             },
-            editPosition(item) {
+            editPosition(item) {//编辑职位，在编辑职位之前将职位的基本信息存入sessionStorage，方便之后的操作
+                delete item.serviceLengthTxt;
+                delete item.educationTxt;
+                delete item.salaryRangeTxt;
+                delete item.updateTimeTxt;
                 sessionStorage.setItem('edit_position', JSON.stringify(item));
-                this.$router.push({name: "position_edit", params: {positionId: item.positionId, type: 0}});
+                this.$router.push({name: "position_edit", query: {positionId: item.positionId, type: 0}});
             },
-            handleClick(tab) {
+            handleClick(tab) {//切换的handle函数
                 if (tab.index === "0") {
                     this.showList = this.positions;
                 } else if (tab.index === "1") {
@@ -162,39 +169,41 @@
                     this.total = this.stopPosi.length;
                 }
             },
-            release() {
+            release() {//发布新职位
                 this.$router.push({name: "position_edit", params: {positionId: undefined, type: 1}});
             },
-            currentChange(page) {
-                console.log(page)
-            },
-            get() {
+            get() {//获取所有职位信息
                 getMinePosition({authorization: CommonUtils.getStore("token")})
                     .then(res => {
-                        res.positions.forEach(item => {
-                            item.salaryRange = CommonUtils.getKeyName('SALARY_RANGE', item.salaryRange);
-                            item.serviceLength = CommonUtils.getKeyName('SERVICE_LENGTH', item.serviceLength);
-                            item.updateTime = CommonUtils.getFormatDateTime(item.updateTime, "yyyy-MM-dd HH:mm:ss");
-                            item.education = CommonUtils.getKeyName('EDUCATION', item.education);
-                            if (item.publishStatus == 1) {      //已发布
-                                this.publishingPosi.push(item);
-                            } else if (item.publishStatus == 2) {      //2暂停
-                                this.stopPosi.push(item);
-                            }
-                            if (item.publishStatus != 0) {
-                                this.positions.push(item);
-                            }
-                        });
-                        this.showList = this.positions;
-                        this.total = this.positions.length;
+                        if(res.code===0){
+                            console.log(res);
+                            res.positions.forEach(item => {
+                                item.salaryRangeTxt = CommonUtils.getKeyName('SALARY_RANGE', item.salaryRange);
+                                item.serviceLengthTxt = CommonUtils.getKeyName('SERVICE_LENGTH', item.serviceLength);
+                                item.updateTimeTxt = CommonUtils.getFormatDateTime(item.updateTime, "yyyy-MM-dd HH:mm:ss");
+                                item.educationTxt = CommonUtils.getKeyName('EDUCATION', item.education);
+                                if (item.publishStatus === 1) {      //已发布
+                                    this.publishingPosi.push(item);
+                                } else if (item.publishStatus === 2) {      //2暂停
+                                    this.stopPosi.push(item);
+                                }
+                                if (item.publishStatus !== 0) {
+                                    this.positions.push(item);
+                                }
+                            });
+                            this.showList = this.positions;
+                            this.total = this.positions.length;
+                        }else if(res.code===1){
+                            this.$router.push("/login");
+                        } else{
+                            this.$message.error(res.message);
+                        }
+
                     })
                     .catch(err => {
                         console.log(err);
                     })
             },
-            goToEdit() {
-
-            }
         },
         created() {
             this.get();

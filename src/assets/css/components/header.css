@@ -7,6 +7,9 @@
     background-color: #24292e;
     position: relative;
 }
+.Header .router-link-exact-active{
+    color: #00d7c6!important;
+}
 .Header, .Header-item{
     display: flex;
     align-items: center;
