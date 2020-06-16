@@ -33,7 +33,7 @@
                                 <i class="el-icon-files"></i>
                                 完善在线简历
                             </div>
-                            <div class="job-btn fr star-hover" @click="favourite" >
+                            <div class="job-btn fr star-hover " @click="favourite" >
                                 <i class="el-icon-star-on"></i>
                                 收藏
                             </div>

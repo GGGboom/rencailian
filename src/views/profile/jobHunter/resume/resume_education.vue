@@ -15,7 +15,7 @@
                         <div @click="showDegrees(item.id,0)" class="primary-info">
                             <div class="info-text">
                                 <h4 class="name">{{item.college}}</h4>
-                                <span class="gray period">{{item.startTime}}-{{item.endTime}}</span>
+                                <span class="gray period">{{item.startTime+" "}}至 {{" "+item.endTime}}</span>
                             </div>
                             <h4>
                                 <span>{{item.major}}</span>
@@ -23,7 +23,7 @@
                             </h4>
                         </div>
                         <div class="resume-delete">
-                            <el-button type="text" icon="el-icon-delete" @click="deleteHandle(item.id,2)">删除
+                            <el-button type="text" icon="el-icon-delete" @click="deleteHandle(item.id)">删除
                             </el-button>
                         </div>
                     </li>
@@ -97,8 +97,8 @@
                         <div class="item-content">
                             <el-form-item prop="degree">
                                 <el-select v-model="educationForm.degree" placeholder="请选择">
-                                    <el-option v-for="item in educationList" :key="item.id"
-                                               :label="item.txt" :value="item.id">
+                                    <el-option v-for="item in educationList" :key="item.value"
+                                               :label="item.label" :value="item.value">
                                     </el-option>
                                 </el-select>
                             </el-form-item>
@@ -118,7 +118,7 @@
 <script>
     import {CommonUtils} from "../../../../utils/commonUtil";
     import {getInfo} from "../../../../api/user";
-    import {updateDegree,deleteWorkExp,deleteProjectExp,deleteDegree} from "../../../../api/resume";
+    import {updateDegree,deleteDegree} from "../../../../api/resume";
     export default {
         name: "resume_education",
         data(){
@@ -149,7 +149,7 @@
                     ]
                 },
                 degreesList: [],                                                                    //教育经历列表
-                educationList: CommonUtils.getEnumNameList('EDUCATION'),                            //教育类型数组
+                educationList: CommonUtils.getEnumObjList('EDUCATION'),                            //教育类型数组
             }
         },
         methods:{
@@ -158,7 +158,6 @@
                     .then(async res => {
                         if (res.code === 0) {
                             await CommonUtils.setStore("user", res.user);      //用户信息-存入我的个人中心本地数据
-                            console.log(res);
                             this.show(res.user);
                         }
                     })
@@ -214,8 +213,10 @@
                             if(res.code===0){
                                 this.$message.success("修改成功");
                                 this.$router.go(0);
+                            }else if(res.code===1){
+                                this.$router.push("/login");
                             }else{
-                                console.log(res.messge);
+                                this.$message.error(res.message);
                             }
                         }
                     }else{
@@ -223,23 +224,8 @@
                     }
                 })
             },
-            async deleteHandle(id,type){
-                let res={};
-                switch (type) {
-                    case 0:{            //删除工作经历
-                        res = await deleteWorkExp(null,CommonUtils.getStore("token"),id);
-                        break;
-                    }
-                    case 1:{            //删除项目经历
-                        res = await deleteProjectExp(null,CommonUtils.getStore("token"),id);
-                        break;
-                    }
-                    case 2:{            //删除教育经历
-                        res = await deleteDegree(null,CommonUtils.getStore("token"),id);
-                        break;
-                    }
-                }
-                console.log("run");
+            async deleteHandle(id){
+                let res = await deleteDegree(null,CommonUtils.getStore("token"),id);
                 if(res.code===0){
                     this.$message.success("删除成功");
                     setTimeout(()=>{

@@ -13,7 +13,6 @@
     "font-awesome": "^4.7.0",
     "jquery": "^3.4.1",
     "less": "^3.11.1",
-    "v-distpicker": "^1.2.2",
     "vue": "^2.6.11",
     "vue-awesome": "^4.0.2",
     "vue-calendar-component": "^2.8.2",

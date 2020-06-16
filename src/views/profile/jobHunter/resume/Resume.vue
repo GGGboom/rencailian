@@ -40,7 +40,7 @@
                     <div class="settings-item privacy-set">
                         <span>隐私设置</span>
                         <div>
-                            <el-button type="text">设置</el-button>
+                            <router-link to="/profile/privacy" >设置</router-link>
                         </div>
                     </div>
                     <div class="settings-item">
@@ -60,6 +60,8 @@
     import resumeProject from './resume_project';
     import resumeEducation from './resume_education';
 
+    import {CommonUtils} from "../../../../utils/commonUtil";
+    import {getInfo} from "../../../../api/user";
     export default {
         name: "Resume",
         components:{
@@ -80,11 +82,28 @@
             }
         },
         methods: {
-
+            updateLocalStorage() {//因为简历修改会导致localstorage中user的值与服务器的值不同步，所以需要更新
+                getInfo({authorization: CommonUtils.getStore("token")})
+                    .then(async res => {
+                        if (res.code === 0) {
+                            await CommonUtils.setStore("user", res.user);
+                        }else if(res.code===1){
+                            this.$router.push("/login");
+                        }else{
+                            this.$message.error(res.message);
+                        }
+                    })
+                    .catch(err => {
+                        console.log(err);
+                    })
+            }
         },
         created() {
-
+            this.updateLocalStorage();
         },
+        beforeCreate() {
+            this.$emit('setHeader','resume');
+        }
     }
 </script>
 

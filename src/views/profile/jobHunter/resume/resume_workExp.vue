@@ -16,7 +16,7 @@
                         <div @click="showWorkExper(item.id,0)" class="primary-info">
                             <div class="info-text">
                                 <h4 class="name">{{item.companyName}}</h4>
-                                <span class="gray period">{{item.startTime}}-{{item.endTime}}</span>
+                                <span class="gray period">{{item.startTime+" "}}至 {{" "+item.endTime}}</span>
                             </div>
                             <h4>
                                 <span>{{item.departName}}</span>
@@ -27,7 +27,7 @@
                                 {{item.workDescription}}
                             </div>
                         </div>
-                        <div class="resume-delete" @click="deleteHandle(item.id,0)">
+                        <div class="resume-delete" @click="deleteHandle(item.id)">
                             <el-button type="text" icon="el-icon-delete" >删除
                             </el-button>
                         </div>
@@ -58,8 +58,8 @@
                         <div class="item-content">
                             <el-form-item prop="industryType">
                                 <el-select v-model="experienceForm.industryType" placeholder="请选择">
-                                    <el-option v-for="item in industryType" :key="item.id"
-                                               :label="item.txt" :value="item.id">
+                                    <el-option v-for="item in industryType" :key="item.value"
+                                               :label="item.label" :value="item.value">
                                     </el-option>
                                 </el-select>
                             </el-form-item>
@@ -149,13 +149,13 @@
     import {CommonUtils} from "../../../../utils/commonUtil";
     import {getInfo} from "../../../../api/user";
     import {updateWorkExp} from "../../../../api/resume";
-    import {deleteWorkExp,deleteProjectExp,deleteDegree} from "../../../../api/resume";
+    import {deleteWorkExp} from "../../../../api/resume";
     export default {
         name: "resume_education",
         data(){
             return{
                 experience: true,                                                                   //工作经历
-                experienceForm: {                   //工作经验表单
+                experienceForm: {
                     companyName: "",
                     industryType: "",
                     startTime: "",
@@ -188,7 +188,7 @@
                     ]
                 },
                 workExperiencesList: [],                                                            //工作经验列表
-                industryType: CommonUtils.getEnumNameList('INDUSTRY_TYPE'),                         //行业类型数组
+                industryType: CommonUtils.getEnumObjList('POSITION_TYPE'),                         //行业类型数组
             }
         },
         methods:{
@@ -197,7 +197,6 @@
                     .then(async res => {
                         if (res.code === 0) {
                             await CommonUtils.setStore("user", res.user);      //用户信息-存入我的个人中心本地数据
-                            console.log(res);
                             this.show(res.user);
                         }
                     })
@@ -207,12 +206,6 @@
             },
             show(user) {
                 this.user = user;
-                if (user.degrees != null) {
-                    this.degreesList = user.degrees;
-                }
-                if (user.projects != null && user.projects !== undefined) {
-                    this.projectList = user.projects;
-                }
                 if (user.workExperiences != null && user.workExperiences !== undefined) {
                     this.workExperiences = user.workExperiences;
                 }
@@ -227,7 +220,7 @@
                     workExperiences.forEach(item => {
                         if (item.id === id) {
                             this.experienceForm.companyName = item.companyName;
-                            this.experienceForm.industryType = CommonUtils.getKeyName("POSITION_TYPE", item.industryType);
+                            this.experienceForm.industryType = item.industryType;
                             this.experienceForm.startTime = CommonUtils.strToDate(item.startTime);
                             this.experienceForm.endTime = CommonUtils.strToDate(item.endTime);
                             this.experienceForm.departName = item.departName;
@@ -248,7 +241,7 @@
                             this.$message.error("结束时间不能小于开始时间");
                         } else {
                             let data = {
-                                industryType: 1217,
+                                industryType: this.experienceForm.industryType,
                                 startTime: CommonUtils.dateToString(this.experienceForm.startTime),
                                 endTime: CommonUtils.dateToString(this.experienceForm.endTime),
                                 positionName: this.experienceForm.positionName,
@@ -278,22 +271,8 @@
                     }
                 })
             },
-            async deleteHandle(id,type){
-                let res={};
-                switch (type) {
-                    case 0:{            //删除工作经历
-                        res = await deleteWorkExp(null,CommonUtils.getStore("token"),id);
-                        break;
-                    }
-                    case 1:{            //删除项目经历
-                        res = await deleteProjectExp(null,CommonUtils.getStore("token"),id);
-                        break;
-                    }
-                    case 2:{            //删除教育经历
-                        res = await deleteDegree(null,CommonUtils.getStore("token"),id);
-                        break;
-                    }
-                }
+            async deleteHandle(id){
+                let res = await deleteWorkExp(null,CommonUtils.getStore("token"),id);
                 console.log("run");
                 if(res.code===0){
                     this.$message.success("删除成功");

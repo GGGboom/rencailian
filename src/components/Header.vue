@@ -4,7 +4,7 @@
             <div class="left">
                 <div class="Header-item first mg-right">
                     <router-link to="/">
-                        <el-avatar src="../assets/img/msg_avatar.png" size="small"></el-avatar>
+                        <el-avatar :src="iconUrl" size="small"></el-avatar>
                     </router-link>
                 </div>
                 <div class="Header-item stretch">
@@ -294,6 +294,7 @@
         data() {
             return {
                 logoUrl: "",
+                iconUrl:"",
                 user: null,
                 searchContent: "",
                 dialogVisible: false,
@@ -387,6 +388,7 @@
         },
         created() {
             this.init();
+            this.iconUrl = require("../assets/img/favicon.png");
         },
         mounted() {
 

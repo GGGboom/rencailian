@@ -278,3 +278,21 @@
     top: 6px;
     display: none;
 }
+.item-primary ul {
+    margin-top: 10px;
+    margin-bottom: 2px;
+}
+.resume-box .item-primary li .info-labels {
+    margin-left: -8px;
+}
+.resume-box .prev-line {
+    max-width: 250px;
+}
+.prev-line {
+    display: inline-block;
+    vertical-align: middle;
+    max-width: 140px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

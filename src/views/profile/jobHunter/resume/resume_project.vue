@@ -15,7 +15,7 @@
                         <div class="primary-info" @click="showProjects(item.id,0)">
                             <div class="info-text">
                                 <h4 class="name">{{item.projectName}}</h4>
-                                <span class="gray period">{{item.startTime}}-{{item.endTime}}</span>
+                                <span class="gray period">{{item.startTime+" "}}至 {{" "+item.endTime}}</span>
                             </div>
                             <h4>
                                 <span>{{item.projectRole}}</span>
@@ -25,7 +25,7 @@
                                 {{item.projectDescprition}}
                             </div>
                         </div>
-                        <div class="resume-delete" @click="deleteHandle(item.id,1)">
+                        <div class="resume-delete" @click="deleteHandle(item.id)">
                             <el-button type="text" icon="el-icon-delete" >删除
                             </el-button>
                         </div>
@@ -134,8 +134,7 @@
 <script>
     import {CommonUtils} from "../../../../utils/commonUtil";
     import {getInfo} from "../../../../api/user";
-    import {updateProjectExp} from "../../../../api/resume";
-    import {deleteWorkExp,deleteProjectExp,deleteDegree} from "../../../../api/resume";
+    import {updateProjectExp,deleteProjectExp} from "../../../../api/resume";
     export default {
         name: "resume_project",
         data(){
@@ -242,23 +241,8 @@
                     }
                 })
             },
-            async deleteHandle(id,type){
-                let res={};
-                switch (type) {
-                    case 0:{            //删除工作经历
-                        res = await deleteWorkExp(null,CommonUtils.getStore("token"),id);
-                        break;
-                    }
-                    case 1:{            //删除项目经历
-                        res = await deleteProjectExp(null,CommonUtils.getStore("token"),id);
-                        break;
-                    }
-                    case 2:{            //删除教育经历
-                        res = await deleteDegree(null,CommonUtils.getStore("token"),id);
-                        break;
-                    }
-                }
-                console.log("run");
+            async deleteHandle(id){
+                let res=await deleteProjectExp(null,CommonUtils.getStore("token"),id);
                 if(res.code===0){
                     this.$message.success("删除成功");
                     setTimeout(()=>{

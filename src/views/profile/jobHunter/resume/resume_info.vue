@@ -8,7 +8,7 @@
                     <div class="label">
                                         <span class="label-item">
                                             <i class="fa fa-calendar-o" aria-hidden="true"></i>
-                                            {{baseForm.birthday}}
+                                            {{baseForm.birthdayTxt}}
                                         </span>
                         <el-divider direction="vertical"></el-divider>
                         <span class="label-item" v-if="baseForm.gender==='1'">
@@ -22,7 +22,7 @@
 
                         <el-divider direction="vertical"></el-divider>
                         <span class="label-item">
-                                            <i class="el-icon-location-outline"></i>{{baseForm.citys}}
+                                            <i class="el-icon-location-outline"></i>{{baseForm.citysTxt}}
                                         </span>
                     </div>
                 </div>
@@ -47,7 +47,9 @@
                         姓名
                     </div>
                     <div class="item-content">
+                        <el-form-item prop="name">
                         <el-input v-model="baseForm.name" placeholder="请输入内容"></el-input>
+                        </el-form-item>
                     </div>
                 </div>
                 <!--姓名-->
@@ -59,6 +61,7 @@
                         当前求职状态
                     </div>
                     <div class="item-content">
+                        <el-form-item prop="huntingStatus">
                         <el-select v-model="baseForm.huntingStatus" placeholder="请选择">
                             <el-option label="在职-暂不考虑" value="1">
                             </el-option>
@@ -69,6 +72,7 @@
                             <el-option label="离职-随时到岗" value="4">
                             </el-option>
                         </el-select>
+                        </el-form-item>
                     </div>
                 </div>
                 <!--求职状态-->
@@ -79,11 +83,13 @@
                         生日
                     </div>
                     <div class="item-content">
+                        <el-form-item prop="birthday">
                         <el-date-picker
                                 v-model="baseForm.birthday"
                                 type="date"
                                 placeholder="选择日期">
                         </el-date-picker>
+                        </el-form-item>
                     </div>
                 </div>
                 <!--所在城市-->
@@ -92,12 +98,14 @@
                         所在城市
                     </div>
                     <div class="item-content">
+                        <el-form-item prop="citys">
                         <el-select v-model="baseForm.citys" placeholder="请选择">
-                            <el-option v-for="item in cities" :key="item.id" :label="item.txt"
-                                       :value="item.id">
+                            <el-option v-for="item in cities" :key="item.value" :label="item.label"
+                                       :value="item.value">
 
                             </el-option>
                         </el-select>
+                        </el-form-item>
                     </div>
                 </div>
                 <div class="form-item">
@@ -105,10 +113,12 @@
                         性别
                     </div>
                     <div class="item-content">
-                        <el-radio-group v-model="baseForm.gender">
-                            <el-radio label="1">男</el-radio>
-                            <el-radio label="2">女</el-radio>
-                        </el-radio-group>
+                        <el-form-item prop="gender">
+                            <el-radio-group v-model="baseForm.gender">
+                                <el-radio label="1">男</el-radio>
+                                <el-radio label="2">女</el-radio>
+                            </el-radio-group>
+                        </el-form-item>
                     </div>
                 </div>
                 <div class="d-flex d-flex-jte">
@@ -123,7 +133,7 @@
 
 <script>
     import {CommonUtils} from "../../../../utils/commonUtil";
-    import {getInfo, saveInfo} from "../../../../api/user";
+    import {saveInfo} from "../../../../api/user";
     export default {
         name: "resume_info",
         data(){
@@ -137,60 +147,48 @@
                     huntingStatus: ""
                 },
                 baseFormRules: {
+                    gender: [
+                        {required: true, message: '请选择性别', trigger: 'blur'}
+                    ],
+                    name: [
+                        {required: true, message: '请输入名字', trigger: 'blur'},
+                    ],
+                    birthday: [
+                        {type: 'date', required: true, message: '请选择生日', trigger: 'change'}
+                    ],
+                    citys: [
+                        {required: true, message: '请选择城市', trigger: 'blur'}
+                    ],
                     huntingStatus: [
-                        {required: true, message: '请选择求职状态', trigger: 'blur'},
-                    ],
-                    expectIndustry: [
-                        {required: true, message: '请选择期望行业', trigger: 'blur'}
-                    ],
-                    salaryRange: [
-                        {required: true, message: '请选择薪资范围', trigger: 'blur'}
-                    ],
-                    expectPost: [
-                        {required: true, message: '请选择期望职业', trigger: 'blur'}
-                    ],
-                    selfEvaluation: [
-                        {required: true, message: '请输入自我评价', trigger: 'blur'}
+                        {required: true, message: '请选择求职状态', trigger: 'blur'}
                     ]
                 },
-
+                cities:CommonUtils.getEnumObjList('WORK_CITY'),                                     //工作城市
                 avatar: '',                                                                         //头像url
             }
         },
         methods:{
-            get() {
-                getInfo({authorization: CommonUtils.getStore("token")})
-                    .then(async res => {
-                        if (res.code === 0) {
-                            await CommonUtils.setStore("user", res.user);      //用户信息-存入我的个人中心本地数据
-                            console.log(res);
-                            this.show(res.user);
-                        }
-                    })
-                    .catch(err => {
-                        console.log(err);
-                    })
-            },
-            show(user) {
+            init(user) {//初始化数据
                 this.user = user;
                 if (user.detail !== null) {
                     this.baseForm.name = this.user.name;
-                    this.baseForm.birthday = this.user.detail.birthday;
+                    this.baseForm.birthday = CommonUtils.strToDate(this.user.detail.birthday);
+                    this.baseForm.birthdayTxt = CommonUtils.getFormatDateTime(CommonUtils.strToDate(this.user.detail.birthday).getTime(),"yyyy-MM-dd");
                     this.baseForm.huntingStatus = this.user.detail.huntingStatus.toString();
-                    this.baseForm.citys = CommonUtils.getKeyName('WORK_CITY', this.user.detail.workCity);
+                    this.baseForm.citysTxt = CommonUtils.getKeyName('WORK_CITY', this.user.detail.workCity);
                     this.baseForm.gender = user.detail.gender.toString();
-
+                    this.baseForm.citys = this.user.detail.workCity;
                 }
             },
-            updateBaseInfo(formName) {            //更新基本信息
+            updateBaseInfo(formName) {//更新基本信息
                 this.$refs[formName].validate((valid) => {
                     if (valid) {
                         let user = CommonUtils.getStore("user");
                         let formdata = new FormData();
                         formdata.append("name", this.baseForm.name);
-                        formdata.append("birthday", (this.baseForm.birthday));
+                        formdata.append("birthday", CommonUtils.dateToString(this.baseForm.birthday));
                         formdata.append("huntingStatus", this.baseForm.huntingStatus);
-                        formdata.append("workCity", 1);
+                        formdata.append("workCity", this.baseForm.citys);
                         formdata.append("gender", this.baseForm.gender);
                         saveInfo(formdata, CommonUtils.getStore("token"))
                             .then(res => {
@@ -204,8 +202,10 @@
                                     setTimeout(() => {
                                         this.$router.go(0);
                                     }, 900);
-                                } else {
-                                    this.$message.warning(res.message);
+                                } else if(res.code===1){
+                                    this.$router.push("/login");
+                                }else{
+                                    this.$message.error(res.message);
                                 }
                             })
                             .catch(err => {
@@ -220,7 +220,8 @@
         },
         created() {
             this.avatar = CommonUtils.staticPathPrefix + CommonUtils.getStore("user").headerImagePath;
-            this.get();
+            this.init(CommonUtils.getStore("user"));
+            console.log(this.cities);
         }
     }
 </script>

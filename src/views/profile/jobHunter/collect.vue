@@ -5,7 +5,7 @@
             <el-tab-pane label="收藏职位" name="first">
                 <ul class="list-box">
                     <li v-for="positionItem in positions" :key="positionItem.positionId" class="list-item">
-                        <div class="col-8">
+                        <div class="">
                             <div class="d-inline-block mb-1">
                                 <h3 class="wb-break-all">
                                     <router-link to="">
@@ -31,7 +31,7 @@
                         </div>
                         <div class="col-4">
                             <el-button size="mini" @click="deleteFavourite(positionItem.positionId,2)">取消收藏</el-button>
-                            <el-button size="mini">立即沟通</el-button>
+                            <el-button size="mini" @click="chat(positionItem)">立即沟通</el-button>
                         </div>
                     </li>
                 </ul>
@@ -42,7 +42,7 @@
             <el-tab-pane label="收藏公司" name="second">
                 <ul class="list-box">
                     <li v-for="item in companys" :key="item.companyId" class="list-item">
-                        <div class="col-8 d-md-flex">
+                        <div class="d-md-flex">
                             <div class="collect-img">
                                 <img :src="item.logoImagePath" alt>
                             </div>
@@ -73,7 +73,7 @@
                             </div>
 
                         </div>
-                        <div class="col-4  d-md-flex vertical-center">
+                        <div class="d-md-flex vertical-center">
                             <el-button size="mini">查看全部在招职位</el-button>
                             <el-button size="mini" @click="deleteFavourite(item.companyId,1)">取消收藏</el-button>
                         </div>
@@ -134,6 +134,7 @@
                             item.education = CommonUtils.getKeyName('EDUCATION', item.education);
                             item.financingRound = CommonUtils.getKeyName('FINANCING_ROUND', item.financingRound);
                         });
+                        console.log(this.positions);
                     }else if(res.code===1){
                         this.$router.push("/login");
                     }else{
@@ -180,7 +181,15 @@
                         });
                 }
 
-            }
+            },
+            chat(positionItem){//转到聊天界面，同时将聊天对象信息存入localstorage中
+                let receiveUser={};
+                receiveUser.receiveUserId = positionItem.publishUserId;
+                receiveUser.headerImage = positionItem.headerImagePath==""?"":positionItem.headerImagePath;
+                receiveUser.name = positionItem.publishUserName;
+                CommonUtils.setStore("receiveUser",receiveUser);
+                this.$router.push("/talent/msg");
+            },
         },
         mounted() {
             this.getCompany();

@@ -40,7 +40,9 @@
                             <label for="user_city">所在城市</label>
                         </dt>
                         <dd>
-                            <VDistpicker @selected="proviceAddress" :placeholders="placeholders"></VDistpicker>
+                            <el-select v-model="ruleForm.workCity" placeholder="求职状态">
+                                <el-option v-for="item in citys" :key="item.value" :label="item.label" :value="item.value"></el-option>
+                            </el-select>
                         </dd>
                     </dl>
                     <dl class="form-group border-bottom">
@@ -48,8 +50,8 @@
                             <label for="user_status">求职状态</label>
                         </dt>
                         <dd>
-                            <el-select v-model="ruleForm.huntingStatus" @change="selectGet" placeholder="求职状态">
-                                <el-option v-for="item in statusList" :key="item.id" :label="item.txt" :value="item.id"></el-option>
+                            <el-select v-model="ruleForm.huntingStatus" placeholder="求职状态">
+                                <el-option v-for="item in statusList" :key="item.value" :label="item.label" :value="item.value"></el-option>
                             </el-select>
                         </dd>
                     </dl>
@@ -89,25 +91,14 @@
 
 <script>
 
-    import VDistpicker from 'v-distpicker';
     import {getInfo,saveInfo} from "../../../api/user";
     import {CommonUtils} from "../../../utils/commonUtil";
     export default {
         name: "info",
         components: {
-            VDistpicker
+
         },
         methods: {
-            selectGet(vId){
-                let obj = this.statusList.find((item)=>{
-                    return item.id === vId;
-                });
-                this.ruleForm.huntingStatus = obj.id;
-                console.log(`${this.ruleForm.huntingStatus}+${obj.id}`)
-            },
-            proviceAddress(data) {//城市选择器
-                console.log(data)
-            },
             handleAvatarSuccess(res, file) {
                 this.imageUrl = URL.createObjectURL(file.raw);
             },
@@ -128,7 +119,7 @@
                 formdata.append("name",this.ruleForm.name);
                 formdata.append("birthday",CommonUtils.dateToString(this.ruleForm.birthday));
                 formdata.append("huntingStatus",this.ruleForm.huntingStatus);
-                formdata.append("workCity",1);
+                formdata.append("workCity",this.ruleForm.workCity);
                 formdata.append("gender",this.ruleForm.gender);
                 saveInfo(formdata,JSON.parse(localStorage.getItem("token")))
                     .then(res => {
@@ -181,7 +172,8 @@
         },
         data() {
             return {
-                statusList:CommonUtils.getEnumNameList('HUNTING_STATUS'),
+                statusList:CommonUtils.getEnumObjList('HUNTING_STATUS').slice(1),
+                citys:CommonUtils.getEnumObjList("WORK_CITY").slice(1),
                 ruleForm: {
                     name: "",
                     gender: 1,
@@ -190,11 +182,6 @@
                     huntingStatus: null
                 },
                 imageUrl: require("../../../assets/img/msg_avatar.png"),
-                placeholders: {
-                    province: '上海市',
-                    city: '上海城区',
-                    area: '松江区',
-                }
             }
         }
     }

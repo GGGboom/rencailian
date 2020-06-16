@@ -1,7 +1,7 @@
 <template>
     <div>
         <p>
-            账号：18302179970
+            账号：{{cellphone}}
         </p>
         <div class="passbtn">
             <el-button type="primary" size="small" @click="dialogFormVisible = true">登录密码</el-button>
@@ -76,7 +76,8 @@
                     checkPass: [
                         { validator: validatePass2, trigger: 'blur' }
                     ]
-                }
+                },
+                cellphone:"",
             };
         },
         methods:{
@@ -110,6 +111,9 @@
                     }
                 });
             }
+        },
+        created() {
+            this.cellphone = CommonUtils.getStore("user").cellphone;
         }
     }
 </script>

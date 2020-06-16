@@ -88,7 +88,7 @@
 </template>
 
 <script>
-    import {getWalletDetail,addWallet,deleteWallet} from "../../../api/user";
+    import {getWalletDetail,addWallet,deleteWallet,getInfo} from "../../../api/user";
     import {CommonUtils} from "../../../utils/commonUtil";
 
     export default {
@@ -127,9 +127,17 @@
                         { required: true, message: '请输入私钥', trigger: 'blur' }
                     ]
                 },
+                list:[]
             }
         },
         methods: {
+            async init(){
+                let res = await getInfo({authorization: CommonUtils.getStore("token")});
+                if(res.code===0){
+                    this.list = res.user.bstWallets;
+                    console.log(this.list);
+                }
+            },
             importBySeed(formName){                             //通过助记词导入钱包
                 this.$refs[formName].validate((valid) => {
                     if (valid) {
@@ -194,8 +202,7 @@
                 });
             },
             async getWalletDetail() {
-                let list = JSON.parse(localStorage.getItem("user")).bstWallets;
-                list.forEach(item => {
+                this.list.forEach(item => {
                     getWalletDetail({authorization: CommonUtils.getStore("token")}, item.id)
                         .then(res => {
                             if(res.code===0){
@@ -241,13 +248,14 @@
                         message: '已取消删除'
                     });
                 });
-            }
+            },
         }
         ,
         mounted() {
 
         },
         async created() {
+            await this.init();
             await this.getWalletDetail();
             this.loading = false;
         },

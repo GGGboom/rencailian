@@ -124,9 +124,9 @@
                     .then(res=>{
                         if(res.code===0){
                             this.$message.success("添加成功");
-                            // setTimeout(()=>{
-                            //     this.$router.go(0);
-                            // },900)
+                            setTimeout(()=>{
+                                this.$router.go(0);
+                            },900)
                         }else if(res.code===1){
                             this.$router.push("/login");
                         }else{

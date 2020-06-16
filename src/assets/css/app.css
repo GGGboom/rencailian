@@ -229,3 +229,8 @@ body ::-webkit-scrollbar-track-piece {
     margin-bottom: 0;
 }
 /*搜索框*/
+
+
+.normal-color{
+    color: #fff!important;
+}
