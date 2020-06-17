@@ -5,7 +5,7 @@
 npm install
 npm run serve
 ```
-##项目布局
+## 项目布局
 ```$xslt
 rencailian/
 ├── babel.config.js                          // babel配置
