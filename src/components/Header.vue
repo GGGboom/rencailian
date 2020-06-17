@@ -336,7 +336,11 @@
             init() {
                 this.user = localStorage.getItem("user");
                 if (this.user) {
-                    this.logoUrl = CommonUtils.staticPathPrefix + CommonUtils.getStore("user").headerImagePath;
+                    if(CommonUtils.getStore("user").headerImagePath!==null){
+                        this.logoUrl = CommonUtils.staticPathPrefix + CommonUtils.getStore("user").headerImagePath;
+                    }else {//第一次使用系统将置为默认头像
+                        this.logoUrl = require('../assets/img/msg_avatar.png');
+                    }
                     switch (this.$store.state.identityType) {//1为招聘者,2是应聘者
                         case 1: {                             //招聘者
                             this.idtype = false;

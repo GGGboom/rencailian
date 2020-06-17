@@ -36,6 +36,16 @@
                 </div>
             </div>
         </div>
+
+        <div class="empty-box" v-if="resumes.length===0" >
+            <div class="message">
+                <img class="mark" src="../../../assets/img/i.png" alt>
+                <span class="message-txt">
+                    当前简历附件为空
+                </span>
+            </div>
+        </div>
+
         <div class="attach-btn">
             <el-button type="primary" @click="attachDia=true">上传简历附件</el-button>
         </div>

@@ -33,13 +33,14 @@
                     </el-button>
                 </div>
             </div>
-            <div v-if="!loading && walletList.length<0" class="empty-box" >
-                <div class="message">
-                    <img class="mark" src="../../../assets/img/i.png" alt>
-                    <span class="message-txt">
+
+        </div>
+        <div v-if="walletList.length===0" class="empty-box" >
+            <div class="message">
+                <img class="mark" src="../../../assets/img/i.png" alt>
+                <span class="message-txt">
                     当前钱包为空
                 </span>
-                </div>
             </div>
         </div>
         <div class="d-flex d-flex-jte mrg-top">

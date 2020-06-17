@@ -163,8 +163,10 @@
             });
 
             let user = CommonUtils.getStore("user");                      //获取头像
-            if(typeof user!== "undefined" || user!==undefined){
+            if(typeof user!== "undefined" && user.headerImagePath!==null){
                 this.imageUrl = CommonUtils.staticPathPrefix + user.headerImagePath;
+            }else{
+                this.imageUrl = require('../../../assets/img/msg_avatar.png');
             }
         },
         mounted() {

@@ -296,8 +296,10 @@
                                 item.publishStatusTxt = CommonUtils.getKeyName('PUBLISH_STATUS', item.publishStatus);
                                 item.expectPost = CommonUtils.getKeyName('POSITION_TYPE_'+item.expectIndustry ,Number(item.expectPost));
                             });
-                        }else {
+                        }else if(res.code===1){
                             this.$router.push("/login");
+                        } else {
+                            this.$message.error(res.message);
                         }
                     })
                     .catch(err=>{

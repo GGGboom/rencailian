@@ -194,3 +194,6 @@ p .Authentication{
     padding: 0 5px!important;
     margin: 0 10px;
 }
+.home-box{
+    min-height: 300px;
+}

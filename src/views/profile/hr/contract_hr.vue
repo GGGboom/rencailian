@@ -56,7 +56,7 @@
                                 @current-change="pageChangeAll"
                                 :total="contract.length">
                         </el-pagination>
-                        <div class="empty-box" v-if="contract.length===0 && !loading" >
+                        <div class="empty-box" v-if="contract.length===0" >
                             <div class="message">
                                 <img class="mark" src="../../../assets/img/i.png" alt>
                                 <span class="message-txt">
@@ -119,7 +119,7 @@
                                 @current-change="pageChangeWait"
                                 :total="contract_wait.length">
                         </el-pagination>
-                        <div class="empty-box" v-if="contract_wait.length===0 && !loading" >
+                        <div class="empty-box" v-if="contract_wait.length===0" >
                             <div class="message">
                                 <img class="mark" src="../../../assets/img/i.png" alt>
                                 <span class="message-txt">
@@ -182,7 +182,7 @@
                                 @current-change="pageChangeSigned"
                                 :total="contract_signed.length">
                         </el-pagination>
-                        <div class="empty-box" v-if="contract_signed.length===0 && !loading" >
+                        <div class="empty-box" v-if="contract_signed.length===0" >
                             <div class="message">
                                 <img class="mark" src="../../../assets/img/i.png" alt>
                                 <span class="message-txt">
@@ -245,7 +245,7 @@
                                 @current-change="pageChangeArbitration"
                                 :total="contract_arbitration.length">
                         </el-pagination>
-                        <div class="empty-box" v-if="contract_arbitration.length===0 && !loading" >
+                        <div class="empty-box" v-if="contract_arbitration.length===0" >
                             <div class="message">
                                 <img class="mark" src="../../../assets/img/i.png" alt>
                                 <span class="message-txt">
@@ -308,7 +308,7 @@
                                 @current-change="pageChangeInvalid"
                                 :total="contract_invalid.length">
                         </el-pagination>
-                        <div class="empty-box" v-if="contract_invalid.length===0 && !loading" >
+                        <div class="empty-box" v-if="contract_invalid.length===0" >
                             <div class="message">
                                 <img class="mark" src="../../../assets/img/i.png" alt>
                                 <span class="message-txt">

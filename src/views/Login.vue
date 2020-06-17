@@ -115,6 +115,8 @@
                                 localStorage.setItem('token',JSON.stringify(res.token));                //将用户登录的token存入localStorage
                                 this.$router.push("/");
                             },900);
+                        }else{
+                            this.$message.error(res.message);
                         }
                         console.log(res);
                     })

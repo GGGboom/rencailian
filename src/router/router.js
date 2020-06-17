@@ -156,21 +156,14 @@ const routes = [
             {
                 path: 'companyCet',
                 name: 'company_certification',
-                component: () => import( '../views/profile/hr/company_certification.vue'),
+                component: () => import( '../views/profile/hr/company_verify/company_certification.vue'),
                 meta: {title: '公司认证', requireAuth: true}
             },
             //实名认证
             {
                 path: 'nameCet',
                 name: 'name_certification',
-                component: () => import( '../views/profile/hr/name_certification.vue'),
-                meta: {title: '实名认证', requireAuth: true}
-            },
-            //实名认证-身份证
-            {
-                path: 'verifyid',
-                name: 'verified_name_id',
-                component: () => import( '../views/profile/hr/verified_name_id.vue'),
+                component: () => import( '../views/profile/hr/name_verify/name_certification.vue'),
                 meta: {title: '实名认证', requireAuth: true}
             },
             //简历管理

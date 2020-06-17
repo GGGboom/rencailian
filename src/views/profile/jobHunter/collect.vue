@@ -35,6 +35,14 @@
                         </div>
                     </li>
                 </ul>
+                <div class="empty-box" v-if="positions.length===0" >
+                    <div class="message">
+                        <img class="mark" src="../../../assets/img/i.png" alt>
+                        <span class="message-txt">
+                            当前收藏职位为空
+                        </span>
+                    </div>
+                </div>
             </el-tab-pane>
             <!--收藏职位-->
 
@@ -79,6 +87,14 @@
                         </div>
                     </li>
                 </ul>
+                <div class="empty-box" v-if="positions.companys===0" >
+                    <div class="message">
+                        <img class="mark" src="../../../assets/img/i.png" alt>
+                        <span class="message-txt">
+                            当前收藏公司为空
+                        </span>
+                    </div>
+                </div>
             </el-tab-pane>
             <!--收藏公司-->
 
